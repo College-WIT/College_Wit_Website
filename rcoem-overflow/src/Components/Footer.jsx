@@ -20,29 +20,32 @@ export default function Footer() {
             <Container maxWidth="lg">
                 <Grid container spacing={5}>
                 <Grid item xs={12} sm={4}>
-                        <Box ><IoIosPeople/> Rcoem Overflow</Box>
+                        <Box ><h1><IoIosPeople/> Rcoem Overflow</h1> </Box>
                         <Box >
-                        <img src="./Assets/logo.png" alt="" />
+                            <img
+                                src=""
+                                alt='Logo Img'
+                            />
                         <hr></hr>
                         </Box>
                     </Grid>
-                  
+
                     <Grid item xs={10} sm={4}> 
                         <Box borderBottom={1}><BiLinkExternal/> Links</Box>
                         <Box>
-                            <Item><Link href="/" color="inherit" >Contact us</Link></Item>
+                            <Item><Link href="/" color="inherit"  sx={{ textDecoration:"None"}}>Contact us</Link></Item>
                         </Box>
                         <Box>
-                            <Item><Link href="/" color="inherit" >Careers</Link></Item>
+                            <Item><Link href="/" color="inherit" sx={{ textDecoration:"None"}}>Careers</Link></Item>
                         </Box>
                         <Box>
-                            <Item><Link href="/" color="inherit" >FAQs</Link></Item>
+                            <Item><Link href="/" color="inherit" sx={{ textDecoration:"None"}}>FAQs</Link></Item>
                         </Box>
                         <Box>
-                            <Item><Link href="/" color="inherit" >Teams</Link></Item>
+                            <Item><Link href="/" color="inherit" sx={{ textDecoration:"None"}}>Teams</Link></Item>
                         </Box>
                         <Box>
-                            <Item><Link href="/" color="inherit" >About us</Link></Item>
+                            <Item><Link href="/" color="inherit" sx={{ textDecoration:"None"}}>About us</Link></Item>
                         </Box>
                     </Grid>
 
