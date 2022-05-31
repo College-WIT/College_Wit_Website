@@ -18,10 +18,10 @@ export default function Boxes() {
             }}
         >
         <Grid container justifyContent="center">
-            <Typography variant="h3" sx={{
+            <Typography variant="h4" sx={{
                 width: 600,
                 paddingTop: 5,
-                color: 'white',
+                color: 'white'
             }}>
                 Every RCOEMian has a Tab to Open RCOEM Overflow
             </Typography>

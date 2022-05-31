@@ -15,6 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
+import logo from "../Assets/logo.png"
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -102,6 +103,8 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
+            {/* <img 
+            src={logo} alt="logo" /> */}
             RCOEM Overflow
           </Typography>
 
