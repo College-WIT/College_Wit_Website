@@ -7,7 +7,7 @@ export default function Boxes() {
   return (
     <div>
     <Grid container justifyContent="center" sx={{
-        paddingTop:8,
+        paddingTop:8.5,
     }}>
         <Box
             sx={{
