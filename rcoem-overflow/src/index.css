@@ -16,3 +16,14 @@ code {
   width: 80%;
   height: 50%;
 }
+
+.imageDiv{  
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.search{
+  width: 80px;
+}
+
