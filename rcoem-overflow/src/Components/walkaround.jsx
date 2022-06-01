@@ -13,7 +13,7 @@ const walkaround = () => {
             alt="First slide"/></div>
           <Carousel.Caption>
             <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p>Ipsum mollit reprehenderit enim ea incididunt incididunt incididunt. Officia aliqua magna magna exercitation. In proident id sint et velit dolor mollit ea nostrud quis Lorem deserunt sunt. Et nostrud amet adipisicing irure proident eu labore ullamco Lorem reprehenderit ullamco. Nostrud eu fugiat ut laboris.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
@@ -23,7 +23,7 @@ const walkaround = () => {
           /></div>
           <Carousel.Caption>
             <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>In nostrud nostrud laboris fugiat ipsum. Qui ut ex ad irure qui dolore amet occaecat consequat cupidatat. Do consequat est non aliquip elit ea adipisicing ad mollit reprehenderit qui. Duis quis nulla cupidatat Lorem irure excepteur laborum. Commodo voluptate sunt magna eu do aliquip.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -33,7 +33,7 @@ const walkaround = () => {
           /></div>
           <Carousel.Caption>
             <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <p>Do ipsum in eiusmod sint irure ea deserunt eu cupidatat. Cupidatat minim et adipisicing eiusmod magna ut cupidatat deserunt proident enim adipisicing. Nostrud proident cillum magna fugiat ipsum magna commodo incididunt voluptate. Elit consectetur aute mollit ad tempor dolore ut elit eu do aliquip reprehenderit laborum labore. Adipisicing enim nostrud aliquip ullamco aliquip quis in.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
