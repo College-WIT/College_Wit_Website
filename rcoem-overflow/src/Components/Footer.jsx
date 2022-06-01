@@ -7,7 +7,7 @@ import Item from '@mui/material/ListItem'
 import {BiLinkExternal} from "react-icons/bi"
 import {IoIosPeople} from "react-icons/io"
 import { BiMale ,BiFemale} from 'react-icons/bi'
-import logo from "../assets/logo.png"
+import logo from "../Assets/logo.png"
 import Image from 'react-bootstrap/Image'
 import '../index.css';
 

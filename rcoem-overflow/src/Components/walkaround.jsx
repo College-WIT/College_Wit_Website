@@ -1,7 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
-import './walkaround.css'
-
+import "../index.css";
 
 const walkaround = () => {
   return (
