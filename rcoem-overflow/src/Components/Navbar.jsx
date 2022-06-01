@@ -15,7 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
-import logo from "../Assets/logo.png"
+import logo from "../assets/logo.png"
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
