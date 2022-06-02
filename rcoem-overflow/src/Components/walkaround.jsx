@@ -1,10 +1,17 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
+import Grid from '@mui/material/Grid';
 import "../index.css";
 
-const walkaround = () => {
+const Walkaround = () => {
   return (
     <div >
+    <Grid container justifyContent="center" sx={{
+      paddingBottom:5
+    }}>
+      <h1>Website Walkaround</h1>
+    </Grid>
+    
       <Carousel>
         <Carousel.Item interval={1000}>
         <div><img className='slider'
@@ -15,7 +22,7 @@ const walkaround = () => {
             <p>Ipsum mollit reprehenderit enim ea incididunt incididunt incididunt. Officia aliqua magna magna exercitation. In proident id sint et velit dolor mollit ea nostrud quis Lorem deserunt sunt. Et nostrud amet adipisicing irure proident eu labore ullamco Lorem reprehenderit ullamco. Nostrud eu fugiat ut laboris.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={500}>
+        <Carousel.Item interval={1000}>
         <div><img className='slider'
             src="https://th.bing.com/th/id/OIP.A7TAchvvuFkDLPaAkEfkeQHaD4?pid=ImgDet&rs=1"
             alt="First slide"
@@ -40,4 +47,4 @@ const walkaround = () => {
   )
 }
 
-export default walkaround
+export default Walkaround

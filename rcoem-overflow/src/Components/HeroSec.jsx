@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import search from "../Assets/search.png"
+import search from "../assets/search.png"
 import Image from 'react-bootstrap/Image'
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
@@ -26,9 +26,10 @@ export default function Boxes() {
             <Typography variant="h4" sx={{
                 width: 600,
                 paddingTop: 5,
-                color: 'white'
+                color: 'white',
+                textAlign: 'center'
             }}>
-                Every RCOEMian has a Tab to Open RCOEM Overflow
+                Every RCOEMian has a Tab to Open RCOEM-Overflow
             </Typography>
         </Grid>          
         </Box>
