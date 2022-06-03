@@ -1,10 +1,10 @@
 import "./index.css";
-import ResponsiveAppBar from "./Components/Navbar";
-import Footer from './Components/Footer'
-import Walkaround from "./Components/walkaround";
-import Boxes from './Components/HeroSec.jsx'
+import ResponsiveAppBar from "./Components/Homepage/Navbar";
+import Footer from './Components/Homepage/Footer'
+import Walkaround from "./Components/Homepage/walkaround";
+import Boxes from './Components/Homepage/HeroSec.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Contributors from "./Components/ContributorsSection";
+import Contributors from "./Components/Homepage/ContributorsSection";
 
 export default function App() {
   return (

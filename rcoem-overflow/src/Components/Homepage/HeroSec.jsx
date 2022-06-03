@@ -2,11 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import search from "../assets/search.png"
+import search from "../../assets/search.png"
 import Image from 'react-bootstrap/Image'
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
-import "../index.css";
+import "../../index.css";
 
 export default function Boxes() {
   return (

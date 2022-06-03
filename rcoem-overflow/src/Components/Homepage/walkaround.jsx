@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import Grid from '@mui/material/Grid';
-import "../index.css";
+import "../../index.css";
 
 const Walkaround = () => {
   return (
