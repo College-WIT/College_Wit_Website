@@ -58,7 +58,10 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-const pages = ['Home', 'Questions', 'Top Contributors', 'Notes & PYQs'];
+  const pages = ['Home', 'Questions', 'Top Contributors', 'Notes & PYQs'];
+/*const pages = new Map([['Home', 'https://www.w3schools.com/'], ['Questions','https://www.google.co.in/'], ['Top Contributors','https://developer.android.com/'], ['Notes & PYQs','https://practice.geeksforgeeks.org/']]);
+ const links = [ 'https://www.w3schools.com/','https://www.google.co.in/', 'https://developer.android.com/', 'https://practice.geeksforgeeks.org/']
+ */
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -160,7 +163,7 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href='https://www.google.co.in/'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -175,15 +178,15 @@ const ResponsiveAppBar = () => {
             RCOEM-Overflow
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+          {pages.map((page) => (
+            <Button
+              key={page}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              {page}
+            </Button>
+          ))}
             
           </Box>
         
