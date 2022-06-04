@@ -58,10 +58,29 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-  const pages = ['Home', 'Questions', 'Top Contributors', 'Notes & PYQs'];
-/*const pages = new Map([['Home', 'https://www.w3schools.com/'], ['Questions','https://www.google.co.in/'], ['Top Contributors','https://developer.android.com/'], ['Notes & PYQs','https://practice.geeksforgeeks.org/']]);
- const links = [ 'https://www.w3schools.com/','https://www.google.co.in/', 'https://developer.android.com/', 'https://practice.geeksforgeeks.org/']
+/*   const pages = ['Home', 'Questions', 'Top Contributors', 'Notes & PYQs']; 
+const pages = new Map([['Home', 'https://www.w3schools.com/'], ['Questions','https://www.google.co.in/'], ['Top Contributors','https://developer.android.com/'], ['Notes & PYQs','https://practice.geeksforgeeks.org/']]);
+/*const links = [ 'https://www.w3schools.com/','https://www.google.co.in/', 'https://developer.android.com/', 'https://practice.geeksforgeeks.org/']
  */
+
+const pages = [
+  {
+    title:"Home",
+    url:"https://www.w3schools.com/"
+  },
+  {
+    title:"Questions",
+    url:"https://www.google.co.in/"
+  },
+  {
+    title:"Top Contributors",
+    url:"https://developer.android.com/"
+  },
+  {
+    title:"Notes & PYQs",
+    url:"https://practice.geeksforgeeks.org/"
+  }
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -153,7 +172,7 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -163,7 +182,7 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href='https://www.google.co.in/'
+            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -180,17 +199,16 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           {pages.map((page) => (
             <Button
-              key={page}
+              key={page.title}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
+              href = {page.url}
             >
-              {page}
+              {page.title}
             </Button>
           ))}
             
           </Box>
-        
-          
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
