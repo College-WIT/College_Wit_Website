@@ -58,11 +58,6 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-/*   const pages = ['Home', 'Questions', 'Top Contributors', 'Notes & PYQs']; 
-const pages = new Map([['Home', 'https://www.w3schools.com/'], ['Questions','https://www.google.co.in/'], ['Top Contributors','https://developer.android.com/'], ['Notes & PYQs','https://practice.geeksforgeeks.org/']]);
-/*const links = [ 'https://www.w3schools.com/','https://www.google.co.in/', 'https://developer.android.com/', 'https://practice.geeksforgeeks.org/']
- */
-
 const pages = [
   {
     title:"Home",
@@ -124,8 +119,6 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            {/* <img 
-            src={logo} alt="logo" /> */}
             RCOEM Overflow
           </Typography>
 
