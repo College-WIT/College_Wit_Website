@@ -194,8 +194,16 @@ const ResponsiveAppBar = () => {
             <Button
               key={page.title}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+              sx={{ my: 2, 
+                  color: 'white', 
+                  display: 'block',
+                  "&:hover": {
+                    color: "#41D450",
+                    opacity: 10,
+                  }
+              }}
               href = {page.url}
+              
             >
               {page.title}
             </Button>
