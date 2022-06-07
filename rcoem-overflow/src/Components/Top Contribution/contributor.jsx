@@ -2,13 +2,12 @@ import "../../index.css";
 import ResponsiveAppBar from "../Navbar";
 import Footer from '../Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import QuestionsPage from "./QuestionsPage";
 
-export default function Questions() {
+export default function Contributor() {
   return (
-    <div className="Questions">
+    <div className="Contributor">
       <ResponsiveAppBar />
-      <QuestionsPage/>
+      <div>Top Contributor page</div>
       <Footer/>
     </div>
   );

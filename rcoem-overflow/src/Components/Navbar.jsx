@@ -15,6 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
 import logo from "../assets/NavLogo.png"
+import { Link } from 'react-router-dom';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -59,24 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = [
-  {
-    title: "Home",
-    url: "https://www.w3schools.com/"
-  },
-  {
-    title: "Questions",
-    url: "./Questions/Question.jsx"
-  },
-  {
-    title: "Top Contributors",
-    url: "https://developer.android.com/"
-  },
-  {
-    title: "Notes & PYQs",
-    url: "https://practice.geeksforgeeks.org/"
-  }
-];
+const pages = ['Home', 'Questions', 'Top Contributors','Notes-PYQs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -162,7 +146,7 @@ const ResponsiveAppBar = () => {
                   <Box sx={{ flexGrow: 1, display: { md: 'flex' } }}>
 
                     <Button
-                      key={page.title}
+                      key={page}
                       sx={{
                         my: 2,
                         color: 'black',
@@ -172,10 +156,11 @@ const ResponsiveAppBar = () => {
                           opacity: 10,
                         }
                       }}
-                      href={page.url}
-
                     >
-                      {page.title}
+                      <Link style={{textDecoration:"None",color:"white"}} to={`/${page}`}>
+                        {page}
+                      </Link>
+
                     </Button>
 
                   </Box>
@@ -205,7 +190,8 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page.title}
+                key={page}
+                
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
@@ -215,11 +201,10 @@ const ResponsiveAppBar = () => {
                     color: "#41D450",
                     opacity: 10,
                   }
-                }}
-                href={page.url}
-
-              >
-                {page.title}
+                }} >
+                <Link style={{textDecoration:"None",color:"white"}} to={`/${page}`}>
+                  {page}
+                </Link>
               </Button>
             ))}
 
