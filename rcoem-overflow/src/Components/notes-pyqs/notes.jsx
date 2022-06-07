@@ -7,7 +7,8 @@ export default function Notes() {
   return (
     <div className="Notes">
       <ResponsiveAppBar />
-     <div>Notes / PYQs page</div>
+
+     <div> <h2 align="center">Notes / PYQs page</h2></div>
       <Footer/>
     </div>
   );

@@ -60,7 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ['Home', 'Questions', 'Top Contributors','Notes-PYQs'];
+const pages = ['Home', 'Questions', 'Top Contributors', 'Notes-PYQs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -96,7 +96,7 @@ const ResponsiveAppBar = () => {
               maxHeight: { xs: 233, md: 167 },
               maxWidth: { xs: 350, md: 250 },
             }}
-            alt="The house from the offer."
+            alt="logo img"
             src={logo}
           />
 
@@ -155,12 +155,10 @@ const ResponsiveAppBar = () => {
                           color: "#41D450",
                           opacity: 10,
                         }
-                      }}
-                    >
-                      <Link style={{textDecoration:"None",color:"white"}} to={`/${page}`}>
+                      }}>
+                      <Link style={{ textDecoration: "None", color: "white" }} to={`/${page}`}>
                         {page}
                       </Link>
-
                     </Button>
 
                   </Box>
@@ -191,7 +189,7 @@ const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                
+
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
@@ -202,7 +200,7 @@ const ResponsiveAppBar = () => {
                     opacity: 10,
                   }
                 }} >
-                <Link style={{textDecoration:"None",color:"white"}} to={`/${page}`}>
+                <Link style={{ textDecoration: "None", color: "white" }} to={`/${page}`}>
                   {page}
                 </Link>
               </Button>

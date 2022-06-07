@@ -7,69 +7,99 @@ import Image from 'react-bootstrap/Image'
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import "../../index.css";
+import { FcSearch } from 'react-icons/fc'
+
+
 
 export default function Boxes() {
     return (
         <div>
-            <Grid container justifyContent="center" sx={{
-                paddingTop: 8.5,
-            }}>
+            <Grid container justifyContent="center" sx={{paddingTop: 8.5}}>
                 <Box
                     sx={{
-                        width: 996,
-                        height: 558,
+                        width: 1000,
+                        height: 550,
                         backgroundColor: '#3C3938',
-                        borderRadius: '30px'
+                        borderRadius: '20px',
+
                     }}
                 >
                     <Grid container justifyContent="center">
-                        <Typography variant="h4" sx={{
+                        <Typography variant="h5" sx={{
                             width: 600,
                             paddingTop: 5,
                             color: 'white',
-                            textAlign: 'center'
+                            textAlign: 'center',
+                            fontFamily: 'monospace'
+
                         }}>
                             Every RCOEMian has a Tab to Open RCOEM-Overflow
                         </Typography>
+
                     </Grid>
-                </Box>
-            </Grid>
-            <Grid container justifyContent="center">
+                    <Grid sx={{
+                        padding: 5
+                    }} container justifyContent="center">
                 <Box
                     sx={{
-                        width: 445,
-                        height: 310,
+                        width: 600,
+                        height: 350,
                         backgroundColor: '#E26639',
                         position: 'relative',
-                        bottom: 365,
-                        borderRadius: '30px'
+                        borderRadius: '30px',
+                        alignItems: "center"
+
                     }}
                 >
-                    <div className='imageDiv'>
-                        <Image className='search' src={search} />
-                    </div>
-                    <Grid container justifyContent="center">
-                        <Typography variant="h6" sx={{
-                            width: 400,
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexWrap: 'wrap',
+                        justifyContent: "center"
+                       
+                    }}>
+                      <Image style={{
+                      paddingTop: 5,
+                      }} className='search' src={search} />
+                        <span
+                         style={{
+                            fontFamily: 'monospace',
+                            color:"white",
+                            textDecoration: 'none',
+                            cursor: 'pointer',
+                            fontSize: 25,
                             paddingTop: 5,
-                            color: 'white'
-                        }}>
-                            Find the best Answers to your Teachnical Questions, Help Others answer their's
-                        </Typography>
-                        <Typography variant="body1" component='a' href='#' sx={{
+
+                        }}>Search</span>
+                    </div>
+                    {/* <div className='imageDiv'>
+                        <Image className='search' src={search} />
+                    </div> */}
+                    <Grid container justifyContent="center">
+                        {/* <Typography variant="body1" component='a' href='#' sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
                             color: 'white',
                             textDecoration: 'none',
                             cursor: 'pointer',
                             paddingTop: 2,
+                            
                             "&:hover": {
                                 color: "#41D450",
                                 opacity: 10,
                             }
                         }}>
                             Search Question
+                        </Typography> */}
+                        <Typography variant="h6" sx={{
+                            width: 400,
+                            paddingTop: 4,
+                            color: 'white',
+                            fontFamily: 'monospace',
+                        }}>
+                            Find the best Answers to your Teachnical Questions, Help Others answer their's
                         </Typography>
+
                     </Grid>
                     <Grid container justifyContent="center" sx={{
                         paddingTop: 2
@@ -87,6 +117,9 @@ export default function Boxes() {
                 </Box>
             </Grid>
 
+                </Box>
+            </Grid>
+            
         </div>
 
 

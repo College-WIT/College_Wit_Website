@@ -7,7 +7,7 @@ export default function Contributor() {
   return (
     <div className="Contributor">
       <ResponsiveAppBar />
-      <div>Top Contributor page</div>
+      <div> <h2 align="center">Top Contributor page</h2></div>
       <Footer/>
     </div>
   );

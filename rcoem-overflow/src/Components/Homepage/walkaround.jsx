@@ -6,9 +6,8 @@ import "../../index.css";
 const Walkaround = () => {
   return (
     <div >
-    <Grid container justifyContent="center" sx={{
-      paddingBottom:5
-    }}>
+    
+    <Grid container justifyContent="center" sx={{ padding: 5,fontFamily: 'monospace' }}>
       <h1>Website Walkaround</h1>
     </Grid>
     
@@ -43,6 +42,7 @@ const Walkaround = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+   
     </div>
   )
 }

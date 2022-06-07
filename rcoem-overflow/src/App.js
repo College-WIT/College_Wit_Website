@@ -8,6 +8,7 @@ import Notes from './Components/notes-pyqs/notes';
 const App = () => {
   return (
     <div>
+
          <Routes>
          <Route path="/" element={<Home/>} /> 
          <Route path="Home" element={<Home/>} />
