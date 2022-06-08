@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-
+import { Link } from 'react-router-dom';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -43,7 +43,11 @@ export default function QuestionsPage() {
                                     }
                                 }}
                                     variant="contained" disableElevation>
-                                    {content}
+                                    
+                                    <Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
+                                        {/* {quickAccBar} */}
+                                        {content}
+                                    </Link>
                                 </Button>
                             </Grid>
                         ))}
