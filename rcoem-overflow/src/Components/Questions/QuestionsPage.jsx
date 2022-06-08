@@ -14,6 +14,9 @@ const Item = styled(Paper)(({ theme }) => ({
     height: 1000,
 }));
 
+const quickAccBar = ["Home", "Questions", "Tags"];
+const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
+
 export default function QuestionsPage() {
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
@@ -24,24 +27,68 @@ export default function QuestionsPage() {
             </Grid>
 
             <Grid container spacing={2}>
-                <Grid item xs={3}>
+                <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
                     <Item>Quick Access
-                       <Grid sx={{  padding: 2 }}><Button sx={{ fontSize: 15,backgroundColor:"#E26639",width:150,height:40,height:40,borderRadius:10}} variant="contained" disableElevation> Home</Button></Grid>
-                        <Grid sx={{  padding: 2 }}><Button sx={{ fontSize: 15, backgroundColor:"#E26639",width:150,height:40,borderRadius:10}} variant="contained" disableElevation> Questions</Button></Grid>
-                        <Grid sx={{  padding: 2 }}><Button sx={{ fontSize: 15, backgroundColor:"#E26639",width:150,height:40,borderRadius:10}} variant="contained" disableElevation> Tags</Button></Grid>
+                        {quickAccBar.map((content) => (
+                            <Grid sx={{ padding: 2 }}>
+                                <Button sx={{
+                                    fontSize: 15,
+                                    backgroundColor: "#E26639",
+                                    width: 130,
+                                    height: 35,
+                                    borderRadius: 10,
+                                    "&:hover": {
+                                        backgroundColor: "#41D450",
+                                        opacity: 10,
+                                    }
+                                }}
+                                    variant="contained" disableElevation>
+                                    {content}
+                                </Button>
+                            </Grid>
+                        ))}
                     </Item>
                 </Grid>
-                
-                <Grid item xs={7}>
+
+                <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
                     <Item>Questions Section</Item>
                 </Grid>
-                <Grid item xs={2}>
-                <Item>Tags
-                       <Grid sx={{  padding: 1 }}><Button sx={{ backgroundColor:"#E26639",width:100,height:25,borderRadius:10}} variant="contained" disableElevation>Tags</Button></Grid>
-                        <Grid sx={{  padding: 1 }}><Button sx={{ backgroundColor:"#E26639",width:100,height:25,borderRadius:10}} variant="contained" disableElevation> Tags</Button></Grid>
-                        <Grid sx={{  padding: 1 }}><Button sx={{ backgroundColor:"#E26639",width:100,height:25,borderRadius:10}} variant="contained" disableElevation> Tags</Button></Grid>
+                <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
 
-                        <Grid sx={{  paddingTop: 10 }}><Button sx={{ backgroundColor:"#20D867",width:180,height:40,borderRadius:10, fontSize: 15}} variant="contained" disableElevation>Post a Question</Button></Grid>
+                    <Item>Tags
+                        {queTags.map((content) => (
+                            <Grid sx={{ padding: 1 }}>
+                                <Button sx={{
+                                    backgroundColor: "#E26639",
+                                    width: 100,
+                                    height: 25,
+                                    borderRadius: 10,
+                                    "&:hover": {
+                                        backgroundColor: "#41D450",
+                                        opacity: 10,
+                                    }
+                                }}
+                                    variant="contained" disableElevation>
+                                    {content}
+                                </Button>
+                            </Grid>
+                        ))}
+
+                        <Grid sx={{ paddingTop: 10 }}>
+                            <Button sx={{
+                                backgroundColor: "#20D867",
+                                width: 150,
+                                height: 60,
+                                borderRadius: 10,
+                                fontSize: 15,
+                                "&:hover": {
+                                    backgroundColor: "#E26639",
+                                    opacity: 10,
+                                }
+                            }} variant="contained" disableElevation>
+                                Post a Question
+                            </Button>
+                        </Grid>
                     </Item>
                 </Grid>
             </Grid>
