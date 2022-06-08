@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
     height: 1000,
 }));
 
-const quickAccBar = ["Home", "Questions", "Tags"];
+const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
 
 export default function QuestionsPage() {
@@ -30,7 +30,12 @@ export default function QuestionsPage() {
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
                     <Item>Quick Access
                         {quickAccBar.map((content) => (
-                            <Grid sx={{ padding: 2 }}>
+                            <Grid sx={{
+                                padding: 2,
+                                '@media (max-width:780px)': {
+                                    padding: '0 ,0, 0, 0'
+                                }
+                            }}>
                                 <Button sx={{
                                     fontSize: 15,
                                     backgroundColor: "#E26639",
@@ -40,10 +45,25 @@ export default function QuestionsPage() {
                                     "&:hover": {
                                         backgroundColor: "#41D450",
                                         opacity: 10,
+                                    },
+                                    '@media (max-width:1000px)': {
+                                        fontSize: 12,
+                                        width: 100,
+                                        height: 20,
+                                    },
+                                    '@media (max-width:900px)': {
+                                        fontSize: 10,
+                                        width: 90,
+                                        height: 20,
+                                    },
+                                    '@media (max-width:800px)': {
+                                        fontSize: 8,
+                                        width: 70,
+                                        height: 20,
                                     }
                                 }}
                                     variant="contained" disableElevation>
-                                    
+
                                     <Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
                                         {/* {quickAccBar} */}
                                         {content}
