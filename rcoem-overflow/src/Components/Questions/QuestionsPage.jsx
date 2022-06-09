@@ -5,17 +5,38 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography'
+import Stack from '@mui/material/Stack';
+
+
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 1000,
 }));
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
+const dummyQue = [
+    {
+        que: "Create a class TimeZone which will add functionality to convert the time from one time zone to another time zone.Note: Class Time zone  uses the TIme Object and uses the Add and Subtract methods of Time Class.",
+        upvotes: 10,
+        ans: 20,
+        views: 300
+    }, {
+        que: "Culpa ex tempor esse Lorem laboris consectetur ullamco.Veniam pariatur anim velit amet Lorem id cillum.",
+        upvotes: 20,
+        ans: 30,
+        views: 330
+    }, {
+        que: "Lorem anim sint adipisicing esse.Commodo laboris occaecat Lorem laboris irure nulla irure duis voluptate aliqua adipisicing magna ullamco deserunt.",
+        upvotes: 40,
+        ans: 50,
+        views: 310
+    }
+]
 
 export default function QuestionsPage() {
     return (
@@ -75,7 +96,53 @@ export default function QuestionsPage() {
                 </Grid>
 
                 <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
-                    <Item>Questions Section</Item>
+                    <Grid item >
+                        <Item>
+                            {dummyQue.map((content) => (
+                                <Box component="span" sx={{ p: 2 }} >
+                                    <Typography variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
+                                        {content.que}
+                                    </Typography>
+                                    <Stack direction="row" spacing={2} >
+                                        <Item elevation={0}>
+                                            <Button variant="outlined">See Full Answer</Button>
+                                        </Item>
+                                        <Stack direction="row" spacing={2} sx={{
+                                            paddingLeft: 32,
+                                            '@media (max-width:1000px)': {
+                                                paddingLeft: 20
+                                            },
+                                            '@media (max-width:850px)': {
+                                                paddingLeft: 1
+                                            },
+                                        }}>
+                                            <Item elevation={0}>
+                                                <Typography variant="subtitle1" color='black'>{content.views}</Typography>
+                                                <Typography variant="subtitle2" color="black">Views</Typography>
+                                            </Item>
+                                            <Item elevation={0}>
+                                                <Typography variant="subtitle1" color='black'>{content.upvotes}</Typography>
+                                                <Typography variant="subtitle2" color="black">Upvotes</Typography>
+                                            </Item>
+                                            <Item elevation={0}>
+                                                <Typography variant="subtitle1" color='black'>{content.ans}</Typography>
+                                                <Typography variant="subtitle2" color="black">Answers</Typography>
+                                            </Item>
+                                        </Stack>
+                                    </Stack>
+
+                                </Box>
+
+                            ))}
+
+
+
+
+
+                        </Item>
+                    </Grid>
+
+
                 </Grid>
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
 
