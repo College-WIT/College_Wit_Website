@@ -14,13 +14,20 @@ import { FcSearch } from 'react-icons/fc'
 export default function Boxes() {
     return (
         <div>
-            <Grid container justifyContent="center" sx={{paddingTop: 8.5}}>
+            <Grid container justifyContent="center"
+             sx={{paddingTop: 8.5,
+                '@media (max-width:1000px)': {
+                    padding: 5
+                }
+
+             }}>
                 <Box
                     sx={{
                         width: 1000,
                         height: 550,
                         backgroundColor: '#3C3938',
                         borderRadius: '20px',
+                       
 
                     }}
                 >
