@@ -159,7 +159,7 @@ const ResponsiveAppBar = () => {
                           opacity: 10,
                         }
                       }}>
-                      <Link style={{ textDecoration: "None", color: "white" }} to={`/${page}`}>
+                      <Link style={{ textDecoration: "None", color: "black" }} to={`/${page}`}>
                         {page}
                       </Link>
                     </Button>
