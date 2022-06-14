@@ -18,7 +18,7 @@ import logo from "../assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
 
-const buttons = { height: 40, width: 100,margin: '5px', backgroundColor: "#E26639", fontSize: 12 }
+const buttons = { height: 40, width: 100, margin: '5px', backgroundColor: "#E26639", fontSize: 12 }
 const pages = ['Home', 'Questions', 'Top Contributors', 'Notes-PYQs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -88,7 +88,7 @@ const ResponsiveAppBar = () => {
     <AppBar position="static" sx={{
       backgroundColor: '#0E0E0E',
       height: 80
-      
+
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -103,6 +103,7 @@ const ResponsiveAppBar = () => {
                 display: 'None'
               }
             }}
+
             alt="logo img"
             src={logo}
           />
