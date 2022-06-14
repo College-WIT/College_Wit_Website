@@ -22,26 +22,17 @@ const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
 const dummyQue = [
     {
         que: "Create a class TimeZone which will add functionality to convert the time from one time zone to another time zone.Note: Class Time zone  uses the TIme Object and uses the Add and Subtract methods of Time Class.",
+        // ans: ["Answers1","Answer2"],
         upvotes: 10,
         ans: 20,
         views: 300
-    }, {
-        que: "Culpa ex tempor esse Lorem laboris consectetur ullamco.Veniam pariatur anim velit amet Lorem id cillum.",
-        upvotes: 20,
-        ans: 30,
-        views: 330
-    }, {
-        que: "Lorem anim sint adipisicing esse.Commodo laboris occaecat Lorem laboris irure nulla irure duis voluptate aliqua adipisicing magna ullamco deserunt.",
-        upvotes: 40,
-        ans: 50,
-        views: 310
     }
 ]
 
-export default function QuestionsPage() {
+export default function Ans() {
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
-
+           
 
             <Grid container spacing={2}>
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
@@ -93,18 +84,14 @@ export default function QuestionsPage() {
 
                 <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
                     <Grid item >
-                        <Item sx={{ border: 1 }}>
+                        <Item sx={{border: 1}}>
                             {dummyQue.map((content) => (
-                                <Box component="span" >
+                                <Box  component="span" sx={{ p: 2 }} >
                                     <Typography  variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
                                         {content.que}
                                     </Typography>
                                     <Stack direction="row" spacing={2} >
-                                        <Item elevation={0}>
-                                            <Link style={{ textDecoration: "None", color: "black" }} to={`/answers`}>
-                                                <Button variant="outlined">See Full Answer</Button>
-                                            </Link>
-                                        </Item>
+                                        
                                         <Stack direction="row" spacing={2} sx={{
                                             paddingLeft: 32,
                                             '@media (max-width:1000px)': {
@@ -112,7 +99,7 @@ export default function QuestionsPage() {
                                             },
                                             '@media (max-width:850px)': {
                                                 paddingLeft: 1
-                                            }
+                                            },
                                         }}>
                                             <Item elevation={0}>
                                                 <Typography variant="subtitle1" color='black'>{content.views}</Typography>
@@ -128,9 +115,11 @@ export default function QuestionsPage() {
                                             </Item>
                                         </Stack>
                                     </Stack>
+
                                 </Box>
+
                             ))}
-                        </Item>
+                            </Item>
                     </Grid>
 
 

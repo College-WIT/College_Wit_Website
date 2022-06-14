@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image'
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import "../../index.css";
-import { FcSearch } from 'react-icons/fc'
+// import { FcSearch } from 'react-icons/fc'
 
 
 
