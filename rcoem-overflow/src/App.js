@@ -20,7 +20,7 @@ const App = () => {
          <Route path="Notes-PYQs" element={<Notes/>}/>
          <Route path="login" element={<Signin/>}/>
          <Route path="signup" element={<Signup/>}/>
-         <Route path="answers" element={<Answers/>}/>
+         <Route path="/answers/:que" element={<Answers/>}/>
 
       </Routes>
     </div>

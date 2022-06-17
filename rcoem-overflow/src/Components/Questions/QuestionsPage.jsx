@@ -49,7 +49,8 @@ class QuestionsPages extends Component {
     }
 
     render() {
-        const { QuestionsData, errorMsg } = this.state
+        const { QuestionsData, errorMsg } = this.state;
+        
         return (
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
                 <Grid container justifyContent="center" sx={{
@@ -116,7 +117,10 @@ class QuestionsPages extends Component {
                                         </Typography>
                                         <Stack direction="row" spacing={2} >
                                             <Item elevation={0}>
-                                                <Link style={{ textDecoration: "None", color: "black" }} to={`/answers`}>
+                                                <Link style={{ textDecoration: "None", color: "black" }} to={{
+                                                    pathname:`/answers/${content.question}`,
+                                                    state: {propQue:true},
+                                                }}>
                                                     <Button variant="outlined">See Full Answer</Button>
                                                 </Link>
                                             </Item>

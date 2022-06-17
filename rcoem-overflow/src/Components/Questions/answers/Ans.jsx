@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -7,6 +9,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack';
+import { useLocation, useParams } from "react-router-dom";
 
 
 
@@ -29,14 +32,53 @@ const dummyQue = [
     }
 ]
 
-export default function Ans() {
+const Ans = () => {
+    const {que} = useParams();
+    console.log(que)
+    
+    var questionD = "";
+    var get = 0;
+    const [quest, setquest] = useState([]);
+    const [author, setauthor] = useState([]);
+    const [views, setviews] = useState([]);
+    const [upvotes, setupvotes] = useState([]);
+    const [answers, setanswers] = useState([]);
+    const arr = [];
+
+    const handleQuest = async (e) => {
+        const obj = {
+            question: "How to start with competetive programming?"
+        };
+
+        const question = await axios.post(
+            `https://rcoem-overflow-backend.herokuapp.com/view_specific_question`,
+            obj
+        );
+        questionD = question.data.question;
+        setquest(question.data.question);
+        setauthor(question.data.author);
+        setupvotes(question.data.upvotes);
+        setviews(question.data.views);
+        const n = question.data.answers.length;
+        for (var i = 0; i < n; i++) {
+            arr.push(question.data.answers[i].answer);
+        }
+        //setanswers(question.data.answers[0].answer);
+        setanswers(arr);
+        //console.log(question.data);
+        //console.log(questionD);
+        //console.log(answers);
+        get = 1;
+    };
+
+
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
-           
+
 
             <Grid container spacing={2}>
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
-                    <Item sx={{border: 1}}>Quick Access
+                    <Item sx={{ border: 1 }}>Quick Access
                         {quickAccBar.map((content) => (
                             <Grid sx={{
                                 padding: 2,
@@ -84,14 +126,14 @@ export default function Ans() {
 
                 <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
                     <Grid item >
-                        <Item sx={{border: 1}}>
+                        <Item sx={{ border: 1 }}>
                             {dummyQue.map((content) => (
-                                <Box  component="span" sx={{ p: 2 }} >
-                                    <Typography  variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
-                                        {content.que}
+                                <Box component="span" sx={{ p: 2 }} >
+                                    <Typography variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
+                                        {que}
                                     </Typography>
                                     <Stack direction="row" spacing={2} >
-                                        
+
                                         <Stack direction="row" spacing={2} sx={{
                                             paddingLeft: 32,
                                             '@media (max-width:1000px)': {
@@ -119,14 +161,14 @@ export default function Ans() {
                                 </Box>
 
                             ))}
-                            </Item>
+                        </Item>
                     </Grid>
 
 
                 </Grid>
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
 
-                    <Item sx={{border: 1}}>Tags
+                    <Item sx={{ border: 1 }}>Tags
                         {queTags.map((content) => (
                             <Grid sx={{ padding: 1 }}>
                                 <Button sx={{
@@ -165,4 +207,6 @@ export default function Ans() {
             </Grid>
         </Box>
     );
-}
+};
+
+export default Ans;
