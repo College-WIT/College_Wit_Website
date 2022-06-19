@@ -8,6 +8,7 @@ import Notes from './Components/notes-pyqs/notes';
 import Signin from './Components/Homepage/Authentication/Login'
 import Signup from './Components/Homepage/Authentication/Login2'
 import Answers from './Components/Questions/answers/Answers'
+import Postque from './Components/Questions/postque/postque'
 const App = () => {
   return (
     <div>
@@ -21,6 +22,7 @@ const App = () => {
          <Route path="login" element={<Signin/>}/>
          <Route path="signup" element={<Signup/>}/>
          <Route path="/answers/:que" element={<Answers/>}/>
+         <Route path="/Post-a-question" element={<Postque/>}/>
 
       </Routes>
     </div>

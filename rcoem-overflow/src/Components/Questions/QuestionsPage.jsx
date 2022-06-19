@@ -194,7 +194,9 @@ class QuestionsPages extends Component {
                                         opacity: 10,
                                     }
                                 }} variant="contained" disableElevation>
-                                    Post a Question
+                                <Link style={{ textDecoration: "None", color: "black" }} to={`/Post-a-question`}>
+                        Post a question
+                      </Link>
                                 </Button>
                             </Grid>
                         </Item>
