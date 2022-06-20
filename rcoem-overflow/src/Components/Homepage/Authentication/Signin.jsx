@@ -4,7 +4,7 @@ import { Grid, Paper, TextField, Button, Typography, Link } from '@mui/material'
 const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
 const Signin = () => {
 
-  const paperStyle = { padding: 40, height: '70vh', width: 400, margin: "0 auto" }
+const paperStyle = { padding: 40, height: '70vh', width: 400, margin: "0 auto" }
 
   return (
 

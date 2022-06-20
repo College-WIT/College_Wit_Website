@@ -1,14 +1,9 @@
-import "../../index.css";
-import ResponsiveAppBar from "../Navbar";
-import Footer from '../Footer'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react'
 
-export default function Contributor() {
+const contributor = () => {
   return (
-    <div className="Contributor">
-      <ResponsiveAppBar />
-      <div> <h2 align="center">Top Contributor page</h2></div>
-      <Footer/>
-    </div>
-  );
+    <div>contributor</div>
+  )
 }
+
+export default contributor
