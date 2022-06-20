@@ -216,7 +216,9 @@ const Ans = () => {
                                     opacity: 10,
                                 }
                             }} variant="contained" disableElevation>
-                                Post a Question
+                                <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-a-question`}>
+                                        Post a question
+                                    </Link>
                             </Button>
                         </Grid>
                     </Item>

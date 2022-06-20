@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
-const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
+const buttons = { margin: '8px 0', backgroundColor: "#E26639", padding: 5};
 const quickAccBar = ["Home", "Answers", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
@@ -88,7 +88,8 @@ class postques extends Component {
                   <h2>Post a Question</h2>
                 </Grid >
                 <TextField multiline rows={6} label='Question' placeholder='Enter Question' type='text' fullWidth required />
-                <Button style={buttons} type='submit' variant='contained' color='primary'>Post</Button>
+                <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button> 
+                <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button>
               </Paper>
             </Grid>
           </Grid>
