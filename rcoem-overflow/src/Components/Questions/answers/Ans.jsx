@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack';
 import { useLocation, useParams } from "react-router-dom";
-
+import { fontSize } from '@mui/system';
+import {GoArrowRight} from 'react-icons/go'
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -28,14 +29,15 @@ const dummyQue = [
         // ans: ["Answers1","Answer2"],
         upvotes: 10,
         ans: 20,
-        views: 300
+        views: 300,
+        answers: []
     }
 ]
 
 const Ans = () => {
     const {que} = useParams();
     console.log(que)
-    
+    var qq=que+"?";
     var questionD = "";
     var get = 0;
     const [quest, setquest] = useState([]);
@@ -47,7 +49,7 @@ const Ans = () => {
 
     const handleQuest = async (e) => {
         const obj = {
-            question: "How to start with competetive programming?"
+            question: qq
         };
 
         const question = await axios.post(
@@ -71,6 +73,7 @@ const Ans = () => {
         get = 1;
     };
 
+    handleQuest();
 
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
@@ -129,8 +132,8 @@ const Ans = () => {
                         <Item sx={{ border: 1 }}>
                             {dummyQue.map((content) => (
                                 <Box component="span" sx={{ p: 2 }} >
-                                    <Typography variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
-                                        {que}
+                                    <Typography variant="h6" sx={{ color: "black", textAlign: "center", padding: 2 }}>
+                                        {quest}
                                     </Typography>
                                     <Stack direction="row" spacing={2} >
 
@@ -144,20 +147,34 @@ const Ans = () => {
                                             },
                                         }}>
                                             <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{content.views}</Typography>
+                                                <Typography variant="subtitle1" color='black'>{views}</Typography>
                                                 <Typography variant="subtitle2" color="black">Views</Typography>
                                             </Item>
                                             <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{content.upvotes}</Typography>
+                                                <Typography variant="subtitle1" color='black'>{upvotes}</Typography>
                                                 <Typography variant="subtitle2" color="black">Upvotes</Typography>
                                             </Item>
                                             <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{content.ans}</Typography>
+                                                <Typography variant="subtitle1" color='black'>{answers.length}</Typography>
                                                 <Typography variant="subtitle2" color="black">Answers</Typography>
                                             </Item>
                                         </Stack>
                                     </Stack>
 
+                                    {answers.map(answer => {
+                                    return(
+                                    <Typography variant="subtitle1" color='black' sx={{
+                                        padding: 2,
+                                        textAlign: 'left',
+                                        fontSize: 15
+                                     }}>
+                                     <GoArrowRight/> {answer}</Typography>
+                                      )
+                                 })}
+                                    
+                                    {/* <h5>{answers[0]}</h5> */}
+                                    {/* <h1>{answers[1]}</h1>
+                                    <h1>{answers[2]}</h1> */}
                                 </Box>
 
                             ))}
