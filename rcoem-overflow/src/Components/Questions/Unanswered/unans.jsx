@@ -129,8 +129,8 @@ class unans extends Component {
                                     <Stack direction="row" spacing={2} >
                                         <Item elevation={0}>
                                             <Link style={{ textDecoration: "None", color: "black" }} to={{
-                                                pathname: `/answers/${content.question}`,
-                                                state: { propQue: true },
+                                                pathname: `/Post-an-answer`,
+                                               
                                             }}>
                                                 <Button variant="outlined">Add Answer </Button>
                                             </Link>
@@ -171,7 +171,7 @@ class unans extends Component {
                                     backgroundColor: "#20D867",
                                     width: 150,
                                     height: 60,
-                                    borderRadius: 10,
+                                    borderRadius: 5,
                                     fontSize: 15,
                                     "&:hover": {
                                         backgroundColor: "#E26639",
@@ -183,6 +183,24 @@ class unans extends Component {
                                     </Link>
                                 </Button>
                             </Grid>
+                            <Grid sx={{ paddingTop: 1 }}>
+                                    <Button sx={{
+                                        backgroundColor: "#20D867",
+                                        width: 150,
+                                        height: 60,
+                                        border: 1,
+                                        borderRadius: 5,
+                                        fontSize: 15,
+                                        "&:hover": {
+                                            backgroundColor: "#E26639",
+                                            opacity: 10,
+                                        }
+                                    }} variant="contained" disableElevation>
+                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-an-answer`}>
+                                            Post an Answer
+                                        </Link>
+                                    </Button>
+                                </Grid>
                         </Item>
                     </Grid>
                 </Grid>

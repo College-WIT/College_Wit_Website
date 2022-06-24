@@ -127,10 +127,10 @@ class QuestionsPages extends Component {
                                                 alt="Remy Sharp"
                                                 src="/broken-image.jpg"
                                             />
-                                            
+
                                         }
                                         title={content.author}
-                                      />
+                                    />
 
                                     <Typography variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
                                         {content.question}</Typography>
@@ -212,9 +212,25 @@ class QuestionsPages extends Component {
                                         Post a question
                                     </Link>
 
-
-
                                 </Button>
+                                <Grid sx={{ paddingTop: 1 }}>
+                                    <Button sx={{
+                                        backgroundColor: "#20D867",
+                                        width: 150,
+                                        height: 60,
+                                        border: 1,
+                                        borderRadius: 5,
+                                        fontSize: 15,
+                                        "&:hover": {
+                                            backgroundColor: "#E26639",
+                                            opacity: 10,
+                                        }
+                                    }} variant="contained" disableElevation>
+                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-an-answer`}>
+                                            Post an Answer
+                                        </Link>
+                                    </Button>
+                                </Grid>
                             </Grid>
                         </Item>
                     </Grid>

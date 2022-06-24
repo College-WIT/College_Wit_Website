@@ -11,6 +11,7 @@ import Answers from './Components/Questions/answers/Answers'
 import Postque from './Components/Questions/postque/postque'
 import Answered from './Components/Questions/Answered/answer'
 import Unanswered from './Components/Questions/Unanswered/unanswered'
+import Postans from './Components/Questions/postans/postans'
 const App = () => {
   return (
     <div>
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/Post-a-question" element={<Postque />} />
         <Route path="/Answered" element={<Answered/>} />
         <Route path="/Unanswered" element={<Unanswered/>} />
+        <Route path="/Post-an-answer" element={<Postans/>} />
 
       </Routes>
     </div>
