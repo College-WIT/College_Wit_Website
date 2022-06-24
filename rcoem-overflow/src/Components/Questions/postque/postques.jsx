@@ -16,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const buttons = { height: 40,  margin: '5px', backgroundColor: "#E26639", fontSize: 15 }
-const quickAccBar = ["Home", "Answers", "Trending"];
+const quickAccBar = ["Home", "Answered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
 const flag=false

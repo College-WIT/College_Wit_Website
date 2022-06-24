@@ -9,6 +9,8 @@ import Signin from './Components/Homepage/Authentication/Login'
 import Signup from './Components/Homepage/Authentication/Login2'
 import Answers from './Components/Questions/answers/Answers'
 import Postque from './Components/Questions/postque/postque'
+import Answered from './Components/Questions/Answered/answer'
+import Unanswered from './Components/Questions/Unanswered/unanswered'
 const App = () => {
   return (
     <div>
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="signup" element={<Signup />} />
         <Route path="/answers/:que" element={<Answers />} />
         <Route path="/Post-a-question" element={<Postque />} />
+        <Route path="/Answered" element={<Answered/>} />
+        <Route path="/Unanswered" element={<Unanswered/>} />
 
       </Routes>
     </div>

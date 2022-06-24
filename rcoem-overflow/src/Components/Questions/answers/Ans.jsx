@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack';
 import { useLocation, useParams } from "react-router-dom";
 import { fontSize } from '@mui/system';
-import {GoArrowRight} from 'react-icons/go'
+import { GoArrowRight } from 'react-icons/go'
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -35,9 +35,9 @@ const dummyQue = [
 ]
 
 const Ans = () => {
-    const {que} = useParams();
+    const { que } = useParams();
     console.log(que)
-    var qq=que+"?";
+    var qq = que + "?";
     var questionD = "";
     var get = 0;
     const [quest, setquest] = useState([]);
@@ -77,9 +77,7 @@ const Ans = () => {
 
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
-
-
-            <Grid container spacing={2}>
+           <Grid container spacing={2}>
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
                     <Item sx={{ border: 1 }}>Quick Access
                         {quickAccBar.map((content) => (
@@ -162,16 +160,16 @@ const Ans = () => {
                                     </Stack>
 
                                     {answers.map(answer => {
-                                    return(
-                                    <Typography variant="subtitle1" color='black' sx={{
-                                        padding: 2,
-                                        textAlign: 'left',
-                                        fontSize: 15
-                                     }}>
-                                     <GoArrowRight/> {answer}</Typography>
-                                      )
-                                 })}
-                                    
+                                        return (
+                                            <Typography variant="subtitle1" color='black' sx={{
+                                                padding: 2,
+                                                textAlign: 'left',
+                                                fontSize: 15
+                                            }}>
+                                                <GoArrowRight /> {answer}</Typography>
+                                        )
+                                    })}
+
                                     {/* <h5>{answers[0]}</h5> */}
                                     {/* <h1>{answers[1]}</h1>
                                     <h1>{answers[2]}</h1> */}
@@ -217,8 +215,8 @@ const Ans = () => {
                                 }
                             }} variant="contained" disableElevation>
                                 <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-a-question`}>
-                                        Post a question
-                                    </Link>
+                                    Post a question
+                                </Link>
                             </Button>
                         </Grid>
                     </Item>

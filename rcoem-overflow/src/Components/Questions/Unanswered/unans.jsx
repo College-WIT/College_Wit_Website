@@ -22,8 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
 
-
-class QuestionsPages extends Component {
+class unans extends Component {
     constructor(props) {
         super(props)
 
@@ -55,16 +54,12 @@ class QuestionsPages extends Component {
         return (
 
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
-                {/* <Grid container justifyContent="center" sx={{
-                    paddingBottom: 1
-                }}>
-                    <h3>Questions Page</h3>
-                </Grid> */}
 
-                {/* ----------------------------QUICK ACCESS------------------------------ */}
+                {/* ********************Left bar******************************************************* */}
+
                 <Grid container spacing={2}>
-                    <Grid item xl={3} lg={2} md={2} sm={2} xs={2}>
-                        <Item>Quick Access
+                    <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
+                        <Item sx={{ border: 1 }}>Quick Access
                             {quickAccBar.map((content) => (
                                 <Grid sx={{
                                     padding: 2,
@@ -77,7 +72,7 @@ class QuestionsPages extends Component {
                                         backgroundColor: "#E26639",
                                         width: 130,
                                         height: 35,
-                                        borderRadius: 5,
+                                        borderRadius: 10,
                                         "&:hover": {
                                             backgroundColor: "#41D450",
                                             opacity: 10,
@@ -109,11 +104,8 @@ class QuestionsPages extends Component {
                         </Item>
                     </Grid>
 
-
-                    {/* ------------------------------------Questions------------------------------------- */}
-
-
-                    <Grid item xl={7} lg={8} md={8} sm={8} xs={8}>
+                    {/* ************************************ middle section ******************************************************* */}
+                    <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
                         <Grid item >
                             <Item>{QuestionsData.map((content) => (
                                 <Box component="span" sx={{ p: 2 }} >
@@ -127,10 +119,10 @@ class QuestionsPages extends Component {
                                                 alt="Remy Sharp"
                                                 src="/broken-image.jpg"
                                             />
-                                            
+
                                         }
                                         title={content.author}
-                                      />
+                                    />
 
                                     <Typography variant="h6" sx={{ color: "black", textAlign: "left", padding: 2 }}>
                                         {content.question}</Typography>
@@ -140,80 +132,55 @@ class QuestionsPages extends Component {
                                                 pathname: `/answers/${content.question}`,
                                                 state: { propQue: true },
                                             }}>
-                                                <Button variant="outlined">See Full Answer</Button>
+                                                <Button variant="outlined">Add Answer </Button>
                                             </Link>
                                         </Item>
-                                        <Stack direction="row" spacing={2}
-                                            sx={{
-                                                paddingLeft: 32,
-                                                '@media (max-width:1000px)': {
-                                                    paddingLeft: 20
-                                                },
-                                                '@media (max-width:850px)': {
-                                                    paddingLeft: 1
-                                                },
-                                            }}>
-                                            <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{content.views}</Typography>
-                                                <Typography variant="subtitle2" color="black">Views</Typography>
-                                            </Item>
-                                            <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{content.upvotes}</Typography>
-                                                <Typography variant="subtitle2" color="black">Upvotes</Typography>
-                                            </Item>
-                                            <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{content.no_of_answers}</Typography>
-                                                <Typography variant="subtitle2" color="black">Answers</Typography>
-                                            </Item>
-                                        </Stack>
+                                      
                                     </Stack>
                                 </Box>
                             ))}
                             </Item>
+
                         </Grid>
+
+
                     </Grid>
+                    <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
 
-                    {/* --------------------------------TAGS SECTION--------------------------------------------*/}
-
-                    <Grid item xl={3} lg={2} md={2} sm={2} xs={2}>
-                        <Item> Tags {queTags.map((content) => (
-                            <Grid sx={{ padding: 1 }}>
-                                <Button sx={{
-                                    backgroundColor: "#E26639",
-                                    width: 100,
-                                    height: 25,
-                                    borderRadius: 5,
-                                    "&:hover": {
-                                        backgroundColor: "#41D450",
-                                        opacity: 10
-                                    }
-                                }}
-                                    variant="contained" disableElevation>
-                                    {content}
-                                </Button>
-                            </Grid>
-                        ))}
+                        <Item sx={{ border: 1 }}>Tags
+                            {queTags.map((content) => (
+                                <Grid sx={{ padding: 1 }}>
+                                    <Button sx={{
+                                        backgroundColor: "#E26639",
+                                        width: 100,
+                                        height: 25,
+                                        borderRadius: 10,
+                                        "&:hover": {
+                                            backgroundColor: "#41D450",
+                                            opacity: 10,
+                                        }
+                                    }}
+                                        variant="contained" disableElevation>
+                                        {content}
+                                    </Button>
+                                </Grid>
+                            ))}
 
                             <Grid sx={{ paddingTop: 10 }}>
                                 <Button sx={{
                                     backgroundColor: "#20D867",
                                     width: 150,
                                     height: 60,
-                                    border: 1,
-                                    borderRadius: 5,
+                                    borderRadius: 10,
                                     fontSize: 15,
                                     "&:hover": {
                                         backgroundColor: "#E26639",
                                         opacity: 10,
                                     }
                                 }} variant="contained" disableElevation>
-
                                     <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-a-question`}>
                                         Post a question
                                     </Link>
-
-
-
                                 </Button>
                             </Grid>
                         </Item>
@@ -221,7 +188,6 @@ class QuestionsPages extends Component {
                 </Grid>
             </Box>
         );
-    }
+    };
 }
-
-export default QuestionsPages
+export default unans
