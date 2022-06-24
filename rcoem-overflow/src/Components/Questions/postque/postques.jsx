@@ -19,10 +19,42 @@ const buttons = { height: 40,  margin: '5px', backgroundColor: "#E26639", fontSi
 const quickAccBar = ["Home", "Answers", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
+const flag=false
 
 class postques extends Component {
 
+  /// AXIOS POST TEMPLATE
+  constructor(props) {
+    super(props)
+    this.state = {
+         username: '',
+         password: '',
+         question:'',
+    }
+}
+
+changeHandler = (event) => {
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+} 
+
+submitHandler = (e) => {
+    e.preventDefault()
+    axios
+        .post("https://rcoem-overflow-backend.herokuapp.com/add_question", this.state)
+         .then(response => {
+          flag=true
+             console.log("Question added Successfully")
+         })
+         .catch(error =>{
+          flag=false
+             console.log(error.response)
+         })
+}
+
   render() {
+    const {username, password,question} = this.state
     return (
       <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
@@ -79,18 +111,20 @@ class postques extends Component {
 
 
           <Grid item xl={7} lg={8} md={8} sm={8} xs={8}>
-            <Grid sx={{
-              height: 400,
-
-            }}>
+            <Grid >
               <Paper style={paperStyle}>
                 <Grid align='center'>
                   <h2>Post a Question</h2>
                 </Grid >
-                <TextField multiline rows={6} label='Question' placeholder='Enter Question' type='text' fullWidth required />
-                <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
-                <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button>
-                
+                <form onSubmit={this.submitHandler}>
+                {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
+                <TextField multiline rows={6} label='Question' type="text" name="question" value={question} placeholder="Question" onChange={ this.changeHandler } fullWidth required/>
+               <Grid alig sx={{padding:1,alignContent:'center'}}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler }/>
+                <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler }/></Grid>
+               <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
+                <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
+                </form>
+                  {/* {flag ? <h2>Question added Successfully</h2> : <h2></h2>} */}
               </Paper>
             </Grid>
           </Grid>
