@@ -3,7 +3,8 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-
+import { Avatar } from '@mui/material';
+import { CardHeader } from '@mui/material';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#E26639',
@@ -24,13 +25,25 @@ export default function Contributors() {
             </Grid>
 
 
-            <Box sx={{ 
+            <Box sx={{
                 flexGrow: 1,
                 px: 5,
             }}>
                 <Grid container spacing={4}>
                     <Grid item xs={5}>
-                        <Item>Item</Item>
+                        <Item><CardHeader sx={{
+                            alignItems: 'left',
+                            textAlign: 'left',
+                        }}
+                            avatar={
+                                <Avatar
+                                    alt="Remy Sharp"
+                                    src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
+                                />
+                            }
+                            title="Item"
+                        />``
+                        </Item>
                         <Item>Item</Item>
                         <Item>Item</Item>
                         <Item>Item</Item>
@@ -40,7 +53,7 @@ export default function Contributors() {
                         <Item>Demo description</Item>
                     </Grid>
                 </Grid>
-            </Box>       
+            </Box>
         </div>
     )
 }
