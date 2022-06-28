@@ -68,10 +68,14 @@ const contributor = () => {
       paddingLeft: '5%',
       paddingRight: '5%',
       paddingBottom: '5%',
+      // backgroundColor: '#353839',
+      backgroundColor: '#1B1B1B',
+     
     }}> 
       <Grid sx={{
         paddingBottom: '2%',
         paddingTop: '2%',
+        color: 'white',
       }} > <h2 align='center'>TOP CONTRIBUTORS</h2></Grid>
 
       {/* ****************BARCHART*********************** */}
@@ -82,7 +86,8 @@ const contributor = () => {
         alignItems: 'center',
         width: '100%',
         borderRadius: '10px',
-        backgroundColor: '#1B1B1B',
+        backgroundColor: '#353839',
+        
         // backgroundColor: '#0cbaba',
         // backgroundColor: linearGradient('315deg', '#0cbaba 0%', '#380036 74%'),
       }}>

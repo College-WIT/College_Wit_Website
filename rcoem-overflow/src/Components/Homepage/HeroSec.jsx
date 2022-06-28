@@ -37,7 +37,7 @@ export default function Boxes() {
                             paddingTop: 5,
                             color: 'white',
                             textAlign: 'center',
-                            fontFamily: 'monospace'
+                            fontFamily: 'Raleway Dots'
 
                         }}>
                             Every RCOEMian has a Tab to Open RCOEM-Overflow

@@ -5,11 +5,14 @@ body {
   font-family: "source-code-pro, Menlo, Monaco, Consolas, 'Courier New'"; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* backgroundColor: '#1B1B1B'; */
+  background-color: #1B1B1B;
+
 }
 
-/* code {
+code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-} */
+}
 .logo{
   margin-top: 0;
   width: 50%;
