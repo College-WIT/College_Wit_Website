@@ -114,7 +114,7 @@ const answered = () => {
                          backgroundColor: "#20D867",
                          width: 150,
                          height: 60,
-                         borderRadius: 10,
+                         borderRadius: 5,
                          fontSize: 15,
                          "&:hover": {
                              backgroundColor: "#E26639",
