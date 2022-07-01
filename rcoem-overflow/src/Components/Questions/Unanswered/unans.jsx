@@ -33,7 +33,7 @@ class unans extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_all_questions")
+        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_unanswered_questions")
             .then(response => {
                 console.log(response)
                 this.setState({

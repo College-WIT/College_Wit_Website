@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
-import logo from "../assets/NavLogo.png"
+import logo from "../Assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
 

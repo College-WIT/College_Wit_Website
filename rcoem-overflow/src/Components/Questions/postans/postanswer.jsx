@@ -29,7 +29,8 @@ class postques extends Component {
         this.state = {
             username: '',
             password: '',
-            question: '',
+            question: 'How to be a full stack developer?',
+            answer: '',
         }
     }
 
@@ -42,10 +43,10 @@ class postques extends Component {
     submitHandler = (e) => {
         e.preventDefault()
         axios
-            .post("https://rcoem-overflow-backend.herokuapp.com/add_question", this.state)
+            .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", this.state)
             .then(response => {
                 flag = true
-                console.log("Question added Successfully")
+                console.log("Answer added Successfully")
             })
             .catch(error => {
                 flag = false
@@ -54,7 +55,7 @@ class postques extends Component {
     }
 
     render() {
-        const { username, password, question } = this.state
+        const { username, password,question, answer } = this.state
         return (
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
@@ -107,7 +108,7 @@ class postques extends Component {
                     </Grid>
 
 
-                    {/* ------------------------------------Questions------------------------------------- */}
+                    {/* ------------------------------------Answers------------------------------------- */}
 
 
                     <Grid item xl={7} lg={8} md={8} sm={8} xs={8}>
@@ -118,9 +119,9 @@ class postques extends Component {
                                 </Grid >
                                 <form onSubmit={this.submitHandler}>
                                     {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
-                                    <TextField multiline rows={6} label='Answer' type="text" name="question"  placeholder="Answer" fullWidth required />
-                                    <Grid alig sx={{ padding: 1, alignContent: 'center' }}> <input type="text" name="username" value={username} placeholder="Username" />
-                                        <input type="text" name="password" value={password} placeholder="Password" /></Grid>
+                                    <TextField multiline rows={6} label='Answer' type="text" name="answer" value={answer} placeholder="Answer" onChange={ this.changeHandler } fullWidth required />
+                                    <Grid alig sx={{ padding: 1, alignContent: 'center' }}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler } />
+                                        <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler } /></Grid>
                                     <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
                                         <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
                                 </form>
