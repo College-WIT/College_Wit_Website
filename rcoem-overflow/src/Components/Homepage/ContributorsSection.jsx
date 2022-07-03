@@ -13,7 +13,7 @@ const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: '#fff',
     height: 100,
-    width: 200
+    width: 500
 }));
 
 export default function Contributors() {
@@ -30,11 +30,12 @@ export default function Contributors() {
                 flexGrow: 1,
                 px: 5,
             }}>
-                <Grid container spacing={4}>
-                    <Grid item xs={5}>
-                    <Item><CardHeader sx={{
-                            alignItems: 'left',
-                            textAlign: 'left'}}
+                <Grid container spacing={4} justifyContent='center'>
+                    <Grid item xs={5} >
+                    <Item>
+                        <CardHeader sx={{
+                            alignItems: 'center',
+                            textAlign: 'center',}}
                             avatar={
                                 <Avatar
                                 sx={{
@@ -82,9 +83,7 @@ export default function Contributors() {
                         {/* <Item>Item</Item>
                         <Item>Item</Item> */}
                     </Grid>
-                    <Grid item xs={7}>
-                        <Item>Demo description</Item>
-                    </Grid>
+                  
                 </Grid>
             </Box>
         </div>
