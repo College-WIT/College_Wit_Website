@@ -12,7 +12,9 @@ import Stack from '@mui/material/Stack';
 import { useLocation, useParams } from "react-router-dom";
 import { fontSize } from '@mui/system';
 import { GoArrowRight } from 'react-icons/go'
-
+import {RiQuestionnaireFill} from 'react-icons/ri'
+import './Answers.css'
+// ------------------------------------------------------------------------------------------
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -75,11 +77,17 @@ const Ans = () => {
 
     handleQuest();
 
+// -------------------------------------------------------------------------------------------------------------
+
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
+
            <Grid container spacing={2}>
+
+          {/* --------------------- Left Quick Access Bar ------------------------------------ */}
                 <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
-                    <Item sx={{ border: 1 }}>Quick Access
+                    <Item sx={{ border: 1 }}>
+                        Quick Access
                         {quickAccBar.map((content) => (
                             <Grid sx={{
                                 padding: 2,
@@ -92,7 +100,7 @@ const Ans = () => {
                                     backgroundColor: "#E26639",
                                     width: 130,
                                     height: 35,
-                                    borderRadius: 10,
+                                    borderRadius: 1,
                                     "&:hover": {
                                         backgroundColor: "#41D450",
                                         opacity: 10,
@@ -112,10 +120,7 @@ const Ans = () => {
                                         width: 70,
                                         height: 20,
                                     }
-                                }}
-                                    variant="contained" disableElevation>
-
-                                    <Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
+                                }} ><Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
                                         {/* {quickAccBar} */}
                                         {content}
                                     </Link>
@@ -124,15 +129,36 @@ const Ans = () => {
                         ))}
                     </Item>
                 </Grid>
+{/* -------------------------------------------------------------------------------------------------------------- */}
+
+
+
+{/* -----------------------------------Middle Section (Questions) ------------------------------------------------ */}
 
                 <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
                     <Grid item >
-                        <Item sx={{ border: 1 }}>
+                        <Item >
                             {dummyQue.map((content) => (
                                 <Box component="span" sx={{ p: 2 }} >
                                     <Typography variant="h6" sx={{ color: "black", textAlign: "center", padding: 2 }}>
-                                        {quest}
+                                      <RiQuestionnaireFill></RiQuestionnaireFill>  {quest}
                                     </Typography>
+                                    <Button sx={{
+                                        backgroundColor: "#20D867",
+                                        width: 200,
+                                        height: 60,
+                                        border: 1,
+                                        borderRadius: 5,
+                                        fontSize: 15,
+                                        "&:hover": {
+                                            backgroundColor: "#E26639",
+                                            opacity: 10,
+                                        }
+                                    }} variant="contained" disableElevation>
+                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-an-answer`}>
+                                            Post an Answer
+                                        </Link>
+                                    </Button>
                                     <Stack direction="row" spacing={2} >
 
                                         <Stack direction="row" spacing={2} sx={{
@@ -190,9 +216,10 @@ const Ans = () => {
                                     backgroundColor: "#E26639",
                                     width: 100,
                                     height: 25,
-                                    borderRadius: 10,
+                                    padding: 2,
+                                    borderRadius: 1,
                                     "&:hover": {
-                                        backgroundColor: "#41D450",
+                                        backgroundColor: "#637081",
                                         opacity: 10,
                                     }
                                 }}
@@ -207,10 +234,10 @@ const Ans = () => {
                                 backgroundColor: "#20D867",
                                 width: 150,
                                 height: 60,
-                                borderRadius: 10,
+                                borderRadius: 5,
                                 fontSize: 15,
                                 "&:hover": {
-                                    backgroundColor: "#E26639",
+                                    backgroundColor: "#637081",
                                     opacity: 10,
                                 }
                             }} variant="contained" disableElevation>
