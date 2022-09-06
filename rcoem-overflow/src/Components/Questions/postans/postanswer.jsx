@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Component } from 'react'
 import axios from 'axios'
 import { TextField, } from '@mui/material'
+import getCookie from '../../../hooks/getCookie';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,7 +20,7 @@ const buttons = { height: 40, margin: '5px', backgroundColor: "#E26639", fontSiz
 const quickAccBar = ["Home", "Questions", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
-const flag = false
+var flag = false
 
 class postques extends Component {
 
@@ -27,8 +28,8 @@ class postques extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
-            password: '',
+            username: JSON.parse(getCookie('login')).email,
+            password: JSON.parse(getCookie('login')).password,
             question: 'How to be a full stack developer?',
             answer: '',
         }
@@ -42,8 +43,24 @@ class postques extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
+        var username=this.state.username;
+    var newusername="";
+    for (var i = 0; i<username.length; i++){
+      if ( username.charAt(i) == '@' ) {
+          break;
+      }
+      var chars=username.charAt(i);
+      newusername+=chars;
+    }
+    var newstate={
+        username:newusername,
+        password:this.state.password,
+        question:this.state.question,
+        answer:this.state.answer
+    }
+    console.log(newstate);
         axios
-            .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", this.state)
+            .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", newstate)
             .then(response => {
                 flag = true
                 console.log("Answer added Successfully")
@@ -55,7 +72,7 @@ class postques extends Component {
     }
 
     render() {
-        const { username, password,question, answer } = this.state
+        const { answer } = this.state
         return (
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
@@ -120,8 +137,8 @@ class postques extends Component {
                                 <form onSubmit={this.submitHandler}>
                                     {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
                                     <TextField multiline rows={6} label='Answer' type="text" name="answer" value={answer} placeholder="Answer" onChange={ this.changeHandler } fullWidth required />
-                                    <Grid alig sx={{ padding: 1, alignContent: 'center' }}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler } />
-                                        <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler } /></Grid>
+                                    {/* <Grid alig sx={{ padding: 1, alignContent: 'center' }}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler } />
+                                        <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler } /></Grid> */}
                                     <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
                                         <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
                                 </form>

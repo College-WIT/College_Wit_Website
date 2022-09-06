@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Component } from 'react'
 import axios from 'axios'
 import { TextField, } from '@mui/material'
+import getCookie from '../../../hooks/getCookie'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,7 +20,7 @@ const buttons = { height: 40,  margin: '5px', backgroundColor: "#E26639", fontSi
 const quickAccBar = ["Home", "Answered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
-const flag=false
+var flag=false
 
 class postques extends Component {
 
@@ -27,8 +28,8 @@ class postques extends Component {
   constructor(props) {
     super(props)
     this.state = {
-         username: '',
-         password: '',
+         username: JSON.parse(getCookie('login')).email,
+         password: JSON.parse(getCookie('login')).password,
          question:'',
     }
 }
@@ -41,8 +42,23 @@ changeHandler = (event) => {
 
 submitHandler = (e) => {
     e.preventDefault()
+    var username=this.state.username;
+    var newusername="";
+    for (var i = 0; i<username.length; i++){
+      if ( username.charAt(i) == '@' ) {
+          break;
+      }
+      var chars=username.charAt(i);
+      newusername+=chars;
+    }
+    var newstate={
+        username:newusername,
+        password:this.state.password,
+        question:this.state.question
+    }
+    console.log(newstate);
     axios
-        .post("https://rcoem-overflow-backend.herokuapp.com/add_question", this.state)
+        .post("https://rcoem-overflow-backend.herokuapp.com/add_question", newstate)
          .then(response => {
           flag=true
              console.log("Question added Successfully")
@@ -54,7 +70,7 @@ submitHandler = (e) => {
 }
 
   render() {
-    const {username, password,question} = this.state
+    const {question} = this.state
     return (
       <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
@@ -119,8 +135,8 @@ submitHandler = (e) => {
                 <form onSubmit={this.submitHandler}>
                 {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
                 <TextField multiline rows={6} label='Question' type="text" name="question" value={question} placeholder="Question" onChange={ this.changeHandler } fullWidth required/>
-               <Grid alig sx={{padding:1,alignContent:'center'}}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler }/>
-                <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler }/></Grid>
+               {/* <Grid alig sx={{padding:1,alignContent:'center'}}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler }/>
+                <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler }/></Grid> */}
                <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
                 <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
                 </form>

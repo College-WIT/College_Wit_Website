@@ -42,6 +42,7 @@ class Signup extends Component {
             .post("https://rcoem-overflow-backend.herokuapp.com/register", newstate)
              .then(response => {
                  console.log(response)
+                 
              })
              .catch(error =>{
                  console.log(error.response)

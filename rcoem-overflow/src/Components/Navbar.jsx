@@ -23,6 +23,10 @@ const pages = ['Home', 'Questions', 'Top Contributors', 'Notes-PYQs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
+import SearchBar from "./SearchBar";
+import BookData from "./data.json";
+
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -109,7 +113,7 @@ const ResponsiveAppBar = () => {
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Search>
+            {/* <Search>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -117,7 +121,8 @@ const ResponsiveAppBar = () => {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </Search>
+            </Search> */}
+            <SearchBar placeholder="Enter a Book Name..." data={BookData} />
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
