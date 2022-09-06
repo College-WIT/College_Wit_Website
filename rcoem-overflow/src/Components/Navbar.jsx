@@ -211,6 +211,9 @@ const ResponsiveAppBar = () => {
                     "&:hover": {
                       color: "#41D450",
                       opacity: 10,
+                    },
+                    '@media (max-width:780px)': {
+                      fontSize: 15,
                     }
                   }}>
                   {page}
@@ -250,8 +253,8 @@ const ResponsiveAppBar = () => {
             {/* </Menu> */}
 
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-              <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-                Login</Button></Link>
+              {/* <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
+                Login</Button></Link> */}
               <Link style={{ textDecoration: "None", color: "white" }} to={`/signup`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>
