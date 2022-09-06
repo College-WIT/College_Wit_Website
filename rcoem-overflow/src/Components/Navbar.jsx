@@ -17,15 +17,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import logo from "../Assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
+import SearchBar from "./SearchBar";
+import BookData from "./data.json";
+
 
 const buttons = { height: 40, width: 100, margin: '5px', backgroundColor: "#E26639", fontSize: 12 }
 const pages = ['Home', 'Questions', 'Top Contributors', 'Notes-PYQs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-
-import SearchBar from "./SearchBar";
-import BookData from "./data.json";
-
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -253,8 +251,8 @@ const ResponsiveAppBar = () => {
             {/* </Menu> */}
 
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-              {/* <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-                Login</Button></Link> */}
+              <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
+                Login</Button></Link>
               <Link style={{ textDecoration: "None", color: "white" }} to={`/signup`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>
