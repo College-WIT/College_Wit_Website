@@ -20,7 +20,7 @@ import { ButtonGroup } from '@mui/material';
 import SearchBar from "./SearchBar";
 //import SearchData from "./data.json";
 
-// var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
 
 
 
@@ -136,7 +136,7 @@ const ResponsiveAppBar = () => {
 
 
             <SearchBar placeholder="Search your Question" 
-            // data={SearchData} 
+            data={SearchData} 
             />
           </Box>
 
