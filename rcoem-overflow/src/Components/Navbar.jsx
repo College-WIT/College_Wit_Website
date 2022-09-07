@@ -133,12 +133,9 @@ const ResponsiveAppBar = () => {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search> */}
-<<<<<<< HEAD
-            <SearchBar placeholder="Enter a Book Name..." data={SearchData} />
-=======
+
 
             <SearchBar placeholder="Enter ..." data={BookData} />
->>>>>>> 9625486c3c4e7edcb36798805d32166df0caf8ef
           </Box>
 
           {/* -------------------------------------------------------------- */}
