@@ -135,7 +135,7 @@ const ResponsiveAppBar = () => {
             </Search> */}
 
 
-            <SearchBar placeholder="Enter ..." data={BookData} />
+            <SearchBar placeholder="Search your Question" data={SearchData} />
           </Box>
 
           {/* -------------------------------------------------------------- */}
