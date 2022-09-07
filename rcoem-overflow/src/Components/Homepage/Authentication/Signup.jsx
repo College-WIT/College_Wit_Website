@@ -11,7 +11,7 @@ class Signup extends Component {
 
     constructor(props) {
         super(props)
-        console.log("constructor");
+        //console.log("constructor");
         this.state = {
             name: '',
             username: '',
@@ -21,7 +21,13 @@ class Signup extends Component {
         }
     }
 
-
+    changeHandler = (event) => {
+        console.log("change handler");
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    } 
+    
     submitHandler = (e) => {
         if(this.state.confirm==this.state.password){
         e.preventDefault()
@@ -48,9 +54,6 @@ class Signup extends Component {
 
     render() {
 
-
-
-        
         const { name, username, email, password, confirm } = this.state
         return (
             <Grid sx={{
@@ -66,7 +69,7 @@ class Signup extends Component {
                     <form onSubmit={this.submitHandler}>
                         <TextField style={text} name="name" value={name} fullWidth label='Name' placeholder="Enter your name" onChange={this.changeHandler} />
                         <TextField style={text} name="username" value={username} fullWidth label='Username' placeholder="Enter your Username" onChange={this.changeHandler} />
-                        <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
+                        <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={ this.changeHandler } />
                         <TextField style={text} name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
                         <TextField style={text} name="confirm" value={confirm} fullWidth label='Confirm Password' placeholder="Confirm your password" onChange={this.changeHandler} />
 

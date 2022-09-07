@@ -18,7 +18,9 @@ import logo from "../Assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
 import SearchBar from "./SearchBar";
-import BookData from "./data.json";
+//import SearchData from "./data.json";
+
+var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
 
 
 const buttons = { height: 40, width: 100, margin: '5px', backgroundColor: "#E26639", fontSize: 12 }
@@ -120,7 +122,7 @@ const ResponsiveAppBar = () => {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search> */}
-            <SearchBar placeholder="Enter a Book Name..." data={BookData} />
+            <SearchBar placeholder="Enter a Book Name..." data={SearchData} />
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

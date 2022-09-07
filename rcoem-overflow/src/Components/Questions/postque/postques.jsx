@@ -10,6 +10,8 @@ import axios from 'axios'
 import { TextField, } from '@mui/material'
 import getCookie from '../../../hooks/getCookie'
 
+import SearchData from "../../data.json";
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   padding: theme.spacing(1),
@@ -20,7 +22,7 @@ const buttons = { height: 40,  margin: '5px', backgroundColor: "#E26639", fontSi
 const quickAccBar = ["Home", "Answered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
-var flag=false
+//var flag=false
 
 class postques extends Component {
 
@@ -60,11 +62,12 @@ submitHandler = (e) => {
     axios
         .post("https://rcoem-overflow-backend.herokuapp.com/add_question", newstate)
          .then(response => {
-          flag=true
-             console.log("Question added Successfully")
+          //flag=true
+             console.log("Question added Successfully");
+             //SearchData.push({link:"new question",title:"new question"});
          })
          .catch(error =>{
-          flag=false
+          //flag=false
              console.log(error.response)
          })
 }
