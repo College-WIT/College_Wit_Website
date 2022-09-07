@@ -7,7 +7,7 @@ import Item from '@mui/material/ListItem'
 import { BiLinkExternal } from "react-icons/bi"
 import { IoIosPeople } from "react-icons/io"
 import { BiMale, BiFemale } from 'react-icons/bi'
-import logo from "../Assets/NavLogo.png"
+import logo from "../assets/NavLogo.png"
 import "../index.css";
 
 export default function Footer() {

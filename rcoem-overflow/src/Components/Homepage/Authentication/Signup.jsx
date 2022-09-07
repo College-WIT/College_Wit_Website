@@ -26,27 +26,27 @@ class Signup extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-    } 
-    
+    }
+
     submitHandler = (e) => {
-        if(this.state.confirm==this.state.password){
-        e.preventDefault()
-       const newstate={
-            name: this.state.name,
-            user_name: this.state.username,
-         email:this.state.email,
-         password:this.state.password,
-        }
-        console.log(newstate);
-        axios
-            .post("https://rcoem-overflow-backend.herokuapp.com/register", newstate)
-             .then(response => {
-                 console.log(response)
-                 
-             })
-             .catch(error =>{
-                 console.log(error.response)
-             })
+        if (this.state.confirm == this.state.password) {
+            e.preventDefault()
+            const newstate = {
+                name: this.state.name,
+                user_name: this.state.username,
+                email: this.state.email,
+                password: this.state.password,
+            }
+            console.log(newstate);
+            axios
+                .post("https://rcoem-overflow-backend.herokuapp.com/register", newstate)
+                .then(response => {
+                    console.log(response)
+
+                })
+                .catch(error => {
+                    console.log(error.response)
+                })
 
         }
     }
@@ -69,11 +69,11 @@ class Signup extends Component {
                     <form onSubmit={this.submitHandler}>
                         <TextField style={text} name="name" value={name} fullWidth label='Name' placeholder="Enter your name" onChange={this.changeHandler} />
                         <TextField style={text} name="username" value={username} fullWidth label='Username' placeholder="Enter your Username" onChange={this.changeHandler} />
-                        <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={ this.changeHandler } />
+                        <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
                         <TextField style={text} name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
                         <TextField style={text} name="confirm" value={confirm} fullWidth label='Confirm Password' placeholder="Confirm your password" onChange={this.changeHandler} />
 
-                        <Button style={buttons} type='submit' variant='contained' color='primary'>Sign up</Button>
+                        <Button style={buttons} type='submit' variant='contained' color='primary' onClick={e => window.location.href = '/login'}>Sign up</Button>
                         {/* <Snackbar
                             open={open}
                             autoHideDuration={6000}

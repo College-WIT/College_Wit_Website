@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
-import logo from "../Assets/NavLogo.png"
+import logo from "../assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
 import SearchBar from "./SearchBar";
@@ -102,7 +102,7 @@ const ResponsiveAppBar = () => {
         <Toolbar disableGutters>
 
           {/* -----------------------------LOGO-------------------------------------- */}
-          <Box
+          {/* <Box
             component="img"
             sx={{
               height: 70,
@@ -115,7 +115,7 @@ const ResponsiveAppBar = () => {
             }}
             alt="logo img"
             src={logo}
-          />
+          /> */}
 
           {/* -------------------------------------------------------------------------- */}
 
