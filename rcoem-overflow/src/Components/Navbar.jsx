@@ -23,51 +23,54 @@ import SearchBar from "./SearchBar";
 var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
 
 
+
+
 const buttons = { height: 40, width: 100, margin: '5px', backgroundColor: "#E26639", fontSize: 12 }
 const pages = ['Home', 'Questions', 'Top Contributors', 'Notes-PYQs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+// const Search = styled('div')(({ theme }) => ({
+//   position: 'relative',
+//   borderRadius: theme.shape.borderRadius,
+//   backgroundColor: alpha(theme.palette.common.white, 0.15),
+//   '&:hover': {
+//     backgroundColor: alpha(theme.palette.common.white, 0.25),
+//   },
+//   marginLeft: 0,
+//   width: '100%',
+//   [theme.breakpoints.up('sm')]: {
+//     marginLeft: theme.spacing(1),
+//     width: 'auto',
+//   },
+// }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
+// const SearchIconWrapper = styled('div')(({ theme }) => ({
+//   padding: theme.spacing(0, 2),
+//   height: '100%',
+//   position: 'absolute',
+//   pointerEvents: 'none',
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+// }));
+
+// const StyledInputBase = styled(InputBase)(({ theme }) => ({
+//   color: 'inherit',
+//   '& .MuiInputBase-input': {
+//     padding: theme.spacing(1, 1, 1, 0),
+//     // vertical padding + font size from searchIcon
+//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+//     transition: theme.transitions.create('width'),
+//     width: '100%',
+//     [theme.breakpoints.up('sm')]: {
+//       width: '12ch',
+//       '&:focus': {
+//         width: '20ch',
+//       },
+//     },
+//   },
+// }));
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -89,13 +92,16 @@ const ResponsiveAppBar = () => {
   };
 
   return (
+
     <AppBar position="static" sx={{
       backgroundColor: '#0E0E0E',
       height: 80
-
     }}>
+
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+
+          {/* -----------------------------LOGO-------------------------------------- */}
           <Box
             component="img"
             sx={{
@@ -107,12 +113,17 @@ const ResponsiveAppBar = () => {
                 display: 'None'
               }
             }}
-
             alt="logo img"
             src={logo}
           />
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {/* -------------------------------------------------------------------------- */}
+
+
+
+          {/*----------------------------Search bar---------------------------- */}
+
+          <Box sx={{ flexGrow: 7, display: { xs: 'none', md: 'flex' } }}>
             {/* <Search>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -122,8 +133,15 @@ const ResponsiveAppBar = () => {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search> */}
+<<<<<<< HEAD
             <SearchBar placeholder="Enter a Book Name..." data={SearchData} />
+=======
+
+            <SearchBar placeholder="Enter ..." data={BookData} />
+>>>>>>> 9625486c3c4e7edcb36798805d32166df0caf8ef
           </Box>
+
+          {/* -------------------------------------------------------------- */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -166,6 +184,7 @@ const ResponsiveAppBar = () => {
                         "&:hover": {
                           color: "#41D450",
                           opacity: 10,
+                          backgroundColor: "transparent"
                         }
                       }}>
                       <Link style={{ textDecoration: "None", color: "black" }} to={`/${page}`}>
@@ -197,20 +216,27 @@ const ResponsiveAppBar = () => {
           </Typography>
 
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' },
+          }}>
             {pages.map((page) => (
-              <Link style={{ textDecoration: "None", color: "white" }} to={`/${page}`}>
+              <Link sx={{
+                textDecoration: "None", 
+                color: "white",
+              }} to={`/${page}`}>
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{
                     fontSize: 15,
-                    my: 2,
                     color: 'white',
                     display: 'block',
+                   
                     "&:hover": {
-                      color: "#41D450",
-                      opacity: 10,
+                      color: "black",
+                      backgroundColor: "white",
+
                     },
                     '@media (max-width:780px)': {
                       fontSize: 15,
@@ -253,8 +279,11 @@ const ResponsiveAppBar = () => {
             {/* </Menu> */}
 
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-              <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-                Login</Button></Link>
+            <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
+              <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}>
+                Login
+                </Link>
+                </Button>
               <Link style={{ textDecoration: "None", color: "white" }} to={`/signup`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>

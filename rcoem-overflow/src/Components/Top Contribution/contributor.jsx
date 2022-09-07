@@ -68,8 +68,8 @@ const contributor = () => {
       paddingLeft: '5%',
       paddingRight: '5%',
       paddingBottom: '5%',
-      // backgroundColor: '#353839',
-      backgroundColor: '#0E0E0E',
+      backgroundColor: 'white',
+      // backgroundColor: '#0E0E0E',
      
     }}> 
       <Grid sx={{
@@ -86,7 +86,7 @@ const contributor = () => {
         alignItems: 'center',
         width: '100%',
         borderRadius: '10px',
-        backgroundColor: '#0E0E0E',
+        // backgroundColor: '#0E0E0E',
         
         // backgroundColor: '#0cbaba',
         // backgroundColor: linearGradient('315deg', '#0cbaba 0%', '#380036 74%'),

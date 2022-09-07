@@ -30,7 +30,7 @@ function SearchBar({ placeholder, data }) {
 
   return (
     <div className="search">
-      <div className="searchInputs">
+      <div className="searchInputs" style={{marginTop:"10px"}} >
         <input
           type="text"
           placeholder={placeholder}
