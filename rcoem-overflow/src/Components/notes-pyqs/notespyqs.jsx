@@ -1,61 +1,57 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import folder from '../../Assets/folder3.svg'
+import { Box, Container } from '@mui/system';
+import Folder from './card.jsx'
+import subject from './subject';
+import { Link } from '@mui/material';
 
 class notespyqs extends Component {
 
-    state = {
-        selectedFile: null
-    };
-
-    onFileChange = event => {
-        this.setState({ selectedFile: event.target.files[0] });
-    };
-
-    onFileUpload = () => {
-        const formData = new FormData();
-        formData.append(
-            "myFile",
-            this.state.selectedFile,
-            this.state.selectedFile.name
-        );
-
-        console.log(this.state.selectedFile);
-        axios.post("api/uploadfile", formData);
-    };
-    fileData = () => {
-
-        if (this.state.selectedFile) {
-
-            return (
-                <div>
-                    <h2>File Details:</h2>
-                    <p>File Name: {this.state.selectedFile.name}</p>
-                    <p>File Type: {this.state.selectedFile.type}</p>
-                    <p>
-                        Last Modified:{" "}
-                        {this.state.selectedFile.lastModifiedDate.toDateString()}
-                    </p>
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    <br />
-                    <h5>Choose before Pressing the Upload button</h5>
-                </div>
-            );
-        }
-    };
 
     render() {
         return (
-            <Grid container justify='center'>
-                <input type="file" onChange={this.onFileChange} />
-                <button onClick={this.onFileUpload}>
-                    Upload!
-                </button>
-                {this.fileData()}
+
+            <Grid >
+                <Typography sx={{
+                    fontFamily: "monospace",
+                    fontSize: "30px",
+                    textAlign: "center",
+                    marginTop: "1%",
+                }}>Semesters</Typography>
+
+
+                <Grid container sx={{
+                    justifyContent: "center",
+                    paddingLeft: "20%",
+                    paddingRight: "20%",
+                    marginTop: "3%",
+                    marginBottom: "5%"
+                }}>
+
+                    <Grid item> 
+                    
+                    <Folder />
+                    
+                      </Grid>
+                    <Grid item><Folder /></Grid>
+                    <Grid item><Folder /></Grid>
+                    <Grid item><Folder /></Grid>
+                    <Grid item><Folder /></Grid>
+                    <Grid item><Folder /></Grid>
+                    <Grid item><Folder /></Grid>
+                    <Grid item><Folder /></Grid>
+
+
+                </Grid>
+
             </Grid>
         );
     }

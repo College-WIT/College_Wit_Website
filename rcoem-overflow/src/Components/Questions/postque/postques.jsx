@@ -10,7 +10,7 @@ import axios from 'axios'
 import { TextField, } from '@mui/material'
 import getCookie from '../../../hooks/getCookie'
 
-import SearchData from "../../data.json";
+// import SearchData from "../../data.json";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

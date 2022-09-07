@@ -14,13 +14,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
-import logo from "../assets/NavLogo.png"
+import logo from "../Assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
 import SearchBar from "./SearchBar";
 //import SearchData from "./data.json";
 
-var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+// var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
 
 
 
@@ -135,7 +135,9 @@ const ResponsiveAppBar = () => {
             </Search> */}
 
 
-            <SearchBar placeholder="Search your Question" data={SearchData} />
+            <SearchBar placeholder="Search your Question" 
+            // data={SearchData} 
+            />
           </Box>
 
           {/* -------------------------------------------------------------- */}
