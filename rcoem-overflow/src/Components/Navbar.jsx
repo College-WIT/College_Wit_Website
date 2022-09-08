@@ -283,7 +283,8 @@ const ResponsiveAppBar = () => {
                 Login
                 </Link>
                 </Button>
-              <Link style={{ textDecoration: "None", color: "white" }} to={`/signup`}><Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
+              <Link style={{ textDecoration: "None", color: "white" }} to={`/signup`}>
+                <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>
 
