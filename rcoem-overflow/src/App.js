@@ -12,7 +12,6 @@ import Postque from './Components/Questions/postque/postque'
 import Answered from './Components/Questions/Answered/answer'
 import Unanswered from './Components/Questions/Unanswered/unanswered'
 import Postans from './Components/Questions/postans/postans'
-import Subject from './Components/notes-pyqs/subject'
 
 const App = () => {
   return (
@@ -31,7 +30,6 @@ const App = () => {
         <Route path="/Answered" element={<Answered/>} />
         <Route path="/Unanswered" element={<Unanswered/>} />
         <Route path="/Post-an-answer" element={<Postans/>} />
-        <Route path="/subjects" element={<Subject/>} />
 
       </Routes>
     </div>

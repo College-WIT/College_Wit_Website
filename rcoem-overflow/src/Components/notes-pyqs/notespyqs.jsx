@@ -10,52 +10,74 @@ import Typography from '@mui/material/Typography';
 import folder from '../../Assets/folder3.svg'
 import { Box, Container } from '@mui/system';
 import Folder from './card.jsx'
-import subject from './subject';
 import { Link } from 'react-router-dom';
 import '../../App'
 
+const notespyqs = () => {
+    const data = [
+        {
+            id: 1,
+            title: "Semester-1",
+        },
+        {
+            id: 2,
+            title: "Semester-2",
+        },
+        {
+            id: 3,
+            title: "Semester-3",
+        },
+        {
+            id: 4,
+            title: "Semester-4",
+        },
+        {
+            id: 5,
+            title: "Semester-5",
+        },
+        {
+            id: 6,
+            title: "Semester-6",
+        },
+        {
+            id: 7,
+            title: "Semester-7",
+        },
+        {
+            id: 8,
+            title: "Semester-8",
+        },
+    ];
+    return (
 
-class Notespyqs extends Component {
+        <Grid >
+            <Typography sx={{
+                fontFamily: "monospace",
+                fontSize: "30px",
+                textAlign: "center",
+                marginTop: "1%",
+            }}>Semesters</Typography>
 
 
-    render() {
-        return (
-
-            <Grid >
-                <Typography sx={{
-                    fontFamily: "monospace",
-                    fontSize: "30px",
-                    textAlign: "center",
-                    marginTop: "1%",
-                }}>Semesters</Typography>
-
-
-                <Grid container sx={{
-                    justifyContent: "center",
-                    paddingLeft: "20%",
-                    paddingRight: "20%",
-                    marginTop: "3%",
-                    marginBottom: "5%"
-                }}>
-
-                    <Link style={{ textDecoration: "None", color: "white" }} to={`/subjects`}>
-                    <Grid item><Folder /> </Grid>
+            <Grid container sx={{
+                justifyContent: "center",
+                paddingLeft: "20%",
+                paddingRight: "20%",
+                marginTop: "3%",
+                marginBottom: "5%"
+            }}>
+                {data.map((d) => (
+                    <Link style={{ textDecoration: "None", color: "white" }} to={"/" + d.title}>
+                        <Grid item><Folder sem={d.title} /> </Grid>
                     </Link>
-                    
-                    <Grid item><Folder /></Grid>
-                    <Grid item><Folder /></Grid>
-                    <Grid item><Folder /></Grid>
-                    <Grid item><Folder /></Grid>
-                    <Grid item><Folder /></Grid>
-                    <Grid item><Folder /></Grid>
-                    <Grid item><Folder /></Grid>
+                ))}
 
-
-                </Grid>
 
             </Grid>
-        );
-    }
+
+        </Grid>
+    );
 }
 
-export default Notespyqs;
+
+export default notespyqs;

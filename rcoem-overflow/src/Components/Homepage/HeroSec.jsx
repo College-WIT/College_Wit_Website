@@ -8,10 +8,20 @@ import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import "../../index.css";
 // import { FcSearch } from 'react-icons/fc'
+import * as animationData from '../../Assets/searchLottie.json'
+import Lottie from 'react-lottie';
 
 
 
 export default function Boxes() {
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
     return (
         <div>
             <Grid container justifyContent="center"
@@ -66,39 +76,27 @@ export default function Boxes() {
                                 justifyContent: "center"
 
                             }}>
-                                <Image style={{
-                                    paddingTop: 5,
-                                }} className='search' src={search} />
-                                <span
-                                    style={{
-                                        fontFamily: 'monospace',
-                                        color: "white",
-                                        textDecoration: 'none',
-                                        cursor: 'pointer',
-                                        fontSize: 25,
-                                        paddingTop: 5,
+                                <Lottie options={defaultOptions}
+                                    height='127px'
+                                    width='50%'
+                                />
+                                <br />
 
-                                    }}>Search</span>
                             </div>
                             {/* <div className='imageDiv'>
                         <Image className='search' src={search} />
                     </div> */}
                             <Grid container justifyContent="center">
-                                {/* <Typography variant="body1" component='a' href='#' sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            color: 'white',
-                            textDecoration: 'none',
-                            cursor: 'pointer',
-                            paddingTop: 2,
-                            
-                            "&:hover": {
-                                color: "#41D450",
-                                opacity: 10,
-                            }
-                        }}>
-                            Search Question
-                        </Typography> */}
+                                <Typography variant="h5" sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    color: 'white',
+                                    textDecoration: 'none',
+                                    cursor: 'pointer',
+                                    fontFamily: 'monospace',
+                                }}>
+                                    Search Question
+                                </Typography>
                                 <Typography variant="h6" sx={{
                                     width: 400,
                                     paddingTop: 4,
