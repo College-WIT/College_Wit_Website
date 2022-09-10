@@ -34,8 +34,8 @@ export default function Contributors() {
                     <Grid item xs={5} >
                     <Item>
                         <CardHeader sx={{
-                            alignItems: 'center',
-                            textAlign: 'center',}}
+                            alignItems: 'left',
+                            textAlign: 'left',}}
                             avatar={
                                 <Avatar
                                 sx={{
