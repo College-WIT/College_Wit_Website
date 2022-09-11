@@ -1,11 +1,14 @@
-import React from 'react'
-import { Pie } from 'recharts';
-import { PieChart } from 'recharts';
-import { ResponsiveContainer } from 'recharts';
-import { Tooltip } from 'recharts';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
-import { Grid, Button } from '@mui/material';
-
+import * as React from 'react';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import Divider from '@mui/material/Divider';
+import { Grid, Typography } from '@mui/material';
 
 const contributor = () => {
   const data = [
@@ -62,59 +65,56 @@ const contributor = () => {
   ];
 
   return (
-    <Grid sx={{
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingLeft: '5%',
-      paddingRight: '5%',
-      paddingBottom: '5%',
-      backgroundColor: 'white',
-      // backgroundColor: '#0E0E0E',
-     
-    }}> 
-      <Grid sx={{
-        paddingBottom: '2%',
-        paddingTop: '2%',
-        color: 'white',
-      }} > <h2 align='center'>TOP CONTRIBUTORS</h2></Grid>
 
-      {/* ****************BARCHART*********************** */}
-      <Grid sx={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '5%',
-        alignItems: 'center',
-        width: '100%',
-        borderRadius: '10px',
-        // backgroundColor: '#0E0E0E',
-        
-        // backgroundColor: '#0cbaba',
-        // backgroundColor: linearGradient('315deg', '#0cbaba 0%', '#380036 74%'),
-      }}>
-        <BarChart
-          sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          width={1000}
-          height={400}
-          data={data}
-          margin={{right: 30, left: 30, bottom: 5 }}
-          barSize={20}
-        >
-          <XAxis dataKey="name" scale="point" padding={{ left: 40, right: 10 }} />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="points" fill="#E26639" background={{ fill: '#eee' }} />
-        </BarChart>
-      </Grid>
-      {/* ----------------------------------------------------------------------- */}
+    <Grid container sx={{
+      justifyContent:"center",
+      padding:"30px",
+      border:"3px solid black"
+    }}>
 
-      {/* ------------------------------LEADERBOARD------------------------------ */}
+    
+    <List
+    sx={{
+      width: '60%',
+      borderRadius:"10px",
+      bgcolor: 'background.paper',
+      border:"1px solid black"
+    }}
+  >
+    <ListItem>
+      <ListItemAvatar>
+      <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.PDYcGdkYLGK7JNULCKd9jgHaHa?pid=ImgDet&rs=1" />
+      </ListItemAvatar>
+      <Typography  sx={{
+        fontFamily:"monospace"
+      }}>Lorem Ipsum
+      </Typography>
+    </ListItem>
 
-      </Grid>
+    <Divider variant="inset" component="li" />
+    
+    <ListItem>
+      <ListItemAvatar>
+      <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.LWXAxMTEcHfBztD0iaYSzgHaHP?pid=ImgDet&rs=1" />
+      </ListItemAvatar>
+      <Typography sx={{
+        fontFamily:"monospace"
+      }}>Lorem Ipsum</Typography>
+    </ListItem>
+
+    <Divider variant="inset" component="li" />
+
+    <ListItem>
+      <ListItemAvatar>
+      <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.PDYcGdkYLGK7JNULCKd9jgHaHa?pid=ImgDet&rs=1" />
+      </ListItemAvatar>
+      <Typography  sx={{
+        fontFamily:"monospace"
+      }} >Lorem Ipsum</Typography>
+    </ListItem>
+
+  </List>
+  </Grid>
   )
 }
 
