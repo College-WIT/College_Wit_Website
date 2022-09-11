@@ -11,7 +11,7 @@ import Divider from '@mui/material/Divider';
 import { Grid, Typography } from '@mui/material';
 import * as animationData from '../../Assets/leader.json'
 import Lottie from 'react-lottie';
-
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const contributor = () => {
 
@@ -104,7 +104,10 @@ const contributor = () => {
               fontSize: "20px"
             }}
             >
-              50 Points
+              50 <AutoAwesomeIcon sx={{
+                color:"#ffd700",
+                fontSize:"30px"
+              }}/>
             </Typography></Typography>
         </ListItem>
 
