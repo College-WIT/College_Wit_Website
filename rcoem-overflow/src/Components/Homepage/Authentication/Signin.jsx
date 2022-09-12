@@ -6,7 +6,7 @@ import { Grid, Paper, TextField, Button, Typography, Link } from '@mui/material'
 import setCookie from '../../../hooks/setCookie'
 import getCookie from '../../../hooks/getCookie'
 import removeCookie from '../../../hooks/removeCookie'
-
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
 const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
 const text = { padding: 2 }
@@ -46,6 +46,8 @@ class Signin extends Component {
         removeCookie('login');
         setCookie('login', JSON.stringify(newstate));
         window.location = this.href;
+        const navigate = useNavigate();
+        navigate(-1);
         //console.log(JSON.parse(getCookie('login')).email);
         //  var username=JSON.parse(getCookie('login')).email;
         //  var newusername="";
@@ -58,6 +60,7 @@ class Signin extends Component {
         //  }
         //var datacheck=JSON.parse(getCookie('login'));
         //console.log(newusername);
+        //onClick={e => window.location.href = '/Questions'}
       })
       .catch(error => {
         // console.log(error.response)
@@ -82,7 +85,7 @@ class Signin extends Component {
           <form onSubmit={this.submitHandler}>
             <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
             <TextField style={text} name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
-            <Button style={buttons} type='submit' variant='contained' color='primary' onClick={e => window.location.href = '/Questions'}>Login</Button>
+            <Button style={buttons} type='submit' variant='contained' color='primary'>Login</Button>
           </form>
           <Typography >
             <Link href="#" >
