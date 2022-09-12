@@ -87,16 +87,7 @@ export default function Boxes() {
                         <Image className='search' src={search} />
                     </div> */}
                             <Grid container justifyContent="center">
-                                <Typography variant="h5" sx={{
-                                    mr: 2,
-                                    display: { xs: 'none', md: 'flex' },
-                                    color: 'white',
-                                    textDecoration: 'none',
-                                    cursor: 'pointer',
-                                    fontFamily: 'monospace',
-                                }}>
-                                    Search Question
-                                </Typography>
+                               
                                 <Typography variant="h6" sx={{
                                     width: 400,
                                     paddingTop: 4,
@@ -108,7 +99,7 @@ export default function Boxes() {
 
                             </Grid>
                             <Grid container justifyContent="center" sx={{
-                                paddingTop: 2
+                               paddingTop:2
                             }}>
                                 <Button className='exploreButton' variant='contained' startIcon={<ExploreIcon />} sx={{
                                     backgroundColor: '#20D867',

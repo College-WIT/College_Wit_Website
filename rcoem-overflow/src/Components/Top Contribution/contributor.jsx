@@ -1,120 +1,279 @@
-import React from 'react'
-import { Pie } from 'recharts';
-import { PieChart } from 'recharts';
-import { ResponsiveContainer } from 'recharts';
-import { Tooltip } from 'recharts';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
-import { Grid, Button } from '@mui/material';
-
+import * as React from 'react';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import Divider from '@mui/material/Divider';
+import { Grid, Typography } from '@mui/material';
+import * as animationData from '../../Assets/leader.json'
+import Lottie from 'react-lottie';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const contributor = () => {
-  const data = [
-    {
-      name: 'User1',
-      rank: 1,
-      points: 250
-    },
-    {
-      name: 'User2',
-      rank: 2,
-      points: 200
-    },
-    {
-      name: 'User3',
-      rank: 3,
-      points: 150
-    },
-    {
-      name: 'User4',
-      rank: 4,
-      points: 100
-    },
-    {
-      name: 'User5',
-      rank: 5,
-      points: 50
-    },
-    {
-      name: 'User6',
-      rank: 6,
-      points: 40
-    },
-    {
-      name: 'User7',
-      rank: 7,
-      points: 30
-    },
-    {
-      name: 'User8',
-      rank: 8,
-      points: 20
-    },
-    {
-      name: 'User9',
-      rank: 9,
-      points: 10
-    },
-    {
-      name: 'User10',
-      rank: 10,
-      points: 5
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
     }
-  ];
+  };
 
   return (
-    <Grid sx={{
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingLeft: '5%',
-      paddingRight: '5%',
-      paddingBottom: '5%',
-      backgroundColor: 'white',
-      // backgroundColor: '#0E0E0E',
-     
-    }}> 
-      <Grid sx={{
-        paddingBottom: '2%',
-        paddingTop: '2%',
-        color: 'white',
-      }} > <h2 align='center'>TOP CONTRIBUTORS</h2></Grid>
 
-      {/* ****************BARCHART*********************** */}
+    <Grid container sx={{
+      justifyContent: "center",
+      border: "3px solid black"
+    }}>
+
       <Grid sx={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '5%',
-        alignItems: 'center',
-        width: '100%',
-        borderRadius: '10px',
-        // backgroundColor: '#0E0E0E',
-        
-        // backgroundColor: '#0cbaba',
-        // backgroundColor: linearGradient('315deg', '#0cbaba 0%', '#380036 74%'),
+        padding: "0px",
+
       }}>
-        <BarChart
-          sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          width={1000}
-          height={400}
-          data={data}
-          margin={{right: 30, left: 30, bottom: 5 }}
-          barSize={20}
+        <Lottie options={defaultOptions}
+          height='70%'
+          width='70%'
+        />
+
+        <Typography sx={{
+          alignItems: "center",
+          textAlign: "center",
+          fontFamily: "monospace",
+          paddingTop: "20px",
+          fontSize: "50px"
+        }}
         >
-          <XAxis dataKey="name" scale="point" padding={{ left: 40, right: 10 }} />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="points" fill="#E26639" background={{ fill: '#eee' }} />
-        </BarChart>
+          Leaderboard
+        </Typography>
       </Grid>
-      {/* ----------------------------------------------------------------------- */}
 
-      {/* ------------------------------LEADERBOARD------------------------------ */}
+      <List
+        sx={{
+          position: "relative",
+          top: "-40px",
+          width: '60%',
+          borderRadius: "10px",
+          bgcolor: 'background.paper',
+          border: "1px solid black"
+        }}
+      >
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard"
+              src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }}>Lorem Ipsum
+            <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography>
+          </Typography>
+        </ListItem>
 
-      </Grid>
+        <Divider variant="inset" component="li" />
+
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.LWXAxMTEcHfBztD0iaYSzgHaHP?pid=ImgDet&rs=1" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }}>Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 <AutoAwesomeIcon sx={{
+                color:"#ffd700",
+                fontSize:"30px"
+              }}/>
+            </Typography></Typography>
+        </ListItem>
+
+        <Divider variant="inset" component="li" />
+
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.bSDSLgaJWARNzNTKh3CjDAHaHa?pid=ImgDet&rs=1" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }} >Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography></Typography>
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard"
+              src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }}>Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography>
+          </Typography>
+        </ListItem>
+
+        <Divider variant="inset" component="li" />
+
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.LWXAxMTEcHfBztD0iaYSzgHaHP?pid=ImgDet&rs=1" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }}>Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography></Typography>
+        </ListItem>
+
+        <Divider variant="inset" component="li" />
+
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.bSDSLgaJWARNzNTKh3CjDAHaHa?pid=ImgDet&rs=1" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }} >Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography></Typography>
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard"
+              src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }}>Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography>
+          </Typography>
+        </ListItem>
+
+        <Divider variant="inset" component="li" />
+
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.LWXAxMTEcHfBztD0iaYSzgHaHP?pid=ImgDet&rs=1" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }}>Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography></Typography>
+        </ListItem>
+
+        <Divider variant="inset" component="li" />
+
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar alt="Travis Howard" src="https://th.bing.com/th/id/OIP.bSDSLgaJWARNzNTKh3CjDAHaHa?pid=ImgDet&rs=1" />
+          </ListItemAvatar>
+          <Typography sx={{
+            fontFamily: "monospace"
+          }} >Lorem Ipsum
+          <Typography sx={{
+              position:"relative",
+              top:"-32px",
+              left:"500px",
+              // textAlign:"right",
+              fontFamily: "monospace",
+              // paddingTop: "20px",
+              fontSize: "20px"
+            }}
+            >
+              50 Points
+            </Typography></Typography>
+        </ListItem>
+        {/* <Divider variant="inset" component="li" /> */}
+      </List>
+    </Grid>
   )
 }
 
