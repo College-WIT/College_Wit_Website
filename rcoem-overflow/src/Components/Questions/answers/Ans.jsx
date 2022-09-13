@@ -85,7 +85,7 @@ const Ans = () => {
            <Grid container spacing={2}>
 
           {/* --------------------- Left Quick Access Bar ------------------------------------ */}
-                <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
+                <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
                     <Item sx={{ border: 1 }}>
                         Quick Access
                         {quickAccBar.map((content) => (
@@ -135,7 +135,7 @@ const Ans = () => {
 
 {/* -----------------------------------Middle Section (Questions) ------------------------------------------------ */}
 
-                <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
+                <Grid item xl={8} lg={8} md={8} sm={8} xs={12}>
                     <Grid item >
                         <Item >
                             {dummyQue.map((content) => (
@@ -207,7 +207,7 @@ const Ans = () => {
 
 
                 </Grid>
-                <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
+                <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
 
                     <Item sx={{ border: 1 }}>Tags
                         {queTags.map((content) => (

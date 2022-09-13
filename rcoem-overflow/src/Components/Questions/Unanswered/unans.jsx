@@ -58,7 +58,7 @@ class unans extends Component {
                 {/* ********************Left bar******************************************************* */}
 
                 <Grid container spacing={2}>
-                    <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
+                    <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
                         <Item sx={{ border: 1 }}>Quick Access
                             {quickAccBar.map((content) => (
                                 <Grid sx={{
@@ -105,7 +105,7 @@ class unans extends Component {
                     </Grid>
 
                     {/* ************************************ middle section ******************************************************* */}
-                    <Grid item xl={7} lg={8} md={8} sm={8} xs={12}>
+                    <Grid item xl={8} lg={8} md={8} sm={8} xs={12}>
                         <Grid item >
                             <Item>{QuestionsData.map((content) => (
                                 <Box component="span" sx={{ p: 2 }} >
@@ -145,7 +145,7 @@ class unans extends Component {
 
 
                     </Grid>
-                    <Grid item xl={3} lg={2} md={2} sm={2} xs={12}>
+                    <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
 
                         <Item sx={{ border: 1 }}>Tags
                             {queTags.map((content) => (
