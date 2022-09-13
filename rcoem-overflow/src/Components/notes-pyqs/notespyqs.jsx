@@ -1,14 +1,6 @@
-import axios from 'axios';
-import React, { Component } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import folder from '../../Assets/folder3.svg'
-import { Box, Container } from '@mui/system';
 import Folder from './card.jsx'
 import { Link } from 'react-router-dom';
 import '../../App'
@@ -17,35 +9,35 @@ const notespyqs = () => {
     const data = [
         {
             id: 1,
-            title: "Semester-1",
+            title: "Semester_1",
         },
         {
             id: 2,
-            title: "Semester-2",
+            title: "Semester_2",
         },
         {
             id: 3,
-            title: "Semester-3",
+            title: "Semester_3",
         },
         {
             id: 4,
-            title: "Semester-4",
+            title: "Semester_4",
         },
         {
             id: 5,
-            title: "Semester-5",
+            title: "Semester_5",
         },
         {
             id: 6,
-            title: "Semester-6",
+            title: "Semester_6",
         },
         {
             id: 7,
-            title: "Semester-7",
+            title: "Semester_7",
         },
         {
             id: 8,
-            title: "Semester-8",
+            title: "Semester_8",
         },
     ];
     return (

@@ -12,6 +12,8 @@ import Postque from './Components/Questions/postque/postque'
 import Answered from './Components/Questions/Answered/answer'
 import Unanswered from './Components/Questions/Unanswered/unanswered'
 import Postans from './Components/Questions/postans/postans'
+import Semester_1 from './Components/notes-pyqs/Sems/Semester 1/Semester-1';
+import Chemistry from './Components/notes-pyqs/Sems/Semester 1/Chemistry';
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/Unanswered" element={<Unanswered/>} />
         <Route path="/Post-an-answer" element={<Postans/>} />
 
+        <Route path="/Semester_1" element={<Semester_1/>} />
+        <Route path="/Chemistry" element={<Chemistry/>} />
       </Routes>
     </div>
   )

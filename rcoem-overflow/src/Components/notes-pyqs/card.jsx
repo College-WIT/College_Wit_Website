@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import folder from '../../Assets/folder3.svg'
-import { Grid, Link } from '@mui/material';
+import { Grid } from '@mui/material';
 import * as animationData from '../../Assets/folderLottie.json'
 import Lottie from 'react-lottie';
 
@@ -24,8 +21,8 @@ const card = (props) => {
     return (
         <div>
             <Card sx={{
-                width: "150px",
-                height: "180px",
+                width: "170px",
+                height: "220px",
                 margin: "10px"
 
             }}>
