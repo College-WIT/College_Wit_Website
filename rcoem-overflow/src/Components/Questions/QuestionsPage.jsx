@@ -63,7 +63,7 @@ class QuestionsPages extends Component {
 
                 {/* ----------------------------QUICK ACCESS------------------------------ */}
                 <Grid container spacing={2}>
-                    <Grid item xl={3} lg={2} md={2} sm={2} xs={2}>
+                    <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
                         <Item>Quick Access
                             {quickAccBar.map((content) => (
                                 <Grid sx={{
@@ -113,7 +113,7 @@ class QuestionsPages extends Component {
                     {/* ------------------------------------Questions------------------------------------- */}
 
 
-                    <Grid item xl={7} lg={8} md={8} sm={8} xs={8}>
+                    <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
                         <Grid item >
                             <Item>{QuestionsData.map((content) => (
                                 <Box component="span" sx={{ p: 2 }} >
@@ -175,7 +175,7 @@ class QuestionsPages extends Component {
 
                     {/* --------------------------------TAGS SECTION--------------------------------------------*/}
 
-                    <Grid item xl={3} lg={2} md={2} sm={2} xs={2}>
+                    <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
                         <Item> Tags {queTags.map((content) => (
                             <Grid sx={{ padding: 1 }}>
                                 <Button sx={{
