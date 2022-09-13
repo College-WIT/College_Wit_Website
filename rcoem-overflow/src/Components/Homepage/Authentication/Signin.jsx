@@ -45,9 +45,9 @@ class Signin extends Component {
         console.log("LOGGED IN")
         removeCookie('login');
         setCookie('login', JSON.stringify(newstate));
-        window.location = this.href;
-        const navigate = useNavigate();
-        navigate(-1);
+        // window.location = this.href;
+        // const navigate = useNavigate();
+        // navigate(-1);
         //console.log(JSON.parse(getCookie('login')).email);
         //  var username=JSON.parse(getCookie('login')).email;
         //  var newusername="";
@@ -64,7 +64,8 @@ class Signin extends Component {
       })
       .catch(error => {
         // console.log(error.response)
-        console.log("ERROR")
+        //console.log("ERROR")
+        alert(error.response.data);
       })
     e.preventDefault()
   }

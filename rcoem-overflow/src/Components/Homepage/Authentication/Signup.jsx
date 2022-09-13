@@ -42,12 +42,19 @@ class Signup extends Component {
                 .post("https://rcoem-overflow-backend.herokuapp.com/register", newstate)
                 .then(response => {
                     console.log(response)
-
+                    alert("User Registered Successfully");
                 })
                 .catch(error => {
                     console.log(error.response)
+                    if(error.response.data=="INVALID SERIALIZED DATA"){
+                        alert("Invalid Email");
+                    }
+                    alert(error.response.data);
                 })
 
+        }
+        else{
+            alert("Password Mismastched");
         }
     }
 
@@ -73,7 +80,7 @@ class Signup extends Component {
                         <TextField style={text} name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
                         <TextField style={text} name="confirm" value={confirm} fullWidth label='Confirm Password' placeholder="Confirm your password" onChange={this.changeHandler} />
 
-                        <Button style={buttons} type='submit' variant='contained' color='primary' onClick={e => window.location.href = '/login'}>Sign up</Button>
+                        <Button style={buttons} type='submit' variant='contained' color='primary'>Sign up</Button>
                         {/* <Snackbar
                             open={open}
                             autoHideDuration={6000}

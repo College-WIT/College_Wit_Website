@@ -38,7 +38,7 @@ const dummyQue = [
 
 const Ans = () => {
     const { que } = useParams();
-    console.log(que)
+    //console.log(que)
     var qq = que + "?";
     var questionD = "";
     var get = 0;

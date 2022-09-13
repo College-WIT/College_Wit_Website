@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Postans from "./postanswer";
 
 export default function unanswered() {
+  //console.log(props.quest_check);
   return (
     <div className="unanswered">
       <ResponsiveAppBar />
