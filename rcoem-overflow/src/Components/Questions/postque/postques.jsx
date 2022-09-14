@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
-const buttons = { height: 40,  margin: '5px', backgroundColor: "#E26639", fontSize: 15 }
+const buttons = { height: 40, margin: '5px', backgroundColor: "#E26639", fontSize: 15 }
 const quickAccBar = ["Home", "Answered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
@@ -30,56 +30,56 @@ class postques extends Component {
   constructor(props) {
     super(props)
     this.state = {
-         username: JSON.parse(getCookie('login')).email,
-         password: JSON.parse(getCookie('login')).password,
-         question:'',
+      username: JSON.parse(getCookie('login')).email,
+      password: JSON.parse(getCookie('login')).password,
+      question: '',
     }
-}
+  }
 
-changeHandler = (event) => {
+  changeHandler = (event) => {
     this.setState({
-        [event.target.name]: event.target.value
+      [event.target.name]: event.target.value
     })
-} 
+  }
 
-submitHandler = (e) => {
+  submitHandler = (e) => {
     e.preventDefault()
-    var username=this.state.username;
-    var newusername="";
-    for (var i = 0; i<username.length; i++){
-      if ( username.charAt(i) == '@' ) {
-          break;
+    var username = this.state.username;
+    var newusername = "";
+    for (var i = 0; i < username.length; i++) {
+      if (username.charAt(i) == '@') {
+        break;
       }
-      var chars=username.charAt(i);
-      newusername+=chars;
+      var chars = username.charAt(i);
+      newusername += chars;
     }
-    var newstate={
-        username:newusername,
-        password:this.state.password,
-        question:this.state.question
+    var newstate = {
+      username: newusername,
+      password: this.state.password,
+      question: this.state.question
     }
     console.log(newstate);
     axios
-        .post("https://rcoem-overflow-backend.herokuapp.com/add_question", newstate)
-         .then(response => {
-          //flag=true
-             console.log("Question added Successfully");
-             //SearchData.push({link:"new question",title:"new question"});
-         })
-         .catch(error =>{
-          //flag=false
-             console.log(error.response)
-         })
-}
+      .post("https://rcoem-overflow-backend.herokuapp.com/add_question", newstate)
+      .then(response => {
+        //flag=true
+        console.log("Question added Successfully");
+        //SearchData.push({link:"new question",title:"new question"});
+      })
+      .catch(error => {
+        //flag=false
+        console.log(error.response)
+      })
+  }
 
   render() {
-    const {question} = this.state
+    const { question } = this.state
     return (
       <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
         {/* ----------------------------QUICK ACCESS------------------------------ */}
         <Grid container spacing={2}>
-          <Grid item xl={3} lg={2} md={2} sm={2} xs={2}>
+          <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
             <Item>Quick Access
               {quickAccBar.map((content) => (
                 <Grid sx={{
@@ -129,28 +129,28 @@ submitHandler = (e) => {
           {/* ------------------------------------Questions------------------------------------- */}
 
 
-          <Grid item xl={7} lg={8} md={8} sm={8} xs={8}>
+          <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
             <Grid >
               <Paper style={paperStyle}>
                 <Grid align='center'>
                   <h2>Post a Question</h2>
                 </Grid >
                 <form onSubmit={this.submitHandler}>
-                {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
-                <TextField multiline rows={6} label='Question' type="text" name="question" value={question} placeholder="Question" onChange={ this.changeHandler } fullWidth required/>
-               {/* <Grid alig sx={{padding:1,alignContent:'center'}}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler }/>
+                  {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
+                  <TextField multiline rows={6} label='Question' type="text" name="question" value={question} placeholder="Question" onChange={this.changeHandler} fullWidth required />
+                  {/* <Grid alig sx={{padding:1,alignContent:'center'}}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler }/>
                 <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler }/></Grid> */}
-               <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
-                <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
+                  <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
+                    <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
                 </form>
-                  {/* {flag ? <h2>Question added Successfully</h2> : <h2></h2>} */}
+                {/* {flag ? <h2>Question added Successfully</h2> : <h2></h2>} */}
               </Paper>
             </Grid>
           </Grid>
 
           {/* --------------------------------TAGS SECTION--------------------------------------------*/}
 
-          <Grid item xl={3} lg={2} md={2} sm={2} xs={2}>
+          <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
             <Item> Tags {queTags.map((content) => (
               <Grid sx={{ padding: 1 }}>
                 <Button sx={{

@@ -46,14 +46,14 @@ class Signup extends Component {
                 })
                 .catch(error => {
                     console.log(error.response)
-                    if(error.response.data=="INVALID SERIALIZED DATA"){
+                    if (error.response.data == "INVALID SERIALIZED DATA") {
                         alert("Invalid Email");
                     }
                     alert(error.response.data);
                 })
 
         }
-        else{
+        else {
             alert("Password Mismastched");
         }
     }
