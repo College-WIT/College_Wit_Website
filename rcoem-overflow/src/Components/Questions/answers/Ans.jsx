@@ -14,6 +14,7 @@ import { fontSize } from '@mui/system';
 import { GoArrowRight } from 'react-icons/go'
 import {RiQuestionnaireFill} from 'react-icons/ri'
 import './Answers.css'
+import getCookie from '../../../hooks/getCookie';
 // ------------------------------------------------------------------------------------------
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -22,6 +23,15 @@ const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
+
+var cookie=getCookie('login');
+var red_link='/Post-a-question';
+var red_link2='/Post-an-answer';
+if(cookie==null){
+    red_link='/login';
+    red_link2='/login';
+    console.log(red_link);
+}
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
@@ -155,7 +165,7 @@ const Ans = () => {
                                             opacity: 10,
                                         }
                                     }} variant="contained" disableElevation>
-                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-an-answer`}>
+                                        <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
                                             Post an Answer
                                         </Link>
                                     </Button>

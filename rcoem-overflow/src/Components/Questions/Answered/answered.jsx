@@ -12,6 +12,7 @@ import Stack from '@mui/material/Stack';
 import { useLocation, useParams } from "react-router-dom";
 import { fontSize } from '@mui/system';
 import { GoArrowRight } from 'react-icons/go'
+import getCookie from '../../../hooks/getCookie';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -20,6 +21,13 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
+
+var cookie=getCookie('login');
+var red_link='/Post-a-question';
+if(cookie==null){
+    red_link='/login';
+    console.log(red_link);
+}
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
@@ -121,7 +129,7 @@ const answered = () => {
                              opacity: 10,
                          }
                      }} variant="contained" disableElevation>
-                         <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-a-question`}>
+                         <Link style={{ textDecoration: "None", color: "white" }} to={{red_link}}>
                              Post a question
                          </Link>
                      </Button>

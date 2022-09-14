@@ -11,6 +11,8 @@ import { Component } from 'react'
 import axios from 'axios'
 import { Avatar } from '@mui/material';
 import { CardHeader } from '@mui/material';
+import getCookie from '../../hooks/getCookie';
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -21,6 +23,14 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
+ var cookie=getCookie('login');
+ var red_link='/Post-a-question';
+ var red_link2='/Post-an-answer';
+ if(cookie==null){
+     red_link='/login';
+     red_link2='/login';
+     console.log(red_link);
+ }
 
 
 class QuestionsPages extends Component {
@@ -208,7 +218,7 @@ class QuestionsPages extends Component {
                                     }
                                 }} variant="contained" disableElevation>
 
-                                    <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-a-question`}>
+                                    <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
                                         Post a question
                                     </Link>
 
@@ -226,7 +236,7 @@ class QuestionsPages extends Component {
                                             opacity: 10,
                                         }
                                     }} variant="contained" disableElevation>
-                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-an-answer`}>
+                                        <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
                                             Post an Answer
                                         </Link>
                                     </Button>

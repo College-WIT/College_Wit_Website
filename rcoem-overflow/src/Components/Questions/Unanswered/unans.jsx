@@ -11,6 +11,18 @@ import { Component } from 'react'
 import axios from 'axios'
 import { Avatar } from '@mui/material';
 import { CardHeader } from '@mui/material';
+import getCookie from '../../../hooks/getCookie';
+
+
+var cookie=getCookie('login');
+var red_link='/Post-a-question';
+var red_link2='/Post-an-answer';
+if(cookie==null){
+    red_link='/login';
+    red_link2='/login';
+    console.log(red_link);
+}
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -128,10 +140,7 @@ class unans extends Component {
                                         {content.question}</Typography>
                                     <Stack direction="row" spacing={2} >
                                         <Item elevation={0}>
-                                            <Link style={{ textDecoration: "None", color: "black" }} to={{
-                                                pathname: `/Post-an-answer`,
-                                               
-                                            }}>
+                                            <Link style={{ textDecoration: "None", color: "black" }} to={red_link2}>
                                                 <Button variant="outlined">Add Answer </Button>
                                             </Link>
                                         </Item>
