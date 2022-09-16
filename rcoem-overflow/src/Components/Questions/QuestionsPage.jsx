@@ -22,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
-const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
+const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
  var cookie=getCookie('login');
  var red_link='/Post-a-question';
  var red_link2='/Post-an-answer';
@@ -31,6 +31,17 @@ const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
      red_link2='/login';
      console.log(red_link);
  }
+
+ ///// TAGS FUNCTION CHECK
+var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+var tag="how";
+var FilteredData=[]
+const searchWord = tag;
+SearchData.filter((value) => {
+   if(value.question.toLowerCase().includes(searchWord.toLowerCase())===true){
+       console.log(value.question); 
+    }
+});
 
 
 class QuestionsPages extends Component {
@@ -218,7 +229,7 @@ class QuestionsPages extends Component {
                                     }
                                 }} variant="contained" disableElevation>
 
-                                    <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
+                                    <Link style={{ textDecoration: "None", color: "white" }} to={red_link}>
                                         Post a question
                                     </Link>
 

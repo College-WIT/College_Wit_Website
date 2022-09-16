@@ -29,8 +29,22 @@ if(cookie==null){
     console.log(red_link);
 }
 
+///// TAGS FUNCTION CHECK
+
+// var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+// var tag="java";
+// var FilteredData=[]
+// const searchWord = tag;
+// SearchData.filter((value) => {
+//    if(value.question.toLowerCase().includes(searchWord.toLowerCase())===true){
+//        console.log(value.question); 
+//     }
+// });
+
+
+
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
-const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
+const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
 
 const answered = () => {
   return (
