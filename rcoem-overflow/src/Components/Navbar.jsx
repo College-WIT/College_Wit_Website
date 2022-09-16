@@ -51,7 +51,7 @@ const ResponsiveAppBar = () => {
 
   return (
 
-    <AppBar position="static" sx={{
+    <AppBar position="sticky" sx={{
       backgroundColor: '#0E0E0E',
       height: 80
     }}>

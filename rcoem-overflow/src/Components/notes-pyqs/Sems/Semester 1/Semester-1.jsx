@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Folder from '../../card'
 import { Link } from 'react-router-dom';
 import '../../../../App'
+import Navbar from '../../../Navbar'
 
 const Semester_1 = () => {    
         const data = [
@@ -34,6 +35,7 @@ const Semester_1 = () => {
         ];
     return (
         <div>
+            <Navbar/>
             <Grid container sx={{
                 justifyContent: "center"
 
@@ -56,7 +58,9 @@ const Semester_1 = () => {
                 }}>
                     {data.map((d) => (
                         <Link style={{ textDecoration: "None", color: "white" }} to={"/" + d.title}>
-                            <Grid item ><Folder sem={d.title} /> </Grid>
+                            <Grid item >
+                                <Folder sem={d.title} /> 
+                            </Grid>
                         </Link>
                     ))}
 

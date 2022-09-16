@@ -2,12 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import search from "../../Assets/search.png"
-import Image from 'react-bootstrap/Image'
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import "../../index.css";
-// import { FcSearch } from 'react-icons/fc'
 import * as animationData from '../../Assets/searchLottie.json'
 import Lottie from 'react-lottie';
 
