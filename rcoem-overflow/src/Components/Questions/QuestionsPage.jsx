@@ -38,7 +38,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
-<<<<<<< HEAD
 const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
  var cookie=getCookie('login');
  var red_link='/Post-a-question';
@@ -48,17 +47,6 @@ const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
      red_link2='/login';
      console.log(red_link);
  }
-=======
-const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
-var cookie = getCookie('login');
-var red_link = '/Post-a-question';
-var red_link2 = '/Post-an-answer';
-if (cookie == null) {
-    red_link = '/login';
-    red_link2 = '/login';
-    console.log(red_link);
-}
->>>>>>> 2ddf7675226e79e86fb9020cf74e12680f8d5817
 
  ///// TAGS FUNCTION CHECK
 var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
