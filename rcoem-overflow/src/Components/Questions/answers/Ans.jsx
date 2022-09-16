@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import axios from 'axios'
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
@@ -9,27 +9,31 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack';
-import { useLocation, useParams } from "react-router-dom";
-import { fontSize } from '@mui/system';
+import { useParams } from "react-router-dom";
 import { GoArrowRight } from 'react-icons/go'
-import {RiQuestionnaireFill} from 'react-icons/ri'
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import './Answers.css'
 import getCookie from '../../../hooks/getCookie';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { Avatar } from '@mui/material';
+import { CardHeader } from '@mui/material';
 // ------------------------------------------------------------------------------------------
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     padding: theme.spacing(1),
-    textAlign: 'center',
+
     color: theme.palette.text.secondary,
 }));
 
-var cookie=getCookie('login');
-var red_link='/Post-a-question';
-var red_link2='/Post-an-answer';
-if(cookie==null){
-    red_link='/login';
-    red_link2='/login';
+var cookie = getCookie('login');
+var red_link = '/Post-a-question';
+var red_link2 = '/Post-an-answer';
+if (cookie == null) {
+    red_link = '/login';
+    red_link2 = '/login';
     console.log(red_link);
 }
 
@@ -87,16 +91,16 @@ const Ans = () => {
 
     handleQuest();
 
-// -------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------------
 
     return (
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
-           <Grid container spacing={2}>
+            <Grid container spacing={2}>
 
-          {/* --------------------- Left Quick Access Bar ------------------------------------ */}
+                {/* --------------------- Left Quick Access Bar ------------------------------------ */}
                 <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
-                    <Item sx={{ border: 1 }}>
+                    <Item sx={{ border: 1, textAlign: 'center', }}>
                         Quick Access
                         {quickAccBar.map((content) => (
                             <Grid sx={{
@@ -139,87 +143,172 @@ const Ans = () => {
                         ))}
                     </Item>
                 </Grid>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+                {/* -------------------------------------------------------------------------------------------------------------- */}
 
 
 
-{/* -----------------------------------Middle Section (Questions) ------------------------------------------------ */}
+                {/* -----------------------------------Middle Section (Questions) ------------------------------------------------ */}
 
                 <Grid item xl={8} lg={8} md={8} sm={8} xs={12}>
                     <Grid item >
                         <Item >
                             {dummyQue.map((content) => (
-                                <Box component="span" sx={{ p: 2 }} >
-                                    <Typography variant="h6" sx={{ color: "black", textAlign: "center", padding: 2 }}>
-                                      <RiQuestionnaireFill></RiQuestionnaireFill>  {quest}
-                                    </Typography>
-                                    <Button sx={{
-                                        backgroundColor: "#20D867",
-                                        width: 200,
-                                        height: 60,
-                                        border: 1,
-                                        borderRadius: 5,
-                                        fontSize: 15,
-                                        "&:hover": {
-                                            backgroundColor: "#E26639",
-                                            opacity: 10,
-                                        }
-                                    }} variant="contained" disableElevation>
-                                        <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
-                                            Post an Answer
-                                        </Link>
-                                    </Button>
-                                    <Stack direction="row" spacing={2} >
+                                <Grid >
+                                    {/* ***********HEADING***************** */}
+                                    <Typography
+                                        sx={{
+                                            color: "black",
+                                            fontFamily: 'roboto',
+                                            margin: "50px",
+                                            fontSize: "40px"
+                                            // margin:"10px",
 
-                                        <Stack direction="row" spacing={2} sx={{
-                                            paddingLeft: 32,
-                                            '@media (max-width:1000px)': {
-                                                paddingLeft: 20
-                                            },
-                                            '@media (max-width:850px)': {
-                                                paddingLeft: 1
-                                            },
                                         }}>
-                                            <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{views}</Typography>
-                                                <Typography variant="subtitle2" color="black">Views</Typography>
-                                            </Item>
-                                            <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{upvotes}</Typography>
-                                                <Typography variant="subtitle2" color="black">Upvotes</Typography>
-                                            </Item>
-                                            <Item elevation={0}>
-                                                <Typography variant="subtitle1" color='black'>{answers.length}</Typography>
-                                                <Typography variant="subtitle2" color="black">Answers</Typography>
-                                            </Item>
-                                        </Stack>
-                                    </Stack>
+                                        <HelpCenterIcon sx={{
+                                            fontSize: "100px"
+                                        }} />  {quest}
+                                    </Typography>
 
-                                    {answers.map(answer => {
-                                        return (
-                                            <Typography variant="subtitle1" color='black' sx={{
-                                                padding: 2,
-                                                textAlign: 'left',
-                                                fontSize: 15
-                                            }}>
-                                                <GoArrowRight /> {answer}</Typography>
-                                        )
-                                    })}
+                                    {/* ******************************************************** */}
 
-                                    {/* <h5>{answers[0]}</h5> */}
-                                    {/* <h1>{answers[1]}</h1>
-                                    <h1>{answers[2]}</h1> */}
-                                </Box>
+                                    <Grid container >
+                                        <Grid justifyContent="left" item xs={9} md={9} xl={9} sm={7} lg={9}>
+                                            <Button sx={{
+                                                marginLeft: "20px",
+                                                backgroundColor: "#20D867",
+                                                width: 200,
+                                                height: 60,
+                                                border: 1,
+                                                borderRadius: 2,
+                                                fontSize: 15,
+                                                "&:hover": {
+                                                    backgroundColor: "#E26639",
+                                                    opacity: 10,
+                                                }
+                                            }} variant="contained" disableElevation>
+                                                <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
+                                                    Post an Answer
+                                                </Link>
+                                            </Button>
+                                        </Grid>
+
+
+                                        <Grid container justifyContent="right" xs={3} md={3} xl={3} sm={5} lg={3} sx={{
+                                            // margin: "10px",
+                                        }}>
+                                            <Stack direction="row" spacing={2}
+                                                sx={{
+                                                    padding: "10px",
+                                                    border: "1px solid grey",
+                                                    borderRadius: "10px ",
+                                                    position: "relative",
+                                                    alignItems: "right",
+                                                    '@media (max-width:1000px)': {
+                                                        paddingLeft: 20
+                                                    },
+                                                    '@media (max-width:850px)': {
+                                                        paddingLeft: 1
+                                                    },
+                                                }}>
+                                                <Item elevation={0} sx={{
+                                                    borderRight: "1px solid grey",
+                                                    borderRadius: "0px"
+                                                }}>
+                                                    <Typography variant="subtitle1" color='black'>
+                                                        <VisibilityIcon />
+                                                        {views}
+                                                    </Typography>
+                                                </Item>
+
+                                                <Item elevation={0} sx={{
+                                                    borderRight: "1px solid grey",
+                                                    borderRadius: "0px"
+                                                }}>
+                                                    <Typography variant="subtitle1" color='black'>
+                                                        <ThumbUpIcon />
+                                                        {upvotes}
+                                                    </Typography>
+
+                                                </Item>
+                                                <Item elevation={0}>
+                                                    <Typography variant="subtitle1" color='black'>
+                                                        <QuestionAnswerIcon />
+                                                        {answers.length}
+                                                    </Typography>
+
+                                                </Item>
+                                            </Stack>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid container>
+                                        {answers.map(answer => {
+                                            return (
+                                                <Box sx={{
+                                                    width: "100%",
+                                                    border: "1px solid grey",
+                                                    margin: "10px",
+                                                    borderRadius: "10px",
+
+                                                }}>
+                                                    <CardHeader sx={{
+                                                        alignItems: 'left',
+                                                        textAlign: 'left',
+                                                    }}
+                                                        avatar={
+                                                            <Avatar sx={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                                alt={content.author}
+                                                                src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                                                            />
+                                                        }
+                                                        title={
+                                                            <Typography sx={{
+                                                                fontSize: 20,
+                                                                fontFamily: "roboto",
+                                                            }}>
+                                                                {author}
+                                                            </Typography>
+                                                        }
+                                                    />
+                                                    <Typography color='black' sx={{
+                                                        padding: 2,
+                                                        textAlign: 'left',
+                                                        fontSize: 15,
+                                                        fontFamily: "monospace",
+                                                    }}>
+                                                        <GoArrowRight /> {answer}</Typography>
+
+                                                    <Grid container justifyContent="right"
+                                                    ><Button variant='outline' sx={{
+                                                        margin:"10px",
+                                                        border: "1px solid grey",
+                                                        alignItems: "right"
+                                                    }}>
+                                                            upvote
+                                                        </Button></Grid>
+
+
+                                                </Box>
+                                            )
+                                        })}
+                                    </Grid>
+                                </Grid>
 
                             ))}
                         </Item>
                     </Grid>
-
-
                 </Grid>
+
+
+
+                {/* ********************************** Right Access Bar**************************************** */}
+
                 <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
 
-                    <Item sx={{ border: 1 }}>Tags
+                    <Item sx={{ border: 1, textAlign: 'center', }}>Tags
                         {queTags.map((content) => (
                             <Grid sx={{ padding: 1 }}>
                                 <Button sx={{
@@ -244,7 +333,7 @@ const Ans = () => {
                                 backgroundColor: "#20D867",
                                 width: 150,
                                 height: 60,
-                                borderRadius: 5,
+                                borderRadius: 1,
                                 fontSize: 15,
                                 "&:hover": {
                                     backgroundColor: "#637081",

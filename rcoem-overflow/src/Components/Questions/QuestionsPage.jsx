@@ -146,9 +146,7 @@ class QuestionsPages extends Component {
 
 
                     <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
-
                         <Grid item >
-
                             <Item>
                                 <Grid columns={16} container sx={{
                                     paddingBottom: 1
@@ -173,8 +171,7 @@ class QuestionsPages extends Component {
                                 </Grid>
 
 
-                                <Grid container sx={{
-                                }}>
+                                <Grid container>
                                     {QuestionsData.map((content) => (
                                         <Box sx={{
                                             width: "100%",
