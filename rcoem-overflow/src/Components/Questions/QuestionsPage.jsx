@@ -139,16 +139,16 @@ class QuestionsPages extends Component {
                         <Grid item >
 
                             <Item>
-                                <Grid container sx={{
+                                <Grid columns={16} container sx={{
                                     paddingBottom: 1
                                 }}>
-                                    <Grid item xs={4}>
+                                    <Grid item xs={4} md={6}>
                                         <Lottie options={defaultOptions}
                                             height='100%'
                                             width='50%'
                                         />
                                     </Grid>
-                                    <Grid item xs={4}>
+                                    <Grid item xs={4} md={10}>
                                         <Typography sx={{
                                             fontFamily: "Roboto",
                                             fontSize: 40,
