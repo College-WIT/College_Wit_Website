@@ -171,10 +171,11 @@ const Ans = () => {
 
                                     {/* ******************************************************** */}
 
-                                    <Grid container >
-                                        <Grid justifyContent="left" item xs={8} md={8} xl={8} sm={6} lg={8}>
+                                    <Grid container sx={{
+                                        margin: "20px"
+                                    }} >
+                                        <Grid container spacing="10px" justifyContent="left" item xs={4} md={4} xl={4} sm={4} lg={4}>
                                             <Button sx={{
-                                                marginLeft: "10px",
                                                 backgroundColor: "#20D867",
                                                 width: 200,
                                                 height: 60,
@@ -189,28 +190,31 @@ const Ans = () => {
                                                 <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
                                                     Post an Answer
                                                 </Link>
+                                            </Button> 
+                                           
+                                            <Button variant='outline' sx={{
+                                                height: 60,
+                                                border: 1,
+                                                borderRadius: 2,
+                                                // margin: "10px",
+                                                border: "1px solid grey",
+                                                alignItems: "right"
+                                            }}>
+                                                <ThumbUpIcon /> {upvotes}
                                             </Button>
                                         </Grid>
 
 
-                                        <Grid container justifyContent="right" xs={3} md={3} xl={3} sm={5} lg={3} 
-                                        sx={{
-                                            marginLeft: "60px",
-                                        }}>
-                                            <Stack direction="row" spacing={2}
+                                        <Grid container justifyContent="right" xs={7.5} md={7.5} xl={7.5} sm={7.5} lg={7.5} >
+                                            <Stack direction="row"
                                                 sx={{
-                                                   
-                                                    padding: "10px",
+                                                    height:60,
+                                                    padding: "3px",
                                                     border: "1px solid grey",
-                                                    borderRadius: "10px ",
+                                                    borderRadius: 2,
                                                     position: "relative",
                                                     alignItems: "right",
-                                                    '@media (max-width:1000px)': {
-                                                        paddingLeft: 20
-                                                    },
-                                                    '@media (max-width:850px)': {
-                                                        paddingLeft: 1
-                                                    },
+
                                                 }}>
                                                 <Item elevation={0} sx={{
                                                     borderRight: "1px solid grey",
@@ -285,11 +289,11 @@ const Ans = () => {
 
                                                     <Grid container justifyContent="right"
                                                     ><Button variant='outline' sx={{
-                                                        margin:"10px",
+                                                        margin: "10px",
                                                         border: "1px solid grey",
                                                         alignItems: "right"
                                                     }}>
-                                                          <ThumbUpIcon/> upvote
+                                                            <ThumbUpIcon /> {upvotes}
                                                         </Button></Grid>
 
 
@@ -309,14 +313,14 @@ const Ans = () => {
                 {/* ********************************** Right Access Bar**************************************** */}
 
                 <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
-
-                    <Item sx={{ border: 1, textAlign: 'center', }}>Tags
+                    <Item sx={{ border: 1, textAlign: 'center', }}>
+                        Tags
                         {queTags.map((content) => (
                             <Grid sx={{ padding: 1 }}>
                                 <Button sx={{
                                     backgroundColor: "#E26639",
                                     width: 100,
-                                    height: 25,
+                                    height: "50px",
                                     padding: 2,
                                     borderRadius: 1,
                                     "&:hover": {
@@ -324,7 +328,7 @@ const Ans = () => {
                                         opacity: 10,
                                     }
                                 }}
-                                    variant="contained" disableElevation>
+                                   >
                                     {content}
                                 </Button>
                             </Grid>

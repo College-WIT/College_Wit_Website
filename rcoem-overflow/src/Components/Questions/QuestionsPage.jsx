@@ -19,7 +19,7 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-
+import MoreIcon from '@mui/icons-material/More';
 const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -39,23 +39,23 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
 const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
- var cookie=getCookie('login');
- var red_link='/Post-a-question';
- var red_link2='/Post-an-answer';
- if(cookie==null){
-     red_link='/login';
-     red_link2='/login';
-     console.log(red_link);
- }
+var cookie = getCookie('login');
+var red_link = '/Post-a-question';
+var red_link2 = '/Post-an-answer';
+if (cookie == null) {
+    red_link = '/login';
+    red_link2 = '/login';
+    console.log(red_link);
+}
 
- ///// TAGS FUNCTION CHECK
-var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
-var tag="how";
-var FilteredData=[]
+///// TAGS FUNCTION CHECK
+var SearchData = JSON.parse(localStorage.getItem('SearchData')).data;
+var tag = "how";
+var FilteredData = []
 const searchWord = tag;
 SearchData.filter((value) => {
-   if(value.question.toLowerCase().includes(searchWord.toLowerCase())===true){
-       console.log(value.question); 
+    if (value.question.toLowerCase().includes(searchWord.toLowerCase()) === true) {
+        console.log(value.question);
     }
 });
 
@@ -311,24 +311,33 @@ class QuestionsPages extends Component {
                     {/* --------------------------------TAGS SECTION--------------------------------------------*/}
 
                     <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
-                        <Item> Tags {queTags.map((content) => (
-                            <Grid sx={{ padding: 1 }}>
-                                <Button sx={{
-                                    backgroundColor: "#E26639",
-                                    width: 100,
-                                    height: 25,
-                                    padding: "10px",
-                                    borderRadius: 1,
-                                    "&:hover": {
-                                        backgroundColor: "#41D450",
-                                        opacity: 10
-                                    }
-                                }}
-                                    variant="contained" disableElevation>
-                                    {content}
-                                </Button>
-                            </Grid>
-                        ))}
+                        <Item>
+                            <Typography color='black' sx={{
+                                fontFamily:"roboto",
+                                fontSize:"30px"
+                            }}>
+                               
+                               Tags
+                            </Typography>
+                            <Divider light/>
+                            {queTags.map((content) => (
+                                <Grid sx={{ padding: 1 }}>
+                                    <Button sx={{
+                                        backgroundColor: "#E26639",
+                                        width: 100,
+                                        height: 35,
+                                        padding: "10px",
+                                        borderRadius: 1,
+                                        "&:hover": {
+                                            backgroundColor: "#41D450",
+                                            opacity: 10
+                                        }
+                                    }}
+                                        variant="contained" disableElevation>
+                                        {content}
+                                    </Button>
+                                </Grid>
+                            ))}
 
                             <Grid sx={{ paddingTop: 10 }}>
                                 <Button sx={{

@@ -1,37 +1,15 @@
-.searchInputs {
-   border: 2px solid black;
-    display: flex;
-  }
-  
-  .search input {
-    background-color: white;
+.search input {
     border: 0;
     border-radius: 10px;
     font-size: 14px;
-    height: 40px;
-    width: 300px;
-  }
-  
-  .searchIcon {
-    height: 80px;
-    width: 50px;
-    background-color: white;
-    display: grid;
-    place-items: center;
   }
   
   input:focus {
     outline: none;
   }
-  .searchIcon svg {
-    font-size: 35px;
-  }
-  
+
   .dataResult {
     margin-top: 5px;
-    width: 300px;
-    height: 200px;
-    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
     overflow-y: auto;
@@ -48,7 +26,9 @@
     align-items: center;
     color: black;
   }
-  
+  .dataResult .dataItem:hover {
+    background-color: #252424;
+  }
   .dataItem p {
     margin-left: 10px;
     margin-top: 15px;
@@ -57,9 +37,7 @@
     text-decoration: none;
   }
   
-  a:hover {
-    background-color: lightgrey;
-  }
+
   
   #clearBtn {
     cursor: pointer;
