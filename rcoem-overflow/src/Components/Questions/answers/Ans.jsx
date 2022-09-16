@@ -172,9 +172,9 @@ const Ans = () => {
                                     {/* ******************************************************** */}
 
                                     <Grid container >
-                                        <Grid justifyContent="left" item xs={9} md={9} xl={9} sm={7} lg={9}>
+                                        <Grid justifyContent="left" item xs={8} md={8} xl={8} sm={6} lg={8}>
                                             <Button sx={{
-                                                marginLeft: "20px",
+                                                marginLeft: "10px",
                                                 backgroundColor: "#20D867",
                                                 width: 200,
                                                 height: 60,
@@ -193,11 +193,13 @@ const Ans = () => {
                                         </Grid>
 
 
-                                        <Grid container justifyContent="right" xs={3} md={3} xl={3} sm={5} lg={3} sx={{
-                                            // margin: "10px",
+                                        <Grid container justifyContent="right" xs={3} md={3} xl={3} sm={5} lg={3} 
+                                        sx={{
+                                            marginLeft: "60px",
                                         }}>
                                             <Stack direction="row" spacing={2}
                                                 sx={{
+                                                   
                                                     padding: "10px",
                                                     border: "1px solid grey",
                                                     borderRadius: "10px ",
@@ -287,7 +289,7 @@ const Ans = () => {
                                                         border: "1px solid grey",
                                                         alignItems: "right"
                                                     }}>
-                                                            upvote
+                                                          <ThumbUpIcon/> upvote
                                                         </Button></Grid>
 
 
