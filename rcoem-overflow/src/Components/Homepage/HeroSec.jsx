@@ -19,15 +19,15 @@ export default function Boxes() {
             preserveAspectRatio: 'xMidYMid slice'
         }
     };
+    
     return (
-        <div>
+        
             <Grid container justifyContent="center"
                 sx={{
-                    paddingTop: 8.5,
+                    padding: 8,
                     '@media (max-width:1000px)': {
                         padding: 5
                     }
-
                 }}>
                 <Box
                     sx={{
@@ -35,8 +35,6 @@ export default function Boxes() {
                         height: 550,
                         backgroundColor: '#3C3938',
                         borderRadius: '20px',
-
-
                     }}
                 >
                     <Grid container justifyContent="center">
@@ -85,18 +83,18 @@ export default function Boxes() {
                     </div> */}
                             <Grid container justifyContent="center">
                                
-                                <Typography variant="h6" sx={{
-                                    width: 400,
+                                <Typography  sx={{
+                                    width: 500,
                                     paddingTop: 4,
                                     color: 'white',
-                                    fontFamily: 'monospace',
+                                    fontFamily: "'urw-din',sans-serif",
                                 }}>
-                                    Find the best Answers to your Teachnical Questions, Help Others answer their's
+                                    Find the best Answers to your Teachnical Questions, Help Others answer their's!
                                 </Typography>
 
                             </Grid>
                             <Grid container justifyContent="center" sx={{
-                               paddingTop:2
+                               paddingTop:3
                             }}>
                                 <Button className='exploreButton' variant='contained' startIcon={<ExploreIcon />} sx={{
                                     backgroundColor: '#20D867',
@@ -114,7 +112,7 @@ export default function Boxes() {
                 </Box>
             </Grid>
 
-        </div>
+      
 
 
 

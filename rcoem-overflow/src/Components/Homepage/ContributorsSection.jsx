@@ -3,11 +3,12 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import { Avatar, List, ListItemIcon, Typography } from '@mui/material';
+import { Avatar, Divider, List, ListItemIcon, Typography } from '@mui/material';
 import { Card, CardHeader, CardContent } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import {FaGithubSquare} from "react-icons/fa"
+import { FaGithubSquare } from "react-icons/fa"
 import GitHubIcon from '@mui/icons-material/GitHub';
+import MediaCard from './card.jsx';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#3C3938',
     ...theme.typography.body2,
@@ -37,14 +38,14 @@ export default function Contributors() {
         //          <Grid container spacing={0}  sx={{
         //         border:"1px solid black",
         //         borderRadius:"10px"
-                
+
         //     }}> 
         //          <Grid xs={11}>  
-                  
+
         //           <Card sx={{
 
         //                 // margin:"10px",
-                        
+
         //                 backgroundColor: '#3C3938',
         //                 borderRadius:"10px 0 0 10px",
         //                 color:"white"
@@ -95,7 +96,7 @@ export default function Contributors() {
         //                 backgroundColor: '#3C3938',
         //                 padding:"10px",
         //                 justifyContent:"center",
-                        
+
         //             }}>
         //                 <List>
         //                     <ListItemIcon>
@@ -191,83 +192,104 @@ export default function Contributors() {
         //                     </Typography>
         //                 </CardContent>
         //             </Card>
-              
 
-              
+
+
         //     </Grid>
         // </Grid>
 
         // </div >
 
 
-        <div>
-        <Grid container justifyContent="center" sx={{
-            paddingBottom: 5
+        //     <div>
+
+
+
+        //     <Box sx={{
+        //         flexGrow: 1,
+        //         px: 5,
+        //     }}>
+        //         <Grid container spacing={4} justifyContent='center'>
+        //             <Grid item xs={5} >
+        //             <Item>
+        //                 <CardHeader sx={{
+        //                     alignItems: 'left',
+        //                     textAlign: 'left',}}
+        //                     avatar={
+        //                         <Avatar
+        //                         sx={{
+        //                             height: 60,
+        //                             width:60}}
+
+        //                             alt="Remy Sharp"
+        //                             src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
+        //                         />
+        //                     }
+        //                     title="Item"
+        //                 />
+        //                 </Item>
+        //                 <Item><CardHeader sx={{
+        //                     alignItems: 'left',
+        //                     textAlign: 'left'}}
+        //                     avatar={
+        //                         <Avatar
+        //                         sx={{
+        //                             height: 60,
+        //                             width:60}}
+
+        //                             alt="Remy Sharp"
+        //                             src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
+        //                         />
+        //                     }
+        //                     title="Item"
+        //                 /></Item>
+        //                 <Item><CardHeader sx={{
+        //                     alignItems: 'left',
+        //                     textAlign: 'left',
+        //                     }}
+        //                     avatar={
+        //                         <Avatar
+        //                             sx={{
+        //                                 height: 60,
+        //                                 width:60}}
+
+        //                             alt="Remy Sharp"
+        //                             src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
+        //                         />
+        //                     }
+        //                     title="Item"
+        //                 /></Item>
+        //                 {/* <Item>Item</Item>
+        //                 <Item>Item</Item> */}
+        //             </Grid>
+
+        //         </Grid>
+        //     </Box>
+        // </div>
+        <Grid container sx={{
+            height: "auto",
         }}>
-            <h1>Top Contributors</h1>
+            <Grid container justifyContent="center" >
+                <Typography sx={{
+                    fontSize: 60,
+                    color: '#000000',
+                    fontFamily: "'urw-din',sans-serif",
+                    marginTop:"20px",
+                    marginBottom:"20px"
+                }}>Top Contributors
+                </Typography>
+            </Grid>
+            <Grid container justifyContent="center" sx={{
+                marginTop:"40px",
+                marginBottom:"40px"
+            }}>
+            <MediaCard />
+            <MediaCard />
+            <MediaCard />
+            </Grid>
         </Grid>
 
-
-        <Box sx={{
-            flexGrow: 1,
-            px: 5,
-        }}>
-            <Grid container spacing={4} justifyContent='center'>
-                <Grid item xs={5} >
-                <Item>
-                    <CardHeader sx={{
-                        alignItems: 'left',
-                        textAlign: 'left',}}
-                        avatar={
-                            <Avatar
-                            sx={{
-                                height: 60,
-                                width:60}}
-                        
-                                alt="Remy Sharp"
-                                src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
-                            />
-                        }
-                        title="Item"
-                    />
-                    </Item>
-                    <Item><CardHeader sx={{
-                        alignItems: 'left',
-                        textAlign: 'left'}}
-                        avatar={
-                            <Avatar
-                            sx={{
-                                height: 60,
-                                width:60}}
-                        
-                                alt="Remy Sharp"
-                                src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
-                            />
-                        }
-                        title="Item"
-                    /></Item>
-                    <Item><CardHeader sx={{
-                        alignItems: 'left',
-                        textAlign: 'left',
-                        }}
-                        avatar={
-                            <Avatar
-                                sx={{
-                                    height: 60,
-                                    width:60}}
-                            
-                                alt="Remy Sharp"
-                                src="https://cdn0.iconfinder.com/data/icons/education-and-school-filled-outline-1/128/Primary_school_student_study_school_girl_avatar_child-1024.png"
-                            />
-                        }
-                        title="Item"
-                    /></Item>
-                    {/* <Item>Item</Item>
-                    <Item>Item</Item> */}
-                </Grid>
-              
-            </Grid>
-        </Box>
-    </div>
     )
 }
+
+

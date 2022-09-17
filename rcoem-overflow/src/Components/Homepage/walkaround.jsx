@@ -10,16 +10,21 @@ const Walkaround = () => {
   return (
     <div >
 
-      <Grid container justifyContent="center" sx={{ padding: 5, fontFamily: 'monospace' }}>
+      <Grid container justifyContent="center" >
         <Typography sx={{
           fontSize: 60,
-          // fontWeight: 600,
           color: '#000000',
-          fontFamily: 'roboto',
-        }}>Website Walkaround</Typography>
+          fontFamily: "'urw-din',sans-serif",
+          marginTop: "50px",
+          marginBottom: "50px"
+        }}>Website Walkaround
+        </Typography>
       </Grid>
 
-      <Carousel color='black'>
+
+      <Carousel sx={{
+        boxShadow: "5px 10px 10px 5px grey",
+      }}>
         <Carousel.Item interval={1000}>
           <div>
             <img className='slider'

@@ -6,12 +6,12 @@ import { Grid, Paper, TextField, Button, Typography, Link } from '@mui/material'
 import setCookie from '../../../hooks/setCookie'
 import getCookie from '../../../hooks/getCookie'
 import removeCookie from '../../../hooks/removeCookie'
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
 const text = { padding: 2 }
 
-const paperStyle = { padding: 40, height: '70vh', width: 400, margin: "0 auto" }
+const paperStyle = { padding: 40, height: '60vh', width: 400, margin: "10px" }
 
 class Signin extends Component {
 
@@ -75,9 +75,11 @@ class Signin extends Component {
     const { email, password } = this.state
     return (
 
-      <Grid sx={{
-        padding: 10,
-        height: 600
+      <Grid container sx={{
+        padding: "20px",
+        height: "auto",
+        justifyContent: "center",
+
       }}>
         <Paper style={paperStyle}>
           <Grid align='center'>

@@ -158,15 +158,16 @@ const Ans = () => {
                                     <Typography
                                         sx={{
                                             color: "black",
-                                            fontFamily: 'roboto',
+                                            fontFamily: "'urw-din',sans-serif",
                                             margin: "50px",
                                             fontSize: "40px"
                                             // margin:"10px",
 
                                         }}>
-                                        <HelpCenterIcon sx={{
+                                        {/* <HelpCenterIcon sx={{
                                             fontSize: "100px"
-                                        }} />  {quest}
+                                        }} />   */}
+                                        {quest}
                                     </Typography>
 
                                     {/* ******************************************************** */}
@@ -190,8 +191,8 @@ const Ans = () => {
                                                 <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
                                                     Post an Answer
                                                 </Link>
-                                            </Button> 
-                                           
+                                            </Button>
+
                                             <Button variant='outline' sx={{
                                                 height: 60,
                                                 border: 1,
@@ -208,7 +209,7 @@ const Ans = () => {
                                         <Grid container justifyContent="right" xs={7.5} md={7.5} xl={7.5} sm={7.5} lg={7.5} >
                                             <Stack direction="row"
                                                 sx={{
-                                                    height:60,
+                                                    height: 60,
                                                     padding: "3px",
                                                     border: "1px solid grey",
                                                     borderRadius: 2,
@@ -273,7 +274,7 @@ const Ans = () => {
                                                         title={
                                                             <Typography sx={{
                                                                 fontSize: 20,
-                                                                fontFamily: "roboto",
+                                                                fontFamily: "'urw-din',sans-serif",
                                                             }}>
                                                                 {author}
                                                             </Typography>
@@ -282,8 +283,8 @@ const Ans = () => {
                                                     <Typography color='black' sx={{
                                                         padding: 2,
                                                         textAlign: 'left',
-                                                        fontSize: 15,
-                                                        fontFamily: "monospace",
+                                                        fontSize: 20,
+                                                        fontFamily: "'urw-din',sans-serif",
                                                     }}>
                                                         <GoArrowRight /> {answer}</Typography>
 
@@ -328,7 +329,7 @@ const Ans = () => {
                                         opacity: 10,
                                     }
                                 }}
-                                   >
+                                >
                                     {content}
                                 </Button>
                             </Grid>

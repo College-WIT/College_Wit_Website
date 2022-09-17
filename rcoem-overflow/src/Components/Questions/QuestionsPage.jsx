@@ -19,7 +19,9 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-import MoreIcon from '@mui/icons-material/More';
+
+
+
 const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -37,8 +39,10 @@ const Item = styled(Paper)(({ theme }) => ({
 
 }));
 
-const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
+const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
 const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
+
+
 var cookie = getCookie('login');
 var red_link = '/Post-a-question';
 var red_link2 = '/Post-an-answer';
@@ -48,7 +52,6 @@ if (cookie == null) {
     console.log(red_link);
 }
 
-///// TAGS FUNCTION CHECK
 var SearchData = JSON.parse(localStorage.getItem('SearchData')).data;
 var tag = "how";
 var FilteredData = []
@@ -86,18 +89,27 @@ class QuestionsPages extends Component {
             })
     }
 
-
     render() {
         const { QuestionsData, errorMsg } = this.state;
         return (
 
-            <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
-
+            <Box sx={{
+                flexGrow: 1,
+                backgroundColor: "#d9d9d9",
+                padding: 2
+            }}>
 
                 {/* ----------------------------QUICK ACCESS------------------------------ */}
                 <Grid container spacing={2} >
                     <Grid item xl={2} lg={2} md={2} sm={2} xs={2} >
-                        <Item >Quick Access
+                        <Item >
+                            <Typography sx={{
+                                fontSize: 20,
+                                fontWeight: 300,
+                                fontFamily: "'urw-din',sans-serif"
+                            }}> Quick Access
+                            </Typography>
+                            <Divider light />
                             {quickAccBar.map((content) => (
                                 <Grid sx={{
                                     padding: 2,
@@ -158,7 +170,7 @@ class QuestionsPages extends Component {
                                     </Grid>
                                     <Grid item xs={4} md={10}>
                                         <Typography sx={{
-                                            fontFamily: "Roboto",
+                                            fontFamily: "'urw-din',sans-serif",
                                             fontSize: 40,
                                             position: "relative",
                                             top: 55,
@@ -312,13 +324,12 @@ class QuestionsPages extends Component {
                     <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
                         <Item>
                             <Typography color='black' sx={{
-                                fontFamily:"roboto",
-                                fontSize:"30px"
+                                fontFamily: "'urw-din',sans-serif",
+                                fontSize: 20
                             }}>
-                               
-                               Tags
+                                Tags
                             </Typography>
-                            <Divider light/>
+                            <Divider light />
                             {queTags.map((content) => (
                                 <Grid sx={{ padding: 1 }}>
                                     <Button sx={{
@@ -345,7 +356,6 @@ class QuestionsPages extends Component {
                                     height: 60,
                                     border: 1,
                                     borderRadius: 2,
-
                                     fontSize: 15,
                                     "&:hover": {
                                         backgroundColor: "#E26639",
