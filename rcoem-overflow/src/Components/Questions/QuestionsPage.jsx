@@ -13,7 +13,7 @@ import { Avatar } from '@mui/material';
 import { CardHeader } from '@mui/material';
 import getCookie from '../../hooks/getCookie';
 import Divider from '@mui/material/Divider';
-import * as animationData from '../../Assets/que3.json'
+import * as animationData from '../../Assets/que.json'
 import Lottie from 'react-lottie';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
