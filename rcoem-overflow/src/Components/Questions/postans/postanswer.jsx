@@ -37,7 +37,7 @@ class postques extends Component {
     }
 
     getQues = () => {
-        const {quest} = useParams();
+        const { quest } = useParams();
         console.log(quest);
         return quest;
     }
