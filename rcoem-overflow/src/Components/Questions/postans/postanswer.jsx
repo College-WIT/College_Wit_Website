@@ -80,7 +80,6 @@ class postques extends Component {
 
     render(props) {
         const { answer } = this.state;
-        const { quest } = useParams();
         //console.log(this.props.match.params.que);
         return (
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
