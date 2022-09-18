@@ -368,29 +368,12 @@ class QuestionsPages extends Component {
                                     </Link>
 
                                 </Button>
-                                <Grid sx={{ paddingTop: 1 }}>
-                                    <Button sx={{
-                                        backgroundColor: "#20D867",
-                                        width: 150,
-                                        height: 60,
-                                        border: 1,
-                                        borderRadius: 2,
-                                        fontSize: 15,
-                                        "&:hover": {
-                                            backgroundColor: "#E26639",
-                                            opacity: 10,
-                                        }
-                                    }} variant="contained" disableElevation>
-                                        <Link style={{ textDecoration: "None", color: "white" }} to={red_link2}>
-                                            Post an Answer
-                                        </Link>
-                                    </Button>
-                                </Grid>
+                                
                             </Grid>
                         </Item>
                     </Grid>
-                </Grid>
-            </Box>
+                </Grid >
+            </Box >
         );
     }
 }

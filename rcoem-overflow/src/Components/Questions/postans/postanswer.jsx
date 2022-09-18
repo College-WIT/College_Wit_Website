@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Component } from 'react'
 import axios from 'axios'
 import { TextField, } from '@mui/material'
@@ -22,9 +22,10 @@ const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
 var flag = false
 
+
+
 class postques extends Component {
 
-    //   /// AXIOS POST TEMPLATE
     constructor(props) {
         super(props)
         this.state = {
@@ -35,6 +36,12 @@ class postques extends Component {
         }
     }
 
+    getQues = () => {
+        const {quest} = useParams();
+        console.log(quest);
+        return quest;
+    }
+
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -43,22 +50,22 @@ class postques extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        var username=this.state.username;
-    var newusername="";
-    for (var i = 0; i<username.length; i++){
-      if ( username.charAt(i) == '@' ) {
-          break;
-      }
-      var chars=username.charAt(i);
-      newusername+=chars;
-    }
-    var newstate={
-        username:newusername,
-        password:this.state.password,
-        question:this.state.question,
-        answer:this.state.answer
-    }
-    console.log(newstate);
+        var username = this.state.username;
+        var newusername = "";
+        for (var i = 0; i < username.length; i++) {
+            if (username.charAt(i) === '@') {
+                break;
+            }
+            var chars = username.charAt(i);
+            newusername += chars;
+        }
+        var newstate = {
+            username: newusername,
+            password: this.state.password,
+            question: this.state.question,
+            answer: this.state.answer
+        }
+        console.log(newstate);
         axios
             .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", newstate)
             .then(response => {
@@ -71,8 +78,10 @@ class postques extends Component {
             })
     }
 
-    render() {
-        const { answer } = this.state
+    render(props) {
+        const { answer } = this.state;
+        const { quest } = useParams();
+        //console.log(this.props.match.params.que);
         return (
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
@@ -134,9 +143,14 @@ class postques extends Component {
                                 <Grid align='center'>
                                     <h2>Post an Answer</h2>
                                 </Grid >
+
+                                <Grid align='center'>
+                                    <h2>{this.getQues}</h2>
+                                </Grid >
+
                                 <form onSubmit={this.submitHandler}>
                                     {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
-                                    <TextField multiline rows={6} label='Answer' type="text" name="answer" value={answer} placeholder="Answer" onChange={ this.changeHandler } fullWidth required />
+                                    <TextField multiline rows={6} label='Answer' type="text" name="answer" value={answer} placeholder="Answer" onChange={this.changeHandler} fullWidth required />
                                     {/* <Grid alig sx={{ padding: 1, alignContent: 'center' }}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler } />
                                         <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler } /></Grid> */}
                                     <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
@@ -177,4 +191,4 @@ class postques extends Component {
     }
 }
 
-export default postques
+export default postques;

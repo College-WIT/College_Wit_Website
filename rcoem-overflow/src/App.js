@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/Post-a-question" element={<Postque />} />
         <Route path="/Answered" element={<Answered/>} />
         <Route path="/Unanswered" element={<Unanswered/>} />
-        <Route path="/Post-an-answer" element={<Postans/>} />
+        <Route path="/Post-an-answer/:que" element={<Postans/>} />
 
         <Route path="/Semester_1" element={<Semester_1/>} />
         <Route path="/Chemistry" element={<Chemistry/>} />
