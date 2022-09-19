@@ -11,11 +11,14 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 export default function MediaCard() {
     return (
         <Card sx={{
-            maxWidth: 400,
+            maxWidth: 450,
             height: "auto",
             margin: 2,
-            boxShadow: "2px 5px 5px 2px #b3bfcc",
-            padding: 2,
+            boxShadow: "2px 5px 5px 2px #485563",
+            padding: 4,
+            background: "linear-gradient(to right, #2b2a2a, #141313)",
+            // backgroundImage: "linear-gradient(135deg, #29323c 10%, #485563 100%)",
+            color: "white",
 
         }}>
             <Grid container spacing="4px"  >
@@ -34,7 +37,8 @@ export default function MediaCard() {
                     <Typography sx={{
                         fontFamily: "'urw-din',sans-serif",
                         fontSize: 30,
-                        marginTop: "20px"
+                        marginTop: "20px",
+                        color: "white",
                     }}>
                         Lorem Ipsum <EmojiEventsIcon
                             sx={{
@@ -47,7 +51,8 @@ export default function MediaCard() {
             <Typography sx={{
                 fontFamily: "'urw-din',sans-serif",
                 fontSize: 20,
-                marginTop: "20px"
+                marginTop: "20px",
+                color: "white",
             }}>
                 Lizards are a widespread group of squamate reptiles, with over 6,000
                 species, ranging across all continents except Antarctica
