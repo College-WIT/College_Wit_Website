@@ -63,6 +63,14 @@ const Ans = () => {
     const [answers, setanswers] = useState([]);
     const arr = [];
 
+    ///// USING LOCAL STORAGE FOR STORING RECENT QUESTION
+
+    localStorage.removeItem('recentQuest');
+    const strJSON= qq;
+    localStorage.setItem('recentQuest', strJSON);
+
+
+
     const handleQuest = async (e) => {
         const obj = {
             question: qq

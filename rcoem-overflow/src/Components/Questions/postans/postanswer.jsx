@@ -22,26 +22,24 @@ const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
 var flag = false
 
-
+var quest=localStorage.getItem('recentQuest');
+console.log(quest);
 
 class postques extends Component {
 
     constructor(props) {
         super(props)
+        // var quest=JSON.parse(localStorage.getItem('recentQuest')).data;
+        // console.log(quest);
         this.state = {
             username: JSON.parse(getCookie('login')).email,
             password: JSON.parse(getCookie('login')).password,
-            question: 'How to be a full stack developer?',
+            question: quest,
             answer: '',
         }
     }
 
-    getQues = () => {
-        const { quest } = useParams();
-        console.log(quest);
-        return quest;
-    }
-
+ 
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
