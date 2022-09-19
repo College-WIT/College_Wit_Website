@@ -11,13 +11,12 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 export default function MediaCard() {
     return (
         <Card sx={{
-            maxWidth: 450,
+            maxWidth: 400,
             height: "auto",
             margin: 2,
-            boxShadow: "2px 5px 5px 2px #485563",
-            padding: 4,
+            boxShadow: "2px 5px 5px 2px #b3bfcc",
+            padding: 2,
             background: "linear-gradient(to right, #2b2a2a, #141313)",
-            // backgroundImage: "linear-gradient(135deg, #29323c 10%, #485563 100%)",
             color: "white",
 
         }}>

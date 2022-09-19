@@ -34,7 +34,8 @@ export default function Boxes() {
                         width: 1000,
                         height: 550,
                         // backgroundColor: '#3C3938',
-                        background: "linear-gradient(to right, #2b2a2a, #141313)",
+                        backgroundColor: '#2b2a2a',
+                        // background: "linear-gradient(to right, #2b2a2a, #141313)",
                         borderRadius: '20px',
                     }}
                 >
