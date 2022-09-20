@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, useNavigate } from 'react'
 import axios from 'axios'
 import { Grid, Paper, Avatar, Typography, TextField, Button } from '@mui/material'
 import Snackbar from '@mui/material/Snackbar';
+import { Link } from 'react-router-dom';
 const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
 const text = { padding: 2 }
 const paperStyle = { padding: 20, width: 600, margin: "0 auto" }
@@ -89,6 +90,11 @@ class Signup extends Component {
                             action={action}
                         /> */}
                     </form>
+                <Typography >
+                    <Link to={'/login'} >
+                        Already Registered ? Login
+                    </Link>
+                </Typography>
                 </Paper>
             </Grid>
         )
