@@ -22,10 +22,10 @@ const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
 var flag = false
 
-var quest=localStorage.getItem('recentQuest');
+var quest = localStorage.getItem('recentQuest');
 console.log(quest);
 
-class postques extends Component {
+class postans extends Component {
 
     constructor(props) {
         super(props)
@@ -39,7 +39,7 @@ class postques extends Component {
         }
     }
 
- 
+
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -80,6 +80,7 @@ class postques extends Component {
         const { answer } = this.state;
         //console.log(this.props.match.params.que);
         return (
+            
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
 
                 {/* ----------------------------QUICK ACCESS------------------------------ */}
@@ -188,4 +189,4 @@ class postques extends Component {
     }
 }
 
-export default postques;
+export default postans;
