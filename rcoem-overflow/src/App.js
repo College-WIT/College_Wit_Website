@@ -14,6 +14,7 @@ import Unanswered from './Components/Questions/Unanswered/unanswered'
 import Postans from './Components/Questions/postans/postans'
 import Semester_1 from './Components/notes-pyqs/Sems/Semester 1/Semester-1';
 import Chemistry from './Components/notes-pyqs/Sems/Semester 1/Chemistry';
+import Protected from './Components/Homepage/Authentication/Protected';
 
 const App = () => {
   return (
@@ -24,17 +25,17 @@ const App = () => {
         <Route path="Home" element={<Home />} />
         <Route path="Questions" element={<Questions />} />
         <Route path="Top%20Contributors" element={<Contributor />} />
-        <Route path="Notes-PYQs" element={<Notes />} />
+        <Route path="Notes-PYQs" element={<Protected Component={Notes} />} />
         <Route path="login" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
-        <Route path="/answers/:que" element={<Answers />} />
+        <Route path="/answers/:que" element={<Protected Component={Answers} />} />
         <Route path="/Post-a-question" element={<Postque />} />
-        <Route path="/Answered" element={<Answered/>} />
-        <Route path="/Unanswered" element={<Unanswered/>} />
-        <Route path="/Post-an-answer/:que" element={<Postans/>} />
+        <Route path="/Answered" element={<Answered />} />
+        <Route path="/Unanswered" element={<Unanswered />} />
+        <Route path="/Post-an-answer/:que" element={<Protected Component={Postans} />} />
 
-        <Route path="/Semester_1" element={<Semester_1/>} />
-        <Route path="/Chemistry" element={<Chemistry/>} />
+        <Route path="/Semester_1" element={<Semester_1 />} />
+        <Route path="/Chemistry" element={<Chemistry />} />
       </Routes>
     </div>
   )
