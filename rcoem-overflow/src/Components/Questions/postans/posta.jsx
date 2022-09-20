@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Component } from 'react'
 import axios from 'axios'
 import { TextField, Typography, } from '@mui/material'
@@ -32,7 +32,8 @@ export default function Posta() {
     const [password, setPassword] = React.useState('');
     const [question, setQuestion] = React.useState('');
     const [answer, setAnswer] = React.useState('');
-
+    const {que} = useParams();
+    
     const changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -132,7 +133,9 @@ export default function Posta() {
                             <Grid align='center'>
                                 <h2>Post an Answer</h2>
                             </Grid >
-
+                            <Grid sx={{paddingTop:'20px'}}>
+                                <h4>{que}</h4>
+                            </Grid >
                             <Grid align='center'>
                                 <h2>
                                     {/* {this.getQues} */}
