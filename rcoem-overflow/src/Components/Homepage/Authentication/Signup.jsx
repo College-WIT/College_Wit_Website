@@ -77,8 +77,8 @@ class Signup extends Component {
                         <TextField style={text} name="name" value={name} fullWidth label='Name' placeholder="Enter your name" onChange={this.changeHandler} />
                         <TextField style={text} name="username" value={username} fullWidth label='Username' placeholder="Enter your Username" onChange={this.changeHandler} />
                         <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
-                        <TextField style={text} name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
-                        <TextField style={text} name="confirm" value={confirm} fullWidth label='Confirm Password' placeholder="Confirm your password" onChange={this.changeHandler} />
+                        <TextField style={text} name="password" type="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
+                        <TextField style={text} name="confirm" type="password" value={confirm} fullWidth label='Confirm Password' placeholder="Confirm your password" onChange={this.changeHandler} />
 
                         <Button style={buttons} type='submit' variant='contained' color='primary'>Sign up</Button>
                         {/* <Snackbar

@@ -87,7 +87,7 @@ class Signin extends Component {
           </Grid>
           <form onSubmit={this.submitHandler}>
             <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
-            <TextField style={text} name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
+            <TextField style={text} type="password" name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
             <Button style={buttons} type='submit' variant='contained' color='primary'>Login</Button>
           </form>
           <Typography >
