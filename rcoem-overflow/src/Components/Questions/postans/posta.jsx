@@ -21,7 +21,56 @@ const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
 var flag = false
 
-export default function posta() {
+var quest = localStorage.getItem('recentQuest');
+console.log(quest);
+
+
+
+export default function Posta() {
+
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [question, setQuestion] = React.useState('');
+    const [answer, setAnswer] = React.useState('');
+
+    const changeHandler = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        var username = this.state.username;
+        var newusername = "";
+        for (var i = 0; i < username.length; i++) {
+            if (username.charAt(i) === '@') {
+                break;
+            }
+            var chars = username.charAt(i);
+            newusername += chars;
+        }
+        var newstate = {
+            username: newusername,
+            password: this.state.password,
+            question: this.state.question,
+            answer: this.state.answer
+        }
+        console.log(newstate);
+        axios
+            .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", newstate)
+            .then(response => {
+                flag = true
+                console.log("Answer added Successfully")
+            })
+            .catch(error => {
+                flag = false
+                console.log(error.response)
+            })
+    }
+
+
     return (
 
         <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
@@ -85,19 +134,19 @@ export default function posta() {
                             </Grid >
 
                             <Grid align='center'>
-                                <h2>ABCD
+                                <h2>
                                     {/* {this.getQues} */}
                                 </h2>
                             </Grid >
 
                             <form
-                            // onSubmit={this.submitHandler}
+                                onSubmit={submitHandler}
                             >
 
                                 <TextField multiline rows={6} label='Answer' type="text" name="answer"
-                                    // value={answer} 
+                                    value={answer}
                                     placeholder="Answer"
-                                    // onChange={this.changeHandler} 
+                                    onChange={changeHandler}
                                     fullWidth required />
 
                                 <Grid>
