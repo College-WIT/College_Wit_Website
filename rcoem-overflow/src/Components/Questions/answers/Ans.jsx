@@ -66,9 +66,9 @@ const Ans = () => {
 
     ///// USING LOCAL STORAGE FOR STORING RECENT QUESTION
 
-    localStorage.removeItem('recentQuest');
-    const strJSON= qq;
-    localStorage.setItem('recentQuest', strJSON);
+    // localStorage.removeItem('recentQuest');
+    // const strJSON= qq;
+    // localStorage.setItem('recentQuest', strJSON);
 
 
 
@@ -77,10 +77,11 @@ const Ans = () => {
             question: qq
         };
 
-        const question = axios.post(
+        const question = await axios.post(
             `https://rcoem-overflow-backend.herokuapp.com/view_specific_question`,
             obj
         );
+        console.log(question.data);
         questionD = question.data.question;
         setquest(question.data.question);
         setauthor(question.data.author);
@@ -93,7 +94,7 @@ const Ans = () => {
         //setanswers(question.data.answers[0].answer);
         setanswers(arr);
         //console.log(question.data);
-        //console.log(questionD);
+        console.log(questionD);
         //console.log(answers);
         get = 1;
     };
