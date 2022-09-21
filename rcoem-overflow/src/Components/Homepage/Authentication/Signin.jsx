@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import axios from 'axios'
 
 import { Grid, Paper, TextField, Button, Typography, Link } from '@mui/material'
@@ -6,7 +6,7 @@ import { Grid, Paper, TextField, Button, Typography, Link } from '@mui/material'
 import setCookie from '../../../hooks/setCookie'
 import getCookie from '../../../hooks/getCookie'
 import removeCookie from '../../../hooks/removeCookie'
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
 const text = { padding: 2 }
@@ -31,6 +31,18 @@ class Signin extends Component {
     })
   }
 
+  navigation = () => {
+    localStorage.setItem('login', true);
+    const navigate = useNavigate();
+    navigate('/Answered');
+    useEffect(() => {
+      let login = localStorage.getItem('login');
+      if (login) {
+        navigate('/Answered');
+      }
+    })
+  }
+
   submitHandler = (e) => {
     e.preventDefault()
     const newstate = {
@@ -42,9 +54,12 @@ class Signin extends Component {
       .post("https://rcoem-overflow-backend.herokuapp.com/login", newstate)
       .then(response => {
         console.log(response);
-        console.log("LOGGED IN")
+        console.log("LOGGED IN");
+
         removeCookie('login');
         setCookie('login', JSON.stringify(newstate));
+
+        this.navigation();
         // window.location = this.href;
         // const navigate = useNavigate();
         // navigate(-1);
