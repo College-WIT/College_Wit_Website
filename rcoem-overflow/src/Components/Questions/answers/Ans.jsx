@@ -52,6 +52,7 @@ const dummyQue = [
 
 const Ans = () => {
     const { que } = useParams();
+    //const que = "hello";
     //console.log(que)
     var qq = que + "?";
     var questionD = "";
@@ -76,7 +77,7 @@ const Ans = () => {
             question: qq
         };
 
-        const question = await axios.post(
+        const question = axios.post(
             `https://rcoem-overflow-backend.herokuapp.com/view_specific_question`,
             obj
         );

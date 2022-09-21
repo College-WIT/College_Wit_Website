@@ -22,6 +22,7 @@ class Signin extends Component {
       email: '',
       password: '',
     }
+    localStorage.setItem('loggedin', false);
   }
 
   changeHandler = (event) => {
@@ -39,6 +40,8 @@ class Signin extends Component {
       let login = localStorage.getItem('login');
       if (login) {
         navigate('/Answered');
+      }else{
+        navigate('/login');
       }
     })
   }
