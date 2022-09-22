@@ -12,6 +12,7 @@ import Postque from './Components/Questions/postque/postque'
 import Answered from './Components/Questions/Answered/answer'
 import Unanswered from './Components/Questions/Unanswered/unanswered'
 import Postans from './Components/Questions/postans/postans'
+import Trends from './Components/Questions/trending/trends'
 import Semester_1 from './Components/notes-pyqs/Sems/Semester 1/Semester-1';
 import Chemistry from './Components/notes-pyqs/Sems/Semester 1/Chemistry';
 import Protected from './Components/Homepage/Authentication/Protected';
@@ -30,8 +31,9 @@ const App = () => {
         <Route path="signup" element={<Signup />} />
         <Route path="/answers/:que" element={<Protected Component={Answers} />} />
         <Route path="/Post-a-question" element={<Postque />} />
-        <Route path="/Answered" element={<Answered />} />
+        <Route path="/Answered" element={<Questions />} />
         <Route path="/Unanswered" element={<Unanswered />} />
+        <Route path="/Trending" element={<Trends />} />
         <Route path="/Post-an-answer/:que" element={<Protected Component={Postans} />} />
 
         <Route path="/Semester_1" element={<Semester_1 />} />

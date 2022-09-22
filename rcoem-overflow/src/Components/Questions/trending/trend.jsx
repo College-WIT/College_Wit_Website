@@ -13,12 +13,14 @@ import { Avatar } from '@mui/material';
 import { CardHeader } from '@mui/material';
 import getCookie from '../../../hooks/getCookie';
 import Divider from '@mui/material/Divider';
+import * as animationData from '../../../Assets/que.json'
+import Lottie from 'react-lottie';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-import * as animationData from '../../../Assets/que.json'
-import Lottie from 'react-lottie';
+
+
 
 const defaultOptions = {
     loop: true,
@@ -29,6 +31,18 @@ const defaultOptions = {
     }
 };
 
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+
+}));
+
+const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
+const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
+
+
 var cookie = getCookie('login');
 var red_link = '/Post-a-question';
 var red_link2 = '/Post-an-answer';
@@ -38,18 +52,18 @@ if (cookie == null) {
     console.log(red_link);
 }
 
+var SearchData = JSON.parse(localStorage.getItem('SearchData')).data;
+var tag = "how";
+var FilteredData = []
+const searchWord = tag;
+SearchData.filter((value) => {
+    if (value.question.toLowerCase().includes(searchWord.toLowerCase()) === true) {
+        console.log(value.question);
+    }
+});
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
-const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
-const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
-
-class unans extends Component {
+class QuestionsPages extends Component {
     constructor(props) {
         super(props)
 
@@ -60,7 +74,7 @@ class unans extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_unanswered_questions")
+        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_all_questions")
             .then(response => {
                 console.log(response)
                 this.setState({
@@ -75,12 +89,15 @@ class unans extends Component {
             })
     }
 
-
     render() {
         const { QuestionsData, errorMsg } = this.state;
         return (
 
-            <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
+            <Box sx={{
+                flexGrow: 1,
+                backgroundColor: "#d9d9d9",
+                padding: 2
+            }}>
 
                 {/* ----------------------------QUICK ACCESS------------------------------ */}
                 <Grid container spacing={2} >
@@ -135,6 +152,7 @@ class unans extends Component {
                             ))}
                         </Item>
                     </Grid>
+
                     {/* ------------------------------------Questions------------------------------------- */}
 
 
@@ -158,7 +176,7 @@ class unans extends Component {
                                             top: 55,
                                             left: "-170px",
                                         }}>
-                                            Unanswered Questions
+                                            Trending Questions
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -301,9 +319,6 @@ class unans extends Component {
                         </Grid>
                     </Grid>
 
-
-
-
                     {/* --------------------------------TAGS SECTION--------------------------------------------*/}
 
                     <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
@@ -353,13 +368,14 @@ class unans extends Component {
                                     </Link>
 
                                 </Button>
-
+                                
                             </Grid>
                         </Item>
                     </Grid>
-                </Grid>
-            </Box>
+                </Grid >
+            </Box >
         );
-    };
+    }
 }
-export default unans
+
+export default QuestionsPages
