@@ -182,79 +182,87 @@ class QuestionsPages extends Component {
                                 </Grid>
 
 
+
                                 <Grid container>
                                     {QuestionsData.map((content) => (
-                                        <Box sx={{
+
+                                        <Grid sx={{
                                             width: "100%",
                                             border: "1px solid #d3d3d3",
-                                            // backgroundColor: "#d3d3d3",
                                             margin: "10px",
                                             borderRadius: "0px",
-                                            // boxShadow: "2px 5px 5px 2px #d3d3d3",
+                                            "&:hover": {
+                                                cursor: "pointer",
+                                                boxShadow: "0 0 10px #d3d3d3",
 
-                                        }} >
-                                            <CardHeader sx={{
-                                                alignItems: 'left',
-                                                textAlign: 'left',
-                                            }}
-                                                avatar={
-                                                    <Avatar sx={{
-                                                        height: "50px",
-                                                        width: "50px",
-                                                    }}
-                                                        alt={content.author}
-                                                        src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
-                                                    />
-                                                }
-                                                title={
-                                                    <Typography sx={{
-                                                        fontSize: 20,
-                                                        // fontWeight: "bold",
-                                                        fontFamily: "roboto",
-
-                                                    }}>
-                                                        {content.author}
-                                                    </Typography>
-                                                }
-                                            />
-                                            <Typography variant="h6"
-                                                sx={{ color: "black", textAlign: "left", padding: 2 }}>
-                                                <LiveHelpIcon sx={{
-                                                    margin: "20px"
-                                                }} />
-
-                                                {content.question}
-                                            </Typography>
-
-
-                                            <Stack direction="row" sx={{
-                                                padding: 2,
+                                            }
+                                        }} > <Link
+                                            to={{
+                                                pathname: `/answers/${content.question}`,
+                                                state: { propQue: true },
                                             }}>
+                                                <CardHeader sx={{
+                                                    alignItems: 'left',
+                                                    textAlign: 'left',
+                                                }}
+                                                    avatar={
+                                                        <Avatar sx={{
+                                                            height: "50px",
+                                                            width: "50px",
+                                                        }}
+                                                            alt={content.author}
+                                                            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                                                        />
+                                                    }
+                                                    title={
+                                                        <Typography sx={{
+                                                            fontSize: 20,
+                                                            // fontWeight: "bold",
+                                                            fontFamily: "roboto",
 
-                                                <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
-                                                    <Item elevation={0}>
-                                                        <Link
-                                                            to={{
-                                                                pathname: `/answers/${content.question}`,
-                                                                state: { propQue: true },
-                                                            }}>
-                                                            <Button sx={{
-                                                                backgroundColor: "#E26639",
-                                                                width: "auto",
-                                                                height: "auto",
-                                                                padding: "10px",
-                                                                borderRadius: 1,
-                                                                "&:hover": {
-                                                                    backgroundColor: "#41D450",
-                                                                    opacity: 10
-                                                                }
-                                                            }}
-                                                                variant="contained" disableElevation>
-                                                                See Full Answer
-                                                            </Button>
-                                                        </Link>
+                                                        }}>
+                                                            {content.author}
+                                                        </Typography>
+                                                    }
+                                                />
+                                                <Typography variant="h6"
+                                                    sx={{ color: "black", textAlign: "left", padding: 2 }}>
+                                                    <LiveHelpIcon sx={{
+                                                        margin: "20px"
+                                                    }} />
 
-                                                        {/* <Link
+                                                    {content.question}
+                                                </Typography>
+
+
+                                                <Stack direction="row" sx={{
+                                                    padding: 2,
+                                                }}>
+
+                                                    <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
+                                                        <Item elevation={0}>
+                                                            <Link
+                                                                to={{
+                                                                    pathname: `/answers/${content.question}`,
+                                                                    state: { propQue: true },
+                                                                }}>
+                                                                <Button sx={{
+                                                                    backgroundColor: "#E26639",
+                                                                    width: "auto",
+                                                                    height: "auto",
+                                                                    padding: "10px",
+                                                                    borderRadius: 1,
+                                                                    "&:hover": {
+                                                                        backgroundColor: "#41D450",
+                                                                        opacity: 10
+                                                                    }
+                                                                }}
+                                                                    variant="contained" disableElevation>
+                                                                    See Full Answer
+                                                                </Button>
+                                                            </Link>
+
+                                                            {/* <Link
                                                             component="button"
                                                             variant="body2"
                                                             onClick={() => {
@@ -264,59 +272,64 @@ class QuestionsPages extends Component {
                                                             Button Link
                                                         </Link> */}
 
-                                                    </Item>
-                                                </Grid>
-
-                                                <Grid container xs={4} md={4} xl={4} sm={6} lg={3} sx={{
-                                                    margin: "10px",
-                                                }}>
-                                                    <Stack direction="row" spacing={2}
-                                                        sx={{
-                                                            padding: "10px",
-                                                            border: "1px solid #d3d3d3",
-                                                            borderRadius: "10px ",
-                                                            position: "relative",
-                                                            alignItems: "right",
-                                                            '@media (max-width:1000px)': {
-                                                                paddingLeft: 20
-                                                            },
-                                                            '@media (max-width:850px)': {
-                                                                paddingLeft: 1
-                                                            },
-                                                        }}>
-                                                        <Item elevation={0} sx={{
-                                                             borderRight: "1px solid #d3d3d3",
-                                                            borderRadius: "0px"
-                                                        }}>
-                                                            <Typography variant="subtitle1" color='black'>
-                                                                <VisibilityIcon />
-                                                                {content.views}
-                                                            </Typography>
                                                         </Item>
+                                                    </Grid>
 
-                                                        <Item elevation={0} sx={{
-                                                             borderRight: "1px solid #d3d3d3",
-                                                            borderRadius: "0px"
-                                                        }}>
-                                                            <Typography variant="subtitle1" color='black'>
-                                                                <ThumbUpIcon />
-                                                                {content.upvotes}
-                                                            </Typography>
+                                                    <Grid container xs={4} md={4} xl={4} sm={6} lg={3} sx={{
+                                                        margin: "10px",
+                                                    }}>
+                                                        <Stack direction="row" spacing={2}
+                                                            sx={{
+                                                                padding: "10px",
+                                                                border: "1px solid #d3d3d3",
+                                                                borderRadius: "10px ",
+                                                                position: "relative",
+                                                                alignItems: "right",
+                                                                '@media (max-width:1000px)': {
+                                                                    paddingLeft: 20
+                                                                },
+                                                                '@media (max-width:850px)': {
+                                                                    paddingLeft: 1
+                                                                },
+                                                            }}>
+                                                            <Item elevation={0} sx={{
+                                                                borderRight: "1px solid #d3d3d3",
+                                                                borderRadius: "0px"
+                                                            }}>
+                                                                <Typography variant="subtitle1" color='black'>
+                                                                    <VisibilityIcon />
+                                                                    {content.views}
+                                                                </Typography>
+                                                            </Item>
 
-                                                        </Item>
-                                                        <Item elevation={0}>
-                                                            <Typography variant="subtitle1" color='black'>
-                                                                <QuestionAnswerIcon />
-                                                                {content.no_of_answers}
-                                                            </Typography>
+                                                            <Item elevation={0} sx={{
+                                                                borderRight: "1px solid #d3d3d3",
+                                                                borderRadius: "0px"
+                                                            }}>
+                                                                <Typography variant="subtitle1" color='black'>
+                                                                    <ThumbUpIcon />
+                                                                    {content.upvotes}
+                                                                </Typography>
 
-                                                        </Item>
-                                                    </Stack>
-                                                </Grid>
-                                            </Stack>
-                                        </Box>
+                                                            </Item>
+                                                            <Item elevation={0}>
+                                                                <Typography variant="subtitle1" color='black'>
+                                                                    <QuestionAnswerIcon />
+                                                                    {content.no_of_answers}
+                                                                </Typography>
+
+                                                            </Item>
+                                                        </Stack>
+                                                    </Grid>
+
+                                                </Stack>
+                                            </Link>
+                                        </Grid>
+
+
                                     ))}
                                 </Grid>
+
                             </Item>
                         </Grid>
                     </Grid>
@@ -370,7 +383,7 @@ class QuestionsPages extends Component {
                                     </Link>
 
                                 </Button>
-                                
+
                             </Grid>
                         </Item>
                     </Grid>
