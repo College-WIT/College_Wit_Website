@@ -168,9 +168,9 @@ class unans extends Component {
                                     {QuestionsData.map((content) => (
                                         <Box sx={{
                                             width: "100%",
-                                            border: "1px solid grey",
+                                            border: "1px solid #d3d3d3",
                                             margin: "10px",
-                                            borderRadius: "10px",
+                                            // borderRadius: "10px",
 
                                         }} >
                                             <CardHeader sx={{
@@ -253,7 +253,7 @@ class unans extends Component {
                                                     <Stack direction="row" spacing={2}
                                                         sx={{
                                                             padding: "10px",
-                                                            border: "1px solid grey",
+                                                            border:"1px solid #d3d3d3",
                                                             borderRadius: "10px ",
                                                             position: "relative",
                                                             alignItems: "right",
@@ -265,7 +265,7 @@ class unans extends Component {
                                                             },
                                                         }}>
                                                         <Item elevation={0} sx={{
-                                                            borderRight: "1px solid grey",
+                                                            borderRight: "1px solid #d3d3d3",
                                                             borderRadius: "0px"
                                                         }}>
                                                             <Typography variant="subtitle1" color='black'>
@@ -275,7 +275,7 @@ class unans extends Component {
                                                         </Item>
 
                                                         <Item elevation={0} sx={{
-                                                            borderRight: "1px solid grey",
+                                                            borderRight:"1px solid #d3d3d3",
                                                             borderRadius: "0px"
                                                         }}>
                                                             <Typography variant="subtitle1" color='black'>

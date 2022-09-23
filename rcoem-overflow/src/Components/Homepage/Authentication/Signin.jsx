@@ -40,7 +40,7 @@ class Signin extends Component {
       let login = localStorage.getItem('login');
       if (login) {
         navigate('/Answered');
-      }else{
+      } else {
         navigate('/login');
       }
     })

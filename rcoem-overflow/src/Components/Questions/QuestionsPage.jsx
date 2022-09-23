@@ -102,7 +102,7 @@ class QuestionsPages extends Component {
                 {/* ----------------------------QUICK ACCESS------------------------------ */}
                 <Grid container spacing={2} >
                     <Grid item xl={2} lg={2} md={2} sm={2} xs={2} >
-                        <Item >
+                        <Item  >
                             <Typography sx={{
                                 fontSize: 20,
                                 fontWeight: 300,
@@ -186,9 +186,11 @@ class QuestionsPages extends Component {
                                     {QuestionsData.map((content) => (
                                         <Box sx={{
                                             width: "100%",
-                                            border: "1px solid grey",
+                                            border: "1px solid #d3d3d3",
+                                            // backgroundColor: "#d3d3d3",
                                             margin: "10px",
-                                            borderRadius: "10px",
+                                            borderRadius: "0px",
+                                            // boxShadow: "2px 5px 5px 2px #d3d3d3",
 
                                         }} >
                                             <CardHeader sx={{
@@ -271,7 +273,7 @@ class QuestionsPages extends Component {
                                                     <Stack direction="row" spacing={2}
                                                         sx={{
                                                             padding: "10px",
-                                                            border: "1px solid grey",
+                                                            border: "1px solid #d3d3d3",
                                                             borderRadius: "10px ",
                                                             position: "relative",
                                                             alignItems: "right",
@@ -283,7 +285,7 @@ class QuestionsPages extends Component {
                                                             },
                                                         }}>
                                                         <Item elevation={0} sx={{
-                                                            borderRight: "1px solid grey",
+                                                             borderRight: "1px solid #d3d3d3",
                                                             borderRadius: "0px"
                                                         }}>
                                                             <Typography variant="subtitle1" color='black'>
@@ -293,7 +295,7 @@ class QuestionsPages extends Component {
                                                         </Item>
 
                                                         <Item elevation={0} sx={{
-                                                            borderRight: "1px solid grey",
+                                                             borderRight: "1px solid #d3d3d3",
                                                             borderRadius: "0px"
                                                         }}>
                                                             <Typography variant="subtitle1" color='black'>
