@@ -19,7 +19,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Avatar } from '@mui/material';
 import { CardHeader } from '@mui/material';
-// ------------------------------------------------------------------------------------------
+import Divider from '@mui/material/Divider';
 import { Component } from 'react'
 import Lottie from 'react-lottie';
 
@@ -27,7 +27,7 @@ import Lottie from 'react-lottie';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     padding: theme.spacing(1),
-
+    textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
 
@@ -40,8 +40,8 @@ if (cookie == null) {
     console.log(red_link);
 }
 
-const quickAccBar = ["Home", "Questions", "Answered", "Unanswered", "Trending"];
-const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
+const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
+const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
 const dummyQue = [
     {
         que: "Create a class TimeZone which will add functionality to convert the time from one time zone to another time zone.Note: Class Time zone  uses the TIme Object and uses the Add and Subtract methods of Time Class.",
@@ -60,10 +60,10 @@ class Ans extends Component {
 
         this.state = {
             quest: "",
-            author:"",
-            views:0,
-            upvotes:0,
-            answers:[],
+            author: "",
+            views: 0,
+            upvotes: 0,
+            answers: [],
             errorMsg: ""
         }
     }
@@ -82,20 +82,20 @@ class Ans extends Component {
         const obj = {
             question: this.props.qq
         };
-        axios.post("https://rcoem-overflow-backend.herokuapp.com/view_specific_question",obj)
+        axios.post("https://rcoem-overflow-backend.herokuapp.com/view_specific_question", obj)
             .then(response => {
                 console.log("POST COMPLETE");
                 const n = response.data.answers.length;
-                var arr=[];
+                var arr = [];
                 for (var i = 0; i < n; i++) {
                     arr.push(response.data.answers[i].answer);
                 }
                 this.setState({
                     quest: response.data.question,
-                    author:response.data.author,
+                    author: response.data.author,
                     views: response.data.views,
                     upvotes: response.data.upvotes,
-                    answers:arr
+                    answers: arr
                 })
             })
             .catch(error => {
@@ -107,16 +107,23 @@ class Ans extends Component {
     }
 
     render() {
-        const { quest,author,views,upvotes,answers, errorMsg } = this.state;
+        const { quest, author, views, upvotes, answers, errorMsg } = this.state;
         return (
             <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
-    
-                <Grid container spacing={2}>
-    
-                    {/* --------------------- Left Quick Access Bar ------------------------------------ */}
-                    <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
-                        <Item sx={{ border: 1, textAlign: 'center', }}>
-                            Quick Access
+
+
+
+                {/* ----------------------------QUICK ACCESS------------------------------ */}
+                <Grid container spacing={2} >
+                    <Grid item xl={2} lg={2} md={2} sm={2} xs={2} >
+                        <Item  >
+                            <Typography sx={{
+                                fontSize: 20,
+                                fontWeight: 300,
+                                fontFamily: "'urw-din',sans-serif"
+                            }}> Quick Access
+                            </Typography>
+                            <Divider light />
                             {quickAccBar.map((content) => (
                                 <Grid sx={{
                                     padding: 2,
@@ -149,8 +156,9 @@ class Ans extends Component {
                                             width: 70,
                                             height: 20,
                                         }
-                                    }} ><Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
-                                            {/* {quickAccBar} */}
+                                    }}
+                                        variant="contained" disableElevation>
+                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
                                             {content}
                                         </Link>
                                     </Button>
@@ -158,12 +166,10 @@ class Ans extends Component {
                             ))}
                         </Item>
                     </Grid>
-                    {/* -------------------------------------------------------------------------------------------------------------- */}
-    
-    
-    
+
+
                     {/* -----------------------------------Middle Section (Questions) ------------------------------------------------ */}
-    
+
                     <Grid item xl={8} lg={8} md={8} sm={8} xs={12}>
                         <Grid item >
                             <Item >
@@ -177,16 +183,16 @@ class Ans extends Component {
                                                 margin: "50px",
                                                 fontSize: "40px"
                                                 // margin:"10px",
-    
+
                                             }}>
                                             {/* <HelpCenterIcon sx={{
                                                 fontSize: "100px"
                                             }} />   */}
                                             {quest}
                                         </Typography>
-    
+
                                         {/* ******************************************************** */}
-    
+
                                         <Grid container sx={{
                                             margin: "20px"
                                         }} >
@@ -207,20 +213,20 @@ class Ans extends Component {
                                                         Post an Answer
                                                     </Link>
                                                 </Button>
-    
+
                                                 <Button variant='outline' sx={{
                                                     height: 60,
                                                     border: 1,
                                                     borderRadius: 2,
-                                                    // margin: "10px",
+                                                    marginLeft: "10px",
                                                     border: "1px solid grey",
                                                     alignItems: "right"
                                                 }}>
                                                     <ThumbUpIcon /> {upvotes}
                                                 </Button>
                                             </Grid>
-    
-    
+
+
                                             <Grid container justifyContent="right" xs={7.5} md={7.5} xl={7.5} sm={7.5} lg={7.5} >
                                                 <Stack direction="row"
                                                     sx={{
@@ -230,7 +236,7 @@ class Ans extends Component {
                                                         borderRadius: 2,
                                                         position: "relative",
                                                         alignItems: "right",
-    
+
                                                     }}>
                                                     <Item elevation={0} sx={{
                                                         borderRight: "1px solid grey",
@@ -241,7 +247,7 @@ class Ans extends Component {
                                                             {views}
                                                         </Typography>
                                                     </Item>
-    
+
                                                     <Item elevation={0} sx={{
                                                         borderRight: "1px solid grey",
                                                         borderRadius: "0px"
@@ -250,29 +256,33 @@ class Ans extends Component {
                                                             <ThumbUpIcon />
                                                             {upvotes}
                                                         </Typography>
-    
+
                                                     </Item>
                                                     <Item elevation={0}>
                                                         <Typography variant="subtitle1" color='black'>
                                                             <QuestionAnswerIcon />
                                                             {answers.length}
                                                         </Typography>
-    
+
                                                     </Item>
                                                 </Stack>
                                             </Grid>
                                         </Grid>
-    
+
                                         <Grid container>
                                             {answers.map(answer => {
                                                 return (
-                                                    <Box sx={{
+                                                    <Grid sx={{
                                                         width: "100%",
-                                                        border: "1px solid grey",
+                                                        border: "1px solid #d3d3d3",
                                                         margin: "10px",
-                                                        borderRadius: "10px",
-    
-                                                    }}>
+                                                        borderRadius: "0px",
+                                                        "&:hover": {
+                                                            cursor: "pointer",
+                                                            boxShadow: "0 0 10px #d3d3d3",
+            
+                                                        }
+                                                    }} >
                                                         <CardHeader sx={{
                                                             alignItems: 'left',
                                                             textAlign: 'left',
@@ -302,7 +312,7 @@ class Ans extends Component {
                                                             fontFamily: "'urw-din',sans-serif",
                                                         }}>
                                                             <GoArrowRight /> {answer}</Typography>
-    
+
                                                         <Grid container justifyContent="right"
                                                         ><Button variant='outline' sx={{
                                                             margin: "10px",
@@ -311,61 +321,72 @@ class Ans extends Component {
                                                         }}>
                                                                 <ThumbUpIcon /> {upvotes}
                                                             </Button></Grid>
-    
-    
-                                                    </Box>
+
+
+                                                    </Grid>
                                                 )
                                             })}
                                         </Grid>
                                     </Grid>
-    
+
                                 ))}
                             </Item>
                         </Grid>
                     </Grid>
-    
-    
-    
-                    {/* ********************************** Right Access Bar**************************************** */}
-    
-                    <Grid item xl={2} lg={2} md={2} sm={2} xs={12}>
-                        <Item sx={{ border: 1, textAlign: 'center', }}>
-                            Tags
+
+
+
+
+                    {/* --------------------------------TAGS SECTION--------------------------------------------*/}
+
+                    <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
+                        <Item>
+                            <Typography color='black' sx={{
+                                fontFamily: "'urw-din',sans-serif",
+                                fontSize: 20
+                            }}>
+                                Tags
+                            </Typography>
+                            <Divider light />
                             {queTags.map((content) => (
                                 <Grid sx={{ padding: 1 }}>
                                     <Button sx={{
                                         backgroundColor: "#E26639",
                                         width: 100,
-                                        height: "50px",
-                                        padding: 2,
+                                        height: 35,
+                                        padding: "10px",
                                         borderRadius: 1,
                                         "&:hover": {
-                                            backgroundColor: "#637081",
-                                            opacity: 10,
+                                            backgroundColor: "#41D450",
+                                            opacity: 10
                                         }
                                     }}
-                                    >
+                                        variant="contained" disableElevation>
                                         {content}
                                     </Button>
                                 </Grid>
                             ))}
-    
+
                             <Grid sx={{ paddingTop: 10 }}>
                                 <Button sx={{
                                     backgroundColor: "#20D867",
                                     width: 150,
                                     height: 60,
-                                    borderRadius: 1,
+                                    border: 1,
+                                    borderRadius: 2,
                                     fontSize: 15,
                                     "&:hover": {
-                                        backgroundColor: "#637081",
+                                        backgroundColor: "#E26639",
                                         opacity: 10,
                                     }
                                 }} variant="contained" disableElevation>
-                                    <Link style={{ textDecoration: "None", color: "white" }} to={`/Post-a-question`}>
+
+                                    <Link style={{ textDecoration: "None", color: "white" }} to={red_link}>
                                         Post a question
                                     </Link>
+
                                 </Button>
+
                             </Grid>
                         </Item>
                     </Grid>
