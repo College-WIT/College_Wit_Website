@@ -8,6 +8,7 @@ import Contributors from "./ContributorsSection";
 import axios from 'axios'
 import { Divider } from "@mui/material";
 import Grid from '@mui/material/Grid';
+import Counter from './counter'
 
 // axios.get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
 //             .then(response => {
@@ -53,6 +54,13 @@ function Home() {
         <Divider light width='90%' />
       </Grid>
       <Contributors />
+      <Grid container justifyContent="center">
+        <Divider light width='90%' />
+      </Grid>
+      <Counter />
+      <Grid container justifyContent="center">
+        <Divider light width='90%' />
+      </Grid>
       <Footer />
     </div>
 
