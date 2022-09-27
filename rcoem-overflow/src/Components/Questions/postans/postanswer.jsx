@@ -22,19 +22,20 @@ const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
 var flag = false
 
-var quest = localStorage.getItem('recentQuest');
-console.log(quest);
+// var ques = localStorage.getItem('recentQuest');
+// console.log(ques);
 
 class postans extends Component {
 
     constructor(props) {
         super(props)
-        // var quest=JSON.parse(localStorage.getItem('recentQuest')).data;
-        // console.log(quest);
+        //console.log(this.props.qq);
+       // var quest=this.props.qq;
+
         this.state = {
             username: JSON.parse(getCookie('login')).email,
             password: JSON.parse(getCookie('login')).password,
-            question: quest,
+            question: this.props.qq,
             answer: '',
         }
     }
@@ -141,7 +142,9 @@ class postans extends Component {
                                 <Grid align='center'>
                                     <h2>Post an Answer</h2>
                                 </Grid >
-
+                                <Grid sx={{paddingTop:'20px'}}>
+                                <h4>{this.props.qq}</h4>
+                                </Grid >
                                 <Grid align='center'>
                                     <h2>{this.getQues}</h2>
                                 </Grid >

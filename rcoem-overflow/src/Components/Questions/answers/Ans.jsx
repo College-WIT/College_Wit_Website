@@ -24,6 +24,8 @@ import { Component } from 'react'
 import Lottie from 'react-lottie';
 
 
+
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     padding: theme.spacing(1),
@@ -82,14 +84,23 @@ class Ans extends Component {
         const obj = {
             question: this.props.qq
         };
+            /// USING LOCAL STORAGE FOR STORING RECENT QUESTION
+
+        localStorage.removeItem('recentQuest');
+        const strJSON= this.props.qq;
+        localStorage.setItem('recentQuest', strJSON);
+
         axios.post("https://rcoem-overflow-backend.herokuapp.com/view_specific_question", obj)
             .then(response => {
                 console.log("POST COMPLETE");
                 const n = response.data.answers.length;
-                var arr = [];
-                for (var i = 0; i < n; i++) {
-                    arr.push(response.data.answers[i].answer);
-                }
+                var arr= response.data.answers;
+                // var arr = [];
+                // var check = response.data.answers;
+                // console.log(check);
+                // for (var i = 0; i < n; i++) {
+                //     arr.push(response.data.answers[i].answer);
+                // }
                 this.setState({
                     quest: response.data.question,
                     author: response.data.author,
@@ -301,7 +312,7 @@ class Ans extends Component {
                                                                     fontSize: 20,
                                                                     fontFamily: "'urw-din',sans-serif",
                                                                 }}>
-                                                                    {author}
+                                                                    {answer.author}
                                                                 </Typography>
                                                             }
                                                         />
@@ -311,7 +322,7 @@ class Ans extends Component {
                                                             fontSize: 20,
                                                             fontFamily: "'urw-din',sans-serif",
                                                         }}>
-                                                            <GoArrowRight /> {answer}</Typography>
+                                                            <GoArrowRight /> {answer.answer}</Typography>
 
                                                         <Grid container justifyContent="right"
                                                         ><Button variant='outline' sx={{
@@ -319,7 +330,7 @@ class Ans extends Component {
                                                             border: "1px solid grey",
                                                             alignItems: "right"
                                                         }}>
-                                                                <ThumbUpIcon /> {upvotes}
+                                                                <ThumbUpIcon /> {answer.upvotes}
                                                             </Button></Grid>
 
 
