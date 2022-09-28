@@ -26,6 +26,9 @@ import Counter from './counter'
 
 (async () => {
   console.log("ASYNC FUNCTION");
+  localStorage.removeItem('RecentPage');
+  localStorage.setItem('RecentPage', '/Home');
+
   axios.get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
     .then(response => {
       //console.log(response)

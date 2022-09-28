@@ -24,8 +24,6 @@ import { Component } from 'react'
 import Lottie from 'react-lottie';
 
 
-
-
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     padding: theme.spacing(1),
@@ -89,6 +87,13 @@ class Ans extends Component {
         localStorage.removeItem('recentQuest');
         const strJSON= this.props.qq;
         localStorage.setItem('recentQuest', strJSON);
+
+        ///// USING LAST PAGE FOR REDIRECTION
+        var rp=window.location.href;
+        console.log(rp);
+        localStorage.removeItem('RecentPage');
+        localStorage.setItem('RecentPage', rp);
+        //console.log(window.location.href);
 
         axios.post("https://rcoem-overflow-backend.herokuapp.com/view_specific_question", obj)
             .then(response => {

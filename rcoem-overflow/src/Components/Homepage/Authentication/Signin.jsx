@@ -33,6 +33,8 @@ class Signin extends Component {
     this.state = {
       email: '',
       password: '',
+      lastpage:'/Answered',
+      message: 'PROCEED'
     }
   }
   state = {
@@ -89,32 +91,14 @@ class Signin extends Component {
         setCookie('login', JSON.stringify(newstate));
 
         this.setState({ openModal: true })
-        this.navigation();
+        //this.navigation();
 
-        //this.onClickButton()
-        // window.location = this.href;
-        // const navigate = useNavigate();
-        // navigate(-1);
-        //console.log(JSON.parse(getCookie('login')).email);
-        //  var username=JSON.parse(getCookie('login')).email;
-        //  var newusername="";
-        //  for (var i = 0; i<username.length; i++){
-        //       if ( username.charAt(i) == '@' ) {
-        //       break;
-        //     }
-        //       var chars=username.charAt(i);
-        //          newusername+=chars;
-        //  }
-        //var datacheck=JSON.parse(getCookie('login'));
-        //console.log(newusername);
-        //onClick={e => window.location.href = '/Questions'}
       })
       .catch(error => {
-        // console.log(error.response)
-        //console.log("ERROR")
         modalText = error.response.data;
-        alert(error.response.data);
-
+        this.state.lastpage='/login';
+        this.state.message='TRY AGAIN';
+        this.setState({ openModal: true });
       })
     e.preventDefault()
   }
@@ -165,8 +149,8 @@ class Signin extends Component {
               {modalText}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              <Link style={{ textDecoration: "None", color: "white" }} href={'/Answered'}>
-                <Button style={buttons} variant='contained' color='primary'> Go to Home Page</Button>
+              <Link style={{ textDecoration: "None", color: "white" }} href={this.state.lastpage}>
+                <Button style={buttons} variant='contained' color='primary'>{this.state.message}</Button>
               </Link>
             </Typography>
           </Box>

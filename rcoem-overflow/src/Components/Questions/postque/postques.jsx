@@ -1,13 +1,8 @@
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
-import { Component } from 'react'
+import { Grid, Paper, Avatar, Typography, TextField, Button,Modal, Box,Link } from '@mui/material'
+import React, { Component, useEffect} from 'react'
 import axios from 'axios'
-import { TextField, } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 import getCookie from '../../../hooks/getCookie'
 
 // import SearchData from "../../data.json";
@@ -22,7 +17,23 @@ const buttons = { height: 40, margin: '5px', backgroundColor: "#E26639", fontSiz
 const quickAccBar = ["Home", "Answered", "Trending"];
 const queTags = ["Tags", "Tags", "Tags", "Tags"];
 const paperStyle = { padding: 40 }
+const text = { padding: 2 }
 //var flag=false
+
+var modalText;
+//const paperStyle = { padding: 40, height: '60vh', width: 400, margin: "10px" }
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 class postques extends Component {
 
@@ -33,14 +44,45 @@ class postques extends Component {
       username: JSON.parse(getCookie('login')).email,
       password: JSON.parse(getCookie('login')).password,
       question: '',
+      lastpage: '/Unanswered',
+      message: 'PROCEED'
     }
   }
 
+  state = {
+    openModal: false
+  }
+
+  onClickButton = e => {
+    e.preventDefault()
+    this.setState({ openModal: true })
+  }
+
+  onCloseModal = () => {
+    this.setState({ openModal: false })
+  }
+
   changeHandler = (event) => {
+    console.log("change handler");
     this.setState({
-      [event.target.name]: event.target.value
+        [event.target.name]: event.target.value
     })
   }
+
+  navigation = () => {
+
+    const navigate = useNavigate();
+    //navigate('/Answered');
+    useEffect(() => {
+      let login = getCookie('login');
+      if (login) {
+        navigate('/Answered');
+      } else {
+        navigate('/login');
+      }
+    })
+  }
+
 
   submitHandler = (e) => {
     e.preventDefault()
@@ -64,12 +106,23 @@ class postques extends Component {
       .then(response => {
         //flag=true
         console.log("Question added Successfully");
+        modalText = "Question added Successfully";
+        this.setState({ openModal: true })
         //SearchData.push({link:"new question",title:"new question"});
       })
       .catch(error => {
         //flag=false
+        modalText = "Error Adding Question";
+        this.state.message="TRY AGAIN";
+        this.state.lastpage='/Post-a-question';
+        this.setState({ openModal: true })
         console.log(error.response)
       })
+  }
+
+  onClick(event) {
+    this.submitHandler();
+    this.onClickButton();
   }
 
   render() {
@@ -140,11 +193,28 @@ class postques extends Component {
                   <TextField multiline rows={6} label='Question' type="text" name="question" value={question} placeholder="Question" onChange={this.changeHandler} fullWidth required />
                   {/* <Grid alig sx={{padding:1,alignContent:'center'}}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler }/>
                 <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler }/></Grid> */}
-                  <Grid> <Button style={buttons} type='submit' variant='contained' color='primary' >Post</Button>
-                    <Button style={buttons} type='submit' variant='contained' color='primary'>Post Anonymously</Button></Grid>
+                  <Grid> <Button style={buttons} type='submit' variant='contained' color='primary'onClick={this.onClick} >Post</Button>
+                    <Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClick}>Post Anonymously</Button></Grid>
                 </form>
                 {/* {flag ? <h2>Question added Successfully</h2> : <h2></h2>} */}
               </Paper>
+              <Modal
+          open={this.state.openModal}
+          onClose={this.onCloseModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {modalText}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <Link style={{ textDecoration: "None", color: "white" }} href={this.state.lastpage}>
+                <Button style={buttons} variant='contained' color='primary'>{this.state.message}</Button>
+              </Link>
+            </Typography>
+          </Box>
+        </Modal>
             </Grid>
           </Grid>
 
