@@ -69,6 +69,8 @@ class Signin extends Component {
     })
   }
 
+
+
   submitHandler = (e) => {
     e.preventDefault()
     const newstate = {
@@ -86,9 +88,10 @@ class Signin extends Component {
         removeCookie('login');
         setCookie('login', JSON.stringify(newstate));
 
+        this.setState({ openModal: true })
         this.navigation();
-        
-        this.onClickButton()
+
+        //this.onClickButton()
         // window.location = this.href;
         // const navigate = useNavigate();
         // navigate(-1);
@@ -116,6 +119,10 @@ class Signin extends Component {
     e.preventDefault()
   }
 
+  onClick(event) {
+    this.submitHandler();
+    this.onClickButton();
+  }
 
   render() {
     const { email, password } = this.state
@@ -134,9 +141,9 @@ class Signin extends Component {
           <form onSubmit={this.submitHandler}>
             <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
             <TextField style={text} type="password" name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
-            <Button style={buttons} type='submit' variant='contained' color='primary'>Login</Button>
+            <Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClick}>Login</Button>
           </form>
-          <Typography >
+          {/*<Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClickButton}>Login</Button>*/}          <Typography >
             <Link href="#" >
               Forgot password?
             </Link>
@@ -158,7 +165,9 @@ class Signin extends Component {
               {modalText}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              <Button style={buttons} type='submit' variant='contained' color='primary'> Go to Home Page</Button>
+              <Link style={{ textDecoration: "None", color: "white" }} href={'/Answered'}>
+                <Button style={buttons} variant='contained' color='primary'> Go to Home Page</Button>
+              </Link>
             </Typography>
           </Box>
         </Modal>
