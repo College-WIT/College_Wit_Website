@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from 'react'
 import axios from 'axios'
 
-import { Grid, Paper, TextField, Button, Typography, Link } from '@mui/material'
+import { Grid, Paper, TextField, Button, Typography, Link, Modal, Box } from '@mui/material'
 
 import setCookie from '../../../hooks/setCookie'
 import getCookie from '../../../hooks/getCookie'
@@ -13,6 +13,18 @@ const text = { padding: 2 }
 
 const paperStyle = { padding: 40, height: '60vh', width: 400, margin: "10px" }
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 class Signin extends Component {
 
   constructor(props) {
@@ -23,6 +35,18 @@ class Signin extends Component {
       password: '',
     }
   }
+  state = {
+    openModal: false
+  }
+
+  onClickButton = e => {
+    e.preventDefault()
+    this.setState({ openModal: true })
+  }
+
+  onCloseModal = () => {
+    this.setState({ openModal: false })
+  }
 
   changeHandler = (event) => {
     console.log("change handler");
@@ -32,7 +56,7 @@ class Signin extends Component {
   }
 
   navigation = () => {
-    
+
     const navigate = useNavigate();
     //navigate('/Answered');
     useEffect(() => {
@@ -105,7 +129,7 @@ class Signin extends Component {
           <form onSubmit={this.submitHandler}>
             <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
             <TextField style={text} type="password" name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
-            <Button style={buttons} type='submit' variant='contained' color='primary'>Login</Button>
+            <Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClickButton}>Login</Button>
           </form>
           <Typography >
             <Link href="#" >
@@ -118,6 +142,21 @@ class Signin extends Component {
             </Link>
           </Typography>
         </Paper>
+        <Modal
+          open={this.state.openModal}
+          onClose={this.onCloseModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Text in a modal
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </Box>
+        </Modal>
       </Grid>
     )
   }
