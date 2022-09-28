@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const buttons = { margin: '8px 0', backgroundColor: "#E26639" }
 const text = { padding: 2 }
-
+var modalText;
 const paperStyle = { padding: 40, height: '60vh', width: 400, margin: "10px" }
 
 const style = {
@@ -81,11 +81,14 @@ class Signin extends Component {
       .then(response => {
         console.log(response);
         console.log("LOGGED IN");
-
+        modalText = "Logged In Successfully !!";
+        console.log(modalText);
         removeCookie('login');
         setCookie('login', JSON.stringify(newstate));
 
         this.navigation();
+        
+        this.onClickButton()
         // window.location = this.href;
         // const navigate = useNavigate();
         // navigate(-1);
@@ -106,7 +109,9 @@ class Signin extends Component {
       .catch(error => {
         // console.log(error.response)
         //console.log("ERROR")
+        modalText = error.response.data;
         alert(error.response.data);
+
       })
     e.preventDefault()
   }
@@ -129,7 +134,7 @@ class Signin extends Component {
           <form onSubmit={this.submitHandler}>
             <TextField style={text} name="email" value={email} fullWidth label='Email' placeholder="Enter your email" onChange={this.changeHandler} />
             <TextField style={text} type="password" name="password" value={password} fullWidth label='Password' placeholder="Enter your password" onChange={this.changeHandler} />
-            <Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClickButton}>Login</Button>
+            <Button style={buttons} type='submit' variant='contained' color='primary'>Login</Button>
           </form>
           <Typography >
             <Link href="#" >
@@ -150,10 +155,10 @@ class Signin extends Component {
         >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
+              {modalText}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              <Button style={buttons} type='submit' variant='contained' color='primary'> Go to Home Page</Button>
             </Typography>
           </Box>
         </Modal>
