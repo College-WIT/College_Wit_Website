@@ -22,7 +22,6 @@ class Signin extends Component {
       email: '',
       password: '',
     }
-    localStorage.setItem('loggedin', false);
   }
 
   changeHandler = (event) => {
@@ -33,11 +32,11 @@ class Signin extends Component {
   }
 
   navigation = () => {
-    localStorage.setItem('login', true);
+    
     const navigate = useNavigate();
-    navigate('/Answered');
+    //navigate('/Answered');
     useEffect(() => {
-      let login = localStorage.getItem('login');
+      let login = getCookie('login');
       if (login) {
         navigate('/Answered');
       } else {
