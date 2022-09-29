@@ -32,16 +32,11 @@ const contributor = () => {
       border: "3px solid black"
     }}
     >
-
-      <Grid item md={7} sx={{
-        // padding: "0px",
-
-      }}>
+      <Grid item md={7} sx={{}}>
         <Lottie options={defaultOptions}
           height='70%'
           width='70%'
         />
-
         <Typography sx={{
           alignItems: "center",
           textAlign: "center",
@@ -60,9 +55,9 @@ const contributor = () => {
             position: "relative",
             top: "-60px",
             // width: '60%',
-            borderRadius: "10px",
+            borderRadius: "3px",
             bgcolor: 'background.paper',
-            border: "1px solid black"
+            border: "1px solid #d3d3d3",
           }}
         >
           <ListItem>
