@@ -111,42 +111,54 @@ class QuestionsPages extends Component {
                             </Typography>
                             <Divider light />
                             {quickAccBar.map((content) => (
-                                <Grid sx={{
-                                    padding: 2,
-                                    '@media (max-width:780px)': {
-                                        padding: '0 ,0, 0, 0'
+                                 <Grid sx={{ 
+                                    padding: 1 ,
+                                    '@media (max-width:1000px)': {
+                                      
+                                    },
+                                    '@media (max-width:900px)': {
+                                      
+                                    },
+                                    '@media (max-width:800px)': {
+                                        
+                                      padding:0
                                     }
-                                }}>
+                                }}
+                                >
                                     <Button sx={{
-                                        fontSize: 15,
                                         backgroundColor: "#E26639",
-                                        width: 130,
+                                        width: "150px",
                                         height: 35,
+                                        padding: "10px",
                                         borderRadius: 1,
                                         "&:hover": {
                                             backgroundColor: "#41D450",
-                                            opacity: 10,
+                                            opacity: 10
+                                        },
+                                        "@media (max-width:1200px)": {
+                                            width: "100px",
+                                            height: 35,
+                                            fontSize: 12,
                                         },
                                         '@media (max-width:1000px)': {
                                             fontSize: 12,
-                                            width: 100,
+                                            width: "100px",
                                             height: 20,
                                         },
                                         '@media (max-width:900px)': {
                                             fontSize: 10,
-                                            width: 90,
+                                            width: "90px",
                                             height: 20,
                                         },
                                         '@media (max-width:800px)': {
+                                            
                                             fontSize: 8,
-                                            width: 70,
+                                            width: "70px",
                                             height: 20,
                                         }
                                     }}
                                         variant="contained" disableElevation>
-                                        <Link style={{ textDecoration: "None", color: "white" }} to={`/${content}`}>
-                                            {content}
-                                        </Link>
+                                        {content}
                                     </Button>
                                 </Grid>
                             ))}
@@ -346,7 +358,16 @@ class QuestionsPages extends Component {
                             </Typography>
                             <Divider light />
                             {queTags.map((content) => (
-                                <Grid sx={{ padding: 1 }}>
+
+                                <Grid sx={{ 
+                                    padding: 1 ,
+                                    
+                                    '@media (max-width:800px)': {
+                                        
+                                      padding:0
+                                    }
+                                }}
+                                >
                                     <Button sx={{
                                         backgroundColor: "#E26639",
                                         width: 100,
@@ -356,6 +377,22 @@ class QuestionsPages extends Component {
                                         "&:hover": {
                                             backgroundColor: "#41D450",
                                             opacity: 10
+                                        },
+                                        '@media (max-width:1000px)': {
+                                            fontSize: 12,
+                                            width: 100,
+                                            height: 20,
+                                        },
+                                        '@media (max-width:900px)': {
+                                            fontSize: 10,
+                                            width: 90,
+                                            height: 20,
+                                        },
+                                        '@media (max-width:800px)': {
+                                            
+                                            fontSize: 8,
+                                            width: 50,
+                                            height: 20,
                                         }
                                     }}
                                         variant="contained" disableElevation>
