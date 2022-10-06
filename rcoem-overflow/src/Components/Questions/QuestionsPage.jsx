@@ -98,9 +98,9 @@ class QuestionsPages extends Component {
                 backgroundColor: "#d9d9d9",
                 padding: 2
             }}>
-
-                {/* ----------------------------QUICK ACCESS------------------------------ */}
                 <Grid container spacing={2} >
+                    {/* ----------------------------QUICK ACCESS------------------------------ */}
+
                     <Grid item xl={2} lg={2} md={2} sm={2} xs={2} >
                         <Item  >
                             <Typography sx={{
@@ -111,17 +111,18 @@ class QuestionsPages extends Component {
                             </Typography>
                             <Divider light />
                             {quickAccBar.map((content) => (
-                                 <Grid sx={{ 
-                                    padding: 1 ,
+                                <Grid sx={{
+                                    position: "sticky",
+                                    padding: 1,
                                     '@media (max-width:1000px)': {
-                                      
+
                                     },
                                     '@media (max-width:900px)': {
-                                      
+
                                     },
                                     '@media (max-width:800px)': {
-                                        
-                                      padding:0
+
+                                        padding: 0
                                     }
                                 }}
                                 >
@@ -151,7 +152,7 @@ class QuestionsPages extends Component {
                                             height: 20,
                                         },
                                         '@media (max-width:800px)': {
-                                            
+
                                             fontSize: 8,
                                             width: "70px",
                                             height: 20,
@@ -359,12 +360,12 @@ class QuestionsPages extends Component {
                             <Divider light />
                             {queTags.map((content) => (
 
-                                <Grid sx={{ 
-                                    padding: 1 ,
-                                    
+                                <Grid sx={{
+                                    padding: 1,
+
                                     '@media (max-width:800px)': {
-                                        
-                                      padding:0
+
+                                        padding: 0
                                     }
                                 }}
                                 >
@@ -389,7 +390,7 @@ class QuestionsPages extends Component {
                                             height: 20,
                                         },
                                         '@media (max-width:800px)': {
-                                            
+
                                             fontSize: 8,
                                             width: 50,
                                             height: 20,

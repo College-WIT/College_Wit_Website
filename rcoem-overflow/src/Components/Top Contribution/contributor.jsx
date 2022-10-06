@@ -33,28 +33,23 @@ const contributor = () => {
     }}
     >
       <Grid item md={7} sx={{}}>
-        <Lottie options={defaultOptions}
-          height='70%'
-          width='70%'
-        />
         <Typography sx={{
           alignItems: "center",
           textAlign: "center",
           fontFamily: "monospace",
-          paddingTop: "20px",
+          paddingTop: "10px",
           fontSize: "50px"
-        }}
-        >
+        }}>
           Leaderboard
         </Typography>
       </Grid>
 
       <Grid md={7} item>
+        
         <List
           sx={{
+            marginTop: "20px",
             position: "relative",
-            top: "-60px",
-            // width: '60%',
             borderRadius: "3px",
             bgcolor: 'background.paper',
             border: "1px solid #d3d3d3",
