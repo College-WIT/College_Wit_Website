@@ -266,10 +266,10 @@ export default function Contributors() {
         //         </Grid>
         //     </Box>
         // </div>
-        <Grid container sx={{
+        <Grid container  sx={{
             height: "auto",
         }}>
-            <Grid container justifyContent="center" >
+            <Grid container  justifyContent="center" >
                 <Typography sx={{
                     fontSize: 60,
                     color: '#000000',
@@ -279,9 +279,29 @@ export default function Contributors() {
                 }}>Top Contributors
                 </Typography>
             </Grid>
-            <Grid container justifyContent="center" sx={{
+            <Grid  container justifyContent="center" sx={{
                 marginTop:"40px",
-                marginBottom:"40px"
+                marginBottom:"40px",
+               '@media (max-width: 1200px)': {
+                display:"flex",
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                },
+                '@media (max-width: 900px)': {
+                    display:"flex",
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    },
+                '@media (max-width: 700px)': {
+                        display:"flex",
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        },
+                
+         
             }}>
             <MediaCard />
             <MediaCard />
