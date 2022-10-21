@@ -1,13 +1,14 @@
+import React from "react";
 import ResponsiveAppBar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-import Notespyq from "../../Components/notes-pyqs/notespyqs";
-
-export default function Notes() {
+const Profile = () => {
   return (
-    <div className="Notes">
+    <div>
       <ResponsiveAppBar />
-      <Notespyq />
+      <h1>Profile</h1>
       <Footer />
     </div>
   );
-}
+};
+
+export default Profile;

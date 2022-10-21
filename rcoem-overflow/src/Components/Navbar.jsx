@@ -297,7 +297,7 @@ const ResponsiveAppBar = () => {
                 >
                   <Link
                     style={{ textDecoration: "None", color: "white" }}
-                    to={`/profile`}
+                    to={`/Profile`}
                   >
                     Profile
                   </Link>

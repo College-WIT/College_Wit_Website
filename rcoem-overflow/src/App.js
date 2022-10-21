@@ -15,6 +15,7 @@ import Trends from './Pages/Questions/Trends'
 import Semester_1 from './Components/notes-pyqs/Sems/Semester 1/Semester-1';
 import Chemistry from './Components/notes-pyqs/Sems/Semester 1/Chemistry';
 import Protected from './Components/Homepage/Authentication/Protected';
+import Profile from './Pages/Profile/Profile';
 
 const App = () => {
   return (
@@ -34,9 +35,9 @@ const App = () => {
         <Route path="/Unanswered" element={<Unanswered />} />
         <Route path="/Trending" element={<Trends />} />
         <Route path="/Post-an-answer/:que" element={<Protected Component={Postans} />} />
-
         <Route path="/Semester_1" element={<Semester_1 />} />
         <Route path="/Chemistry" element={<Chemistry />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </div>
   )
