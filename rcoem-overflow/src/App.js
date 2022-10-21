@@ -1,18 +1,17 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from "react-router";
-import Questions from './Components/Questions/Question'
-import Home from './Components/Homepage/Home'
-import Contributor from './Components/Top Contribution/contributors';
-import Notes from './Components/notes-pyqs/notes';
+import Questions from './Pages/Questions/Question'
+import Home from "./Pages/HomePage/Home";
+import Contributor from './Pages/Top Contributors/contributors';
+import Notes from './Pages/Notes-pyqs/Notes';
 import Signin from './Components/Homepage/Authentication/Login'
 import Signup from './Components/Homepage/Authentication/Login2'
-import Answers from './Components/Questions/answers/Answers'
-import Postque from './Components/Questions/postque/postque'
-import Answered from './Components/Questions/Answered/answer'
-import Unanswered from './Components/Questions/Unanswered/unanswered'
-import Postans from './Components/Questions/postans/postans'
-import Trends from './Components/Questions/trending/trends'
+import Answers from './Pages/Questions/Answers'
+import Postque from './Pages/Questions/Postque'
+import Unanswered from './Pages/Questions/Unanswered'
+import Postans from './Pages/Questions/Postans'
+import Trends from './Pages/Questions/Trends'
 import Semester_1 from './Components/notes-pyqs/Sems/Semester 1/Semester-1';
 import Chemistry from './Components/notes-pyqs/Sems/Semester 1/Chemistry';
 import Protected from './Components/Homepage/Authentication/Protected';
