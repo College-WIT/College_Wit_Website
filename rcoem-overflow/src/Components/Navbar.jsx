@@ -24,6 +24,7 @@ import removeCookie from "../hooks/removeCookie";
 import axios from "axios";
 
 //var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+
 var SearchData;
 var getSearchData = async () => {
   console.log("ASYNC FUNCTION");
@@ -47,6 +48,7 @@ var getSearchData = async () => {
   });
 };
 
+let loggedin = getCookie('login');
 
 const logout = () => {
   let loggedin = getCookie("login");
@@ -279,7 +281,8 @@ const ResponsiveAppBar = () => {
             //   ))} 
             {/* </Menu> */}
 
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+            {(!loggedin) ? (
+              <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
               <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}>
                 Login
@@ -289,6 +292,19 @@ const ResponsiveAppBar = () => {
                 <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>
+            ) : (
+              <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
+                  <Link style={{ textDecoration: "None", color: "white" }} to={`/profile`}>
+                    Profile
+                </Link>
+                </Button>
+                <Link style={{ textDecoration: "None", color: "white" }} to={`/logout`}>
+                  <Button style={buttons} onClick={logout} variant="contained" color="primary" sx={{ height: 40 }}>
+                    Logout </Button>
+                    </Link>
+              </ButtonGroup>
+            )}
 
           </Box>
         </Toolbar>
