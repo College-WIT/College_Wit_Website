@@ -21,8 +21,31 @@ import SearchBar from "./SearchBar";
 // import SearchData from "./data.json";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
+import axios from "axios";
 
-var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+//var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+var SearchData;
+var getSearchData = async () => {
+  console.log("ASYNC FUNCTION");
+  await axios
+  .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
+  .then((response) => {
+    console.log(response.data);
+    var sss=localStorage.getItem("SearchData");
+    if(sss!=null){
+      localStorage.removeItem("SearchData");
+    }
+    const strJSON = JSON.stringify(response);
+    localStorage.setItem("SearchData", strJSON);
+    SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+  })
+  .catch((error) => {
+    console.log(error);
+    this.setState({
+      errorMsg: "Error retrieving data",
+    });
+  });
+};
 
 
 const logout = () => {
@@ -61,6 +84,9 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  /////// GETTING SEARCH DATA
+  getSearchData();
 
   return (
     <AppBar
@@ -104,7 +130,9 @@ const ResponsiveAppBar = () => {
               />
             </Search> */}
 
-            <SearchBar placeholder="Search your Question" data={SearchData} />
+            <SearchBar placeholder="Search your Question" 
+            data={SearchData} 
+            />
           </Box>
 
           {/* -------------------------------------------------------------- */}

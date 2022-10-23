@@ -50,17 +50,17 @@ if (cookie == null) {
   console.log(red_link);
 }
 
-var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
+//var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
 var tag = "how";
 var FilteredData = [];
 const searchWord = tag;
-SearchData.filter((value) => {
-  if (
-    value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
-  ) {
-    console.log(value.question);
-  }
-});
+// SearchData.filter((value) => {
+//   if (
+//     value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
+//   ) {
+//     console.log(value.question);
+//   }
+// });
 
 class QuestionsPages extends Component {
   constructor(props) {

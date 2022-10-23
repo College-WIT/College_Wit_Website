@@ -10,44 +10,9 @@ import { Divider } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Counter from "../../Components/Homepage/counter";
 
-// axios.get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-//             .then(response => {
-//                 console.log(response)
-//                 this.setState({
-//                     QuestionsData: response.data
-//                 })
-//             })
-//             .catch(error => {
-//                 console.log(error)
-//                 this.setState({
-//                     errorMsg: "Error retrieving data"
-//                 })
-//             })
-
-var dataa=(async () => {
-  console.log("ASYNC FUNCTION");
-  localStorage.removeItem("RecentPage");
-  localStorage.setItem("RecentPage", "/Home");
-
-  axios
-    .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-    .then((response) => {
-      //console.log(response)
-      localStorage.removeItem("SearchData");
-      const strJSON = JSON.stringify(response);
-      localStorage.setItem("SearchData", strJSON);
-    })
-    .catch((error) => {
-      console.log(error);
-      this.setState({
-        errorMsg: "Error retrieving data",
-      });
-    });
-})();
- console.log("dataa");
-dataa();
 
 function Home() {
+
   return (
     <div className="Home">
       <ResponsiveAppBar />
