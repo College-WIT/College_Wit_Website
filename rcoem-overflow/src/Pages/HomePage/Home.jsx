@@ -1,14 +1,14 @@
-import "../../index.css";
-import ResponsiveAppBar from "../Navbar";
-import Footer from '../Footer'
-import Walkaround from "./walkaround";
-import Boxes from './HeroSec.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Contributors from "./ContributorsSection";
-import axios from 'axios'
+// import "../../index.css";
+import ResponsiveAppBar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
+import Walkaround from "../../Components/Homepage/walkaround";
+import Boxes from "../../Components/Homepage/HeroSec.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Contributors from "../../Components/Homepage/ContributorsSection";
+import axios from "axios";
 import { Divider } from "@mui/material";
-import Grid from '@mui/material/Grid';
-import Counter from './counter'
+import Grid from "@mui/material/Grid";
+import Counter from "../../Components/Homepage/counter";
 
 // axios.get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
 //             .then(response => {
@@ -26,22 +26,23 @@ import Counter from './counter'
 
 var dataa=(async () => {
   console.log("ASYNC FUNCTION");
-  localStorage.removeItem('RecentPage');
-  localStorage.setItem('RecentPage', '/Home');
+  localStorage.removeItem("RecentPage");
+  localStorage.setItem("RecentPage", "/Home");
 
-  axios.get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-    .then(response => {
+  axios
+    .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
+    .then((response) => {
       //console.log(response)
-      localStorage.removeItem('SearchData');
+      localStorage.removeItem("SearchData");
       const strJSON = JSON.stringify(response);
-      localStorage.setItem('SearchData', strJSON);
+      localStorage.setItem("SearchData", strJSON);
     })
-    .catch(error => {
-      console.log(error)
+    .catch((error) => {
+      console.log(error);
       this.setState({
-        errorMsg: "Error retrieving data"
-      })
-    })
+        errorMsg: "Error retrieving data",
+      });
+    });
 })();
  console.log("dataa");
 dataa();
@@ -52,23 +53,22 @@ function Home() {
       <ResponsiveAppBar />
       <Boxes />
       <Grid container justifyContent="center">
-        <Divider light width='90%' />
+        <Divider light width="90%" />
       </Grid>
       <Walkaround />
       <Grid container justifyContent="center">
-        <Divider light width='90%' />
+        <Divider light width="90%" />
       </Grid>
       <Contributors />
       <Grid container justifyContent="center">
-        <Divider light width='90%' />
+        <Divider light width="90%" />
       </Grid>
       <Counter />
       <Grid container justifyContent="center">
-        <Divider light width='90%' />
+        <Divider light width="90%" />
       </Grid>
       <Footer />
     </div>
-
   );
 }
 export default Home;

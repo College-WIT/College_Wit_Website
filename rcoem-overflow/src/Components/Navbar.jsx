@@ -1,40 +1,47 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import SearchIcon from '@mui/icons-material/Search';
-import logo from "../Assets/NavLogo.png"
-import { Link } from 'react-router-dom';
-import { ButtonGroup } from '@mui/material';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import { styled, alpha } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import SearchIcon from "@mui/icons-material/Search";
+import logo from "../Assets/NavLogo.png";
+import { Link } from "react-router-dom";
+import { ButtonGroup } from "@mui/material";
 import SearchBar from "./SearchBar";
-import getCookie from '../hooks/getCookie';
-//import SearchData from "./data.json";
-
+// import SearchData from "./data.json";
+import getCookie from "../hooks/getCookie";
+import removeCookie from "../hooks/removeCookie";
 
 var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
 
-let loggedin = getCookie('login');
 
+const logout = () => {
+  let loggedin = getCookie("login");
+  if (loggedin) {
+    removeCookie("login");
+    window.location.reload();
+  }
+};
 
-
-
-
-
-const buttons = { height: 40, width: 100, margin: '5px', backgroundColor: "#E26639", fontSize: 12 }
-const pages = ['Home', 'Questions', 'Top Contributors', 'Notes-PYQs'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
+const buttons = {
+  height: 40,
+  width: 100,
+  margin: "5px",
+  backgroundColor: "#E26639",
+  fontSize: 12,
+};
+const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -56,15 +63,15 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-
-    <AppBar position="sticky" sx={{
-      backgroundColor: '#0E0E0E',
-      height: 80
-    }}>
-
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: "#0E0E0E",
+        height: 80,
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
           {/* -----------------------------LOGO-------------------------------------- */}
           {/* <Box
             component="img"
@@ -83,11 +90,9 @@ const ResponsiveAppBar = () => {
 
           {/* -------------------------------------------------------------------------- */}
 
-
-
           {/*----------------------------Search bar---------------------------- */}
 
-          <Box sx={{ flexGrow: 7, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 7, display: { xs: "none", md: "flex" } }}>
             {/* <Search>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -95,18 +100,16 @@ const ResponsiveAppBar = () => {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                data={SearchData}
               />
             </Search> */}
 
-
-            <SearchBar placeholder="Search your Question" 
-            data={SearchData} 
-            />
+            <SearchBar placeholder="Search your Question" data={SearchData} />
           </Box>
 
           {/* -------------------------------------------------------------- */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -121,39 +124,43 @@ const ResponsiveAppBar = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Box sx={{ flexGrow: 1, display: { md: 'flex' } }}>
-                    <Button
-                      key={page}
-                      sx={{
-                        my: 2,
-                        color: 'black',
-                        display: 'block',
-                        "&:hover": {
-                          color: "#41D450",
-                          opacity: 10,
-                          backgroundColor: "transparent"
-                        }
-                      }}>
-                      <Link style={{ textDecoration: "None", color: "black" }} to={`/${page}`}>
+                  <Box sx={{ flexGrow: 1, display: { md: "flex" } }}>
+                    <Link
+                      style={{ textDecoration: "None", color: "black" }}
+                      to={`/${page}`}
+                    >
+                      <Button
+                        key={page}
+                        sx={{
+                          my: 2,
+                          color: "black",
+                          display: "block",
+                          "&:hover": {
+                            color: "#41D450",
+                            opacity: 10,
+                            backgroundColor: "transparent",
+                          },
+                        }}
+                      >
                         {page}
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   </Box>
                 </MenuItem>
               ))}
@@ -167,44 +174,48 @@ const ResponsiveAppBar = () => {
             href=""
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}>
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
             RCOEM-Overflow
           </Typography>
 
-
-          <Box sx={{
-            flexGrow: 1,
-            display: { xs: 'none', md: 'flex' },
-          }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+            }}
+          >
             {pages.map((page) => (
-              <Link sx={{
-                textDecoration: "None", 
-                color: "white",
-              }} to={`/${page}`}>
+              <Link
+                sx={{
+                  textDecoration: "None",
+                  color: "white",
+                }}
+                to={`/${page}`}
+              >
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{
                     fontSize: 15,
-                    color: 'white',
-                    display: 'block',
-                   
+                    color: "white",
+                    display: "block",
                     "&:hover": {
                       color: "black",
                       backgroundColor: "white",
-
                     },
-                    '@media (max-width:780px)': {
+                    "@media (max-width:780px)": {
                       fontSize: 15,
-                    }
-                  }}>
+                    },
+                  }}
+                >
                   {page}
                 </Button>
               </Link>
@@ -212,7 +223,6 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-
             {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -240,7 +250,7 @@ const ResponsiveAppBar = () => {
             //     </MenuItem>
             //   ))} 
             {/* </Menu> */}
-    
+
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
               <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}>
@@ -251,13 +261,7 @@ const ResponsiveAppBar = () => {
                 <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>
-  
-            {/* <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-                <Link style={{ textDecoration: "None", color: "white" }} to={`/profile`}>
-                  Logout
-                </Link>
-            </Button>
-           */}
+
           </Box>
         </Toolbar>
       </Container>
