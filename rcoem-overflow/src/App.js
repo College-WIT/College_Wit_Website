@@ -17,6 +17,7 @@ import Semester_1 from './Components/notes-pyqs/Sems/Semester 1/Semester-1';
 import Chemistry from './Components/notes-pyqs/Sems/Semester 1/Chemistry';
 import Protected from './Components/Homepage/Authentication/Protected';
 
+
 const App = () => {
   return (
     <div>

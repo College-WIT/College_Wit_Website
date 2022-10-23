@@ -74,7 +74,7 @@ class QuestionsPages extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_all_questions")
+        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_trending_questions")
             .then(response => {
                 console.log(response)
                 this.setState({

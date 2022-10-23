@@ -18,9 +18,15 @@ import logo from "../Assets/NavLogo.png"
 import { Link } from 'react-router-dom';
 import { ButtonGroup } from '@mui/material';
 import SearchBar from "./SearchBar";
+import getCookie from '../hooks/getCookie';
 //import SearchData from "./data.json";
 
+
 var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+
+let loggedin = getCookie('login');
+
+
 
 
 
@@ -234,7 +240,7 @@ const ResponsiveAppBar = () => {
             //     </MenuItem>
             //   ))} 
             {/* </Menu> */}
-
+    
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
               <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}>
@@ -245,7 +251,13 @@ const ResponsiveAppBar = () => {
                 <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
                 Register </Button></Link>
             </ButtonGroup>
-
+  
+            {/* <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
+                <Link style={{ textDecoration: "None", color: "white" }} to={`/profile`}>
+                  Logout
+                </Link>
+            </Button>
+           */}
           </Box>
         </Toolbar>
       </Container>

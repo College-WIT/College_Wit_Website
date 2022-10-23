@@ -24,7 +24,7 @@ import Counter from './counter'
 //                 })
 //             })
 
-(async () => {
+var dataa=(async () => {
   console.log("ASYNC FUNCTION");
   localStorage.removeItem('RecentPage');
   localStorage.setItem('RecentPage', '/Home');
@@ -43,6 +43,8 @@ import Counter from './counter'
       })
     })
 })();
+ console.log("dataa");
+dataa();
 
 function Home() {
   return (
