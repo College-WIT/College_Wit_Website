@@ -29,7 +29,7 @@ const card = (props) => {
 
                 <Grid>
                     <Lottie options={defaultOptions}
-                        height='100%'
+                        height='80%'
                         width='100%'
                     />
 
