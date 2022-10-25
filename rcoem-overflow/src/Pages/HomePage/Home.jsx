@@ -10,9 +10,7 @@ import { Divider } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Counter from "../../Components/Homepage/counter";
 
-
 function Home() {
-
   return (
     <div className="Home">
       <ResponsiveAppBar />
@@ -21,10 +19,10 @@ function Home() {
         <Divider light width="90%" />
       </Grid>
       <Walkaround />
-      <Grid container justifyContent="center">
+      {/* <Grid container justifyContent="center">
         <Divider light width="90%" />
-      </Grid>
-      <Contributors />
+      </Grid> */}
+      {/* <Contributors /> */}
       <Grid container justifyContent="center">
         <Divider light width="90%" />
       </Grid>
