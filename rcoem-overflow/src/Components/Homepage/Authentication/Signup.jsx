@@ -1,245 +1,358 @@
-import React, { Component, useEffect } from "react";
-import axios from "axios";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router";
 import {
   Grid,
   Paper,
-  Avatar,
-  Typography,
   TextField,
   Button,
-  Modal,
-  Box,
+  Typography,
   Link,
 } from "@mui/material";
-import Snackbar from "@mui/material/Snackbar";
-import getCookie from "../../../hooks/getCookie";
-//import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
-const buttons = { margin: "8px 0", backgroundColor: "#E26639" };
-const text = { padding: 2 };
-const paperStyle = { padding: 20, width: 600, margin: "0 auto" };
-const headerStyle = { margin: 0 };
+import { styled } from "@mui/material/styles";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import MuiAccordion from "@mui/material/Accordion";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { useTheme } from "@mui/material/styles";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Chip from "@mui/material/Chip";
 
-var modalText;
-//const paperStyle = { padding: 40, height: '60vh', width: 400, margin: "10px" }
+const buttons = { margin: "8px 0", backgroundColor: "#00ABF3" };
+const text = { padding: 2, margin: "5px 0" };
+const paperStyle = {
+  padding: 20,
+  width: "50%",
+  margin: "0 auto",
+  height: "auto",
+  // boxShadow: "1px 0px 0px 0px black",
+};
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&:before": {
+    display: "none",
+  },
+}));
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === "dark"
+      ? "rgba(255, 255, 255, .05)"
+      : "rgba(0, 0, 0, .03)",
+  flexDirection: "row-reverse",
+  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+    transform: "rotate(90deg)",
+  },
+  "& .MuiAccordionSummary-content": {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: "1px solid rgba(0, 0, 0, .125)",
+}));
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
 };
 
-class Signup extends Component {
-  constructor(props) {
-    super(props);
-    //console.log("constructor");
-    this.state = {
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirm: "",
-      lastpage: "/login",
-      message: "PROCEED",
-    };
-  }
+const names = [
+  "Python",
+  "C++",
+  "Java",
+  "JavaScript",
+  "C",
+  "C#",
+  "PHP",
+  "SQL",
+  "HTML",
+  "CSS",
+  "Web Development",
+  "Android Development",
+  "iOS Development",
+  "Machine Learning",
+  "Data Science",
+  "Blockchain",
+  "Cloud Computing",
+  "UI/UX",
+  "Game Development",
+  "Ethical Hacking",
+  "Competitive Programming",
+  "Other",
+];
 
-  state = {
-    openModal: false,
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
   };
+}
 
-  onClickButton = (e) => {
-    e.preventDefault();
-    this.setState({ openModal: true });
+function Signup() {
+  const [semester, setSemester] = React.useState("");
+  const [branch, setBranch] = React.useState("");
+  const [expanded, setExpanded] = React.useState("panel1");
+  const theme = useTheme();
+  const [skill, setSkill] = React.useState([]);
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
   };
-
-  onCloseModal = () => {
-    this.setState({ openModal: false });
+  const sem = (event) => {
+    setSemester(event.target.value);
   };
-
-  changeHandler = (event) => {
-    console.log("change handler");
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+  const Branch = (event) => {
+    setBranch(event.target.value);
   };
-
-  navigation = () => {
-    const navigate = useNavigate();
-    //navigate('/Answered');
-    useEffect(() => {
-      let login = getCookie("login");
-      if (login) {
-        navigate("/Profile");
-      } else {
-        navigate("/login");
-      }
-    });
-  };
-
-  submitHandler = (e) => {
-    if (this.state.confirm == this.state.password) {
-      e.preventDefault();
-      const newstate = {
-        name: this.state.name,
-        user_name: this.state.username,
-        email: this.state.email,
-        password: this.state.password,
-      };
-      console.log(newstate);
-      axios
-        .post("https://rcoem-overflow-backend.herokuapp.com/register", newstate)
-        .then((response) => {
-          console.log(response);
-          //alert("User Registered Successfully");
-          modalText = "User Registered Successfully";
-          this.setState({ openModal: true });
-        })
-        .catch((error) => {
-          console.log(error.response);
-          if (error.response.data == "INVALID SERIALIZED DATA") {
-            //alert("Invalid Email");
-            modalText = "Invalid Data";
-            this.state.message = "TRY AGAIN";
-            this.state.lastpage = "/signup";
-            this.setState({ openModal: true });
-          }
-          //alert(error.response.data);
-          modalText = "Invalid Data";
-          this.state.message = "TRY AGAIN";
-          this.state.lastpage = "/signup";
-          this.setState({ openModal: true });
-        });
-    } else {
-      //alert("Password Mismastched");
-      modalText = "Password Mismastched";
-      this.state.message = "TRY AGAIN";
-      this.state.lastpage = "/signup";
-      this.setState({ openModal: true });
-    }
-  };
-  onClick(event) {
-    this.submitHandler();
-    this.onClickButton();
-  }
-
-  render() {
-    const { name, username, email, password, confirm } = this.state;
-    return (
-      <Grid
-        sx={{
-          padding: 5,
-          height: 800,
-        }}
-      >
-        <Paper style={paperStyle}>
-          <Grid align="center">
-            <h2 style={headerStyle}>Sign Up</h2>
-            <Typography variant="caption" gutterBottom>
-              Please fill this form to create an account !
-            </Typography>
-          </Grid>
-          <form onSubmit={this.submitHandler}>
-            <TextField
-              style={text}
-              name="name"
-              value={name}
-              fullWidth
-              label="Name"
-              placeholder="Enter your name"
-              onChange={this.changeHandler}
-            />
-            <TextField
-              style={text}
-              name="username"
-              value={username}
-              fullWidth
-              label="Username"
-              placeholder="Enter your Username"
-              onChange={this.changeHandler}
-            />
-            <TextField
-              style={text}
-              name="email"
-              value={email}
-              fullWidth
-              label="Email"
-              placeholder="Enter your email"
-              onChange={this.changeHandler}
-            />
-            <TextField
-              style={text}
-              name="password"
-              type="password"
-              value={password}
-              fullWidth
-              label="Password"
-              placeholder="Enter your password"
-              onChange={this.changeHandler}
-            />
-            <TextField
-              style={text}
-              name="confirm"
-              type="password"
-              value={confirm}
-              fullWidth
-              label="Confirm Password"
-              placeholder="Confirm your password"
-              onChange={this.changeHandler}
-            />
-
-            <Button
-              style={buttons}
-              type="submit"
-              variant="contained"
-              color="primary"
-              onClick={this.onClick}
-            >
-              Sign up
-            </Button>
-            {/* <Snackbar
-                            open={open}
-                            autoHideDuration={6000}
-                            onClose={handleClose}
-                            message="Note archived"
-                            action={action}
-                        /> */}
-          </form>
-          <Typography>
-            <Link to={"/login"}>Already Registered ? Login</Link>
-          </Typography>
-        </Paper>
-        <Modal
-          open={this.state.openModal}
-          onClose={this.onCloseModal}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              {modalText}
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              <Link
-                style={{ textDecoration: "None", color: "white" }}
-                href={this.state.lastpage}
-              >
-                <Button style={buttons} variant="contained" color="primary">
-                  {this.state.message}
-                </Button>
-              </Link>
-            </Typography>
-          </Box>
-        </Modal>
-      </Grid>
+  const Skills = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setSkill(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
     );
-  }
+  };
+
+  const headerStyle = { margin: 0 };
+  return (
+    <Grid
+      sx={{
+        py: 10,
+        height: "auto",
+      }}
+    >
+      <Paper style={paperStyle}>
+        <Grid align="center">
+          <h2 style={headerStyle}>Sign Up</h2>
+          <Typography variant="caption" gutterBottom>
+            Please fill this form to create an account !
+          </Typography>
+        </Grid>
+        <form>
+          <TextField
+            style={text}
+            required
+            name="name"
+            fullWidth
+            label="Name"
+            placeholder="Enter your name"
+          />
+          <TextField
+            style={text}
+            required
+            name="username"
+            fullWidth
+            label="Username"
+            placeholder="Enter your Username"
+          />
+          <TextField
+            style={text}
+            required
+            name="email"
+            fullWidth
+            label="Email"
+            placeholder="Enter your email"
+          />
+          <TextField
+            style={text}
+            required
+            name="password"
+            type="password"
+            fullWidth
+            label="Password"
+            placeholder="Enter your password"
+          />
+          <TextField
+            style={text}
+            required
+            name="confirm"
+            type="password"
+            fullWidth
+            label="Confirm Password"
+            placeholder="Confirm your password"
+          />
+
+          {/* <Button
+            style={buttons}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Sign up
+          </Button> */}
+        </form>
+
+        <Accordion
+          expanded={expanded === "panel1"}
+          onChange={handleChange("panel1")}
+        >
+          <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography>Want to be Contributor</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <form>
+              <TextField
+                style={text}
+                name="LinkedIn"
+                required
+                fullWidth
+                label="LinkedIn url"
+                placeholder="Enter your LinkedIn URL"
+              />
+              <TextField
+                style={text}
+                name="Github"
+                required
+                fullWidth
+                label="Github url"
+                placeholder="Enter your Github URL"
+              />
+              <TextField
+                style={text}
+                name="CodeChef"
+                // required
+                fullWidth
+                label="CodeChef Profile url"
+                placeholder="Enter your CodeChef account URL"
+              />
+              <TextField
+                style={text}
+                name="CodeForces"
+                // required
+                fullWidth
+                label="CodeForces Profile url"
+                placeholder="Enter your CodeForces account URL"
+              />
+              <TextField
+                style={text}
+                name="HackerRank"
+                fullWidth
+                label="HackerRank Profile url"
+                placeholder="Enter your HackerRank account URL"
+              />
+              <Typography m="10px">
+                Bio (max 200 words) <br />
+              </Typography>
+              <TextField
+                style={text}
+                name="about"
+                required
+                fullWidth
+                multiline
+                label="About yourself"
+                rows={4}
+                placeholder="Enter your details"
+              />
+              <FormControl sx={{ m: 1, minWidth: 400 }}>
+                <InputLabel id="demo-simple-select-label">Branch</InputLabel>
+                <Select value={branch} label="Branch" onChange={Branch}>
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={1}>CSE A</MenuItem>
+                  <MenuItem value={2}>CSE B</MenuItem>
+                  <MenuItem value={3}>CSE C</MenuItem>
+                  <MenuItem value={4}>CSE D</MenuItem>
+                  <MenuItem value={5}>CSE E</MenuItem>
+                  <MenuItem value={6}>ECE</MenuItem>
+                  <MenuItem value={7}>IT</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl sx={{ m: 1, minWidth: 300 }}>
+                <InputLabel id="demo-simple-select-helper-label">
+                  Semester
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={semester}
+                  label="Semester"
+                  onChange={sem}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={1}>1st</MenuItem>
+                  <MenuItem value={2}>2nd</MenuItem>
+                  <MenuItem value={3}>3rd</MenuItem>
+                  <MenuItem value={4}>4th</MenuItem>
+                  <MenuItem value={5}>5th</MenuItem>
+                  <MenuItem value={6}>6th</MenuItem>
+                  <MenuItem value={7}>7th</MenuItem>
+                  <MenuItem value={8}>8th</MenuItem>
+                  <MenuItem value={9}>Passout</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl sx={{ m: 1 }} fullWidth>
+                <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
+                <Select
+                  labelId="demo-multiple-chip-label"
+                  id="demo-multiple-chip"
+                  multiple
+                  value={skill}
+                  onChange={Skills}
+                  input={
+                    <OutlinedInput id="select-multiple-chip" label="SKills" />
+                  }
+                  renderValue={(selected) => (
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                      {selected.map((value) => (
+                        <Chip key={value} label={value} />
+                      ))}
+                    </Box>
+                  )}
+                  MenuProps={MenuProps}
+                >
+                  {names.map((name) => (
+                    <MenuItem
+                      key={name}
+                      value={name}
+                      style={getStyles(name, skill, theme)}
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </form>
+          </AccordionDetails>
+        </Accordion>
+        <Button
+          style={buttons}
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
+          Sign up
+        </Button>
+      </Paper>
+    </Grid>
+  );
 }
 
 export default Signup;
