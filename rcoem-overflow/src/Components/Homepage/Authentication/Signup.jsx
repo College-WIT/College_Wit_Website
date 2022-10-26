@@ -113,6 +113,10 @@ function getStyles(name, personName, theme) {
 }
 
 function Signup() {
+
+  const form = useRef();
+
+
   const [semester, setSemester] = React.useState("");
   const [branch, setBranch] = React.useState("");
   const [expanded, setExpanded] = React.useState("panel1");
@@ -137,8 +141,38 @@ function Signup() {
       typeof value === "string" ? value.split(",") : value
     );
   };
-
   const headerStyle = { margin: 0 };
+
+
+  //// Register Function
+
+  const RegisterUser = (e) => {
+    e.preventDefault();
+    console.log("FORM DATA");
+    //console.log(form.current);
+    console.log(form.current.skills.value)
+    var form_data={
+      name: form.current.name.value,
+      username:form.current.username.value,
+      email:form.current.email.value,
+      password:form.current.password.value,
+      cpassword:form.current.confirm.value,
+      contriutor:{
+        linkedin:form.current.linkedin.value,
+        github:form.current.github.value,
+        codechef:form.current.codechef.value,
+        codeforces:form.current.codeforces.value,
+        hackerrank:form.current.hackerrank.value,
+        about:form.current.about.value,
+        branch:form.current.branch.value,
+        semester:form.current.semester.value,
+        skills:form.current.skills.value,
+      }
+    }
+    console.log(form_data);
+  };
+
+
   return (
     <Grid
       sx={{
@@ -153,7 +187,7 @@ function Signup() {
             Please fill this form to create an account !
           </Typography>
         </Grid>
-        <form>
+        <form ref={form} onSubmit={RegisterUser}>
           <TextField
             style={text}
             required
@@ -205,7 +239,7 @@ function Signup() {
           >
             Sign up
           </Button> */}
-        </form>
+        {/* </form> */}
 
         <Accordion
           expanded={expanded === "panel1"}
@@ -215,10 +249,10 @@ function Signup() {
             <Typography>Want to be Contributor</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <form>
+            {/* <form> */}
               <TextField
                 style={text}
-                name="LinkedIn"
+                name="linkedin"
                 required
                 fullWidth
                 label="LinkedIn url"
@@ -226,7 +260,7 @@ function Signup() {
               />
               <TextField
                 style={text}
-                name="Github"
+                name="github"
                 required
                 fullWidth
                 label="Github url"
@@ -234,7 +268,7 @@ function Signup() {
               />
               <TextField
                 style={text}
-                name="CodeChef"
+                name="codechef"
                 // required
                 fullWidth
                 label="CodeChef Profile url"
@@ -242,7 +276,7 @@ function Signup() {
               />
               <TextField
                 style={text}
-                name="CodeForces"
+                name="codeforces"
                 // required
                 fullWidth
                 label="CodeForces Profile url"
@@ -250,7 +284,7 @@ function Signup() {
               />
               <TextField
                 style={text}
-                name="HackerRank"
+                name="hackerrank"
                 fullWidth
                 label="HackerRank Profile url"
                 placeholder="Enter your HackerRank account URL"
@@ -270,7 +304,7 @@ function Signup() {
               />
               <FormControl sx={{ m: 1, minWidth: 400 }}>
                 <InputLabel id="demo-simple-select-label">Branch</InputLabel>
-                <Select value={branch} label="Branch" onChange={Branch}>
+                <Select name="branch" value={branch} label="Branch" onChange={Branch}>
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
@@ -290,6 +324,7 @@ function Signup() {
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-helper"
+                  name="semester"
                   value={semester}
                   label="Semester"
                   onChange={sem}
@@ -314,6 +349,7 @@ function Signup() {
                   labelId="demo-multiple-chip-label"
                   id="demo-multiple-chip"
                   multiple
+                  name="skills"
                   value={skill}
                   onChange={Skills}
                   input={
@@ -339,7 +375,7 @@ function Signup() {
                   ))}
                 </Select>
               </FormControl>
-            </form>
+            
           </AccordionDetails>
         </Accordion>
         <Button
@@ -350,6 +386,7 @@ function Signup() {
         >
           Sign up
         </Button>
+      </form>
       </Paper>
     </Grid>
   );

@@ -36,6 +36,34 @@ const dummyQue = [
   },
 ];
 
+  /////// Upvotes api functions
+
+  var question_upvote =  async (que) => {
+    // POST request using axios with async/await
+    console.log(que.quest);
+    var question_data={
+      "question":que.quest
+    }
+    const response = await axios.post('https://rcoem-overflow-backend.herokuapp.com/upvote_question', question_data);
+    console.log(response);
+    window.location.reload();
+};
+
+var answer_upvote =  async (que,answer) => {
+  // POST request using axios with async/await
+  console.log(que);
+  console.log(answer);
+  var question_data={
+    "question":que,
+    "answer":answer
+  }
+  const response = await axios.post('https://rcoem-overflow-backend.herokuapp.com/upvote_answer', question_data);
+  console.log(response);
+  window.location.reload();
+};
+
+
+
 class Ans extends Component {
   constructor(props) {
     super(props);
@@ -175,7 +203,7 @@ class Ans extends Component {
                           </Link>
                         </Button>
 
-                        <Button
+                        <Button onClick={()=>question_upvote({quest})}
                           variant="outline"
                           sx={{
                             height: 60,
@@ -298,7 +326,7 @@ class Ans extends Component {
                             </Typography>
 
                             <Grid container justifyContent="right">
-                              <Button
+                              <Button onClick={()=>answer_upvote(quest,answer.answer)}
                                 variant="outline"
                                 sx={{
                                   margin: "10px",
