@@ -23,6 +23,8 @@ import Semester_8 from "./Components/notes-pyqs/Sems/Semester 8/Semester_8";
 import Chemistry from "./Components/notes-pyqs/Sems/Semester 1/Chemistry";
 import Protected from "./Components/Homepage/Authentication/Protected";
 import Profile from "./Pages/Profile/Profile";
+import Contribute from "./Pages/Contributor";
+import Forgotpswd from "./Pages/Forgotpswd";
 
 const App = () => {
   return (
@@ -57,6 +59,8 @@ const App = () => {
         <Route path="/Semester_8" element={<Semester_8 />} />
         <Route path="/Chemistry" element={<Chemistry />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/be-a-contributor" element={<Contribute />} />
+        <Route path="/forgotpassword" element={<Forgotpswd />} />
       </Routes>
     </div>
   );

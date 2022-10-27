@@ -2,7 +2,7 @@ import ResponsiveAppBar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Postans from "../../Components/Questions/Postanswer";
-
+import ScrollButton from "../../Components/scroll";
 export default function unanswered() {
   var ques = localStorage.getItem("recentQuest");
   console.log(ques);
@@ -10,6 +10,7 @@ export default function unanswered() {
     <div className="unanswered">
       <ResponsiveAppBar />
       <Postans qq={ques} />
+      <ScrollButton />
       <Footer />
     </div>
   );

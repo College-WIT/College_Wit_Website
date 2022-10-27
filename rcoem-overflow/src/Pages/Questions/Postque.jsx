@@ -1,13 +1,14 @@
 import ResponsiveAppBar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Post from "../../Components/Questions/Postques";
-
+import PostQuestions from "../../Components/Questions/PostQuestions";
+import ScrollButton from "../../Components/scroll";
 export default function Questions() {
   return (
     <div className="Answers">
       <ResponsiveAppBar />
-      <Post />
+      <PostQuestions />
+      <ScrollButton />
       <Footer />
     </div>
   );

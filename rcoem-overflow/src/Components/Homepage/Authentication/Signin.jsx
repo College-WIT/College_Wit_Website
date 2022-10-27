@@ -11,7 +11,7 @@ import {
   Modal,
   Box,
 } from "@mui/material";
-
+import { ButtonGroup } from "@mui/material";
 import setCookie from "../../../hooks/setCookie";
 import getCookie from "../../../hooks/getCookie";
 import removeCookie from "../../../hooks/removeCookie";
@@ -33,7 +33,17 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
+const btn = {
+  height: 40,
+  width: 150,
+  margin: "5px",
+  backgroundColor: "#E26639",
+  fontSize: 10,
+  "&:hover": {
+    border: "1px solid white",
+    backgroundColor: "#E26639",
+  },
+};
 class Signin extends Component {
   constructor(props) {
     super(props);
@@ -158,12 +168,32 @@ class Signin extends Component {
             </Button>
           </form>
           {/*<Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClickButton}>Login</Button>*/}{" "}
-          <Typography>
-            <Link href="#">Forgot password?</Link>
-          </Typography>
-          <Typography>
-            <Link href={"/signup"}>New User ?? Sign Up</Link>
-          </Typography>
+          <ButtonGroup
+            sx={{
+              display: "flex",
+              backgroundColor: "transparent",
+              mt: "100px",
+            }}
+            variant="contained"
+            aria-label="outlined primary button group"
+          >
+            <Button sx={btn} color="primary">
+              <Link
+                style={{ textDecoration: "None", color: "white" }}
+                to={`/forgotpassword`}
+              >
+                Forgot Password
+              </Link>
+            </Button>
+            <Link
+              style={{ textDecoration: "None", color: "white" }}
+              to={`/signup`}
+            >
+              <Button sx={btn} color="primary">
+                New User? Sign Up
+              </Button>
+            </Link>
+          </ButtonGroup>
         </Paper>
         <Modal
           open={this.state.openModal}

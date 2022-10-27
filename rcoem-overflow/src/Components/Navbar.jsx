@@ -13,7 +13,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import SearchIcon from "@mui/icons-material/Search";
 import logo from "../Assets/NavLogo.png";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "@mui/material";
@@ -22,6 +21,9 @@ import SearchBar from "./SearchBar";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
 import axios from "axios";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import PersonIcon from "@mui/icons-material/Person";
 
 //var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
 
@@ -29,26 +31,26 @@ var SearchData;
 var getSearchData = async () => {
   console.log("ASYNC FUNCTION");
   await axios
-  .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-  .then((response) => {
-    console.log(response.data);
-    var sss=localStorage.getItem("SearchData");
-    if(sss!=null){
-      localStorage.removeItem("SearchData");
-    }
-    const strJSON = JSON.stringify(response);
-    localStorage.setItem("SearchData", strJSON);
-    SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
-  })
-  .catch((error) => {
-    console.log(error);
-    this.setState({
-      errorMsg: "Error retrieving data",
+    .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
+    .then((response) => {
+      console.log(response.data);
+      var sss = localStorage.getItem("SearchData");
+      if (sss != null) {
+        localStorage.removeItem("SearchData");
+      }
+      const strJSON = JSON.stringify(response);
+      localStorage.setItem("SearchData", strJSON);
+      SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
+    })
+    .catch((error) => {
+      console.log(error);
+      this.setState({
+        errorMsg: "Error retrieving data",
+      });
     });
-  });
 };
 
-let loggedin = getCookie('login');
+let loggedin = getCookie("login");
 
 const logout = () => {
   let loggedin = getCookie("login");
@@ -60,18 +62,22 @@ const logout = () => {
 
 const buttons = {
   height: 40,
-  width: 100,
+  width: 120,
   margin: "5px",
   backgroundColor: "#E26639",
   fontSize: 12,
+  "&:hover": {
+    border: "1px solid white",
+    backgroundColor: "#E26639",
+  },
 };
 
 const logout_buttons = {
   height: 40,
-  width: 100,
+  width: 120,
   margin: "5px",
-  backgroundColor: "#81C6E8",
-  color:'#000',
+  backgroundColor: "#41D450",
+  color: "#000",
   fontSize: 12,
 };
 const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
@@ -141,9 +147,7 @@ const ResponsiveAppBar = () => {
               />
             </Search> */}
 
-            <SearchBar placeholder="Search your Question" 
-            data={SearchData} 
-            />
+            <SearchBar placeholder="Search your Question" data={SearchData} />
           </Box>
 
           {/* -------------------------------------------------------------- */}
@@ -290,31 +294,71 @@ const ResponsiveAppBar = () => {
             //   ))} 
             {/* </Menu> */}
 
-            {(!loggedin) ? (
-              <ButtonGroup variant="contained" aria-label="outlined primary button group">
-            <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-              <Link style={{ textDecoration: "None", color: "white" }} to={`/login`}>
-                Login
-                </Link>
+            {!loggedin ? (
+              <ButtonGroup
+                variant="contained"
+                aria-label="outlined primary button group"
+              >
+                <Button sx={buttons} color="primary">
+                  <Link
+                    style={{ textDecoration: "None", color: "white" }}
+                    to={`/login`}
+                  >
+                    <PersonIcon sx={{ fontSize: 22 }} /> Login
+                  </Link>
                 </Button>
-              <Link style={{ textDecoration: "None", color: "white" }} to={`/signup`}>
-                <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-                Register </Button></Link>
-            </ButtonGroup>
+                <Link
+                  style={{ textDecoration: "None", color: "white" }}
+                  to={`/signup`}
+                >
+                  <Button sx={buttons} color="primary">
+                    <PersonAddIcon sx={{ fontSize: 22, mr: 1 }} /> Register
+                  </Button>
+                </Link>
+              </ButtonGroup>
             ) : (
-              <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button style={buttons} variant="contained" color="primary" sx={{ height: 40 }}>
-                  <Link style={{ textDecoration: "None", color: "white" }} to={`/profile`}>
+              <ButtonGroup
+                variant="contained"
+                // aria-label="outlined primary button group"
+                sx={{ mt: 1 }}
+              >
+                <Link
+                  style={{ textDecoration: "None", color: "white" }}
+                  to={`/profile`}
+                >
+                  <Button sx={buttons} color="primary">
                     Profile
+                  </Button>
                 </Link>
+                <Link
+                  style={{ textDecoration: "None", color: "white" }}
+                  to={`/logout`}
+                >
+                  <Button sx={logout_buttons} onClick={logout}>
+                    <LogoutIcon sx={{ mr: 1 }} />
+                    Logout
+                  </Button>
+                </Link>
+                <Button
+                  sx={{
+                    backgroundColor: "transparent",
+                    "&:hover": {
+                      backgroundColor: "transparent",
+                    },
+                  }}
+                >
+                  <Avatar
+                    alt="Remy Sharp"
+                    src="https://th.bing.com/th/id/OIP.inXSw5jbycIIlXC1dIXdiwHaIL?pid=ImgDet&rs=1"
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 0,
+                    }}
+                  />
                 </Button>
-                <Link style={{ textDecoration: "None", color: "white" }} to={`/logout`}>
-                  <Button style={logout_buttons} onClick={logout} sx={{ height: 40 }}>
-                    Logout </Button>
-                    </Link>
               </ButtonGroup>
             )}
-
           </Box>
         </Toolbar>
       </Container>
