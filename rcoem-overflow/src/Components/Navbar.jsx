@@ -65,6 +65,15 @@ const buttons = {
   backgroundColor: "#E26639",
   fontSize: 12,
 };
+
+const logout_buttons = {
+  height: 40,
+  width: 100,
+  margin: "5px",
+  backgroundColor: "#81C6E8",
+  color:'#000',
+  fontSize: 12,
+};
 const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -300,7 +309,7 @@ const ResponsiveAppBar = () => {
                 </Link>
                 </Button>
                 <Link style={{ textDecoration: "None", color: "white" }} to={`/logout`}>
-                  <Button style={buttons} onClick={logout} variant="contained" color="primary" sx={{ height: 40 }}>
+                  <Button style={logout_buttons} onClick={logout} sx={{ height: 40 }}>
                     Logout </Button>
                     </Link>
               </ButtonGroup>

@@ -98,148 +98,143 @@ class QuestionsPages extends Component {
                         md={2}
                         sm={2}
                         xs={2}
-                        sx={{
-                            position: "fixed",
-                            width: "300px",
-                        }}
                     >
                         <Leftbar />
                     </Grid>
 
                     {/* ------------------------------------Questions------------------------------------- */}
 
-                    <Grid container justifyContent="center">
-                        <Grid item xl={8} lg={7.5} md={8} sm={8} xs={8}>
-                            <Grid item>
-                                <Item>
-                                    <Grid
-                                        columns={16}
-                                        container
-                                        sx={{
-                                            paddingBottom: 1,
-                                        }}
-                                    >
-                                        <Grid item xs={4} md={6}>
-                                            <Lottie
-                                                options={defaultOptions}
-                                                height="100%"
-                                                width="50%"
-                                            />
-                                        </Grid>
-                                        <Grid item xs={4} md={10}>
-                                            <Typography
-                                                sx={{
-                                                    fontFamily: "'urw-din',sans-serif",
-                                                    fontSize: 40,
-                                                    position: "relative",
-                                                    top: 55,
-                                                    left: "-170px",
-                                                }}
-                                            >
-                                                Questions
-                                            </Typography>
-                                        </Grid>
+                    <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
+                        <Grid item>
+                            <Item>
+                                <Grid
+                                    columns={16}
+                                    container
+                                    sx={{
+                                        paddingBottom: 1,
+                                    }}
+                                >
+                                    <Grid item xs={4} md={6}>
+                                        <Lottie
+                                            options={defaultOptions}
+                                            height="100%"
+                                            width="50%"
+                                        />
                                     </Grid>
+                                    <Grid item xs={4} md={10}>
+                                        <Typography
+                                            sx={{
+                                                fontFamily: "'urw-din',sans-serif",
+                                                fontSize: 40,
+                                                position: "relative",
+                                                top: 55,
+                                                left: "-170px",
+                                            }}
+                                        >
+                                            Questions
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
 
-                                    <Grid container>
-                                        {QuestionsData.map((content) => (
-                                            <Grid
-                                                sx={{
-                                                    width: "100%",
-                                                    border: "1px solid #d3d3d3",
-                                                    margin: "10px",
-                                                    borderRadius: "0px",
-                                                    "&:hover": {
-                                                        cursor: "pointer",
-                                                        boxShadow: "0 0 10px #d3d3d3",
-                                                    },
+                                <Grid container>
+                                    {QuestionsData.map((content) => (
+                                        <Grid
+                                            sx={{
+                                                width: "100%",
+                                                border: "1px solid #d3d3d3",
+                                                margin: "10px",
+                                                borderRadius: "0px",
+                                                "&:hover": {
+                                                    cursor: "pointer",
+                                                    boxShadow: "0 0 10px #d3d3d3",
+                                                },
+                                            }}
+                                        >
+                                            {" "}
+                                            <Link
+                                                to={{
+                                                    pathname: `/answers/${content.question}`,
+                                                    state: { propQue: true },
                                                 }}
                                             >
-                                                {" "}
-                                                <Link
-                                                    to={{
-                                                        pathname: `/answers/${content.question}`,
-                                                        state: { propQue: true },
+                                                <CardHeader
+                                                    sx={{
+                                                        alignItems: "left",
+                                                        textAlign: "left",
+                                                    }}
+                                                    avatar={
+                                                        <Avatar
+                                                            sx={{
+                                                                height: "40px",
+                                                                width: "40px",
+                                                            }}
+                                                            alt={content.author}
+                                                            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                                                        />
+                                                    }
+                                                    title={
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: 18,
+                                                                // fontWeight: "bold",
+                                                                fontFamily: "roboto",
+                                                            }}
+                                                        >
+                                                            {content.author}
+                                                        </Typography>
+                                                    }
+                                                />
+                                                <Typography
+                                                    variant="h6"
+                                                    sx={{
+                                                        color: "black",
+                                                        textAlign: "left",
+                                                        paddingLeft: 0.5,
                                                     }}
                                                 >
-                                                    <CardHeader
+                                                    <LiveHelpIcon
                                                         sx={{
-                                                            alignItems: "left",
-                                                            textAlign: "left",
+                                                            margin: "0 20px",
                                                         }}
-                                                        avatar={
-                                                            <Avatar
-                                                                sx={{
-                                                                    height: "50px",
-                                                                    width: "50px",
-                                                                }}
-                                                                alt={content.author}
-                                                                src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
-                                                            />
-                                                        }
-                                                        title={
-                                                            <Typography
-                                                                sx={{
-                                                                    fontSize: 20,
-                                                                    // fontWeight: "bold",
-                                                                    fontFamily: "roboto",
+                                                    />
+
+                                                    {content.question}
+                                                </Typography>
+
+                                                <Stack
+                                                    direction="row"
+                                                    sx={{
+                                                        padding: 0.6,
+                                                    }}
+                                                >
+                                                    <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
+                                                        <Item elevation={0}>
+                                                            <Link
+                                                                to={{
+                                                                    pathname: `/answers/${content.question}`,
+                                                                    state: { propQue: true },
                                                                 }}
                                                             >
-                                                                {content.author}
-                                                            </Typography>
-                                                        }
-                                                    />
-                                                    <Typography
-                                                        variant="h6"
-                                                        sx={{
-                                                            color: "black",
-                                                            textAlign: "left",
-                                                            padding: 2,
-                                                        }}
-                                                    >
-                                                        <LiveHelpIcon
-                                                            sx={{
-                                                                margin: "20px",
-                                                            }}
-                                                        />
-
-                                                        {content.question}
-                                                    </Typography>
-
-                                                    <Stack
-                                                        direction="row"
-                                                        sx={{
-                                                            padding: 2,
-                                                        }}
-                                                    >
-                                                        <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
-                                                            <Item elevation={0}>
-                                                                <Link
-                                                                    to={{
-                                                                        pathname: `/answers/${content.question}`,
-                                                                        state: { propQue: true },
+                                                                <Button
+                                                                    sx={{
+                                                                        backgroundColor: "#E26639",
+                                                                        width: "auto",
+                                                                        height: "auto",
+                                                                        padding: "10px",
+                                                                        borderRadius: 1,
+                                                                        "&:hover": {
+                                                                            backgroundColor: "#41D450",
+                                                                            opacity: 10,
+                                                                        },
                                                                     }}
+                                                                    variant="contained"
+                                                                    disableElevation
                                                                 >
-                                                                    <Button
-                                                                        sx={{
-                                                                            backgroundColor: "#E26639",
-                                                                            width: "auto",
-                                                                            height: "auto",
-                                                                            padding: "10px",
-                                                                            borderRadius: 1,
-                                                                            "&:hover": {
-                                                                                backgroundColor: "#41D450",
-                                                                                opacity: 10,
-                                                                            },
-                                                                        }}
-                                                                        variant="contained"
-                                                                        disableElevation
-                                                                    >
-                                                                        See Full Answer
-                                                                    </Button>
-                                                                </Link>
+                                                                    See Full Answer
+                                                                </Button>
+                                                            </Link>
 
-                                                                {/* <Link
+                                                            {/* <Link
                                                             component="button"
                                                             variant="body2"
                                                             onClick={() => {
@@ -248,77 +243,75 @@ class QuestionsPages extends Component {
                                                         >
                                                             Button Link
                                                         </Link> */}
-                                                            </Item>
-                                                        </Grid>
+                                                        </Item>
+                                                    </Grid>
 
-                                                        <Grid
-                                                            container
-                                                            xs={4}
-                                                            md={4}
-                                                            xl={4}
-                                                            sm={6}
-                                                            lg={3}
+                                                    <Grid
+                                                        container
+                                                        xs={4}
+                                                        md={4}
+                                                        xl={4}
+                                                        sm={6}
+                                                        lg={3}
+                                                        sx={{
+                                                            margin: "10px",
+                                                        }}
+                                                    >
+                                                        <Stack
+                                                            direction="row"
                                                             sx={{
-                                                                margin: "10px",
+                                                                padding: "3px",
+                                                                border: "1px solid #d3d3d3",
+                                                                borderRadius: "10px ",
+                                                                position: "relative",
+                                                                alignItems: "right",
+                                                                "@media (max-width:1000px)": {
+                                                                    paddingLeft: 20,
+                                                                },
+                                                                "@media (max-width:850px)": {
+                                                                    paddingLeft: 1,
+                                                                },
                                                             }}
                                                         >
-                                                            <Stack
-                                                                direction="row"
-                                                                spacing={2}
+                                                            <Item
+                                                                elevation={0}
                                                                 sx={{
-                                                                    padding: "10px",
-                                                                    border: "1px solid #d3d3d3",
-                                                                    borderRadius: "10px ",
-                                                                    position: "relative",
-                                                                    alignItems: "right",
-                                                                    "@media (max-width:1000px)": {
-                                                                        paddingLeft: 20,
-                                                                    },
-                                                                    "@media (max-width:850px)": {
-                                                                        paddingLeft: 1,
-                                                                    },
+                                                                    borderRight: "1px solid #d3d3d3",
+                                                                    borderRadius: "0px",
                                                                 }}
                                                             >
-                                                                <Item
-                                                                    elevation={0}
-                                                                    sx={{
-                                                                        borderRight: "1px solid #d3d3d3",
-                                                                        borderRadius: "0px",
-                                                                    }}
-                                                                >
-                                                                    <Typography variant="subtitle1" color="black">
-                                                                        <VisibilityIcon />
-                                                                        {content.views}
-                                                                    </Typography>
-                                                                </Item>
+                                                                <Typography variant="subtitle1" color="black">
+                                                                    <VisibilityIcon />
+                                                                    {content.views}
+                                                                </Typography>
+                                                            </Item>
 
-                                                                <Item
-                                                                    elevation={0}
-                                                                    sx={{
-                                                                        borderRight: "1px solid #d3d3d3",
-                                                                        borderRadius: "0px",
-                                                                    }}
-                                                                >
-                                                                    <Typography variant="subtitle1" color="black">
-                                                                        <ThumbUpIcon />
-                                                                        {content.upvotes}
-                                                                    </Typography>
-                                                                </Item>
-                                                                <Item elevation={0}>
-                                                                    <Typography variant="subtitle1" color="black">
-                                                                        <QuestionAnswerIcon />
-                                                                        {content.no_of_answers}
-                                                                    </Typography>
-                                                                </Item>
-                                                            </Stack>
-                                                        </Grid>
-                                                    </Stack>
-                                                </Link>
-                                            </Grid>
-                                        ))}
-                                    </Grid>
-                                </Item>
-                            </Grid>
+                                                            <Item
+                                                                elevation={0}
+                                                                sx={{
+                                                                    borderRight: "1px solid #d3d3d3",
+                                                                    borderRadius: "0px",
+                                                                }}
+                                                            >
+                                                                <Typography variant="subtitle1" color="black">
+                                                                    <ThumbUpIcon />
+                                                                    {content.upvotes}
+                                                                </Typography>
+                                                            </Item>
+                                                            <Item elevation={0}>
+                                                                <Typography variant="subtitle1" color="black">
+                                                                    <QuestionAnswerIcon />
+                                                                    {content.no_of_answers}
+                                                                </Typography>
+                                                            </Item>
+                                                        </Stack>
+                                                    </Grid>
+                                                </Stack>
+                                            </Link>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            </Item>
                         </Grid>
                     </Grid>
 
@@ -331,11 +324,6 @@ class QuestionsPages extends Component {
                         md={2}
                         sm={2}
                         xs={2}
-                        sx={{
-                            position: "fixed",
-                            width: "300px",
-                            right: "10px",
-                        }}
                     >
                         <Rightbar />
                     </Grid>

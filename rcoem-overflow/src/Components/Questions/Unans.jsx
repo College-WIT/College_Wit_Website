@@ -115,7 +115,7 @@ class unans extends Component {
                         fontSize: 40,
                         position: "relative",
                         top: 55,
-                        left: "-170px",
+                        left: "-100px",
                       }}
                     >
                       Unanswered Questions
@@ -141,8 +141,8 @@ class unans extends Component {
                         avatar={
                           <Avatar
                             sx={{
-                              height: "50px",
-                              width: "50px",
+                              height: "40px",
+                              width: "40px",
                             }}
                             alt={content.author}
                             src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
@@ -151,7 +151,7 @@ class unans extends Component {
                         title={
                           <Typography
                             sx={{
-                              fontSize: 20,
+                              fontSize: 18,
                               // fontWeight: "bold",
                               fontFamily: "roboto",
                             }}
@@ -162,11 +162,11 @@ class unans extends Component {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", padding: 2 }}
+                        sx={{ color: "black", textAlign: "left", padding: 0.5 }}
                       >
                         <LiveHelpIcon
                           sx={{
-                            margin: "20px",
+                            margin: "0 20px",
                           }}
                         />
 
@@ -176,7 +176,7 @@ class unans extends Component {
                       <Stack
                         direction="row"
                         sx={{
-                          padding: 2,
+                          padding: 0.6,
                         }}
                       >
                         <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
@@ -202,23 +202,13 @@ class unans extends Component {
                                 variant="contained"
                                 disableElevation
                               >
-                                See Full Answer
+                                Visit the Question Page
                               </Button>
                             </Link>
-
-                            {/* <Link
-                                                            component="button"
-                                                            variant="body2"
-                                                            onClick={() => {
-                                                                console.info("I'm a button.");
-                                                            }}
-                                                        >
-                                                            Button Link
-                                                        </Link> */}
                           </Item>
                         </Grid>
 
-                        <Grid
+                        {/*<Grid
                           container
                           xs={4}
                           md={4}
@@ -278,7 +268,7 @@ class unans extends Component {
                               </Typography>
                             </Item>
                           </Stack>
-                        </Grid>
+                        </Grid>*/}
                       </Stack>
                     </Box>
                   ))}
