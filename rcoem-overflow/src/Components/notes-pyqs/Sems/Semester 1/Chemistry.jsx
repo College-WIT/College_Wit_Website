@@ -8,6 +8,17 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../../../Navbar'
 import Lottie from 'react-lottie';
 import * as animationData from '../../../../Assets/ChemLottie.json'
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 const Chemistry = () => {
     const [expanded, setExpanded] = React.useState(false);
@@ -56,13 +67,21 @@ const Chemistry = () => {
     return (
         <div>
             <Navbar />
-            <Lottie options={defaultOptions}
-                height='20%'
-                width='20%' />
-            <Typography variant="h3" sx={{
-                textAlign: 'center',
-                marginTop: '10px'
-            }}>Chemistry Notes and PYQ</Typography>
+            <Grid container>
+                <Grid  xs={6} md={2}>
+                        <Lottie options={defaultOptions}
+                            height='80%'
+                            width='90%' />
+                </Grid>
+                <Grid  xs={6} md={8}>
+                        <Typography variant="h3" sx={{
+                            textAlign: 'center',
+                            marginTop: '50px'
+                        }}>Chemistry Notes and PYQ</Typography>
+                </Grid>
+            </Grid>
+
+
 
             {/* <Grid container spacing={2} columns={10} sx={{
                 marginTop: '50px'
@@ -86,18 +105,18 @@ const Chemistry = () => {
                 ))} 
 
             </Grid>*/}
-            <div style={{marginTop:'20px', padding:'30px'}}>
+            <div style={{ padding: '30px' }}>
                 {data.map((d) => (
-                    <Accordion sx={{backgroundColor:'#444444'}} expanded={expanded === `${d.panel}`} onChange={handleChange(`${d.panel}`)}>
+                    <Accordion sx={{ backgroundColor: '#444444', margin:"5px" }} expanded={expanded === `${d.panel}`} onChange={handleChange(`${d.panel}`)}>
                         <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
+                            expandIcon={<ExpandMoreIcon color='warning' />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <Typography sx={{ color: 'white', fontWeight:700, fontSize:'18px' }}>{d.title}</Typography>
+                            <Typography sx={{ color: 'white', fontWeight: 700, fontSize: '18px' }}>{d.title}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <iframe title='doc' src={d.url} width="640" height="480" style={{position:'relative', left:'20%'}}></iframe>
+                            <iframe title='doc' src={d.url} width="640" height="480" style={{ position: 'relative', left: '20%' }}></iframe>
                         </AccordionDetails>
                     </Accordion>
                 ))}
