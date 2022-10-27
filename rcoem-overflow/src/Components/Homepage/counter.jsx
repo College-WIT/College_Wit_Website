@@ -23,7 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const counter = () => {
-    
+
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -48,21 +48,21 @@ const counter = () => {
             preserveAspectRatio: 'xMidYMid slice'
         }
     };
-    
+
     return (
         <Grid container sx={{
             height: "auto",
             marginTop: "20px",
-            marginBottom: "20px"
+            marginBottom: "60px"
         }}>
             <Grid container justifyContent="center" >
                 <Typography sx={{
-                    fontSize: 60,
+                    fontSize: 40,
                     color: '#000000',
                     fontFamily: "'urw-din',sans-serif",
                     // marginTop: "20px",
                     marginBottom: "20px"
-                }}>Stats
+                }}> Website Statistics
                 </Typography>
             </Grid>
             <Grid container xs={12} justifyContent="center" sx={{
@@ -80,22 +80,22 @@ const counter = () => {
                         alignItems: "right",
 
                     }}>
-                        
+
                     <Item elevation={0} sx={{
                         height: "auto",
                         borderRight: "1px solid grey",
                         borderRadius: "0px"
                     }}>
-                         <Lottie options={defaultOptions}
-                                    height='150px'
-                                    width='100px'
-                                />
-                                <Typography sx={{
-                                    fontSize: 30,
-                                    fontFamily: "'urw-din',sans-serif",
-                                }}>
-                                    Viewers
-                                </Typography>
+                        <Lottie options={defaultOptions}
+                            height='150px'
+                            width='100px'
+                        />
+                        <Typography sx={{
+                            fontSize: 27,
+                            fontFamily: "'urw-din',sans-serif",
+                        }}>
+                            Viewers
+                        </Typography>
                     </Item>
 
                     <Item elevation={0} sx={{
@@ -104,33 +104,34 @@ const counter = () => {
                         borderRadius: "0px"
                     }}>
                         <Lottie options={defaultOptions2}
-                                    height='150px'
-                                    width='100px'
-                                />
-                                <Typography sx={{
-                                    fontSize: 30,
-                                    fontFamily: "'urw-din',sans-serif",
-                                }}>
-                                    Registered Users
-                                </Typography>
-                        
+                            height='150px'
+                            width='190px'
+                        />
+                        <Typography sx={{
+                            fontSize: 27,
+                            fontFamily: "'urw-din',sans-serif",
+                            width: "220px"
+                        }}>
+                            Registered Users
+                        </Typography>
+
                     </Item>
                     <Item elevation={0} sx={{
                         height: "auto",
                         borderRadius: "0px"
                     }}>
-                    <Lottie options={defaultOptions3}
-                                    height='150px'
-                                    width='100px'
-                                />
-                                <Typography sx={{
-                                    fontSize: 30,
-                                    fontFamily: "'urw-din',sans-serif",
-                                }}>
-                                    Questions
-                                </Typography>
-                        
-                        
+                        <Lottie options={defaultOptions3}
+                            height='150px'
+                            width='100px'
+                        />
+                        <Typography sx={{
+                            fontSize: 27,
+                            fontFamily: "'urw-din',sans-serif",
+                        }}>
+                            Questions
+                        </Typography>
+
+
                     </Item>
                 </Stack>
 

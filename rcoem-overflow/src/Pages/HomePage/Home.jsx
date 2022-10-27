@@ -13,6 +13,7 @@ function Home() {
     <div className="Home">
       <ResponsiveAppBar />
       <Boxes />
+      <Counter />
       <Grid container justifyContent="center">
         <Divider light width="90%" />
       </Grid>
@@ -24,7 +25,6 @@ function Home() {
       <Grid container justifyContent="center">
         <Divider light width="90%" />
       </Grid>
-      <Counter />
       <Grid container justifyContent="center">
         <Divider light width="90%" />
       </Grid>
