@@ -157,7 +157,7 @@ function Signup() {
       email:form.current.email.value,
       password:form.current.password.value,
       cpassword:form.current.confirm.value,
-      contriutor:{
+      contributor:{
         linkedin:form.current.linkedin.value,
         github:form.current.github.value,
         codechef:form.current.codechef.value,
