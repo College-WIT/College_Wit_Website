@@ -176,7 +176,7 @@ class unans extends Component {
                           <Item elevation={0}>
                             <Link
                               to={{
-                                pathname: `/answers/${content.question}`,
+                                pathname: `/Post-an-answer/${content.question}`,
                                 state: { propQue: true },
                               }}
                             >
@@ -195,7 +195,7 @@ class unans extends Component {
                                 variant="contained"
                                 disableElevation
                               >
-                                Visit the Question Page
+                                Post answer
                               </Button>
                             </Link>
                           </Item>
