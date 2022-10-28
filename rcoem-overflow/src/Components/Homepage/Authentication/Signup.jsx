@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
-import { Grid, Paper, TextField, Button, Typography } from "@mui/material";
+import { Grid, Paper, TextField, Button, Typography,Modal } from "@mui/material";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
 const text = { padding: 2, margin: "5px 0" };
@@ -12,35 +14,76 @@ const paperStyle = {
   // boxShadow: "1px 0px 0px 0px black",
 };
 const headerStyle = { margin: 0 };
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+const btn = {
+  height: 40,
+  width: 150,
+  margin: "5px",
+  backgroundColor: "#E26639",
+  fontSize: 10,
+  "&:hover": {
+    border: "1px solid white",
+    backgroundColor: "#E26639",
+  },
+};
+
+
+
+
 function Signup() {
   const form = useRef();
 
+
   // Register Function
-  const RegisterUser = (e) => {
+  const RegisterUser = async (e) => {
     e.preventDefault();
     console.log("FORM DATA");
-    //console.log(form.current);
-    console.log(form.current.skills.value);
+    var cpassword= form.current.confirm.value;
+    var password= form.current.password.value;
     var form_data = {
       name: form.current.name.value,
-      username: form.current.username.value,
+      user_name: form.current.username.value,
       email: form.current.email.value,
-      password: form.current.password.value,
-      cpassword: form.current.confirm.value,
-      contributor: {
-        linkedin: form.current.linkedin.value,
-        github: form.current.github.value,
-        codechef: form.current.codechef.value,
-        codeforces: form.current.codeforces.value,
-        hackerrank: form.current.hackerrank.value,
-        about: form.current.about.value,
-        branch: form.current.branch.value,
-        semester: form.current.semester.value,
-        skills: form.current.skills.value,
-      },
+      password: form.current.password.value
+      // contributor: {
+      //   linkedin: form.current.linkedin.value,
+      //   github: form.current.github.value,
+      //   codechef: form.current.codechef.value,
+      //   codeforces: form.current.codeforces.value,
+      //   hackerrank: form.current.hackerrank.value,
+      //   about: form.current.about.value,
+      //   branch: form.current.branch.value,
+      //   semester: form.current.semester.value,
+      //   skills: form.current.skills.value,
+      // },
     };
     console.log(form_data);
+    if(password===cpassword){
+    await axios
+      .post("https://rcoem-overflow-backend.herokuapp.com/register",form_data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+    else{
+      console.log("Password Mismatched");
+    }
   };
+
 
   return (
     <Grid

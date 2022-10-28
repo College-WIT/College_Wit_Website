@@ -1,31 +1,27 @@
 import React, { Component, useEffect } from "react";
 import axios from "axios";
+
 import {
   Grid,
   Paper,
   TextField,
   Button,
   Typography,
+  Link,
   Modal,
   Box,
 } from "@mui/material";
 import { ButtonGroup } from "@mui/material";
+
 import setCookie from "../../../hooks/setCookie";
 import getCookie from "../../../hooks/getCookie";
 import removeCookie from "../../../hooks/removeCookie";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const buttons = { margin: "8px 0", backgroundColor: "#E26639" };
 const text = { padding: 2 };
 var modalText;
-const paperStyle = {
-  padding: 40,
-  height: "500px",
-  width: "40%",
-  margin: "10px",
-  boxShadow: "0px 0px 2px 0px rgba(0,0,0,0.75)",
-};
+const paperStyle = { padding: 40, height: "500px", width: 400, margin: "10px" };
 
 const style = {
   position: "absolute",
@@ -40,11 +36,10 @@ const style = {
 };
 const btn = {
   height: 40,
-  width: 200,
+  width: 150,
   margin: "5px",
-  backgroundColor: "#4B9CD3",
-  fontSize: 13,
-  color: "#000",
+  backgroundColor: "#E26639",
+  fontSize: 10,
   "&:hover": {
     border: "1px solid white",
     backgroundColor: "#E26639",
@@ -140,7 +135,7 @@ class Signin extends Component {
         }}
       >
         <Paper style={paperStyle}>
-          <Grid align="center" marginBottom="40px">
+          <Grid align="center">
             <h2>Sign In</h2>
           </Grid>
           <form onSubmit={this.submitHandler}>
@@ -174,32 +169,32 @@ class Signin extends Component {
             </Button>
           </form>
           {/*<Button style={buttons} type='submit' variant='contained' color='primary' onClick={this.onClickButton}>Login</Button>*/}{" "}
-          <Grid container justifyContent="center">
-            <ButtonGroup
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "transparent",
-                mt: "100px",
-              }}
-              variant="contained"
-              aria-label="outlined primary button group"
+          <ButtonGroup
+            sx={{
+              display: "flex",
+              backgroundColor: "transparent",
+              mt: "100px",
+            }}
+            variant="contained"
+            aria-label="outlined primary button group"
+          >
+            <Button sx={btn} color="primary">
+              <Link
+                style={{ textDecoration: "None", color: "white" }}
+                href={`/forgotpassword`}
+              >
+                Forgot Password
+              </Link>
+            </Button>
+            <Link
+              style={{ textDecoration: "None", color: "white" }}
+              href={`/signup`}
             >
-              <Link
-                style={{ textDecoration: "None", color: "white" }}
-                to={`/forgotpassword`}
-              >
-                <Button sx={btn}>Forgot Password</Button>
-              </Link>
-
-              <Link
-                style={{ textDecoration: "None", color: "white" }}
-                to={`/signup`}
-              >
-                <Button sx={btn}>New User? Sign Up</Button>
-              </Link>
-            </ButtonGroup>
-          </Grid>
+              <Button sx={btn} color="primary">
+                New User? Sign Up
+              </Button>
+            </Link>
+          </ButtonGroup>
         </Paper>
         <Modal
           open={this.state.openModal}
@@ -213,8 +208,8 @@ class Signin extends Component {
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
               <Link
-                to={this.state.lastpage}
                 style={{ textDecoration: "None", color: "white" }}
+                href={this.state.lastpage}
               >
                 <Button style={buttons} variant="contained" color="primary">
                   {this.state.message}

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
+import { styled } from "@mui/material/styles";
 import {
   Grid,
   Paper,
+  Avatar,
   Typography,
   TextField,
   Button,
@@ -10,14 +12,19 @@ import {
   Link,
 } from "@mui/material";
 
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import getCookie from "../../hooks/getCookie";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
+
 
 const buttons = {
   height: 40,
@@ -65,6 +72,21 @@ const PostQuestions = () => {
   const theme = useTheme();
   const [tag, setTag] = React.useState([]);
 
+  const form = useRef();
+
+  const PostQuest = (e) => {
+    e.preventDefault();
+    console.log("FORM DATA");
+    console.log(form.current);
+    var form_data = {
+      email: JSON.parse(getCookie("login")).email,
+      password: JSON.parse(getCookie("login")).password,
+      question: form.current.question.value,
+      tags: form.current.tags.value
+    }
+    console.log(form_data);
+  };
+
   const handleChange = (event) => {
     const {
       target: { value },
@@ -88,7 +110,7 @@ const PostQuestions = () => {
                 <Grid align="center">
                   <h2>Post a Question</h2>
                 </Grid>
-                <form
+                <form ref={form} onSubmit={PostQuest}
                 // onSubmit={this.submitHandler}
                 >
                   <TextField
@@ -108,6 +130,7 @@ const PostQuestions = () => {
                       Add Tags
                     </InputLabel>
                     <Select
+                      name="tags"
                       labelId="demo-multiple-chip-label"
                       id="demo-multiple-chip"
                       multiple
