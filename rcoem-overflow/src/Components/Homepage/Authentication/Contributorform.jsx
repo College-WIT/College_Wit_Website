@@ -210,17 +210,25 @@ const Contributorform = () => {
             </FormControl>
 
             <Typography m="10px">
-              A College Passout? <br />
+              A College Passout? Enter your current Job details <br />
             </Typography>
             <TextField
               style={text}
               name="companyname"
               // required
-              fullWidth
+              width="400px"
               multiline
-              label="Working at"
-              rows={2}
-              placeholder="Enter your current designation and company name"
+              label="Company"
+              placeholder="Company name"
+            />
+            <TextField
+              style={text}
+              name="position"
+              // required
+              width="400px"
+              multiline
+              label="Position"
+              placeholder="Position"
             />
             <FormControl sx={{ mt: 1 }} fullWidth>
               <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
