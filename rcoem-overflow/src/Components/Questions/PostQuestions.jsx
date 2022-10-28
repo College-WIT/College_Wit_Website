@@ -1,9 +1,7 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import {
   Grid,
   Paper,
-  Avatar,
   Typography,
   TextField,
   Button,
@@ -12,15 +10,11 @@ import {
   Link,
 } from "@mui/material";
 
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import getCookie from "../../hooks/getCookie";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";

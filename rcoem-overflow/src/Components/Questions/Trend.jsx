@@ -12,7 +12,6 @@ import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
-import Divider from "@mui/material/Divider";
 import * as animationData from "../../Assets/que.json";
 import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
@@ -38,22 +37,19 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
-const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
-
 var cookie = getCookie("login");
 var red_link = "/Post-a-question";
-var red_link2 = "/Post-an-answer";
+// var red_link2 = "/Post-an-answer";
 if (cookie == null) {
   red_link = "/login";
-  red_link2 = "/login";
+  // red_link2 = "/login";
   console.log(red_link);
 }
 
 //var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-var tag = "how";
-var FilteredData = [];
-const searchWord = tag;
+// var tag = "how";
+// var FilteredData = [];
+// const searchWord = tag;
 // SearchData.filter((value) => {
 //   if (
 //     value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
@@ -90,7 +86,7 @@ class QuestionsPages extends Component {
   }
 
   render() {
-    const { QuestionsData, errorMsg } = this.state;
+    const { QuestionsData } = this.state;
     return (
       <Box
         sx={{

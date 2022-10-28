@@ -12,10 +12,6 @@ import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
-import Divider from "@mui/material/Divider";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import * as animationData from "../../Assets/que.json";
 import Lottie from "react-lottie";
@@ -33,10 +29,10 @@ const defaultOptions = {
 
 var cookie = getCookie("login");
 var red_link = "/Post-a-question";
-var red_link2 = "/Post-an-answer";
+// var red_link2 = "/Post-an-answer";
 if (cookie == null) {
   red_link = "/login";
-  red_link2 = "/login";
+
   console.log(red_link);
 }
 
@@ -46,9 +42,6 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-
-const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
-const queTags = ["Tags", "Tags", "Tags", "Tags", "Tags"];
 
 class unans extends Component {
   constructor(props) {
@@ -80,7 +73,7 @@ class unans extends Component {
   }
 
   render() {
-    const { QuestionsData, errorMsg } = this.state;
+    const { QuestionsData } = this.state;
     return (
       <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
         <Grid container spacing={2}>

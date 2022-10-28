@@ -11,8 +11,7 @@ import { Component } from "react";
 import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
-import getCookie from "../../hooks/getCookie";
-import Divider from "@mui/material/Divider";
+// import getCookie from "../../hooks/getCookie";
 import * as animationData from "../../Assets/que.json";
 import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
@@ -21,7 +20,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
-import ScrollButton from "../scroll";
 
 const defaultOptions = {
   loop: true,
@@ -39,12 +37,12 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-var cookie = getCookie("login");
+// var cookie = getCookie("login");
 
 //var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-var tag = "how";
-var FilteredData = [];
-const searchWord = tag;
+// var tag = "how";
+// var FilteredData = [];
+// const searchWord = tag;
 // SearchData.filter((value) => {
 //   if (
 //     value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
@@ -81,7 +79,7 @@ class QuestionsPages extends Component {
   }
 
   render() {
-    const { QuestionsData, errorMsg } = this.state;
+    const { QuestionsData } = this.state;
     return (
       <Box
         sx={{
