@@ -68,36 +68,43 @@ const style = {
   p: 4,
 };
 
-const PostQuestions = () => {
+const PostAnswerf = (props) => {
   const theme = useTheme();
   const [tag, setTag] = React.useState([]);
   const navigate = useNavigate();
   const form = useRef();
+  const qq=props.qq;
 
-  const PostQuest = async (e) => {
+  const PostAns = async (e) => {
     //navigate('/Answered');
     e.preventDefault();
     console.log("FORM DATA");
+    // var form_data = {
+    //   email: JSON.parse(getCookie("login")).email,
+    //   password: JSON.parse(getCookie("login")).password,
+    //   question: qq,
+    //   answer: form.current.answer.value,
+    // }
+
     var form_data = {
-      email: JSON.parse(getCookie("login")).email,
-      password: JSON.parse(getCookie("login")).password,
-      question: form.current.question.value,
-      tags: form.current.tags.value,
-      anonymous: "False",
+      username: "check_boy",
+      password: "123",
+      question: qq,
+      answer: form.current.answer.value,
     }
     console.log(form_data);
     await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
+      .post("https://rcoem-overflow-backend.herokuapp.com/add_answer",form_data)
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error.data);
       });
-      navigate('/Unanswered');
+      navigate('/Answered');
   };
 
-  const PostQuestAno = async (e) => {
+  const PostAnsAno = async (e) => {
     // const navigate = useNavigate();
     e.preventDefault();
     console.log("FORM DATA");
@@ -105,20 +112,19 @@ const PostQuestions = () => {
     var form_data = {
       email: JSON.parse(getCookie("login")).email,
       password: JSON.parse(getCookie("login")).password,
-      question: form.current.question.value,
-      tags: form.current.tags.value,
+      answer: form.current.answer.value,
       anonymous: "True",
     }
     console.log(form_data);
-    await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error.data);
-      });
-      navigate('/Unanswered');
+    // await axios
+    //   .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.data);
+    //   });
+      navigate('/Answered');
   };
 
   const handleChange = (event) => {
@@ -142,60 +148,23 @@ const PostQuestions = () => {
             <Grid>
               <Paper style={paperStyle}>
                 <Grid align="center">
-                  <h2>Post a Question</h2>
+                  <h2>Post Your Answer</h2>
                 </Grid>
-                <form ref={form} onSubmit={PostQuest}
+                <form ref={form} onSubmit={PostAns}
                 // onSubmit={this.submitHandler}
                 >
                   <TextField
                     multiline
                     rows={6}
-                    label="Question"
+                    label="Answer"
                     type="text"
-                    name="question"
+                    name="answer"
                     // value={question}
-                    placeholder="Question"
+                    placeholder="Write Your Answer"
                     // onChange={this.changeHandler}
                     fullWidth
                     required
                   />
-                  <Box sx={{ my: 3 }}>
-                    <InputLabel id="demo-multiple-chip-label">
-                      Add Tags
-                    </InputLabel>
-                    <Select
-                      name="tags"
-                      labelId="demo-multiple-chip-label"
-                      id="demo-multiple-chip"
-                      multiple
-                      fullWidth
-                      value={tag}
-                      onChange={handleChange}
-                      input={
-                        <OutlinedInput id="select-multiple-chip" label="tags" />
-                      }
-                      renderValue={(selected) => (
-                        <Box
-                          sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}
-                        >
-                          {selected.map((value) => (
-                            <Chip key={value} label={value} />
-                          ))}
-                        </Box>
-                      )}
-                      MenuProps={MenuProps}
-                    >
-                      {tags.map((name) => (
-                        <MenuItem
-                          key={name}
-                          value={name}
-                          style={getStyles(name, tag, theme)}
-                        >
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </Box>
                   <Grid>
                     <Button
                       name="button1"
@@ -215,7 +184,7 @@ const PostQuestions = () => {
                       // type="submit"
                       variant="contained"
                       color="primary"
-                      onClick={PostQuestAno}
+                      onClick={PostAnsAno}
                     >
                       Post Anonymously
                     </Button>
@@ -263,4 +232,4 @@ const PostQuestions = () => {
   );
 };
 
-export default PostQuestions;
+export default PostAnswerf;
