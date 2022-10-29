@@ -127,7 +127,7 @@ class QuestionsPages extends Component {
                         fontSize: 40,
                         position: "relative",
                         top: 55,
-                        left: "-170px",
+                        left: "-110px",
                       }}
                     >
                       Trending Questions
@@ -141,7 +141,7 @@ class QuestionsPages extends Component {
                       sx={{
                         width: "100%",
                         border: "1px solid #d3d3d3",
-                        margin: "10px",
+                        margin: "5px",
                         // borderRadius: "10px",
                       }}
                     >
@@ -153,8 +153,8 @@ class QuestionsPages extends Component {
                         avatar={
                           <Avatar
                             sx={{
-                              height: "50px",
-                              width: "50px",
+                              height: "40px",
+                              width: "40px",
                             }}
                             alt={content.author}
                             src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
@@ -163,7 +163,7 @@ class QuestionsPages extends Component {
                         title={
                           <Typography
                             sx={{
-                              fontSize: 20,
+                              fontSize: 16,
                               // fontWeight: "bold",
                               fontFamily: "roboto",
                             }}
@@ -174,11 +174,11 @@ class QuestionsPages extends Component {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", padding: 2 }}
+                        sx={{ color: "black", textAlign: "left", padding: 0.5 }}
                       >
                         <LiveHelpIcon
                           sx={{
-                            margin: "20px",
+                            margin: "0 20px",
                           }}
                         />
 
@@ -188,7 +188,7 @@ class QuestionsPages extends Component {
                       <Stack
                         direction="row"
                         sx={{
-                          padding: 2,
+                          padding: 0.6,
                         }}
                       >
                         <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
@@ -238,14 +238,14 @@ class QuestionsPages extends Component {
                           sm={6}
                           lg={3}
                           sx={{
-                            margin: "10px",
+                            margin: "3px",
                           }}
                         >
                           <Stack
                             direction="row"
-                            spacing={2}
+                            spacing={1}
                             sx={{
-                              padding: "10px",
+                              padding: "3px",
                               border: "1px solid #d3d3d3",
                               borderRadius: "10px ",
                               position: "relative",

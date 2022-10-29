@@ -39,23 +39,25 @@ const Rightbar = () => {
         <Divider light />
         {queTags.map((content) => (
           <Grid sx={{ padding: 1 }}>
-            <Button
-              sx={{
-                backgroundColor: "#E26639",
-                width: 100,
-                height: 35,
-                padding: "10px",
-                borderRadius: 1,
-                "&:hover": {
-                  backgroundColor: "#41D450",
-                  opacity: 10,
-                },
-              }}
-              variant="contained"
-              disableElevation
-            >
-              {content}
-            </Button>
+            <Link to='/tags'>
+              <Button
+                sx={{
+                  backgroundColor: "#E26639",
+                  width: 100,
+                  height: 35,
+                  padding: "10px",
+                  borderRadius: 1,
+                  "&:hover": {
+                    backgroundColor: "#41D450",
+                    opacity: 10,
+                  },
+                }}
+                variant="contained"
+                disableElevation
+              >
+                {content}
+              </Button>
+            </Link>
           </Grid>
         ))}
 

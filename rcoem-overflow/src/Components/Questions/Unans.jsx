@@ -195,7 +195,7 @@ class unans extends Component {
                                 variant="contained"
                                 disableElevation
                               >
-                                Post answer
+                                Post an answer
                               </Button>
                             </Link>
                           </Item>
