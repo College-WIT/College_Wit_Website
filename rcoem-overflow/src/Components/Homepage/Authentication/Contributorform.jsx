@@ -1,4 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import {
+  useForm,
+  Controller,
+  FormProvider,
+  useFormContext,
+} from "react-hook-form";
 // import { useNavigate } from "react-router";
 import { Grid, Paper, TextField, Button, Typography } from "@mui/material";
 
@@ -11,6 +17,8 @@ import { useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Chip from "@mui/material/Chip";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import axios from "axios";
+import getCookie from "../../../hooks/getCookie";
 
 const headerStyle = { marginBottom: "10px" };
 const paperStyle = {
@@ -69,6 +77,29 @@ function getStyles(name, personName, theme) {
 }
 
 const Contributorform = () => {
+  const form = useRef();
+
+  //// Defualt values
+  // const methods = useForm({
+  //   defaultValues:{
+  //     "email": "demouser1@gmail.com",
+  //     "college": "RCOEM",
+  //     "semester": "2nd",
+  //     "branch" : "CSE A",
+  //     "linkedin_url" : "https://www.demouser1.com",
+  //     "github_url" : "https://www.github.demouser1.com",
+  //     "codechef_url" : "https://www.codechef.demouser1.com",
+  //     "codeforces_url" : "https://www.codeforces.demouser1.com",
+  //     "leetcode_url" : "https://www.leetcode.demouser1.com",
+  //     "other_url" : "https://www.demouser1.com",
+  //     "company" : "",
+  //     "position" : "",
+  //     "skills": "C++,C,JAVA,demouser1"
+  //     }
+  // });
+  const semesterarr=["1st","2nd","3rd","4th","5th","6th","7th","8th","Passout"];
+  const brancharr=["CSE A","CSE B","CSE AIML","CSE DS","CSE Cyber","ECE","IT"];
+
   const [semester, setSemester] = React.useState("");
   const [branch, setBranch] = React.useState("");
   const theme = useTheme();
@@ -90,6 +121,38 @@ const Contributorform = () => {
     );
   };
 
+
+    // Register Contributor Function
+    const RegisterContributor = async (e) => {
+      e.preventDefault();
+      console.log("FORM DATA");
+
+      var form_data = {
+          "email":JSON.parse(getCookie("login")).email,
+          "college": "RCOEM",
+          "semester": semesterarr[(form.current.semester.value)-1],
+          "branch" : brancharr[(form.current.branch.value)-1],
+          "linkedin_url" : form.current.linkedin.value,
+          "github_url" : form.current.github.value,
+          "codechef_url" : form.current.codechef.value,
+          "codeforces_url" : form.current.codeforces.value,
+          "leetcode_url" : form.current.leetcode.value,
+          "other_url" : form.current.linkedin.value,
+          "company" : form.current.companyname.value,
+          "position" : form.current.position.value,
+          "skills": form.current.skills.value,
+      };
+      console.log(form_data);
+      await axios
+        .post("https://rcoem-overflow-backend.herokuapp.com//register_contributor",form_data)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
   return (
     <div>
       <Grid
@@ -109,7 +172,7 @@ const Contributorform = () => {
             </Typography>
           </Grid>
 
-          <form>
+          <form ref={form} onSubmit={RegisterContributor}>
             <TextField
               style={text}
               name="linkedin"
@@ -144,12 +207,19 @@ const Contributorform = () => {
             />
             <TextField
               style={text}
-              name="Leetcode"
+              name="leetcode"
               fullWidth
               label="Leetcode Profile url"
               placeholder="Enter your Leetcode account URL"
             />
-            <Typography m="10px">
+            <TextField
+              style={text}
+              name="personal"
+              fullWidth
+              label="Personal Portfolio url"
+              placeholder="Enter your Personal URL"
+            />
+            {/* <Typography m="10px">
               Bio (max 200 words) <br />
             </Typography>
             <TextField
@@ -161,7 +231,7 @@ const Contributorform = () => {
               label="About yourself"
               rows={4}
               placeholder="Enter your details"
-            />
+            /> */}
             <FormControl sx={{ m: 1, minWidth: 300 }}>
               <InputLabel id="demo-simple-select-label">Branch</InputLabel>
               <Select
@@ -175,9 +245,9 @@ const Contributorform = () => {
                 </MenuItem>
                 <MenuItem value={1}>CSE A</MenuItem>
                 <MenuItem value={2}>CSE B</MenuItem>
-                <MenuItem value={3}>CSE C</MenuItem>
-                <MenuItem value={4}>CSE D</MenuItem>
-                <MenuItem value={5}>CSE E</MenuItem>
+                <MenuItem value={3}>CSE AIML</MenuItem>
+                <MenuItem value={4}>CSE DS</MenuItem>
+                <MenuItem value={5}>CSE Cyber</MenuItem>
                 <MenuItem value={6}>ECE</MenuItem>
                 <MenuItem value={7}>IT</MenuItem>
               </Select>

@@ -21,7 +21,7 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = ["Coding", "Endsem", "React", "NodeJS", "Java"];
+const queTags = ["Coding", "Endsem", "React", "NodeJS", "Javascript"];
 
 const Rightbar = () => {
   return (
@@ -39,7 +39,7 @@ const Rightbar = () => {
         <Divider light />
         {queTags.map((content) => (
           <Grid sx={{ padding: 1 }}>
-            <Link to='/tags'>
+            <Link to='/tags' state={{ tag: content }}>
               <Button
                 sx={{
                   backgroundColor: "#E26639",
