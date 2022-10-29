@@ -10,8 +10,9 @@ import Select from "@mui/material/Select";
 import { useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Chip from "@mui/material/Chip";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 
-const headerStyle = { margin: 0 };
+const headerStyle = { marginBottom: "10px" };
 const paperStyle = {
   padding: 20,
   width: "50%",
@@ -99,7 +100,10 @@ const Contributorform = () => {
       >
         <Paper style={paperStyle}>
           <Grid align="center">
-            <h2 style={headerStyle}>Contribute</h2>
+            <h2 style={headerStyle}>
+              <VolunteerActivismIcon sx={{ fontSize: "40px", mr: "10px" }} />
+              Contribute
+            </h2>
             <Typography variant="caption" gutterBottom>
               Please fill this form to register as a Contributor !
             </Typography>
@@ -140,10 +144,10 @@ const Contributorform = () => {
             />
             <TextField
               style={text}
-              name="hackerrank"
+              name="Leetcode"
               fullWidth
-              label="HackerRank Profile url"
-              placeholder="Enter your HackerRank account URL"
+              label="Leetcode Profile url"
+              placeholder="Enter your Leetcode account URL"
             />
             <Typography m="10px">
               Bio (max 200 words) <br />
@@ -158,7 +162,7 @@ const Contributorform = () => {
               rows={4}
               placeholder="Enter your details"
             />
-            <FormControl sx={{ m: 1, minWidth: 400 }}>
+            <FormControl sx={{ m: 1, minWidth: 300 }}>
               <InputLabel id="demo-simple-select-label">Branch</InputLabel>
               <Select
                 name="branch"
@@ -204,7 +208,29 @@ const Contributorform = () => {
                 <MenuItem value={9}>Passout</MenuItem>
               </Select>
             </FormControl>
-            <FormControl sx={{ m: 1 }} fullWidth>
+
+            <Typography m="10px">
+              A College Passout? Enter your current Job details <br />
+            </Typography>
+            <TextField
+              style={text}
+              name="companyname"
+              // required
+              width="400px"
+              multiline
+              label="Company"
+              placeholder="Company name"
+            />
+            <TextField
+              style={text}
+              name="position"
+              // required
+              width="400px"
+              multiline
+              label="Position"
+              placeholder="Position"
+            />
+            <FormControl sx={{ mt: 1 }} fullWidth>
               <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
               <Select
                 labelId="demo-multiple-chip-label"

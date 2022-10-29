@@ -25,6 +25,8 @@ import Protected from "./Components/Homepage/Authentication/Protected";
 import Profile from "./Pages/Profile/Profile";
 import Contribute from "./Pages/Contributor";
 import Forgotpswd from "./Pages/Forgotpswd";
+import Otp from "./Pages/Otp";
+import Tags from "./Pages/TagsPage/Tags";
 
 const App = () => {
   return (
@@ -61,6 +63,8 @@ const App = () => {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
+        <Route path="/otp" element={<Otp />} />
+        <Route path="/tags" element={<Tags />} />
       </Routes>
     </div>
   );

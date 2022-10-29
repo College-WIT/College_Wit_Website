@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { Link } from "react-router-dom";
 import { Grid, Typography } from "@mui/material";
 import MediaCard from "../Homepage/card";
 import SearchIcon from "@mui/icons-material/Search";
@@ -28,7 +28,7 @@ const contributor = () => {
       },
     },
   }));
-
+  const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     border: "1px solid #d3d3d3",
@@ -99,6 +99,16 @@ const contributor = () => {
           >
             Top Contributors
           </Typography>
+          <Link to="/be-a-contributor">
+            <Button
+              style={buttons}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              Be a Contributor
+            </Button>
+          </Link>
         </Grid>
         <Grid
           container
