@@ -99,12 +99,17 @@ class Signin extends Component {
     axios
       .post("https://rcoem-overflow-backend.herokuapp.com/login", newstate)
       .then((response) => {
-        console.log(response);
+        console.log(response.data.contributor);
+        const cookieState={
+          email: this.state.email,
+          password: this.state.password,
+          contributor: response.data.contributor
+        }
         console.log("LOGGED IN");
         modalText = "Logged In Successfully !!";
         console.log(modalText);
         removeCookie("login");
-        setCookie("login", JSON.stringify(newstate));
+        setCookie("login", JSON.stringify(cookieState));
 
         this.setState({ openModal: true });
         //this.navigation();

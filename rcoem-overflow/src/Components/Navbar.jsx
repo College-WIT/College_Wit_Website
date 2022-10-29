@@ -22,30 +22,33 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
 
-//var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
+var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
 
-var SearchData;
-var getSearchData = async () => {
-  console.log("ASYNC FUNCTION");
-  await axios
-    .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-    .then((response) => {
-      console.log(response.data);
-      var sss = localStorage.getItem("SearchData");
-      if (sss != null) {
-        localStorage.removeItem("SearchData");
-      }
-      const strJSON = JSON.stringify(response);
-      localStorage.setItem("SearchData", strJSON);
-      SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-    })
-    .catch((error) => {
-      console.log(error);
-      this.setState({
-        errorMsg: "Error retrieving data",
-      });
-    });
-};
+// if(SearchData===null){
+//   SearchData={};
+// }
+
+// var getSearchData = async () => {
+//   console.log("ASYNC FUNCTION");
+//   await axios
+//     .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
+//     .then((response) => {
+//       console.log(response.data);
+//       var sss = localStorage.getItem("SearchData");
+//       if (sss != null) {
+//         localStorage.removeItem("SearchData");
+//       }
+//       const strJSON = JSON.stringify(response);
+//       localStorage.setItem("SearchData", strJSON);
+//       SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       this.setState({
+//         errorMsg: "Error retrieving data",
+//       });
+//     });
+// };
 
 let loggedin = getCookie("login");
 
@@ -99,7 +102,7 @@ const ResponsiveAppBar = () => {
   // };
 
   /////// GETTING SEARCH DATA
-  getSearchData();
+  //getSearchData();
 
   return (
     <AppBar

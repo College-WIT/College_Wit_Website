@@ -175,10 +175,8 @@ class unans extends Component {
                         <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
                           <Item elevation={0}>
                             <Link
-                              to={{
-                                pathname: `/Post-an-answer/${content.question}`,
-                                state: { propQue: true },
-                              }}
+                              to={`/Post-an-answer/${content.question}`} 
+                              state={{propQue:content.question}}
                             >
                               <Button
                                 sx={{
