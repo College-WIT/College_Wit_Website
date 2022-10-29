@@ -144,7 +144,7 @@ const Contributorform = () => {
       };
       console.log(form_data);
       await axios
-        .post("https://rcoem-overflow-backend.herokuapp.com//register_contributor",form_data)
+        .post("https://rcoem-overflow-backend.herokuapp.com/register_contributor",form_data)
         .then((response) => {
           console.log(response);
         })

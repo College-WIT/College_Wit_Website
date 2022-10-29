@@ -110,22 +110,22 @@ class postans extends Component {
       answer: this.state.answer,
     };
     console.log(newstate);
-    // axios
-    //   .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", newstate)
-    //   .then((response) => {
-    //     flag = true;
-    //     console.log("Answered added Successfully");
-    //     modalText = "Answered added Successfully";
-    //     this.setState({ openModal: true });
-    //   })
-    //   .catch((error) => {
-    //     flag = false;
-    //     modalText = "Error Adding Answer";
-    //     this.state.message = "TRY AGAIN";
-    //     this.state.lastpage = "/Post-an-answer";
-    //     this.setState({ openModal: true });
-    //     console.log(error.response);
-    //   });
+    axios
+      .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", newstate)
+      .then((response) => {
+        flag = true;
+        console.log("Answered added Successfully");
+        modalText = "Answered added Successfully";
+        this.setState({ openModal: true });
+      })
+      .catch((error) => {
+        flag = false;
+        modalText = "Error Adding Answer";
+        this.state.message = "TRY AGAIN";
+        this.state.lastpage = "/Post-an-answer";
+        this.setState({ openModal: true });
+        console.log(error.response);
+      });
   };
   onClick(event) {
     this.submitHandler();

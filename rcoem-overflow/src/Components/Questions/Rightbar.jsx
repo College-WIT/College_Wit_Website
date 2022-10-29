@@ -21,7 +21,7 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = ["Coding", "Endsem", "React", "NodeJS", "Javascript"];
+const queTags = ["HTML", "CSS", "Javascript", "PYQ", "CP", "DSA"];
 
 const Rightbar = () => {
   return (
