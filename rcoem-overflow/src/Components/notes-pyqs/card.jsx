@@ -37,6 +37,7 @@ const card = (props) => {
                         alignItems: "center",
                         textAlign: "center",
                         fontFamily: "monospace",
+                        wordWrap: "break-word",
                     }}>
                         {props.sem}
                     </Typography>
