@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router";
 import Questions from "./Pages/Questions/Question";
@@ -26,9 +26,11 @@ import Profile from "./Pages/Profile/Profile";
 import Contribute from "./Pages/Contributor";
 import Forgotpswd from "./Pages/Forgotpswd";
 import Otp from "./Pages/Otp";
+import axios from "axios";
 import TagsPage from "./Pages/TagsPage/TagsPage";
 
 const App = () => {
+
   return (
     <div>
       <Routes>
