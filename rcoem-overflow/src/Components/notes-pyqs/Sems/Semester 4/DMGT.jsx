@@ -7,7 +7,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Navbar from "../../../Navbar";
 import Lottie from "react-lottie";
-import * as animationData from "../../../../Assets/ChemLottie.json";
+import * as animationData from "../../../../Assets/BookLottie.json";
 
 const DMGT = () => {
     const [expanded, setExpanded] = React.useState(false);
@@ -75,8 +75,7 @@ const DMGT = () => {
             <Navbar />
             <Grid container>
                 <Grid xs={6} md={2}>
-                    <Lottie options={defaultOptions} height="80%" width="90%" />
-                </Grid>
+                <Lottie options={defaultOptions} height="90%" width="90%" style={{marginTop:'20px'}} />                </Grid>
                 <Grid xs={6} md={8}>
                     <Typography
                         variant="h3"
