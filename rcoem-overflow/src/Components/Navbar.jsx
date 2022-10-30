@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -22,30 +22,6 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
 
-//var SearchData=JSON.parse(localStorage.getItem('SearchData')).data;
-
-var SearchData;
-var getSearchData = async () => {
-  console.log("ASYNC FUNCTION");
-  await axios
-    .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-    .then((response) => {
-      console.log(response.data);
-      var sss = localStorage.getItem("SearchData");
-      if (sss != null) {
-        localStorage.removeItem("SearchData");
-      }
-      const strJSON = JSON.stringify(response);
-      localStorage.setItem("SearchData", strJSON);
-      SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-    })
-    .catch((error) => {
-      console.log(error);
-      this.setState({
-        errorMsg: "Error retrieving data",
-      });
-    });
-};
 
 let loggedin = getCookie("login");
 
@@ -79,7 +55,10 @@ const logout_buttons = {
 };
 const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 
+var SearchData={}
+
 const ResponsiveAppBar = () => {
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -99,7 +78,7 @@ const ResponsiveAppBar = () => {
   // };
 
   /////// GETTING SEARCH DATA
-  getSearchData();
+  //getSearchData();
 
   return (
     <AppBar

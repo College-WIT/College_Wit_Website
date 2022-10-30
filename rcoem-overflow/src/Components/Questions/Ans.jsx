@@ -196,8 +196,9 @@ class Ans extends Component {
                           disableElevation
                         >
                           <Link
+                            to={`/Post-an-answer/${quest}`} 
+                            state={{propQue:quest}}
                             style={{ textDecoration: "None", color: "white" }}
-                            to={`/Post-an-answer/${quest}`}
                           >
                             Post an Answer
                           </Link>

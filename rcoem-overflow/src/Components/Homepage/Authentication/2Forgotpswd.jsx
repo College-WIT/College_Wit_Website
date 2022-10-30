@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 import { Grid, Paper, TextField, Button } from "@mui/material";
-// import { Link } from "react-router-dom";
+const buttons = { margin: "8px 0", backgroundColor: "#00ABF3" };
+const text = { padding: 2 };
+const paperStyle = { padding: 20, width: 600, margin: "0 auto" };
 
-const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
-const text = { padding: 2, margin: "5px 0" };
-const paperStyle = {
-  padding: 20,
-  width: "35%",
-  margin: "0 auto",
-  height: "auto",
-  // boxShadow: "1px 0px 0px 0px black",
-};
 
 const Forgotpswd = () => {
+  const form = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.state.data);
+
+  const OtpVer =async (e) => {
+    e.preventDefault();
+    
+    if (form.current.OTP.value === location.state.data.otp) {
+      const newstate = {
+        email: location.state.data.email,
+        password: form.current.password.value,
+      };
+      await axios
+      .post("https://rcoem-overflow-backend.herokuapp.com/update_password", newstate)
+      .then(response => {
+          console.log("Changed Password Successfully");
+          console.log(response)
+      })
+      .catch(error => {
+          console.log(error.response)
+      })
+      console.log(newstate);
+    } else {
+      console.log("error otp");
+    }
+   
+  };
+
   return (
     <Grid
       sx={{
@@ -20,10 +46,17 @@ const Forgotpswd = () => {
       }}
     >
       <Paper style={paperStyle}>
-        <Grid align="center" sx={{ marginBottom: "50px" }}>
+        <Grid align="center">
           <h3>Enter OTP</h3>
         </Grid>
-        <form>
+        <form ref={form} onSubmit={OtpVer}>
+          <TextField
+            style={text}
+            name="password"
+            fullWidth
+            label="password"
+            placeholder="Enter New Password"
+          />
           <TextField
             style={text}
             name="OTP"
@@ -39,12 +72,15 @@ const Forgotpswd = () => {
             color="primary"
             value="Send"
           >
-            Submit
+            Change Password
           </Button>
         </form>
       </Paper>
     </Grid>
+
+
   );
 };
+
 
 export default Forgotpswd;

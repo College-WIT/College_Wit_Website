@@ -56,17 +56,24 @@ const searchWord = tag;
 
 
 class Tags extends Component {
+
     constructor(props) {
         super(props)
 
         this.state = {
             QuestionsData: [],
-            errorMsg: ""
+            errorMsg: "",
+            Tag: this.props.tag
         }
     }
 
+
+
     componentDidMount() {
-        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_trending_questions")
+        const tag={
+            "tag":this.props.tag
+        }
+        axios.post("https://rcoem-overflow-backend.herokuapp.com/tagwise_question",tag)
             .then(response => {
                 console.log(response)
                 this.setState({
@@ -82,7 +89,7 @@ class Tags extends Component {
     }
 
     render() {
-        const { QuestionsData, errorMsg } = this.state;
+        const { QuestionsData, errorMsg, Tag } = this.state;
         return (
             <Box
                 sx={{
@@ -126,7 +133,7 @@ class Tags extends Component {
                                                 left: "-110px",
                                             }}
                                         >
-                                            Taged Questions
+                                            {Tag}
                                         </Typography>
                                     </Grid>
                                 </Grid>

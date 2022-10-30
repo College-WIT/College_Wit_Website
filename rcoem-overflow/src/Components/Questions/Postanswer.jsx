@@ -50,7 +50,7 @@ class postans extends Component {
     // var quest=this.props.qq;
 
     this.state = {
-      username: JSON.parse(getCookie("login")).email,
+      email: JSON.parse(getCookie("login")).email,
       password: JSON.parse(getCookie("login")).password,
       question: this.props.qq,
       answer: "",
@@ -94,17 +94,17 @@ class postans extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    var username = this.state.username;
-    var newusername = "";
-    for (var i = 0; i < username.length; i++) {
-      if (username.charAt(i) === "@") {
-        break;
-      }
-      var chars = username.charAt(i);
-      newusername += chars;
-    }
+    // var username = this.state.username;
+    // var newusername = "";
+    // for (var i = 0; i < username.length; i++) {
+    //   if (username.charAt(i) === "@") {
+    //     break;
+    //   }
+    //   var chars = username.charAt(i);
+    //   newusername += chars;
+    // }
     var newstate = {
-      username: newusername,
+      email: this.state.email,
       password: this.state.password,
       question: this.state.question,
       answer: this.state.answer,

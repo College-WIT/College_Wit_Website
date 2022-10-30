@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router";
 import Questions from "./Pages/Questions/Question";
@@ -33,7 +33,12 @@ import SPDD from "./Components/notes-pyqs/Sems/Semester 4/SPDD";
 import FLAT from "./Components/notes-pyqs/Sems/Semester 4/FLAT";
 import DMGT from "./Components/notes-pyqs/Sems/Semester 4/DMGT";
 
+import axios from "axios";
+import TagsPage from "./Pages/TagsPage/TagsPage";
+
+
 const App = () => {
+
   return (
     <div>
       <Routes>
@@ -74,7 +79,7 @@ const App = () => {
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
         <Route path="/otp" element={<Otp />} />
-        <Route path="/tags" element={<Tags />} />
+        <Route path="/tags" element={<TagsPage />} />
       </Routes>
     </div>
   );
