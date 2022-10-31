@@ -10,23 +10,23 @@ const Semester_4 = () => {
     const data = [
         {
             id: 1,
-            title: "Discrete Maths and Graph Theory.",
+            title: "Discrete_Maths_and_Graph_Theory",
         },
         {
             id: 2,
-            title: "Operating Systems",
+            title: "Operating_Systems",
         },
         {
             id: 3,
-            title: "Object Oriented Programming",
+            title: "Object_Oriented_Programming",
         },
         {
             id: 4,
-            title: "Formal Languages & Automata Th. / TOC",
+            title: "Formal_Languages_&_Automata_Th",
         },
         {
             id: 5,
-            title: "System Programming and Device Drivers.",
+            title: "System_Programming_and_Device_Drivers",
         },
         {
             id: 6,

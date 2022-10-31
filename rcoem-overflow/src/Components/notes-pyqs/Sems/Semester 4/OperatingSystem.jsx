@@ -9,7 +9,7 @@ import Navbar from "../../../Navbar";
 import Lottie from "react-lottie";
 import * as animationData from "../../../../Assets/BookLottie.json";
 
-const Chemistry = () => {
+const OperatingSystem = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -19,27 +19,39 @@ const Chemistry = () => {
   const data = [
     {
       id: 1,
-      title: "Notes",
+      title: "Textbook",
       panel: "panel1",
-      url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+      url: " ",
     },
     {
       id: 2,
       title: "PYQ 2022",
       panel: "panel2",
-      url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+      url: "https://drive.google.com/file/d/16D9G2257o2EvGB3uZMmehEuSs98auwjN/preview",
     },
     {
       id: 3,
       title: "PYQ 2021",
       panel: "panel3",
-      url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+      url: "https://drive.google.com/file/d/1gtOhCUsv6L9cSXIsY2iYHFrY5GNHtOPN/preview",
     },
     {
       id: 4,
       title: "PYQ 2020",
       panel: "panel4",
-      url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+      url: "https://drive.google.com/file/d/1q8Os2hLnd2dMOLbGXhMSGwsge7mAQnzo/preview",
+    },
+    {
+      id: 5,
+      title: "PYQ 2019",
+      panel: "panel5",
+      url: "https://drive.google.com/file/d/1s8aW09A0T6-PbUnzXWhJxUQ4Ao3e5D7e/preview",
+    },
+    {
+      id: 6,
+      title: "PYQ 2018",
+      panel: "panel6",
+      url: "https://drive.google.com/file/d/1jIg5D0JVZMWapBglWAdmbLSzdKlOYK3C/preview",
     },
   ];
 
@@ -57,7 +69,8 @@ const Chemistry = () => {
       <Navbar />
       <Grid container>
         <Grid xs={6} md={2}>
-        <Lottie options={defaultOptions} height="90%" width="90%" style={{marginTop:'20px'}} />        </Grid>
+          <Lottie options={defaultOptions} height="90%" width="90%" style={{marginTop:'20px'}} />
+        </Grid>
         <Grid xs={6} md={8}>
           <Typography
             variant="h3"
@@ -66,7 +79,7 @@ const Chemistry = () => {
               marginTop: "50px",
             }}
           >
-            Chemistry Notes and PYQ
+            Operating System Notes and PYQ
           </Typography>
         </Grid>
       </Grid>
@@ -127,4 +140,4 @@ const Chemistry = () => {
   );
 };
 
-export default Chemistry;
+export default OperatingSystem;

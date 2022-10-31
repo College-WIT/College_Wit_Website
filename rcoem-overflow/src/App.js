@@ -26,8 +26,16 @@ import Profile from "./Pages/Profile/Profile";
 import Contribute from "./Pages/Contributor";
 import Forgotpswd from "./Pages/Forgotpswd";
 import Otp from "./Pages/Otp";
+import Tags from "./Pages/TagsPage/Tags";
+import OperatingSystem from "./Components/notes-pyqs/Sems/Semester 4/OperatingSystem";
+import OOPS from "./Components/notes-pyqs/Sems/Semester 4/OOPS";
+import SPDD from "./Components/notes-pyqs/Sems/Semester 4/SPDD";
+import FLAT from "./Components/notes-pyqs/Sems/Semester 4/FLAT";
+import DMGT from "./Components/notes-pyqs/Sems/Semester 4/DMGT";
+
 import axios from "axios";
 import TagsPage from "./Pages/TagsPage/TagsPage";
+
 
 const App = () => {
 
@@ -79,6 +87,11 @@ const App = () => {
         <Route path="/Semester_7" element={<Semester_7 />} />
         <Route path="/Semester_8" element={<Semester_8 />} />
         <Route path="/Chemistry" element={<Chemistry />} />
+        <Route path="/Operating_Systems" element={<OperatingSystem />} />
+        <Route path="/Object_Oriented_Programming" element={<OOPS />} />
+        <Route path="/System_Programming_and_Device_Drivers" element={<SPDD />} />
+        <Route path="/Formal_Languages_&_Automata_Th" element={<FLAT />} />
+        <Route path="/Discrete_Maths_and_Graph_Theory" element={<DMGT />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
