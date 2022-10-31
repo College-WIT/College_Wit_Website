@@ -19,9 +19,9 @@ const M3 = () => {
     const data = [
         {
             id: 1,
-            title: "Textbook",
+            title: "PYQ 2021",
             panel: "panel1",
-            url: " ",
+            url: "https://drive.google.com/file/d/1uta7Lod8hAqL3XYKj59Qdz8GAud6wagK/preview",
         },
         {
             id: 2,
@@ -31,27 +31,33 @@ const M3 = () => {
         },
         {
             id: 3,
-            title: "PYQ 2021",
+            title: "PYQ (All Papers in 1 pdf)",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1gtOhCUsv6L9cSXIsY2iYHFrY5GNHtOPN/preview",
+            url: "https://drive.google.com/file/d/1HVuwSylY0ES9PCKEH6vh4K5vAI1JR9hc/preview",
         },
         {
             id: 4,
             title: "PYQ 2020",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1q8Os2hLnd2dMOLbGXhMSGwsge7mAQnzo/preview",
+            url: "https://drive.google.com/file/d/1tlJQHBOmDzS5jb4TJQnbEwLZqM-T-Gc2/preview",
         },
         {
             id: 5,
             title: "PYQ 2019",
             panel: "panel5",
-            url: "https://drive.google.com/file/d/1s8aW09A0T6-PbUnzXWhJxUQ4Ao3e5D7e/preview",
+            url: "https://drive.google.com/file/d/1D8fUPWPflcotnnrUhZKQacUIS5D0s36e/preview",
         },
         {
             id: 6,
             title: "PYQ 2018",
             panel: "panel6",
-            url: "https://drive.google.com/file/d/1jIg5D0JVZMWapBglWAdmbLSzdKlOYK3C/preview",
+            url: "https://drive.google.com/file/d/1cqtYFc-gXszRGijM2I2kwdx5x3so4VWV/preview",
+        },
+        {
+            id: 7,
+            title: "PYQ 2017",
+            panel: "panel7",
+            url: "https://drive.google.com/file/d/1nOYgUd0l_3bgwszi8F-ycx8xEnYga6AP/preview",
         },
     ];
 

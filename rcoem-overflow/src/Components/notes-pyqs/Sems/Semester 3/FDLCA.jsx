@@ -19,39 +19,63 @@ const FDLCA = () => {
     const data = [
         {
             id: 1,
-            title: "Textbook",
+            title: "PYQ",
             panel: "panel1",
-            url: " ",
+            url: "https://drive.google.com/file/d/1YlbvVLvnfYj6FcBN7lgBrPvAQCNu63IK/preview",
         },
         {
             id: 2,
             title: "PYQ 2022",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/16D9G2257o2EvGB3uZMmehEuSs98auwjN/preview",
+            url: "https://drive.google.com/file/d/1oB3R1K6ziVZ2qo8d9tgy2OZ2lGBV4zO7/preview",
         },
         {
             id: 3,
             title: "PYQ 2021",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1gtOhCUsv6L9cSXIsY2iYHFrY5GNHtOPN/preview",
+            url: "https://drive.google.com/file/d/1ebtJix1GUvq-eZ1w--1PPn8UQBVIWR2F/preview",
         },
         {
             id: 4,
             title: "PYQ 2020",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1q8Os2hLnd2dMOLbGXhMSGwsge7mAQnzo/preview",
+            url: "https://drive.google.com/file/d/1okApCpc1y2EyAY4MSPbZJaEBKvlLWajg/preview",
         },
         {
             id: 5,
             title: "PYQ 2019",
             panel: "panel5",
-            url: "https://drive.google.com/file/d/1s8aW09A0T6-PbUnzXWhJxUQ4Ao3e5D7e/preview",
+            url: "https://drive.google.com/file/d/1g5vTe8NcP_PbpKlCBRid2Alm7yoy7D4x/preview",
         },
         {
-            id: 6,
+            id: 7,
             title: "PYQ 2018",
-            panel: "panel6",
-            url: "https://drive.google.com/file/d/1jIg5D0JVZMWapBglWAdmbLSzdKlOYK3C/preview",
+            panel: "panel7",
+            url: "https://drive.google.com/file/d/1uTtOMiuOsClmwZGml4_L-vQFIKVEqnRZ/preview",
+        },
+        {
+            id: 8,
+            title: "PYQ 2017",
+            panel: "panel8",
+            url: "https://drive.google.com/file/d/1gxbeGK2gf-6AZNivrmlhhooZ6qUogSbI/preview",
+        },
+        {
+            id: 9,
+            title: "PYQ 2016",
+            panel: "panel9",
+            url: "https://drive.google.com/file/d/1CetMzgyuao7kje3EkxCYS1j1YDvW3-1Q/preview",
+        },
+        {
+            id: 10,
+            title: "PYQ 2015",
+            panel: "panel10",
+            url: "https://drive.google.com/file/d/1Caz1HXi2RP3WgabodJk-1-4fJsEQn7bE/preview",
+        },
+        {
+            id: 11,
+            title: "PYQ 2014",
+            panel: "panel11",
+            url: "https://drive.google.com/file/d/1V84WZ0m88dxRICLJHw4atjErv1mCqbVQ/preview",
         },
     ];
 
