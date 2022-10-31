@@ -40,6 +40,12 @@ import DBMS from "./Components/notes-pyqs/Sems/Semester 5/DBMS";
 import DP from "./Components/notes-pyqs/Sems/Semester 5/DP";
 import MAP from "./Components/notes-pyqs/Sems/Semester 5/MAP";
 
+import DPD from "./Components/notes-pyqs/Sems/Semester 8/DPD";
+import NLP from "./Components/notes-pyqs/Sems/Semester 8/NLP";
+import DS from "./Components/notes-pyqs/Sems/Semester 8/DS";
+import IS from "./Components/notes-pyqs/Sems/Semester 8/IS";
+import WIBD from "./Components/notes-pyqs/Sems/Semester 8/WIBD";
+
 import axios from "axios";
 import TagsPage from "./Pages/TagsPage/TagsPage";
 import FDLCA from './Components/notes-pyqs/Sems/Semester 3/FDLCA';
@@ -103,13 +109,18 @@ const App = () => {
         <Route path="/Design_Patterns" element={<DP />} />
         <Route path="/Mobile_Application_Programming" element={<MAP />} />
 
-
+        {/* EIGHT SEMESTER */}
+        <Route path="/Natural_Language_Processing" element={<NLP />} />
+        <Route path="/Distributed_&_Parallel_Databases" element={<DPD />} />
+        <Route path="/Distributed_System" element={<DS />} />
+        <Route path="/Web_Intelligence_&_Big_Data" element={<WIBD />} />
+        <Route path="/Information_Security" element={<IS />} />
 
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
         <Route path="/otp" element={<Otp />} />
-        <Route path="/tags" element={<TagsPage />} />
+        <Route path="/tags/:tag" element={<TagsPage />} />
       </Routes>
     </div>
   );

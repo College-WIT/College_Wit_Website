@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
+import getCookie from "../../hooks/getCookie";
 const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -14,6 +15,13 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+
+var cookie = getCookie("login");
+var red_link = "/Post-a-question";
+if (cookie == null) {
+  red_link = "/login";
+  console.log(red_link);
+}
 
 const Leftbar = () => {
   return (
@@ -80,6 +88,31 @@ const Leftbar = () => {
             </Button>
           </Grid>
         ))}
+      <Grid sx={{ paddingTop: 2 }}>
+          <Button
+            sx={{
+              backgroundColor: "#20D867",
+              width: 150,
+              height: 60,
+              border: 1,
+              borderRadius: 2,
+              fontSize: 15,
+              "&:hover": {
+                backgroundColor: "#E26639",
+                opacity: 10,
+              },
+            }}
+            variant="contained"
+            disableElevation
+          >
+            <Link
+              style={{ textDecoration: "None", color: "white" }}
+              to={red_link}
+            >
+              Post a question
+            </Link>
+          </Button>
+        </Grid>
       </Item>
     </div>
   );

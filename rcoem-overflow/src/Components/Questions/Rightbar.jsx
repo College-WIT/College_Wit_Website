@@ -21,9 +21,14 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = ["HTML", "CSS", "Javascript", "PYQ", "CP", "DSA"];
+const queTags = ["ANDROID-DEVELOPMENT", "COLLEGE-LIFE", "COMPETITIVE-PROGRAMMING", "CSS", "DJANGO", "FLUTTER", "HTML", "JAVASCRIPT", "NODE-JS", "OPEN-SOURCE", "OTHERS", "PYQ", "REACT-JS", "WEB-DEVELOPMENT"];
+
+
 
 const Rightbar = () => {
+  const refreshPage = () => {
+    window.location.reload();
+  }
   return (
     <div>
       <Item>
@@ -39,12 +44,14 @@ const Rightbar = () => {
         <Divider light />
         {queTags.map((content) => (
           <Grid sx={{ padding: 1 }}>
-            <Link to='/tags' state={{ tag: content }}>
+            <Link to={{
+              pathname: `/tags/${content}`
+            }} state={{ tag: content }}>
               <Button
                 sx={{
                   backgroundColor: "#E26639",
-                  width: 100,
-                  height: 35,
+                  width: 130,
+                  height: 45,
                   padding: "10px",
                   borderRadius: 1,
                   "&:hover": {
@@ -61,31 +68,7 @@ const Rightbar = () => {
           </Grid>
         ))}
 
-        <Grid sx={{ paddingTop: 10 }}>
-          <Button
-            sx={{
-              backgroundColor: "#20D867",
-              width: 150,
-              height: 60,
-              border: 1,
-              borderRadius: 2,
-              fontSize: 15,
-              "&:hover": {
-                backgroundColor: "#E26639",
-                opacity: 10,
-              },
-            }}
-            variant="contained"
-            disableElevation
-          >
-            <Link
-              style={{ textDecoration: "None", color: "white" }}
-              to={red_link}
-            >
-              Post a question
-            </Link>
-          </Button>
-        </Grid>
+
       </Item>
     </div>
   );

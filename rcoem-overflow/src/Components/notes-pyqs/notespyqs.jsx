@@ -9,6 +9,10 @@ import '../../App'
 const notespyqs = () => {
     const data = [
         {
+            id: 0,
+            title: "Placement Resources",
+        },
+        {
             id: 1,
             title: "Semester_1",
         },

@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom';
 export default function Answers() {
   let location = useLocation();
   const tag=location.state.tag;
+  
   return (
     <div className="Answers">
       <ResponsiveAppBar />

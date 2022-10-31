@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -75,6 +76,7 @@ class Tags extends Component {
         }
         axios.post("https://rcoem-overflow-backend.herokuapp.com/tagwise_question",tag)
             .then(response => {
+                /* window.location.reload(); */
                 console.log(response)
                 this.setState({
                     QuestionsData: response.data
