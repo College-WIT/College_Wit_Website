@@ -33,8 +33,20 @@ import SPDD from "./Components/notes-pyqs/Sems/Semester 4/SPDD";
 import FLAT from "./Components/notes-pyqs/Sems/Semester 4/FLAT";
 import DMGT from "./Components/notes-pyqs/Sems/Semester 4/DMGT";
 
+import CG from "./Components/notes-pyqs/Sems/Semester 5/CG";
+import CN from "./Components/notes-pyqs/Sems/Semester 5/CN";
+import DAA from "./Components/notes-pyqs/Sems/Semester 5/DAA";
+import DBMS from "./Components/notes-pyqs/Sems/Semester 5/DBMS";
+import DP from "./Components/notes-pyqs/Sems/Semester 5/DP";
+import MAP from "./Components/notes-pyqs/Sems/Semester 5/MAP";
+
 import axios from "axios";
 import TagsPage from "./Pages/TagsPage/TagsPage";
+import FDLCA from './Components/notes-pyqs/Sems/Semester 3/FDLCA';
+import DSA from './Components/notes-pyqs/Sems/Semester 3/DSA';
+import M3 from './Components/notes-pyqs/Sems/Semester 3/M3';
+import BC from './Components/notes-pyqs/Sems/Semester 3/BC';
+import CLE from './Components/notes-pyqs/Sems/Semester 3/CLE';
 
 
 const App = () => {
@@ -70,11 +82,29 @@ const App = () => {
         <Route path="/Semester_7" element={<Semester_7 />} />
         <Route path="/Semester_8" element={<Semester_8 />} />
         <Route path="/Chemistry" element={<Chemistry />} />
+        {/* THIRD SEMESTER */}
+        <Route path="/Fundamentals_of_Digital_Logic_and_Computer_Arch" element={<FDLCA />} />
+        <Route path="/Data_Structures_&_Algorithms" element={<DSA />} />
+        <Route path="/Linear_Algebra_and_Statistics" element={<M3 />} />
+        <Route path="/Business_Communication" element={<BC />} />
+        <Route path="/Cyber_Laws_&_Ethics" element={<CLE />} />
+
+        {/* FOURTH SEMESTER */}
         <Route path="/Operating_Systems" element={<OperatingSystem />} />
         <Route path="/Object_Oriented_Programming" element={<OOPS />} />
         <Route path="/System_Programming_and_Device_Drivers" element={<SPDD />} />
         <Route path="/Formal_Languages_&_Automata_Th" element={<FLAT />} />
         <Route path="/Discrete_Maths_and_Graph_Theory" element={<DMGT />} />
+        {/* FIFTH SEMESTER */}
+        <Route path="/Computer_Graphics" element={<CG />} />
+        <Route path="/Computer_Networks" element={<CN />} />
+        <Route path="/Design_&_Analysis_of_Algorithms" element={<DAA />} />
+        <Route path="/Database_Management_Systems" element={<DBMS />} />
+        <Route path="/Design_Patterns" element={<DP />} />
+        <Route path="/Mobile_Application_Programming" element={<MAP />} />
+
+
+
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
