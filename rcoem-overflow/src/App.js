@@ -96,7 +96,8 @@ const App = () => {
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
         <Route path="/otp" element={<Otp />} />
-        <Route path="/tags" element={<TagsPage />} />
+        <Route path="/tags/:tags" element={<TagsPage />} />
+        {/* <Route path="/tags" element={<TagsPage />} /> */}
       </Routes>
     </div>
   );

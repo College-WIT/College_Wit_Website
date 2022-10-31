@@ -21,7 +21,7 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = ["HTML", "CSS", "Javascript", "PYQ", "CP", "DSA"];
+const queTags = ["ANDROID-DEVELOPMENT", "COLLEGE-LIFE", "COMPETITIVE-PROGRAMMING", "CSS", "DJANGO", "FLUTTER", "HTML", "JAVASCRIPT", "NODE-JS", "OPEN-SOURCE", "OTHERS", "PYQ", "REACT-JS", "WEB-DEVELOPMENT"];
 
 const Rightbar = () => {
   return (
@@ -39,7 +39,11 @@ const Rightbar = () => {
         <Divider light />
         {queTags.map((content) => (
           <Grid sx={{ padding: 1 }}>
-            <Link to='/tags' state={{ tag: content }}>
+          <Link to={{
+              pathname: `/tags/${content}`
+              // pathname: `/tags`
+            }} state={{ tag: content }}
+            >
               <Button
                 sx={{
                   backgroundColor: "#E26639",
