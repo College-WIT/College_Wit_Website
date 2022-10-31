@@ -94,6 +94,7 @@ const PostQuestions = () => {
       .catch((error) => {
         console.log(error.data);
       });
+     
       navigate('/Unanswered');
   };
 

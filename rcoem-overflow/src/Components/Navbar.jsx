@@ -21,7 +21,18 @@ import axios from "axios";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
+//import SearchData from '../Assets/SearchData.json'
 
+// var SearchData;
+// if(localStorage.getItem("SearchData")){
+//   console.log("IF");
+//   SearchData = JSON.parse(localStorage.getItem("SearchData"));
+// }
+// else{
+//   console.log("ELSE");
+//   SearchData = {};
+// }
+// var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
 
 let loggedin = getCookie("login");
 
@@ -55,9 +66,24 @@ const logout_buttons = {
 };
 const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 
-var SearchData={}
 
 const ResponsiveAppBar = () => {
+
+  // var SearchData;
+  // var getSearchData = async () => {
+  //   await axios
+  //   .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
+  //   .then((response) => {
+  //     console.log(response.data);
+  //     const strJSON = JSON.stringify(response.data);
+  //     localStorage.setItem("SearchData", strJSON);
+  //     SearchData = JSON.parse(localStorage.getItem("SearchData"));
+  //     //return SearchData;
+  //   })
+  //   .catch((error) => {
+  //     console.log(error.data);
+  //   });
+  // }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -78,7 +104,7 @@ const ResponsiveAppBar = () => {
   // };
 
   /////// GETTING SEARCH DATA
-  //getSearchData();
+  // getSearchData();
 
   return (
     <AppBar
@@ -122,7 +148,7 @@ const ResponsiveAppBar = () => {
               />
             </Search> */}
 
-            <SearchBar placeholder="Search your Question" data={SearchData} />
+            <SearchBar placeholder="Search your Question" />
           </Box>
 
           {/* -------------------------------------------------------------- */}
