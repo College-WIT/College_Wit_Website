@@ -74,21 +74,26 @@ const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 
 
 const ResponsiveAppBar = () => {
-  // var SearchData;
+  // var data;
   // var getSearchData = async () => {
+  //   console.log("API CALL");
   //   await axios
   //   .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
   //   .then((response) => {
   //     console.log(response.data);
-  //     const strJSON = JSON.stringify(response.data);
-  //     localStorage.setItem("SearchData", strJSON);
-  //     SearchData = JSON.parse(localStorage.getItem("SearchData"));
-  //     //return SearchData;
+  //     data=response.data;
+  //     return data;
   //   })
   //   .catch((error) => {
   //     console.log(error.data);
+  //     return [];
   //   });
   // }
+
+  // useEffect(() => {
+  //   data=getSearchData();
+  // }, []);
+  // console.log(data);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -152,7 +157,7 @@ const ResponsiveAppBar = () => {
                 data={SearchData}
               />
             </Search> */}
-
+ 
             <SearchBar placeholder="Search your Question" />
           </Box>
 

@@ -65,7 +65,7 @@ export default function TagsFunc(props) {
         "tag":props.tag
     } 
     
-      const [QuestionsData, setQuestionsData] = useState();
+      const [QuestionsData, setQuestionsData] = useState([]);
     
       var getData = async () =>{
         console.log("DATA CALL");

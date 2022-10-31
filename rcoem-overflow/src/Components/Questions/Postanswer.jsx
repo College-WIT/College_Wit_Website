@@ -165,7 +165,7 @@ class postans extends Component {
                   {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
                   <TextField
                     multiline
-                    rows={6}
+                    rows={15}
                     label="Answer"
                     type="text"
                     name="answer"
@@ -186,16 +186,9 @@ class postans extends Component {
                       color="primary"
                       onClick={this.onClick}
                     >
-                      Post
+                      Post Answer
                     </Button>
-                    <Button
-                      style={buttons}
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                    >
-                      Post Anonymously
-                    </Button>
+                   
                   </Grid>
                 </form>
                 {/* {flag ? <h2>Question added Successfully</h2> : <h2></h2>} */}

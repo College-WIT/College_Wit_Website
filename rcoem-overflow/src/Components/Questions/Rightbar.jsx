@@ -65,7 +65,7 @@ const Rightbar = () => {
           </Grid>
         ))}
 
-        <Grid sx={{ paddingTop: 10 }}>
+        {/* <Grid sx={{ paddingTop: 10 }}>
           <Button
             sx={{
               backgroundColor: "#20D867",
@@ -89,7 +89,7 @@ const Rightbar = () => {
               Post a question
             </Link>
           </Button>
-        </Grid>
+        </Grid> */}
       </Item>
     </div>
   );

@@ -38,24 +38,6 @@ import TagsPage from "./Pages/TagsPage/TagsPage";
 
 
 const App = () => {
-
-  // var getSearchData = async () => {
-  //   await axios
-  //   .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-  //   .then((response) => {
-  //     console.log(response.data);
-  //     const strJSON = JSON.stringify(response.data);
-  //     localStorage.setItem("SearchData", strJSON);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.data);
-  //   });
-  // }
-
-  // useEffect(() => {
-  //   getSearchData();
-  // }, []);
-
   return (
     <div>
       <Routes>

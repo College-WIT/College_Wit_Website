@@ -102,30 +102,36 @@ const PostQuestions = () => {
     //navigate('/Answered');
     e.preventDefault();
     console.log("FORM DATA");
-    var form_data = {
-      email: JSON.parse(getCookie("login")).email,
-      password: JSON.parse(getCookie("login")).password,
-      question: form.current.question.value,
-      tags: form.current.tags.value,
-      anonymous: "False",
+    let login = getCookie("login");
+    if (login) {
+      var form_data = {
+        email: JSON.parse(getCookie("login")).email,
+        password: JSON.parse(getCookie("login")).password,
+        question: form.current.question.value,
+        tags: form.current.tags.value,
+        anonymous: "False",
+      }
+      console.log(form_data);
+      await axios
+        .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
+        .then((response) => {
+          modalText="Question Added Successfully";
+          setLastpage("/Unanswered");
+          setMessage("Proceed");
+          console.log(response.data);
+        })
+        .catch((error) => {
+          modalText = "Error Adding Question";
+          setLastpage("/Post-a-question");
+          setMessage("Try Again");
+          console.log(error);
+        });
+       
+        handleOpen();
+    } else {
+      navigate("/login");
     }
-    console.log(form_data);
-    await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
-      .then((response) => {
-        modalText="Question Added Successfully";
-        setLastpage("/Unanswered");
-        setMessage("Proceed");
-        console.log(response.data);
-      })
-      .catch((error) => {
-        modalText = "Error Adding Question";
-        setLastpage("/Post-a-question");
-        setMessage("Try Again");
-        console.log(error);
-      });
-     
-      handleOpen();
+    
   };
 
   const PostQuestAno = async (e) => {

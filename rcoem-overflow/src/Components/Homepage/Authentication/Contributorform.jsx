@@ -98,7 +98,7 @@ const Contributorform = () => {
   const navigate = useNavigate();
     //// Modal Code
     const [open, setOpen] = useState(false);
-    const [lastpage, setLastpage] = useState("/signup");
+    const [lastpage, setLastpage] = useState("/be-a-contributor");
     const [message, setMessage] = useState("Proceed");
       const handleOpen = () => {
           setOpen(true);
