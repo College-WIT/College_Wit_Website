@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 import {
   useForm,
   Controller,
@@ -6,7 +8,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 // import { useNavigate } from "react-router";
-import { Grid, Paper, TextField, Button, Typography } from "@mui/material";
+import { Grid, Paper, TextField, Button, Typography, Modal } from "@mui/material";
 
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
@@ -18,7 +20,10 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Chip from "@mui/material/Chip";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import setCookie from "../../../hooks/setCookie";
 import getCookie from "../../../hooks/getCookie";
+import removeCookie from "../../../hooks/removeCookie";
 
 const headerStyle = { marginBottom: "10px" };
 const paperStyle = {
@@ -31,6 +36,7 @@ const paperStyle = {
 
 const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
 
+var modalText="Proceed";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -40,6 +46,17 @@ const MenuProps = {
       width: 250,
     },
   },
+};
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
 };
 
 const names = [
@@ -78,25 +95,28 @@ function getStyles(name, personName, theme) {
 
 const Contributorform = () => {
   const form = useRef();
+  const navigate = useNavigate();
+    //// Modal Code
+    const [open, setOpen] = useState(false);
+    const [lastpage, setLastpage] = useState("/signup");
+    const [message, setMessage] = useState("Proceed");
+      const handleOpen = () => {
+          setOpen(true);
+      };
+      const handleClose = () => {
+          setOpen(false);
+      };
+  
+      const navigation = () =>{
+        if(lastpage==="/be-a-contributor"){
+            window.location.reload();
+        }
+        else{
+          navigate(lastpage);
+        }
+      }
 
-  //// Defualt values
-  // const methods = useForm({
-  //   defaultValues:{
-  //     "email": "demouser1@gmail.com",
-  //     "college": "RCOEM",
-  //     "semester": "2nd",
-  //     "branch" : "CSE A",
-  //     "linkedin_url" : "https://www.demouser1.com",
-  //     "github_url" : "https://www.github.demouser1.com",
-  //     "codechef_url" : "https://www.codechef.demouser1.com",
-  //     "codeforces_url" : "https://www.codeforces.demouser1.com",
-  //     "leetcode_url" : "https://www.leetcode.demouser1.com",
-  //     "other_url" : "https://www.demouser1.com",
-  //     "company" : "",
-  //     "position" : "",
-  //     "skills": "C++,C,JAVA,demouser1"
-  //     }
-  // });
+
   const semesterarr=["1st","2nd","3rd","4th","5th","6th","7th","8th","Passout"];
   const brancharr=["CSE A","CSE B","CSE AIML","CSE DS","CSE Cyber","ECE","IT"];
 
@@ -137,7 +157,7 @@ const Contributorform = () => {
           "codechef_url" : form.current.codechef.value,
           "codeforces_url" : form.current.codeforces.value,
           "leetcode_url" : form.current.leetcode.value,
-          "other_url" : form.current.linkedin.value,
+          "other_url" : form.current.personal.value,
           "company" : form.current.companyname.value,
           "position" : form.current.position.value,
           "skills": form.current.skills.value,
@@ -146,11 +166,25 @@ const Contributorform = () => {
       await axios
         .post("https://rcoem-overflow-backend.herokuapp.com/register_contributor",form_data)
         .then((response) => {
+          const cookieState={
+            email: JSON.parse(getCookie("login")).email,
+            password: JSON.parse(getCookie("login")).password,
+            contributor: true
+          }
+          removeCookie("login");
+          setCookie("login", JSON.stringify(cookieState));
+          modalText="User Data Added Successfully";
+          setLastpage("/Top%20Contributors");
+          setMessage("Proceed");
           console.log(response);
         })
         .catch((error) => {
+          modalText = "Error Adding Data";
+          setLastpage("/be-a-contributor");
+          setMessage("Try Again");
           console.log(error);
         });
+        handleOpen();
     };
 
   return (
@@ -343,6 +377,28 @@ const Contributorform = () => {
             </Button>
           </form>
         </Paper>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {modalText}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              {/* <Link
+                style={{ textDecoration: "None", color: "white" }}
+                to={lastpage}
+              > */}
+                <Button onClick={navigation} style={buttons} variant="contained" color="primary">
+                  {message}
+                </Button>
+              {/* </Link> */}
+            </Typography>
+          </Box>
+        </Modal>
       </Grid>
     </div>
   );

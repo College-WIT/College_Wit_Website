@@ -74,7 +74,6 @@ const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 
 
 const ResponsiveAppBar = () => {
-
   // var SearchData;
   // var getSearchData = async () => {
   //   await axios
