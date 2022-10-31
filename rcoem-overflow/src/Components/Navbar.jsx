@@ -36,6 +36,12 @@ import PersonIcon from "@mui/icons-material/Person";
 
 let loggedin = getCookie("login");
 
+var contributor=false;
+if (loggedin) {
+  contributor= JSON.parse(getCookie("login")).contributor;
+}
+console.log(contributor);
+
 const logout = () => {
   let loggedin = getCookie("login");
   if (loggedin) {
@@ -323,14 +329,16 @@ const ResponsiveAppBar = () => {
                 // aria-label="outlined primary button group"
                 sx={{ mt: 1 }}
               >
+              {!contributor ? (
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
-                  to={`/profile`}
+                  to={`/be-a-contributor`}
                 >
                   <Button sx={buttons} color="primary">
-                    Profile
+                    Be a Contributor
                   </Button>
                 </Link>
+              ) :(<></>)}
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
                   to={`/logout`}
@@ -340,6 +348,10 @@ const ResponsiveAppBar = () => {
                     Logout
                   </Button>
                 </Link>
+                <Link
+                  style={{ textDecoration: "None", color: "white" }}
+                  to={`/Profile`}
+                >
                 <Button
                   sx={{
                     backgroundColor: "transparent",
@@ -358,6 +370,7 @@ const ResponsiveAppBar = () => {
                     }}
                   />
                 </Button>
+                </Link>
               </ButtonGroup>
             )}
           </Box>
