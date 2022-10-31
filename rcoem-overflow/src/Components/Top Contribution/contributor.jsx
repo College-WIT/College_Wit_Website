@@ -99,7 +99,7 @@ const contributor = () => {
           >
             Top Contributors
           </Typography>
-          <Link to="/be-a-contributor">
+          {/* <Link to="/be-a-contributor">
             <Button
               style={buttons}
               type="submit"
@@ -108,7 +108,7 @@ const contributor = () => {
             >
               Be a Contributor
             </Button>
-          </Link>
+          </Link> */}
         </Grid>
         <Grid
           container
