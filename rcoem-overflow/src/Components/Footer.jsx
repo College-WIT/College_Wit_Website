@@ -58,10 +58,10 @@ export default function Footer() {
                     <Grid item xs={12} sm={4}>
                         <Box borderBottom={1}><IoIosPeople /> Designed By</Box>
                         <Box >
-                            <Item><BiMale /> Pratham Rajbhog</Item>
+                            <Item><BiMale /> Pratham Rajbhoj</Item>
                         </Box>
                         <Box>
-                            <Item><BiMale /> Bhusan Wanjari</Item>
+                            <Item><BiMale /> Bhushan Wanjari</Item>
                         </Box>
                         <Box>
                             <Item><BiMale /> Kush Munot</Item>
