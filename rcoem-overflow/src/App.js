@@ -54,6 +54,7 @@ import M3 from './Components/notes-pyqs/Sems/Semester 3/M3';
 import BC from './Components/notes-pyqs/Sems/Semester 3/BC';
 import CLE from './Components/notes-pyqs/Sems/Semester 3/CLE';
 import Placement from './Components/notes-pyqs/Sems/Placement/Placement';
+import ComingSoon from './Components/notes-pyqs/Sems/comingSoon';
 
 
 const App = () => {
@@ -79,14 +80,14 @@ const App = () => {
           path="/Post-an-answer/:que"
           element={<Protected Component={Postans} />}
         />
-        <Route path="/Semester_1" element={<Semester_1 />} />
-        <Route path="/Semester_2" element={<Semester_2 />} />
+        <Route path="/Semester_1" element={<ComingSoon />} />
+        <Route path="/Semester_2" element={<ComingSoon />} />
         <Route path="/Semester_3" element={<Semester_3 />} />
         <Route path="/Semester_4" element={<Semester_4 />} />
         <Route path="/Semester_5" element={<Semester_5 />} />
-        <Route path="/Semester_6" element={<Semester_6 />} />
-        <Route path="/Semester_7" element={<Semester_7 />} />
-        <Route path="/Semester_8" element={<Semester_8 />} />
+        <Route path="/Semester_6" element={<ComingSoon />} />
+        <Route path="/Semester_7" element={<ComingSoon />} />
+        <Route path="/Semester_8" element={<ComingSoon />} />
         <Route path="/Chemistry" element={<Chemistry />} />
         {/* THIRD SEMESTER */}
         <Route path="/Fundamentals_of_Digital_Logic_and_Computer_Arch" element={<FDLCA />} />
@@ -117,6 +118,7 @@ const App = () => {
         <Route path="/Information_Security" element={<IS />} />
 
         <Route path="/Placement" element={<Placement />} />
+        <Route path="/comingSoon" element={<ComingSoon />} />
 
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
