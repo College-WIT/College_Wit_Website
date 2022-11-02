@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -77,6 +77,7 @@ class Tags extends Component {
 
         axios.post("https://rcoem-overflow-backend.herokuapp.com/tagwise_question",tag)
             .then(response => {
+                /* window.location.reload(); */
                 console.log(response)
                 this.setState({
                     QuestionsData: response.data
@@ -133,6 +134,11 @@ class Tags extends Component {
                                                 position: "relative",
                                                 top: 55,
                                                 left: "-110px",
+                                                "@media (max-width:1000px)": {
+                                                    fontSize: 20,
+                                                    left: "-10px",
+                                                    top: 25,
+                                                }, 
                                             }}
                                         >
                                             {Tag}
@@ -256,7 +262,7 @@ class Tags extends Component {
                                                             position: "relative",
                                                             alignItems: "right",
                                                             "@media (max-width:1000px)": {
-                                                                paddingLeft: 20,
+                                                                paddingLeft: 2,
                                                             },
                                                             "@media (max-width:850px)": {
                                                                 paddingLeft: 1,
