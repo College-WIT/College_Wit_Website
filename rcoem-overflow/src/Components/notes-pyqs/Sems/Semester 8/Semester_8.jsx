@@ -10,23 +10,23 @@ const Semester_8 = () => {
     const data = [
         {
             id: 1,
-            title: "Fundamentals of Digital Logic and Computer Arch.",
+            title: "Web_Intelligence_&_Big_Data",
         },
         {
             id: 2,
-            title: "Data Structures & Algorithms",
+            title: "Information_Security",
         },
         {
             id: 3,
-            title: "Linear Algebra and Statistics",
+            title: "Distributed_System",
         },
         {
             id: 4,
-            title: "Business Communication",
+            title: "Distributed_&_Parallel_Databases",
         },
         {
             id: 5,
-            title: "Cyber Laws & Ethics",
+            title: "Natural_Language_Processing",
         },
     ];
     return (

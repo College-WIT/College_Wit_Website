@@ -258,9 +258,6 @@ class QuestionsPages extends Component {
                                 position: "relative",
                                 alignItems: "right",
                                 "@media (max-width:1000px)": {
-                                  paddingLeft: 20,
-                                },
-                                "@media (max-width:850px)": {
                                   paddingLeft: 1,
                                 },
                               }}

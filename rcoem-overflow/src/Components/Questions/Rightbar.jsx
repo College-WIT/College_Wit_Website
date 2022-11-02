@@ -23,7 +23,11 @@ if (cookie == null) {
 }
 const queTags = ["ANDROID-DEVELOPMENT", "COLLEGE-LIFE", "COMPETITIVE-PROGRAMMING", "CSS", "DJANGO", "FLUTTER", "HTML", "JAVASCRIPT", "NODE-JS", "OPEN-SOURCE", "OTHERS", "PYQ", "REACT-JS", "WEB-DEVELOPMENT"];
 
+
 const Rightbar = () => {
+  const refreshPage = () => {
+    window.location.reload();
+  }
   return (
     <div>
       <Item>
@@ -38,22 +42,30 @@ const Rightbar = () => {
         </Typography>
         <Divider light />
         {queTags.map((content) => (
-          <Grid sx={{ padding: 1 }}>
-          <Link to={{
+          <Grid sx={{
+            padding: 1,
+
+          }}>
+
+            <Link to={{
               pathname: `/tags/${content}`
-              // pathname: `/tags`
-            }} state={{ tag: content }}
-            >
+            }} state={{ tag: content }}>
               <Button
                 sx={{
                   backgroundColor: "#E26639",
-                  width: 100,
-                  height: 35,
+                  width: 130,
+                  height: 45,
                   padding: "10px",
                   borderRadius: 1,
                   "&:hover": {
                     backgroundColor: "#41D450",
                     opacity: 10,
+                  },
+
+                  "@media (max-width:1000px)": {
+                    width: 110,
+                    height: 55,
+                    padding: "15px",
                   },
                 }}
                 variant="contained"

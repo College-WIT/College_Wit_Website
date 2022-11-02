@@ -14,8 +14,6 @@ import axios from 'axios'
 export default function Answers() {
   let location = useLocation();
   const tag=location.state.tag;
-  //const tag="CP";
-
   return (
     <div className="Answers">
       <ResponsiveAppBar />

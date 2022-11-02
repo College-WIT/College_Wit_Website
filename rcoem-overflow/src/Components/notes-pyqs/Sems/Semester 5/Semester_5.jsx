@@ -10,27 +10,27 @@ const Semester_5 = () => {
     const data = [
         {
             id: 1,
-            title: "Database Management Systems",
+            title: "Database_Management_Systems",
         },
         {
             id: 2,
-            title: "Design & Analysis of Algorithms",
+            title: "Design_&_Analysis_of_Algorithms",
         },
         {
             id: 3,
-            title: "Computer Networks",
+            title: "Computer_Networks",
         },
         {
             id: 4,
-            title: "Indian Traditional Knowledge",
+            title: "Mobile_Application_Programming",
         },
         {
             id: 5,
-            title: "Computer Graphics",
+            title: "Computer_Graphics",
         },
         {
             id: 6,
-            title: "Design Patterns",
+            title: "Design_Patterns",
         },
     ];
     return (
