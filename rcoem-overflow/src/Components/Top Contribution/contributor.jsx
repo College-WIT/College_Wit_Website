@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import MediaCard from "./card";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
@@ -13,13 +13,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import { Button } from "@mui/material";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const contributor = () => {
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "inherit",
     "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create("width"),
       width: "100%",
@@ -28,7 +28,7 @@ const contributor = () => {
       },
     },
   }));
-  const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
+
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     border: "1px solid #d3d3d3",
@@ -67,92 +67,114 @@ const contributor = () => {
     },
   }));
 
-  function createData(Rank, Name, Score, Github) {
-    return { Rank, Name, Score, Github };
+  const btn1 = {
+    color: "white",
+    fontFamily: "'urw-din',sans-serif",
+    fontSize: 15,
+    fontWeight: "bold",
+    borderRadius: "5px",
+    padding: 1,
+    backgroundColor: "#000000",
+    "&:hover": {
+      backgroundColor: "#000000",
+      color: "white",
+    },
+  };
+  const btn2 = {
+    color: "white",
+    fontFamily: "'urw-din',sans-serif",
+    fontSize: 15,
+    fontWeight: "bold",
+    borderRadius: "5px",
+    padding: 1,
+    backgroundColor: "#0077b5",
+    "&:hover": {
+      backgroundColor: "#000000",
+      color: "white",
+    },
+  };
+
+  function createData(Rank, Name, Score, Github, LinkedIn) {
+    return { Rank, Name, Score, Github, LinkedIn };
   }
 
   const rows = [
-    createData(1, "Abcd", 100, "Anjali2201"),
-    createData(2, "Abcd", 100),
-    createData(3, "Abcd", 100),
-    createData(4, "Abcd", 100),
+    createData(1, "Abcd", 100, "Anjali2201", "Anjali2201"),
+    createData(2, "Abcd", 100, "Anjali2201", "Anjali2201"),
+    createData(3, "Abcd", 100, "Anjali2201", "Anjali2201"),
+    createData(4, "Abcd", 100, "Anjali2201", "Anjali2201"),
+    createData(5, "Abcd", 100, "Anjali2201", "Anjali2201"),
   ];
 
   return (
-    <Grid>
-      {/* // ------------------------------- Top 3 cards------------------------------------------------------------------------------- */}
-      <Grid
-        container
-        sx={{
-          height: "auto",
-        }}
-      >
-        <Grid container justifyContent="center">
-          <Typography
-            sx={{
-              fontSize: 60,
-              color: "#000000",
-              fontFamily: "'urw-din',sans-serif",
-              marginTop: "20px",
-              marginBottom: "20px",
-            }}
-          >
-            Top Contributors
-          </Typography>
-        </Grid>
-        <Grid
-          container
-          xs={12}
-          md={12}
-          lg={12}
-          sm={12}
-          justifyContent="center"
+    <div>
+      {/* -----------------------------------------------Heading of the page------------------------------------------------------------ */}
+
+      <Grid container justifyContent="center">
+        <Typography
           sx={{
-            my: "40px",
+            fontSize: 60,
+            color: "#000000",
+            fontFamily: "'urw-din',sans-serif",
+            marginTop: "20px",
+            marginBottom: "20px",
           }}
         >
-          <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
-            <MediaCard />
-          </Grid>
-          <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
-            <MediaCard />
-          </Grid>
-          <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
-            <MediaCard />
-          </Grid>
-        </Grid>
+          Top Contributors
+        </Typography>
       </Grid>
+
+      {/* ------------------------------- Top 3 cards------------------------------------------------------------------------------- */}
       <Grid
         container
         xs={12}
-        spacing={4}
+        md={12}
+        lg={12}
+        sm={12}
         justifyContent="center"
         sx={{
-          width: "80%",
-          padding: "20px",
+          my: "40px",
         }}
       >
-        <Grid item justifyContent="right">
-          Check Your Rank here:
+        <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+          <MediaCard />
         </Grid>
-        <Grid item xs={8} justifyContent="center">
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+        <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+          <MediaCard />
         </Grid>
+        <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+          <MediaCard />
+        </Grid>
+        <Divider
+          sx={{
+            justifyContent: "center",
+            width: "80%",
+            mt: "100px",
+          }}
+        />
       </Grid>
+
+      {/* -----------------------------------------------Search bar------------------------------------------------------------------ */}
+
+      <Grid item sx={{ mx: "10%", my: "40px" }}>
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Check your rank here"
+            inputProps={{ "aria-label": "search" }}
+          />
+        </Search>
+      </Grid>
+
+      {/* -----------------------------------------------Table------------------------------------------------------------------ */}
 
       <Grid
         container
         justifyContent="center"
         sx={{
-          marginTop: "40px",
+          mt: "40px",
         }}
       >
         <TableContainer
@@ -170,6 +192,7 @@ const contributor = () => {
                 <StyledTableCell align="center">Name</StyledTableCell>
                 <StyledTableCell align="center">Score</StyledTableCell>
                 <StyledTableCell align="center">Github</StyledTableCell>
+                <StyledTableCell align="center">LinkedIn</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -179,18 +202,15 @@ const contributor = () => {
                   <StyledTableCell align="center">{row.Name}</StyledTableCell>
                   <StyledTableCell align="center">{row.Score}</StyledTableCell>
                   <StyledTableCell align="center">
-                    <Button
-                      sx={{
-                        backgroundColor: "#E26639",
-                        color: "#ffffff",
-                        borderRadius: "10px",
-                        width: "auto",
-                        height: "40px",
-                        fontSize: "20px",
-                      }}
-                      href="#contained-buttons"
-                    >
+                    <Button size="small" sx={btn1}>
+                      <GitHubIcon sx={{ marginRight: 1 }} />
                       {row.Github}
+                    </Button>
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <Button size="small" sx={btn2}>
+                      <LinkedInIcon sx={{ marginRight: 1 }} />
+                      {row.LinkedIn}
                     </Button>
                   </StyledTableCell>
                 </StyledTableRow>
@@ -199,7 +219,7 @@ const contributor = () => {
           </Table>
         </TableContainer>
       </Grid>
-    </Grid>
+    </div>
 
     // -------------------------------------------------------------------------------------------------------------------------------------
   );

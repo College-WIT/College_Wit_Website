@@ -11,8 +11,8 @@ export default function MediaCard() {
   return (
     <Card
       sx={{
-        maxWidth: 500,
-        height: "auto",
+        maxWidth: 400,
+        maxHeight: 500,
         margin: 2,
         boxShadow: "2px 5px 5px 2px #b3bfcc",
         color: "white",
@@ -92,18 +92,6 @@ export default function MediaCard() {
         </Grid>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-        {/* <Button size="small">
-          <img loading="lazy" src="https://img.icons8.com/color/linkedin.png" />
-        </Button>
-
-        <Button size="small">
-          <img loading="lazy" src="https://img.icons8.com/color/github.png" />
-        </Button>
-
-        <Button size="small">
-          <img loading="lazy" src="https://img.icons8.com/color/twitter.png" />
-        </Button> */}
-
         <Button
           size="small"
           sx={{
