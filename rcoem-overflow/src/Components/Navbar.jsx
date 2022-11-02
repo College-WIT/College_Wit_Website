@@ -14,25 +14,12 @@ import logo from "../Assets/NavLogo.png";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "@mui/material";
 import SearchBar from "./SearchBar";
-// import SearchData from "./data.json";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
 import axios from "axios";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
-//import SearchData from '../Assets/SearchData.json'
-
-// var SearchData;
-// if(localStorage.getItem("SearchData")){
-//   console.log("IF");
-//   SearchData = JSON.parse(localStorage.getItem("SearchData"));
-// }
-// else{
-//   console.log("ELSE");
-//   SearchData = {};
-// }
-// var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
 
 let loggedin = getCookie("login");
 
@@ -154,12 +141,12 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "block", lg: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Box sx={{ flexGrow: 1, display: { md: "none" } }}>
+                  <Box sx={{ flexGrow: 1 }}>
                     <Link
                       style={{ textDecoration: "None", color: "black" }}
                       to={`/${page}`}
