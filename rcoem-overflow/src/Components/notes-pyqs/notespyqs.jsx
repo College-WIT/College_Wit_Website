@@ -4,14 +4,11 @@ import Typography from '@mui/material/Typography';
 import Folder from './card.jsx'
 import { Link } from 'react-router-dom';
 import '../../App'
+import { Button } from '@mui/material';
 
 
 const notespyqs = () => {
     const data = [
-        {
-            id: 0,
-            title: "Placement Resources",
-        },
         {
             id: 1,
             title: "Semester_1",
@@ -47,11 +44,40 @@ const notespyqs = () => {
     ];
     return (
         <div>
-            
+
             <Grid container sx={{
                 justifyContent: "center"
-
             }}>
+                {/* <Link to={"/Placement"}> */}
+                    <Button href="/Placement" sx={{
+                        backgroundColor: "#E26639", 
+                        "&:hover": {
+                            backgroundColor: "#41D450",
+                            opacity: 10,
+                        }, 
+                        color: "#fff", 
+                        margin: "40px", 
+                        padding: "20px", 
+                        width: "50%", 
+                        borderRadius: "22px"
+                    }}>
+                        <Typography variant="h6" color="#fff">Placement Resources</Typography>
+
+                    </Button>
+                {/* </Link> */}
+
+                <Button href='https://chat.whatsapp.com/ExSdgtdV06y04cJzawmdft' 
+                sx={{
+                    backgroundColor: "#E26639", 
+                    "&:hover": {
+                        backgroundColor: "#41D450",
+                        opacity: 10,
+                    }, color: "#fff", margin: "0px", padding: "20px", width: "50%", borderRadius: "22px"
+                }}>
+                    <Typography variant="h6" color="#fff">1:1 Mentorship</Typography>
+                </Button>
+
+
                 <Grid xl={12} xs={12} md={12}>
                     <Typography sx={{
                         fontFamily: "monospace",

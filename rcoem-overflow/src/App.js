@@ -53,6 +53,7 @@ import DSA from './Components/notes-pyqs/Sems/Semester 3/DSA';
 import M3 from './Components/notes-pyqs/Sems/Semester 3/M3';
 import BC from './Components/notes-pyqs/Sems/Semester 3/BC';
 import CLE from './Components/notes-pyqs/Sems/Semester 3/CLE';
+import Placement from './Components/notes-pyqs/Sems/Placement/Placement';
 
 
 const App = () => {
@@ -114,6 +115,8 @@ const App = () => {
         <Route path="/Distributed_System" element={<DS />} />
         <Route path="/Web_Intelligence_&_Big_Data" element={<WIBD />} />
         <Route path="/Information_Security" element={<IS />} />
+
+        <Route path="/Placement" element={<Placement />} />
 
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
