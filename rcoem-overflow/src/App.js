@@ -56,7 +56,6 @@ import CLE from './Components/notes-pyqs/Sems/Semester 3/CLE';
 
 
 const App = () => {
-
   return (
     <div>
       <Routes>
@@ -120,7 +119,11 @@ const App = () => {
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
         <Route path="/otp" element={<Otp />} />
+
         <Route path="/tags/:tag" element={<TagsPage />} />
+
+        <Route path="/tags/:tags" element={<TagsPage />} />
+
       </Routes>
     </div>
   );

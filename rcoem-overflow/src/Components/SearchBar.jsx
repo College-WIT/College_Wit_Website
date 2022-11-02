@@ -1,13 +1,39 @@
 import { Divider } from "@mui/material";
 import React, { useState } from "react";
+import { useEffect } from 'react';
 import "./Searchbar.css";
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import axios from "axios";
+import data from '../Assets/SearchData.json'
 
-function SearchBar({ placeholder, data }) {
+function SearchBar({ placeholder }) {
+  // console.log(data);
+  // var data;
+  // var getSearchData = async () => {
+  //   console.log("API CALL");
+  //   await axios
+  //   .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
+  //   .then((response) => {
+  //     console.log(response.data);
+  //     data=response.data;
+  //     return data;
+  //   })
+  //   .catch((error) => {
+  //     console.log(error.data);
+  //     return [];
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   data=getSearchData();
+  // }, []);
+  //data=getSearchData();
+
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
+  //console.log(data);
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -22,6 +48,7 @@ function SearchBar({ placeholder, data }) {
       setFilteredData(newFilter);
     }
   };
+
 
   // const clearInput = () => {
   //   setFilteredData([]);

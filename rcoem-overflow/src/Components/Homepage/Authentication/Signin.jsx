@@ -52,7 +52,7 @@ class Signin extends Component {
     this.state = {
       email: "",
       password: "",
-      lastpage: "/Questions",
+      lastpage: "/Home",
       message: "PROCEED",
     };
   }
@@ -82,7 +82,7 @@ class Signin extends Component {
     useEffect(() => {
       let login = getCookie("login");
       if (login) {
-        navigate("/Questions");
+        navigate("/Home");
       } else {
         navigate("/login");
       }

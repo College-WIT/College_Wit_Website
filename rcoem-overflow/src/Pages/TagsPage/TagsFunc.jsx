@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import {useEffect} from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -21,7 +22,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import Rightbar from '../../Components/Questions/Rightbar';
 import Leftbar from '../../Components/Questions/Leftbar';
-
 
 
 const defaultOptions = {
@@ -56,92 +56,81 @@ const searchWord = tag;
 // });
 
 
-class Tags extends Component {
 
-    constructor(props) {
-        super(props)
+export default function TagsFunc(props) {
+    
+    console.log(props.tag)
+    var Tag=props.tag
+    const tags={
+        "tag":props.tag
+    } 
+    
+      const [QuestionsData, setQuestionsData] = useState([]);
+    
+      var getData = async () =>{
+        console.log("DATA CALL");
+        await axios.post("https://rcoem-overflow-backend.herokuapp.com/tagwise_question",tags)
+        .then(response => {
+            console.log(response)
+            setQuestionsData(response.data);
+        })
+        .catch(error => {
+            console.log(error)
+            //errorMsg: "Error retrieving data"
+        })
+      }
+      useEffect(() => {
+         getData();
+      }, [props]);
+      console.log(QuestionsData);
+    return (
+        <Box
+            sx={{
+                flexGrow: 1,
+                backgroundColor: "#d9d9d9",
+                padding: 2,
+            }}
+        >
+            {/* ----------------------------QUICK ACCESS------------------------------ */}
+            <Grid container spacing={2}>
+                <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
+                    <Leftbar />
+                </Grid>
 
-        this.state = {
-            QuestionsData: [],
-            errorMsg: "",
-            Tag: this.props.tag
-        }
-    }
+                {/* ------------------------------------Questions------------------------------------- */}
 
-
-
-    componentDidMount() {
-        const tag={
-            "tag":this.props.tag
-        }
-
-        axios.post("https://rcoem-overflow-backend.herokuapp.com/tagwise_question",tag)
-            .then(response => {
-                /* window.location.reload(); */
-                console.log(response)
-                this.setState({
-                    QuestionsData: response.data
-                })
-            })
-            .catch(error => {
-                console.log(error)
-                this.setState({
-                    errorMsg: "Error retrieving data"
-                })
-            })
-    }
-
-    render() {
-        const { QuestionsData, errorMsg, Tag } = this.state;
-        return (
-            <Box
-                sx={{
-                    flexGrow: 1,
-                    backgroundColor: "#d9d9d9",
-                    padding: 2,
-                }}
-            >
-                {/* ----------------------------QUICK ACCESS------------------------------ */}
-                <Grid container spacing={2}>
-                    <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
-                        <Leftbar />
-                    </Grid>
-
-                    {/* ------------------------------------Questions------------------------------------- */}
-
-                    <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
-                        <Grid item>
-                            <Item>
-                                <Grid
-                                    columns={16}
-                                    container
-                                    sx={{
-                                        paddingBottom: 1,
-                                    }}
-                                >
-                                    <Grid item xs={4} md={6}>
-                                        <Lottie
-                                            options={defaultOptions}
-                                            height="100%"
-                                            width="50%"
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4} md={10}>
-                                        <Typography
-                                            sx={{
-                                                fontFamily: "'urw-din',sans-serif",
-                                                fontSize: 40,
-                                                position: "relative",
-                                                top: 55,
-                                                left: "-110px",
-                                            }}
-                                        >
-                                            {Tag}
-                                        </Typography>
-                                    </Grid>
+                <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
+                    <Grid item>
+                        <Item>
+                            <Grid
+                                columns={16}
+                                container
+                                sx={{
+                                    paddingBottom: 1,
+                                }}
+                            >
+                                <Grid item xs={4} md={6}>
+                                    <Lottie
+                                        options={defaultOptions}
+                                        height="100%"
+                                        width="50%"
+                                    />
                                 </Grid>
-
-                                <Grid container>
+                                <Grid item xs={4} md={10}>
+                                    <Typography
+                                        sx={{
+                                            fontFamily: "'urw-din',sans-serif",
+                                            fontSize: 40,
+                                            position: "relative",
+                                            top: 55,
+                                            left: "-110px",
+                                        }}
+                                    >
+                                        {Tag}
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid container>
                                     {QuestionsData.map((content) => (
                                         <Box
                                             sx={{
@@ -301,19 +290,18 @@ class Tags extends Component {
                                         </Box>
                                     ))}
                                 </Grid>
-                            </Item>
-                        </Grid>
+                            
+                        </Item>
                     </Grid>
+                </Grid> 
+                
 
-                    {/* --------------------------------TAGS SECTION--------------------------------------------*/}
+                {/* --------------------------------TAGS SECTION--------------------------------------------*/}
 
-                    <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
-                        <Rightbar />
-                    </Grid>
+                <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
+                    <Rightbar />
                 </Grid>
-            </Box>
-        );
-    }
-}
-
-export default Tags
+            </Grid>
+        </Box>
+    );
+  }

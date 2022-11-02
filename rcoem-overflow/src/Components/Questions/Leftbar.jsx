@@ -9,12 +9,20 @@ import { Divider } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
 const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+
+var cookie = getCookie("login");
+var red_link = "/Post-a-question";
+if (cookie == null) {
+  red_link = "/login";
+  console.log(red_link);
+}
 
 var cookie = getCookie("login");
 var red_link = "/Post-a-question";
@@ -88,7 +96,8 @@ const Leftbar = () => {
             </Button>
           </Grid>
         ))}
-      <Grid sx={{ paddingTop: 2 }}>
+
+        <Grid sx={{ paddingTop: 2 }}>
           <Button
             sx={{
               backgroundColor: "#20D867",

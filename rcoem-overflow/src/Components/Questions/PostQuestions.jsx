@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useState } from 'react';
 import { styled } from "@mui/material/styles";
 import {
   Grid,
@@ -69,6 +70,29 @@ const style = {
 };
 
 const PostQuestions = () => {
+
+
+    //// Modal Code
+    const [open, setOpen] = useState(false);
+    const [lastpage, setLastpage] = useState("/Post-a-question");
+    const [message, setMessage] = useState("Proceed");
+      const handleOpen = () => {
+          setOpen(true);
+      };
+      const handleClose = () => {
+          setOpen(false);
+      };
+  
+      const navigation = () =>{
+          if(lastpage==="/Post-a-question"){
+            window.location.reload();
+          }
+          else{
+            navigate(lastpage);
+          }
+      }
+
+
   const theme = useTheme();
   const [tag, setTag] = React.useState([]);
   const navigate = useNavigate();
@@ -78,23 +102,36 @@ const PostQuestions = () => {
     //navigate('/Answered');
     e.preventDefault();
     console.log("FORM DATA");
-    var form_data = {
-      email: JSON.parse(getCookie("login")).email,
-      password: JSON.parse(getCookie("login")).password,
-      question: form.current.question.value,
-      tags: form.current.tags.value,
-      anonymous: "False",
+    let login = getCookie("login");
+    if (login) {
+      var form_data = {
+        email: JSON.parse(getCookie("login")).email,
+        password: JSON.parse(getCookie("login")).password,
+        question: form.current.question.value,
+        tags: form.current.tags.value,
+        anonymous: "False",
+      }
+      console.log(form_data);
+      await axios
+        .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
+        .then((response) => {
+          modalText="Question Added Successfully";
+          setLastpage("/Unanswered");
+          setMessage("Proceed");
+          console.log(response.data);
+        })
+        .catch((error) => {
+          modalText = "Error Adding Question";
+          setLastpage("/Post-a-question");
+          setMessage("Try Again");
+          console.log(error);
+        });
+       
+        handleOpen();
+    } else {
+      navigate("/login");
     }
-    console.log(form_data);
-    await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error.data);
-      });
-      navigate('/Unanswered');
+    
   };
 
   const PostQuestAno = async (e) => {
@@ -257,6 +294,32 @@ const PostQuestions = () => {
           <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
             <Rightbar />
           </Grid>
+
+          {/* /// MOdal Code HTML */}
+          <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {modalText}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              {/* <Link
+                style={{ textDecoration: "None", color: "white" }}
+                to={lastpage}
+              > */}
+                <Button onClick={navigation} style={buttons} variant="contained" color="primary">
+                  {message}
+                </Button>
+              {/* </Link> */}
+            </Typography>
+          </Box>
+        </Modal>
+
+
         </Grid>
       </Box>
     </div>

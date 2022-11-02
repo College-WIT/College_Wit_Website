@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Grid, Typography } from "@mui/material";
-import MediaCard from "../Homepage/card";
+import MediaCard from "./card";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -99,53 +99,27 @@ const contributor = () => {
           >
             Top Contributors
           </Typography>
-          <Link to="/be-a-contributor">
-            <Button
-              style={buttons}
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Be a Contributor
-            </Button>
-          </Link>
         </Grid>
         <Grid
           container
+          xs={12}
+          md={12}
+          lg={12}
+          sm={12}
           justifyContent="center"
           sx={{
-            marginTop: "40px",
-            marginBottom: "40px",
-
-            "@media (max-width: 1200px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
-            "@media (max-width: 1000px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
-            "@media (max-width: 900px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
-            "@media (max-width: 700px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
+            my: "40px",
           }}
         >
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
+          <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+            <MediaCard />
+          </Grid>
+          <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+            <MediaCard />
+          </Grid>
+          <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+            <MediaCard />
+          </Grid>
         </Grid>
       </Grid>
       <Grid
