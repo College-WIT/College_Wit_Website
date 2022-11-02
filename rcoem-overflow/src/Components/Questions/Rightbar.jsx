@@ -42,7 +42,10 @@ const Rightbar = () => {
         </Typography>
         <Divider light />
         {queTags.map((content) => (
-          <Grid sx={{ padding: 1 }}>
+          <Grid sx={{
+            padding: 1,
+
+          }}>
 
             <Link to={{
               pathname: `/tags/${content}`
@@ -57,6 +60,12 @@ const Rightbar = () => {
                   "&:hover": {
                     backgroundColor: "#41D450",
                     opacity: 10,
+                  },
+
+                  "@media (max-width:1000px)": {
+                    width: 110,
+                    height: 55,
+                    padding: "15px",
                   },
                 }}
                 variant="contained"

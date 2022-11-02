@@ -134,6 +134,11 @@ class Tags extends Component {
                                                 position: "relative",
                                                 top: 55,
                                                 left: "-110px",
+                                                "@media (max-width:1000px)": {
+                                                    fontSize: 20,
+                                                    left: "-10px",
+                                                    top: 25,
+                                                }, 
                                             }}
                                         >
                                             {Tag}
@@ -257,7 +262,7 @@ class Tags extends Component {
                                                             position: "relative",
                                                             alignItems: "right",
                                                             "@media (max-width:1000px)": {
-                                                                paddingLeft: 20,
+                                                                paddingLeft: 2,
                                                             },
                                                             "@media (max-width:850px)": {
                                                                 paddingLeft: 1,
