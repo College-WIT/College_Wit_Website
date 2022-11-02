@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,7 +10,7 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-// import logo from "../Assets/NavLogo.png";
+import logo from "../Assets/NavLogo.png";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "@mui/material";
 import SearchBar from "./SearchBar";
@@ -36,9 +36,9 @@ import PersonIcon from "@mui/icons-material/Person";
 
 let loggedin = getCookie("login");
 
-var contributor=false;
+var contributor = false;
 if (loggedin) {
-  contributor= JSON.parse(getCookie("login")).contributor;
+  contributor = JSON.parse(getCookie("login")).contributor;
 }
 console.log(contributor);
 
@@ -72,49 +72,16 @@ const logout_buttons = {
 };
 const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 
-
 const ResponsiveAppBar = () => {
-  // var data;
-  // var getSearchData = async () => {
-  //   console.log("API CALL");
-  //   await axios
-  //   .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-  //   .then((response) => {
-  //     console.log(response.data);
-  //     data=response.data;
-  //     return data;
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.data);
-  //     return [];
-  //   });
-  // }
-
-  // useEffect(() => {
-  //   data=getSearchData();
-  // }, []);
-  // console.log(data);
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  // const handleOpenUserMenu = (event) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(null);
-  // };
-
-  /////// GETTING SEARCH DATA
-  // getSearchData();
 
   return (
     <AppBar
@@ -134,9 +101,9 @@ const ResponsiveAppBar = () => {
               width: 300,
               maxHeight: { xs: 233, md: 167 },
               maxWidth: { xs: 350, md: 250 },
-              '@media (max-width:780px)': {
-                display: 'None'
-              }
+              "@media (max-width:780px)": {
+                display: "None",
+              },
             }}
             alt="logo img"
             src={logo}
@@ -146,24 +113,22 @@ const ResponsiveAppBar = () => {
 
           {/*----------------------------Search bar---------------------------- */}
 
-          <Box sx={{ flexGrow: 7, display: { xs: "none", md: "flex" } }}>
-            {/* <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                data={SearchData}
-              />
-            </Search> */}
- 
+          <Box
+            sx={{
+              flexGrow: 7,
+              display: { xs: "none", md: "none", lg: "flex" },
+            }}
+          >
             <SearchBar placeholder="Search your Question" />
           </Box>
 
           {/* -------------------------------------------------------------- */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              display: { xs: "flex", md: "flex", lg: "none" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -194,7 +159,7 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Box sx={{ flexGrow: 1, display: { md: "flex" } }}>
+                  <Box sx={{ flexGrow: 1, display: { md: "none" } }}>
                     <Link
                       style={{ textDecoration: "None", color: "black" }}
                       to={`/${page}`}
@@ -222,28 +187,24 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
+              display: { xs: "flex", md: "flex", lg: "none" },
               flexGrow: 1,
               fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
+              fontSize: 30,
+              fontWeight: 500,
+              letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            RCOEM-Overflow
+            RCOEM-OVERFLOW
           </Typography>
 
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", md: "none", lg: "flex" },
             }}
           >
             {pages.map((page) => (
@@ -333,16 +294,18 @@ const ResponsiveAppBar = () => {
                 // aria-label="outlined primary button group"
                 sx={{ mt: 1 }}
               >
-              {!contributor ? (
-                <Link
-                  style={{ textDecoration: "None", color: "white" }}
-                  to={`/be-a-contributor`}
-                >
-                  <Button sx={buttons} color="primary">
-                    Be a Contributor
-                  </Button>
-                </Link>
-              ) :(<></>)}
+                {!contributor ? (
+                  <Link
+                    style={{ textDecoration: "None", color: "white" }}
+                    to={`/be-a-contributor`}
+                  >
+                    <Button sx={buttons} color="primary">
+                      Be a Contributor
+                    </Button>
+                  </Link>
+                ) : (
+                  <></>
+                )}
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
                   to={`/logout`}
@@ -356,24 +319,24 @@ const ResponsiveAppBar = () => {
                   style={{ textDecoration: "None", color: "white" }}
                   to={`/Profile`}
                 >
-                <Button
-                  sx={{
-                    backgroundColor: "transparent",
-                    "&:hover": {
-                      backgroundColor: "transparent",
-                    },
-                  }}
-                >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="https://th.bing.com/th/id/OIP.inXSw5jbycIIlXC1dIXdiwHaIL?pid=ImgDet&rs=1"
+                  <Button
                     sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 0,
+                      backgroundColor: "transparent",
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                      },
                     }}
-                  />
-                </Button>
+                  >
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="https://th.bing.com/th/id/OIP.inXSw5jbycIIlXC1dIXdiwHaIL?pid=ImgDet&rs=1"
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 0,
+                      }}
+                    />
+                  </Button>
                 </Link>
               </ButtonGroup>
             )}
