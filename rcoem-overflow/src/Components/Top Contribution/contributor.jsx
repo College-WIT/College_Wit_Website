@@ -236,6 +236,7 @@ const contributor = () => {
                 <StyledTableCell align="center">Rank</StyledTableCell>
                 <StyledTableCell align="center">Name</StyledTableCell>
                 <StyledTableCell align="center">Score</StyledTableCell>
+                <StyledTableCell align="center">Profile</StyledTableCell>
                 <StyledTableCell align="center">Github</StyledTableCell>
                 <StyledTableCell align="center">LinkedIn</StyledTableCell>
               </TableRow>
@@ -246,6 +247,12 @@ const contributor = () => {
                   <StyledTableCell align="center"> {row.Rank}</StyledTableCell>
                   <StyledTableCell align="center">{row.Name}</StyledTableCell>
                   <StyledTableCell align="center">{row.Score}</StyledTableCell>
+                  <StyledTableCell align="center">
+                    <Button size="small" sx={btn1}>
+                      <GitHubIcon sx={{ marginRight: 1 }} />
+                      {row.Name}
+                    </Button>
+                  </StyledTableCell>
                   <StyledTableCell align="center">
                     <Button size="small" sx={btn1}>
                       <GitHubIcon sx={{ marginRight: 1 }} />
