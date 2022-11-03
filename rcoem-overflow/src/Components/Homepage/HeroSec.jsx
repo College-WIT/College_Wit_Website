@@ -84,7 +84,7 @@ export default function Boxes() {
           sx={{
             width: "70%",
             height: "100%",
-            backgroundColor: "#364156",
+            backgroundColor: "#457b9d",
             webkitBackdropFilter: "blur(4px)",
             oBackdropFilter: "blur(4px)",
             mozBackdropFilter: "blur(4px)",
@@ -132,10 +132,12 @@ export default function Boxes() {
               variant="contained"
               startIcon={<ExploreIcon />}
               sx={{
-                backgroundColor: "#F0EBD8",
-                color: "#364156",
+                backgroundColor: "#f1faee",
+                color: "#457b9d",
                 "&:hover": {
-                  backgroundColor: "#41D450",
+                  backgroundColor: "#457b9d",
+                  color: "#f1faee",
+                  border: "1px solid #f1faee",
                   opacity: 10,
                 },
               }}

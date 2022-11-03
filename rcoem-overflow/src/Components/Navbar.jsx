@@ -10,13 +10,11 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import logo from "../Assets/NavLogo.png";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "@mui/material";
 import SearchBar from "./SearchBar";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
-import axios from "axios";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
@@ -41,31 +39,31 @@ const logout = () => {
 
 const buttons = {
   height: 40,
-  width: 120,
+  width: 100,
   margin: "5px",
-  backgroundColor: "#364156",
-  fontSize: 12,
+  backgroundColor: "#457b9d",
+  fontSize: 10,
   "&:hover": {
     border: "1px solid white",
-    backgroundColor: "#364156",
+    backgroundColor: "#457b9d",
   },
 };
 
 const logout_buttons = {
   height: 40,
-  width: 120,
+  width: 100,
   margin: "5px",
   border: "1px solid white",
   backgroundColor: "transparent",
   color: "white",
-  fontSize: 12,
+  fontSize: 10,
   "&:hover": {
     backgroundColor: "transparent",
     color: "#364156",
     borderColor: "#364156",
   },
 };
-const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
+const pages = ["Questions", "Contributors", "Resources"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -103,27 +101,29 @@ const ResponsiveAppBar = () => {
             alt="logo img"
             src={logo}
           /> */}
-          <Typography
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "none", lg: "flex" },
-              fontSize: 30,
-              color: "#ffffff",
-              fontFamily: "'urw-din',sans-serif",
-            }}
-          >
-            RCOEM{" "}
-            <span
-              style={{
-                color: "#E26639",
+          <Link to="/">
+            <Typography
+              sx={{
+                flexGrow: 2,
+                display: { xs: "none", md: "none", lg: "flex" },
                 fontSize: 30,
-                fontWeight: "bold",
+                color: "#ffffff",
                 fontFamily: "'urw-din',sans-serif",
               }}
             >
-              Overflow
-            </span>
-          </Typography>
+              College{" "}
+              <span
+                style={{
+                  color: "#457b9d",
+                  fontSize: 30,
+                  fontWeight: "bold",
+                  fontFamily: "'urw-din',sans-serif",
+                }}
+              >
+                WIT
+              </span>
+            </Typography>
+          </Link>
 
           {/* -------------------------------------------------------------------------- */}
 
@@ -132,7 +132,14 @@ const ResponsiveAppBar = () => {
           <Box
             sx={{
               flexGrow: 6,
-              display: { xs: "none", md: "none", lg: "flex" },
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                lg: "flex",
+                xl: "flex",
+              },
+              mx: 2,
             }}
           >
             <SearchBar placeholder="Search your Question" />
@@ -226,22 +233,22 @@ const ResponsiveAppBar = () => {
               fontFamily: "'urw-din',sans-serif",
             }}
           >
-            RCOEM{" "}
+            College
             <span
               style={{
-                color: "#364156",
+                color: "#457b9d",
                 fontSize: 30,
                 fontWeight: "bold",
                 fontFamily: "'urw-din',sans-serif",
               }}
             >
-              Overflow
+              WIT
             </span>
           </Typography>
 
           <Box
             sx={{
-              flexGrow: 1,
+              mx: 2,
               display: { xs: "none", md: "none", lg: "flex" },
             }}
           >
@@ -315,7 +322,7 @@ const ResponsiveAppBar = () => {
                     style={{ textDecoration: "None", color: "white" }}
                     to={`/login`}
                   >
-                    <PersonIcon sx={{ fontSize: 22 }} /> Login
+                    <PersonIcon sx={{ fontSize: 20 }} /> Login
                   </Link>
                 </Button>
                 <Link
@@ -323,7 +330,7 @@ const ResponsiveAppBar = () => {
                   to={`/signup`}
                 >
                   <Button sx={buttons} color="primary">
-                    <PersonAddIcon sx={{ fontSize: 22, mr: 1 }} /> Register
+                    <PersonAddIcon sx={{ fontSize: 20, mr: 1 }} /> Register
                   </Button>
                 </Link>
               </ButtonGroup>
@@ -359,7 +366,7 @@ const ResponsiveAppBar = () => {
                   to={{
                     pathname: `/Profile/${username}`,
                   }}
-                  state={{ username : username }}
+                  state={{ username: username }}
                 >
                   <Button
                     sx={{

@@ -69,7 +69,7 @@ const Rightbar = () => {
             >
               <Button
                 sx={{
-                  backgroundColor: "#3E5C76",
+                  backgroundColor: "#457b9d",
                   width: 130,
                   height: 45,
                   padding: "10px",

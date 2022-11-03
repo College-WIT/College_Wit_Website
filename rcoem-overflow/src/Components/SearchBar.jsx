@@ -1,12 +1,12 @@
 import { Divider } from "@mui/material";
 import React, { useState } from "react";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import "./Searchbar.css";
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import axios from "axios";
-import data from '../Assets/SearchData.json'
+import data from "../Assets/SearchData.json";
 
 function SearchBar({ placeholder }) {
   // console.log(data);
@@ -49,7 +49,6 @@ function SearchBar({ placeholder }) {
     }
   };
 
-
   // const clearInput = () => {
   //   setFilteredData([]);
   //   setWordEntered("");
@@ -61,7 +60,7 @@ function SearchBar({ placeholder }) {
         className="searchInputs"
         style={{
           marginTop: "10px",
-          width: "400px",
+          width: "350px",
           borderRadius: "5px",
           backgroundColor: "#3C3938",
         }}

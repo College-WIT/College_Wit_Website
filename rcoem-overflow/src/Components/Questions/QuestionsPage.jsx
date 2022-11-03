@@ -31,7 +31,7 @@ const defaultOptions = {
 };
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  backgroundColor: theme.palette.mode === "dark" ? "#457b9d" : "#fff",
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
