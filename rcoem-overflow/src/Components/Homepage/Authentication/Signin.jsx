@@ -103,7 +103,8 @@ class Signin extends Component {
         const cookieState={
           email: this.state.email,
           password: this.state.password,
-          contributor: response.data.contributor
+          contributor: response.data.contributor,
+          username: response.data.username
         }
         console.log("LOGGED IN");
         modalText = "Logged In Successfully !!";

@@ -1,9 +1,12 @@
 import * as React from "react";
+import {useEffect} from 'react';
+import { useState } from 'react';
 import { Grid, Button, Divider, Paper, CardHeader } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import axios from 'axios'
 import Typography from "@mui/material/Typography";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -32,36 +35,107 @@ const header = {
   padding: "5px",
 };
 
-const personal = [
-  { Name: "Mike" },
-  { Gender: "male" },
-  { Age: "25" },
-  { BirthDay: "10/10/1990" },
-];
 
-const contact = [
-  { Email: "mike@gmail.com" },
-  { Phone: "123456789" },
-  { LinkedIn: "mike.linkedin.com" },
-  { GitHub: "mike.github.com" },
-];
-
-const Projects = [{ Project: "Project1" }, { Project2: "Project2" }];
-
-const address = [
-  { Street: "1234 Main St" },
-  { City: "New York" },
-  { State: "NY" },
-  { Zip: "12345" },
-];
-
-const skills = ["Python", "Java", "C++", "C#", "JavaScript", "React", "Node"];
 
 const UserInfo = () => {
 
   let location = useLocation();
-  const username=location.state.username;
+  const username={username : location.state.username };
   console.log(username);
+
+  const [UserData, setUserData] = useState([]);
+    
+  var getUserData = async () =>{
+    console.log("DATA CALL");
+    await axios.post("https://rcoem-overflow-backend.herokuapp.com/user_info",username)
+    .then(response => {
+        console.log(response)
+        setUserData(response.data);
+    })
+    .catch(error => {
+        console.log(error)
+        //errorMsg: "Error retrieving data"
+    })
+  }
+  useEffect(() => {
+     getUserData();
+  }, []);
+  console.log(UserData);
+
+  // var user_data={
+  //   "leetcode_url": "",
+  //   "password": "check",
+  //   "linkedin_url": "https://github.com/Bhushan21z",
+  //   "branch": "CSE A",
+  //   "gender": "MALE",
+  //   "other_url": "https://github.com/Bhushan21z",
+  //   "skills": [
+  //       "C++",
+  //       "Java",
+  //       "Python",
+  //       "JavaScript",
+  //       "C"
+  //   ],
+  //   "company": "fffg",
+  //   "github_url": "https://github.com/Bhushan21z",
+  //   "codechef_url": "https://github.com/Bhushan21z",
+  //   "college": "RCOEM",
+  //   "email": "bhushanwanjari21z@gmail.com",
+  //   "codeforces_url": "https://github.com/Bhushan21z",
+  //   "name": "Bhushan Wanjari",
+  //   "semester": "5th",
+  //   "position": "fff",
+  //   "points": 43,
+  //   "contributor": true,
+  //   "user_name": "bhushan21z"
+  // }
+
+  const personal = [
+    { Name: UserData.name },
+    // { Gender: "male" },
+    { College: UserData.college},
+    {Semester: UserData.semester},
+    {Branch: UserData.branch},
+    {Company: UserData.company},
+    {Position: UserData.position},
+  ];
+  
+  const contact = [
+    { Email: UserData.email },
+    { Phone: "123456789" },
+    { LinkedIn: UserData.linkedin_url },
+    { GitHub: UserData.github_url },
+  ];
+  
+  const Projects = [{ Project: "Project1" }, { Project2: "Project2" }];
+
+
+  //  ANJALI USE THIS
+  
+  // const Projects = [
+  //   { Project1: {
+  //       "Project Name": "Project1 Name",
+  //       "Project Description": "Project Description",
+  //       "Project Link":"Project Description"
+  //     } 
+  //   }, 
+  //   { Project2: {
+  //     "Project Name": "Project2 Name",
+  //     "Project Description": "Project Description",
+  //     "Project Link":"Project Description"
+  //   } 
+  //   }
+  // ];
+  
+  const skills = [
+    { Skills: UserData.skills },
+    { Codechef: UserData.codechef_url },
+    { Codeforces: UserData.codeforces_url },
+    { Leetcode: UserData.leetcode_url },
+    { Personal: UserData.other_url },
+  ];
+  
+  //const skills = ["Python", "Java", "C++", "C#", "JavaScript", "React", "Node"];
 
   return (
     <div>
@@ -81,7 +155,7 @@ const UserInfo = () => {
             />
             <CardContent>
               <Typography gutterBottom variant="h4" component="div">
-                {personal[0].Name}
+                {UserData.name}
               </Typography>
               <Typography
                 gutterBottom
@@ -91,7 +165,7 @@ const UserInfo = () => {
                   fontSize: "20px",
                 }}
               >
-                Backend Developer
+                {UserData.user_name}
               </Typography>
             </CardContent>
             <Divider />
@@ -201,11 +275,32 @@ const UserInfo = () => {
               </Card>
             </Grid>
 
-            {/* ----------------------------------Projects-------------------------------- */}
+        {/* ----------------------------------Skills and Links-------------------------------- */}
+
+                        <Grid item xs={10} sm={10} md={10} lg={11} sx={{ m: 1 }}>
+              <Card sx={{ width: "auto" }}>
+                <Typography sx={header}>Skills and Links </Typography>
+                <CardContent>
+                  {skills.map((data) => {
+                    return (
+                      <Grid container>
+                        <Grid item sx={{ ml: 1, my: 1 }}>
+                          <Typography sx={{ fontSize: "20px", color: "black" }}>
+                            {Object.keys(data)} : {Object.values(data)}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+            </Grid>
+
+            {/* ----------------------------------Projects and Achievements-------------------------------- */}
 
             <Grid item xs={10} sm={10} md={10} lg={11} sx={{ m: 1 }}>
               <Card sx={{ width: "auto" }}>
-                <Typography sx={header}>Projects </Typography>
+                <Typography sx={header}>Projects and Achievements </Typography>
                 <CardContent>
                   {Projects.map((data) => {
                     return (
@@ -230,26 +325,6 @@ const UserInfo = () => {
               </Card>
             </Grid>
 
-            {/* ----------------------------------Address-------------------------------- */}
-
-            <Grid item xs={10} sm={10} md={10} lg={11} sx={{ m: 1 }}>
-              <Card sx={{ width: "auto" }}>
-                <Typography sx={header}>Address </Typography>
-                <CardContent>
-                  {address.map((data) => {
-                    return (
-                      <Grid container>
-                        <Grid item sx={{ ml: 1, my: 1 }}>
-                          <Typography sx={{ fontSize: "20px", color: "black" }}>
-                            {Object.keys(data)} : {Object.values(data)}
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    );
-                  })}
-                </CardContent>
-              </Card>
-            </Grid>
           </Grid>
         </Grid>
       </Grid>

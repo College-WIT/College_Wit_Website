@@ -26,7 +26,7 @@ let loggedin = getCookie("login");
 var contributor = false;
 var username;
 if (loggedin) {
-  username = JSON.parse(getCookie("login")).email;
+  username = JSON.parse(getCookie("login")).username;
   contributor = JSON.parse(getCookie("login")).contributor;
 }
 console.log(contributor);
