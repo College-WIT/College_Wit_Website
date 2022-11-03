@@ -129,6 +129,8 @@ const App = () => {
 
         <Route path="/tags/:tags" element={<TagsPage />} />
 
+        <Route path="/Profile/:username" element={<Profile />} />
+
       </Routes>
     </div>
   );

@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const Item = {
   backgroundColor: "white",
@@ -56,7 +57,12 @@ const address = [
 
 const skills = ["Python", "Java", "C++", "C#", "JavaScript", "React", "Node"];
 
-const EditInfo = () => {
+const UserInfo = () => {
+
+  let location = useLocation();
+  const username=location.state.username;
+  console.log(username);
+
   return (
     <div>
       <Grid
@@ -253,4 +259,4 @@ const EditInfo = () => {
   );
 };
 
-export default EditInfo;
+export default UserInfo;

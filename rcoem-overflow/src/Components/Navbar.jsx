@@ -24,7 +24,9 @@ import PersonIcon from "@mui/icons-material/Person";
 let loggedin = getCookie("login");
 
 var contributor = false;
+var username;
 if (loggedin) {
+  username = JSON.parse(getCookie("login")).email;
   contributor = JSON.parse(getCookie("login")).contributor;
 }
 console.log(contributor);
@@ -354,7 +356,10 @@ const ResponsiveAppBar = () => {
                 </Link>
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
-                  to={`/Profile`}
+                  to={{
+                    pathname: `/Profile/${username}`,
+                  }}
+                  state={{ username : username }}
                 >
                   <Button
                     sx={{
