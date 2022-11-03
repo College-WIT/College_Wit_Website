@@ -9,7 +9,6 @@ import { Divider } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
 const quickAccBar = ["Home", "Answered", "Unanswered", "Trending"];
 
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   padding: theme.spacing(1),
@@ -60,7 +59,7 @@ const Leftbar = () => {
             <Button
               sx={{
                 fontSize: 15,
-                backgroundColor: "#E26639",
+                backgroundColor: "#3E5C76",
                 width: 130,
                 height: 35,
                 borderRadius: 1,
@@ -100,10 +99,10 @@ const Leftbar = () => {
         <Grid sx={{ paddingTop: 2 }}>
           <Button
             sx={{
-              backgroundColor: "#20D867",
+              backgroundColor: "#F0EBD8",
+              color: "#3E5C76",
               width: 150,
               height: 60,
-              border: 1,
               borderRadius: 2,
               fontSize: 15,
               "&:hover": {
@@ -115,7 +114,7 @@ const Leftbar = () => {
             disableElevation
           >
             <Link
-              style={{ textDecoration: "None", color: "white" }}
+              style={{ textDecoration: "None", color: "#3E5C76" }}
               to={red_link}
             >
               Post a question

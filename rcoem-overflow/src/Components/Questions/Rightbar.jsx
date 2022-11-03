@@ -21,13 +21,27 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = ["ANDROID-DEVELOPMENT", "COLLEGE-LIFE", "COMPETITIVE-PROGRAMMING", "CSS", "DJANGO", "FLUTTER", "HTML", "JAVASCRIPT", "NODE-JS", "OPEN-SOURCE", "OTHERS", "PYQ", "REACT-JS", "WEB-DEVELOPMENT"];
-
+const queTags = [
+  "ANDROID-DEVELOPMENT",
+  "COLLEGE-LIFE",
+  "COMPETITIVE-PROGRAMMING",
+  "CSS",
+  "DJANGO",
+  "FLUTTER",
+  "HTML",
+  "JAVASCRIPT",
+  "NODE-JS",
+  "OPEN-SOURCE",
+  "OTHERS",
+  "PYQ",
+  "REACT-JS",
+  "WEB-DEVELOPMENT",
+];
 
 const Rightbar = () => {
   const refreshPage = () => {
     window.location.reload();
-  }
+  };
   return (
     <div>
       <Item>
@@ -42,21 +56,27 @@ const Rightbar = () => {
         </Typography>
         <Divider light />
         {queTags.map((content) => (
-          <Grid sx={{
-            padding: 1,
-
-          }}>
-
-            <Link to={{
-              pathname: `/tags/${content}`
-            }} state={{ tag: content }}>
+          <Grid
+            sx={{
+              padding: 1,
+            }}
+          >
+            <Link
+              to={{
+                pathname: `/tags/${content}`,
+              }}
+              state={{ tag: content }}
+            >
               <Button
                 sx={{
-                  backgroundColor: "#E26639",
+                  backgroundColor: "#3E5C76",
                   width: 130,
                   height: 45,
                   padding: "10px",
                   borderRadius: 1,
+                  fontSize: 10,
+                  fontFamily: "'urw-din',sans-serif",
+                  color: "white",
                   "&:hover": {
                     backgroundColor: "#41D450",
                     opacity: 10,
@@ -68,8 +88,6 @@ const Rightbar = () => {
                     padding: "15px",
                   },
                 }}
-                variant="contained"
-                disableElevation
               >
                 {content}
               </Button>

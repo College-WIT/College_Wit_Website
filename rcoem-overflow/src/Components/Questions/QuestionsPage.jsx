@@ -106,21 +106,21 @@ class QuestionsPages extends Component {
                     paddingBottom: 1,
                   }}
                 >
-                  <Grid item xs={4} md={6}>
-                    <Lottie
+                  <Grid item xs={4}>
+                    {/* <Lottie
                       options={defaultOptions}
                       height="100%"
                       width="50%"
-                    />
+                    /> */}
                   </Grid>
-                  <Grid item xs={4} md={10}>
+                  <Grid item xs={8}>
                     <Typography
                       sx={{
                         fontFamily: "'urw-din',sans-serif",
-                        fontSize: 40,
-                        position: "relative",
-                        top: 55,
-                        left: "-170px",
+                        fontSize: "30px",
+                        fontWeight: "bold",
+                        color: "#000",
+                        paddingTop: 5,
                       }}
                     >
                       Questions
@@ -209,7 +209,8 @@ class QuestionsPages extends Component {
                               >
                                 <Button
                                   sx={{
-                                    backgroundColor: "#E26639",
+                                    backgroundColor: "#F0EBD8",
+                                    color: "black",
                                     width: "auto",
                                     height: "auto",
                                     padding: "10px",

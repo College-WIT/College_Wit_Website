@@ -113,11 +113,11 @@ const contributor = () => {
       <Grid container justifyContent="center">
         <Typography
           sx={{
-            fontSize: 60,
-            color: "#000000",
             fontFamily: "'urw-din',sans-serif",
-            marginTop: "20px",
-            marginBottom: "20px",
+            fontSize: 40,
+            fontWeight: "bold",
+            color: "#000000",
+            marginTop: "50px",
           }}
         >
           Top Contributors
@@ -133,30 +133,75 @@ const contributor = () => {
         sm={12}
         justifyContent="center"
         sx={{
-          my: "40px",
+          my: "20px",
         }}
       >
-        <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+        <Grid
+          item
+          justifyContent="center"
+          xs={12}
+          sm={12}
+          md={12}
+          lg={3}
+          sx={{
+            mx: {
+              xs: "10%",
+              sm: "20%",
+              md: "25%",
+              lg: "0%",
+            },
+          }}
+        >
           <MediaCard />
         </Grid>
-        <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+        <Grid
+          item
+          justifyContent="center"
+          xs={12}
+          sm={12}
+          md={12}
+          lg={3}
+          sx={{
+            mx: {
+              xs: "10%",
+              sm: "20%",
+              md: "25%",
+              lg: "0%",
+            },
+          }}
+        >
           <MediaCard />
         </Grid>
-        <Grid item justifyContent="center" xs={12} sm={12} md={12} lg={3}>
+        <Grid
+          item
+          justifyContent="center"
+          xs={12}
+          sm={12}
+          md={12}
+          lg={3}
+          sx={{
+            mx: {
+              xs: "10%",
+              sm: "20%",
+              md: "25%",
+              lg: "0%",
+            },
+          }}
+        >
           <MediaCard />
         </Grid>
         <Divider
           sx={{
             justifyContent: "center",
             width: "80%",
-            mt: "100px",
+            my: "40px",
           }}
         />
       </Grid>
 
       {/* -----------------------------------------------Search bar------------------------------------------------------------------ */}
 
-      <Grid item sx={{ mx: "10%", my: "40px" }}>
+      <Grid item sx={{ mx: "10%", my: "20px" }}>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
@@ -174,7 +219,7 @@ const contributor = () => {
         container
         justifyContent="center"
         sx={{
-          mt: "40px",
+          mt: "30px",
         }}
       >
         <TableContainer

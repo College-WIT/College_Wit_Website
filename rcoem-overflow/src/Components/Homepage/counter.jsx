@@ -58,13 +58,13 @@ const counter = () => {
         <Typography
           sx={{
             fontSize: 40,
-            color: "#000000",
+            color: "black",
             fontFamily: "'urw-din',sans-serif",
-            // marginTop: "20px",
-            marginBottom: "20px",
+            fontWeight: "bold",
+            textAlign: "center",
+            py: 5,
           }}
         >
-          {" "}
           Website Statistics
         </Typography>
       </Grid>
@@ -100,8 +100,11 @@ const counter = () => {
             <Lottie options={defaultOptions} height="150px" width="100px" />
             <Typography
               sx={{
-                fontSize: 27,
+                fontSize: 20,
+                color: "black",
                 fontFamily: "'urw-din',sans-serif",
+                fontWeight: "bold",
+                textAlign: "center",
               }}
             >
               Viewers
@@ -119,9 +122,11 @@ const counter = () => {
             <Lottie options={defaultOptions2} height="150px" width="190px" />
             <Typography
               sx={{
-                fontSize: 27,
+                fontSize: 20,
+                color: "black",
                 fontFamily: "'urw-din',sans-serif",
-                width: "220px",
+                fontWeight: "bold",
+                textAlign: "center",
               }}
             >
               Registered Users
@@ -137,8 +142,11 @@ const counter = () => {
             <Lottie options={defaultOptions3} height="150px" width="100px" />
             <Typography
               sx={{
-                fontSize: 27,
+                fontSize: 20,
+                color: "black",
                 fontFamily: "'urw-din',sans-serif",
+                fontWeight: "bold",
+                textAlign: "center",
               }}
             >
               Questions

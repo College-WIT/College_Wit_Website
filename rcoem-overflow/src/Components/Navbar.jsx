@@ -41,11 +41,11 @@ const buttons = {
   height: 40,
   width: 120,
   margin: "5px",
-  backgroundColor: "#E26639",
+  backgroundColor: "#364156",
   fontSize: 12,
   "&:hover": {
     border: "1px solid white",
-    backgroundColor: "#E26639",
+    backgroundColor: "#364156",
   },
 };
 
@@ -53,9 +53,15 @@ const logout_buttons = {
   height: 40,
   width: 120,
   margin: "5px",
-  backgroundColor: "#41D450",
-  color: "#000",
+  border: "1px solid white",
+  backgroundColor: "transparent",
+  color: "white",
   fontSize: 12,
+  "&:hover": {
+    backgroundColor: "transparent",
+    color: "#364156",
+    borderColor: "#364156",
+  },
 };
 const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
 
@@ -95,6 +101,27 @@ const ResponsiveAppBar = () => {
             alt="logo img"
             src={logo}
           /> */}
+          <Typography
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "none", lg: "flex" },
+              fontSize: 30,
+              color: "#ffffff",
+              fontFamily: "'urw-din',sans-serif",
+            }}
+          >
+            RCOEM{" "}
+            <span
+              style={{
+                color: "#E26639",
+                fontSize: 30,
+                fontWeight: "bold",
+                fontFamily: "'urw-din',sans-serif",
+              }}
+            >
+              Overflow
+            </span>
+          </Typography>
 
           {/* -------------------------------------------------------------------------- */}
 
@@ -102,7 +129,7 @@ const ResponsiveAppBar = () => {
 
           <Box
             sx={{
-              flexGrow: 7,
+              flexGrow: 6,
               display: { xs: "none", md: "none", lg: "flex" },
             }}
           >
@@ -173,7 +200,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
 
-          <Typography
+          {/* <Typography
             sx={{
               display: { xs: "flex", md: "flex", lg: "none" },
               flexGrow: 1,
@@ -186,6 +213,28 @@ const ResponsiveAppBar = () => {
             }}
           >
             RCOEM-OVERFLOW
+          </Typography> */}
+
+          <Typography
+            sx={{
+              display: { xs: "flex", md: "flex", lg: "none" },
+              flexGrow: 1,
+              fontSize: 30,
+              color: "#ffffff",
+              fontFamily: "'urw-din',sans-serif",
+            }}
+          >
+            RCOEM{" "}
+            <span
+              style={{
+                color: "#364156",
+                fontSize: 30,
+                fontWeight: "bold",
+                fontFamily: "'urw-din',sans-serif",
+              }}
+            >
+              Overflow
+            </span>
           </Typography>
 
           <Box
@@ -210,8 +259,9 @@ const ResponsiveAppBar = () => {
                     color: "white",
                     display: "block",
                     "&:hover": {
-                      color: "black",
-                      backgroundColor: "white",
+                      backgroundColor: "transparent",
+                      borderBottom: "1px solid white",
+                      borderRadius: 0,
                     },
                     "@media (max-width:780px)": {
                       fontSize: 15,
@@ -316,11 +366,10 @@ const ResponsiveAppBar = () => {
                   >
                     <Avatar
                       alt="Remy Sharp"
-                      src="https://th.bing.com/th/id/OIP.inXSw5jbycIIlXC1dIXdiwHaIL?pid=ImgDet&rs=1"
+                      src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1667425437~exp=1667426037~hmac=9464865d765f09b4765dcb5d8b8f905e26e6f9aa81d444199cace0b4b2e50d3e"
                       sx={{
                         width: 40,
                         height: 40,
-                        borderRadius: 0,
                       }}
                     />
                   </Button>

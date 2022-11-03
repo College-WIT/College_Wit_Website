@@ -1,14 +1,14 @@
-import React from "react";
 import ResponsiveAppBar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-const Profile = () => {
+import Profileage from "../../Components/Profile/Profilepage";
+import ScrollButton from "../../Components/scroll";
+export default function Notes() {
   return (
-    <div>
+    <div className="Notes">
       <ResponsiveAppBar />
-      <h1>Profile</h1>
+      <Profileage />
+      <ScrollButton />
       <Footer />
     </div>
   );
-};
-
-export default Profile;
+}

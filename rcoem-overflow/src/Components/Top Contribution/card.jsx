@@ -2,7 +2,7 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Avatar, Button, CardActions } from "@mui/material";
+import { Avatar, Button, CardActions, Divider } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -24,21 +24,25 @@ export default function MediaCard() {
         justifyContent="center"
         sx={{
           height: "150px",
-          background: "linear-gradient(to right, #2b2a2a, #141313)",
+          backgroundColor: "#1a1a1a",
         }}
       >
-        <Grid item xs={12} justifyContent="center">
+        <Grid container xs={12} justifyContent="center">
           <Typography
             sx={{
-              fontSize: 20,
+              fontSize: 15,
               fontFamily: "'urw-din',sans-serif",
               textAlign: "center",
-              position: "relative",
-              top: "50%",
-              color: "#ffffff",
+              borderRadius: "5px",
+              width: "auto",
+              backgroundColor: "#3E5C76",
+              my: "10px",
+              color: "white",
+              px: 2,
+              py: "5px",
             }}
           >
-            Score : 100
+            Rank 1
           </Typography>
         </Grid>
 
@@ -47,19 +51,18 @@ export default function MediaCard() {
             variant="square"
             sx={{
               position: "relative",
-              top: "25%",
               width: "150px",
               height: "150px",
               borderRadius: "50%",
             }}
             alt="Remy Sharp"
-            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+            src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1667425437~exp=1667426037~hmac=9464865d765f09b4765dcb5d8b8f905e26e6f9aa81d444199cace0b4b2e50d3e"
           />
         </Grid>
       </Grid>
       <CardContent
         sx={{
-          padding: 6,
+          padding: 2,
         }}
       >
         <Grid item xs={12} justifyContent="center">
@@ -67,10 +70,10 @@ export default function MediaCard() {
             sx={{
               textAlign: "center",
               fontFamily: "'urw-din',sans-serif",
-              fontSize: 30,
+              fontSize: 25,
               color: "#000000",
               fontWeight: "bold",
-              marginTop: "35px",
+              marginTop: "50px",
               color: "black",
             }}
           >
@@ -82,14 +85,19 @@ export default function MediaCard() {
             sx={{
               textAlign: "center",
               fontFamily: "'urw-din',sans-serif",
-              fontSize: 20,
+              fontSize: 15,
               color: "#000000",
-              marginTop: "10px",
             }}
           >
-            Rank : 1
+            Score : 100
           </Typography>
         </Grid>
+        <Divider
+          sx={{
+            marginTop: "10px",
+            color: "#000000",
+          }}
+        />
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
         <Button
@@ -97,19 +105,14 @@ export default function MediaCard() {
           sx={{
             backgroundColor: "#000000",
             color: "white",
-            fontFamily: "'urw-din',sans-serif",
-            fontSize: 15,
-            fontWeight: "bold",
-            borderRadius: "5px",
-            padding: 1,
             "&:hover": {
-              backgroundColor: "#000000",
-              color: "white",
+              boxShadow: "2px 5px 5px 2px #b3bfcc",
+              color: "black",
+              border: "1px solid black",
             },
           }}
         >
-          <GitHubIcon sx={{ marginRight: 1 }} />
-          Github
+          <GitHubIcon />
         </Button>
 
         <Button
@@ -117,19 +120,14 @@ export default function MediaCard() {
           sx={{
             backgroundColor: "#0077b5",
             color: "white",
-            fontFamily: "'urw-din',sans-serif",
-            fontSize: 15,
-            fontWeight: "bold",
-            borderRadius: "5px",
-            padding: 1,
             "&:hover": {
-              backgroundColor: "#000000",
-              color: "white",
+              boxShadow: "2px 5px 5px 2px #b3bfcc",
+              color: "black",
+              border: "1px solid black",
             },
           }}
         >
-          <LinkedInIcon sx={{ marginRight: 1 }} />
-          LinkedIn
+          <LinkedInIcon />
         </Button>
       </CardActions>
     </Card>
