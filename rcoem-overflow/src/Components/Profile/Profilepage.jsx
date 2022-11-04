@@ -37,8 +37,8 @@ const UserInfo = () => {
   let location = useLocation();
   //const username = { username: location.state.username };
   //console.log(username);
-  var str=window.location.pathname;
-  const usernames=str.substring(9);
+  var str = window.location.pathname;
+  const usernames = str.substring(9);
   const username = { username: usernames };
 
   const [UserData, setUserData] = useState([]);
@@ -218,7 +218,7 @@ const UserInfo = () => {
 
             <Divider />
             <Grid item justifyContent="center">
-              <Link to="/editprofile" style={{ textDecoration: "none" }}>
+              <Link to="/EditProfile" style={{ textDecoration: "none" }}>
                 <Button
                   sx={{
                     fontSize: "15px",
@@ -329,14 +329,15 @@ const UserInfo = () => {
                     return (
                       <Grid container>
                         <Grid item sx={{ ml: 1, my: 1 }}>
-                        { Object.values(data)!=0 ? (
-                          <Typography sx={{ fontSize: "20px", color: "black" }}>
-                            {Object.keys(data)} : {Object.values(data)}
-                          </Typography>
-                        ): (
-                          <></>
+                          {Object.values(data) != 0 ? (
+                            <Typography
+                              sx={{ fontSize: "20px", color: "black" }}
+                            >
+                              {Object.keys(data)} : {Object.values(data)}
+                            </Typography>
+                          ) : (
+                            <></>
                           )}
-                          
                         </Grid>
                       </Grid>
                     );

@@ -55,7 +55,8 @@ import BC from "./Components/notes-pyqs/Sems/Semester 3/BC";
 import CLE from "./Components/notes-pyqs/Sems/Semester 3/CLE";
 import Placement from "./Components/notes-pyqs/Sems/Placement/Placement";
 import ComingSoon from "./Components/notes-pyqs/Sems/comingSoon";
-import Error from "./Pages/Error"
+import Error from "./Pages/Error";
+import EditProfile from "./Pages/Profile/EditProfile";
 
 const App = () => {
   return (
@@ -80,6 +81,7 @@ const App = () => {
           path="/Post-an-answer/:que"
           element={<Protected Component={Postans} />}
         />
+        <Route path="/tags/:tag" element={<TagsPage />} />
         <Route path="/Semester_1" element={<ComingSoon />} />
         <Route path="/Semester_2" element={<ComingSoon />} />
         <Route path="/Semester_3" element={<Semester_3 />} />
@@ -98,7 +100,6 @@ const App = () => {
         <Route path="/Linear_Algebra_and_Statistics" element={<M3 />} />
         <Route path="/Business_Communication" element={<BC />} />
         <Route path="/Cyber_Laws_&_Ethics" element={<CLE />} />
-
         {/* FOURTH SEMESTER */}
         <Route path="/Operating_Systems" element={<OperatingSystem />} />
         <Route path="/Object_Oriented_Programming" element={<OOPS />} />
@@ -115,24 +116,21 @@ const App = () => {
         <Route path="/Database_Management_Systems" element={<DBMS />} />
         <Route path="/Design_Patterns" element={<DP />} />
         <Route path="/Mobile_Application_Programming" element={<MAP />} />
-
         {/* EIGHT SEMESTER */}
         <Route path="/Natural_Language_Processing" element={<NLP />} />
         <Route path="/Distributed_&_Parallel_Databases" element={<DPD />} />
         <Route path="/Distributed_System" element={<DS />} />
         <Route path="/Web_Intelligence_&_Big_Data" element={<WIBD />} />
         <Route path="/Information_Security" element={<IS />} />
-
         <Route path="/Placement" element={<Placement />} />
         <Route path="/comingSoon" element={<ComingSoon />} />
+        {/* ---------- Profile Routes ------------ */}
 
+        <Route path="/EditProfile" element={<EditProfile />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/be-a-contributor" element={<Contribute />} />
         <Route path="/forgotpassword" element={<Forgotpswd />} />
         <Route path="/otp" element={<Otp />} />
-
-        <Route path="/tags/:tag" element={<TagsPage />} />
-
         <Route path="/Profile/:username" element={<Profile />} />
         <Route path="*" element={<Error />} />
       </Routes>
