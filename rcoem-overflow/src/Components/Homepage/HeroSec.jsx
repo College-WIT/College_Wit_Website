@@ -51,6 +51,7 @@ export default function Boxes() {
       sx={{
         px: "5%",
         py: "2%",
+        my: "2%",
       }}
     >
       <Grid
@@ -75,7 +76,8 @@ export default function Boxes() {
             m: 3,
           }}
         >
-          Every RCOEMian has a Tab to Open RCOEM-Overflow
+          {/* Every RCOEMian has a Tab to Open RCOEM-Overflow */}
+          Every RCOEMian has a Tab to Open CollegeWIT
         </Typography>
 
         <Grid
