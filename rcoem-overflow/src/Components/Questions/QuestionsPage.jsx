@@ -107,11 +107,11 @@ class QuestionsPages extends Component {
                   }}
                 >
                   <Grid item xs={4}>
-                    {/* <Lottie
+                    <Lottie
                       options={defaultOptions}
                       height="100%"
-                      width="50%"
-                    /> */}
+                      width="70%"
+                    />
                   </Grid>
                   <Grid item xs={8}>
                     <Typography
@@ -209,14 +209,16 @@ class QuestionsPages extends Component {
                               >
                                 <Button
                                   sx={{
-                                    backgroundColor: "#F0EBD8",
-                                    color: "black",
+                                    backgroundColor: "#38E54D",
+                                    color: "#000",
                                     width: "auto",
                                     height: "auto",
                                     padding: "10px",
                                     borderRadius: 1,
+                                    
                                     "&:hover": {
-                                      backgroundColor: "#41D450",
+                                      backgroundColor: "#118ab2",
+                                      color:"white",
                                       opacity: 10,
                                     },
                                   }}
@@ -271,7 +273,7 @@ class QuestionsPages extends Component {
                                 }}
                               >
                                 <Typography variant="subtitle1" color="black">
-                                  <VisibilityIcon />
+                                  <VisibilityIcon sx={{color:"#04274d"}} />
                                   {content.views}
                                 </Typography>
                               </Item>
@@ -284,13 +286,13 @@ class QuestionsPages extends Component {
                                 }}
                               >
                                 <Typography variant="subtitle1" color="black">
-                                  <ThumbUpIcon />
+                                  <ThumbUpIcon  sx={{color:"#04274d"}}/>
                                   {content.upvotes}
                                 </Typography>
                               </Item>
                               <Item elevation={0}>
                                 <Typography variant="subtitle1" color="black">
-                                  <QuestionAnswerIcon />
+                                  <QuestionAnswerIcon sx={{color:"#04274d"}} />
                                   {content.no_of_answers}
                                 </Typography>
                               </Item>

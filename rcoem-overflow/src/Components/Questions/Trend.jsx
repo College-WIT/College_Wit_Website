@@ -201,13 +201,15 @@ class QuestionsPages extends Component {
                             >
                               <Button
                                 sx={{
-                                  backgroundColor: "#E26639",
+                                  backgroundColor: "#38E54D",
+                                  color:"#000",
                                   width: "auto",
                                   height: "auto",
                                   padding: "10px",
                                   borderRadius: 1,
                                   "&:hover": {
-                                    backgroundColor: "#41D450",
+                                    backgroundColor: "#118ab2",
+                                    color:"#fff",
                                     opacity: 10,
                                   },
                                 }}

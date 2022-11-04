@@ -23,8 +23,8 @@ const card = (props) => {
             <Card sx={{
                 width: "170px",
                 height: "220px",
-                margin: "10px"
-
+                margin: "10px",
+                backgroundColor:"#04274d",
             }}>
 
                 <Grid>
@@ -38,6 +38,9 @@ const card = (props) => {
                         textAlign: "center",
                         fontFamily: "monospace",
                         wordWrap: "break-word",
+                        color:"#fff",
+                        fontWeight:"700",
+                        margin:"0 5px"
                     }}>
                         {props.sem}
                     </Typography>

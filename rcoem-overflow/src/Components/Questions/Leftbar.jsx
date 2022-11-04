@@ -56,70 +56,74 @@ const Leftbar = () => {
               },
             }}
           >
+            <Link
+              style={{ textDecoration: "None", color: "white" }}
+              to={`/${content}`}
+            >
+              <Button
+                sx={{
+                  fontSize: 15,
+                  backgroundColor: "#04274d",
+                  width: 130,
+                  height: 35,
+                  borderRadius: 1,
+                  "&:hover": {
+                    backgroundColor: "#38E54D",
+                    color: "#04274d",
+                    opacity: 10,
+                  },
+                  "@media (max-width:1000px)": {
+                    fontSize: 12,
+                    width: 100,
+                    height: 20,
+                  },
+                  "@media (max-width:900px)": {
+                    fontSize: 10,
+                    width: 90,
+                    height: 20,
+                  },
+                  "@media (max-width:800px)": {
+                    fontSize: 8,
+                    width: 70,
+                    height: 20,
+                  },
+                }}
+                variant="contained"
+                disableElevation
+              >
+
+                {content}
+              </Button>
+            </Link>
+          </Grid>
+        ))}
+
+        <Grid sx={{ paddingTop: 2 }}>
+          <Link
+            style={{ textDecoration: "None" }}
+            to={red_link}
+          >
             <Button
               sx={{
+                backgroundColor: "#F4442E",
+                color: "#fff",
+                width: 150,
+                height: 60,
+                borderRadius: 2,
                 fontSize: 15,
-                backgroundColor: "#3E5C76",
-                width: 130,
-                height: 35,
-                borderRadius: 1,
                 "&:hover": {
-                  backgroundColor: "#41D450",
+                  backgroundColor: "#38E54D",
+                  color: "#000",
                   opacity: 10,
-                },
-                "@media (max-width:1000px)": {
-                  fontSize: 12,
-                  width: 100,
-                  height: 20,
-                },
-                "@media (max-width:900px)": {
-                  fontSize: 10,
-                  width: 90,
-                  height: 20,
-                },
-                "@media (max-width:800px)": {
-                  fontSize: 8,
-                  width: 70,
-                  height: 20,
                 },
               }}
               variant="contained"
               disableElevation
             >
-              <Link
-                style={{ textDecoration: "None", color: "white" }}
-                to={`/${content}`}
-              >
-                {content}
-              </Link>
-            </Button>
-          </Grid>
-        ))}
 
-        <Grid sx={{ paddingTop: 2 }}>
-          <Button
-            sx={{
-              backgroundColor: "#F0EBD8",
-              color: "#3E5C76",
-              width: 150,
-              height: 60,
-              borderRadius: 2,
-              fontSize: 15,
-              "&:hover": {
-                backgroundColor: "#E26639",
-                opacity: 10,
-              },
-            }}
-            variant="contained"
-            disableElevation
-          >
-            <Link
-              style={{ textDecoration: "None", color: "#3E5C76" }}
-              to={red_link}
-            >
               Post a question
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </Grid>
       </Item>
     </div>

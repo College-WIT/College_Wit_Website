@@ -31,7 +31,7 @@ const Walkaround = () => {
             height: "80%",
             marginBottom: "50px",
             padding: "10px",
-            backgroundColor: "#11151C",
+            backgroundColor: "#04274d",
           }}
         >
           <Carousel.Item>
