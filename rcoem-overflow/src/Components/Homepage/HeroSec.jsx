@@ -48,13 +48,14 @@ export default function Boxes() {
           sx={{
             width: "80%",
             color: "white",
+            fontWeight:"900",
             textAlign: "center",
             fontFamily: "Raleway Dots",
             m: 3,
           }}
         >
           {/* Every RCOEMian has a Tab to Open RCOEM-Overflow */}
-          Every RCOEMian has a Tab to Open CollegeWIT
+          Every RCOEMian has a Tab to Open CollegeWit
         </Typography>
 
         <Grid

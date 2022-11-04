@@ -5,6 +5,8 @@ import Folder from './card.jsx'
 import { Link } from 'react-router-dom';
 import '../../App'
 import { Button } from '@mui/material';
+import BookIcon from '@mui/icons-material/Book';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 
 const notespyqs = () => {
@@ -49,38 +51,55 @@ const notespyqs = () => {
                 justifyContent: "center"
             }}>
                 <Grid md={6} sm={10} xs={12}>
-                    <Button href="/Placement" sx={{
-                        backgroundColor: "#E26639",
+
+                    <Button startIcon={<BookIcon style={{ fontSize: "30px", color: "#fff" }} />} href="/Placement" sx={{
+                        backgroundColor: "#04274d",
                         "&:hover": {
                             backgroundColor: "#41D450",
                             opacity: 10,
                         },
                         color: "#fff",
                         marginTop: "40px",
-                        marginLeft:"30%",
+                        marginLeft: "30%",
                         padding: "20px",
-                        width: "50%",
-                        borderRadius: "22px"
+                        width: "60%",
+                        borderRadius: "22px",
+                        "@media (max-width:1000px)": {
+                            marginLeft: "20%",
+                        },
                     }}>
-                        <Typography variant="h6" color="#fff">Placement Resources</Typography>
+                        <Typography color="#fff" sx={{
+                            fontSize: "20px", 
+                            "@media (max-width:1000px)": {
+                                fontSize: "16px",
+                            },
+                        }}>Placement Resources</Typography>
 
                     </Button>
                 </Grid>
                 <Grid md={6} sm={10} xs={12}>
-                    <Button href='https://chat.whatsapp.com/ExSdgtdV06y04cJzawmdft'
+                    <Button startIcon={<PeopleAltIcon style={{ fontSize: "30px", color: "#fff" }} />} href='https://chat.whatsapp.com/ExSdgtdV06y04cJzawmdft'
                         sx={{
-                            backgroundColor: "#E26639",
+                            backgroundColor: "#04274d",
                             "&:hover": {
                                 backgroundColor: "#41D450",
                                 opacity: 10,
-                            }, color: "#fff", 
-                            marginTop: "40px", 
-                            marginLeft:"10%",
-                            padding: "20px", 
-                            width: "50%", 
-                            borderRadius: "22px"
+                            }, color: "#fff",
+                            marginTop: "40px",
+                            marginLeft: "10%",
+                            padding: "20px",
+                            width: "50%",
+                            borderRadius: "22px",
+                            "@media (max-width:1000px)": {
+                                marginLeft: "25%",
+                            },
                         }}>
-                        <Typography variant="h6" color="#fff">1:1 Mentorship</Typography>
+                        <Typography color="#fff" sx={{
+                            fontSize: "20px", 
+                            "@media (max-width:1000px)": {
+                                fontSize: "16px",
+                            },
+                        }}>1:1 Mentorship</Typography>
                     </Button>
                 </Grid>
 
