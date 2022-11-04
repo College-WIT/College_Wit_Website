@@ -74,7 +74,7 @@ const Rightbar = () => {
                   height: 45,
                   padding: "10px",
                   borderRadius: 1,
-                  fontSize: 10,
+                  fontSize: 12,
                   fontFamily: "'urw-din',sans-serif",
                   color: "white",
                   "&:hover": {

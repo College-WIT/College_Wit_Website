@@ -25,7 +25,7 @@ const btn = {
   m: 1,
   p: 1,
   "&:hover": {
-    backgroundColor: "#000000",
+    backgroundColor: "#F4442E",
     color: "white",
   },
 };
@@ -63,7 +63,7 @@ export default function Footer() {
             RCOEM{" "}
             <span
               style={{
-                color: "#3E5C76",
+                color: "#F4442E",
                 fontSize: 40,
                 fontWeight: "bold",
                 fontFamily: "'urw-din',sans-serif",
@@ -99,7 +99,7 @@ export default function Footer() {
           <Typography
             sx={{
               fontSize: 25,
-              color: "#748CAB",
+              color: "#fff",
               fontFamily: "'urw-din',sans-serif",
               my: 2,
             }}

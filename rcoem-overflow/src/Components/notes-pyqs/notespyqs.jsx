@@ -48,42 +48,48 @@ const notespyqs = () => {
             <Grid container sx={{
                 justifyContent: "center"
             }}>
-                {/* <Link to={"/Placement"}> */}
+                <Grid md={6} sm={10} xs={12}>
                     <Button href="/Placement" sx={{
-                        backgroundColor: "#E26639", 
+                        backgroundColor: "#E26639",
                         "&:hover": {
                             backgroundColor: "#41D450",
                             opacity: 10,
-                        }, 
-                        color: "#fff", 
-                        margin: "40px", 
-                        padding: "20px", 
-                        width: "50%", 
+                        },
+                        color: "#fff",
+                        marginTop: "40px",
+                        marginLeft:"30%",
+                        padding: "20px",
+                        width: "50%",
                         borderRadius: "22px"
                     }}>
                         <Typography variant="h6" color="#fff">Placement Resources</Typography>
 
                     </Button>
-                {/* </Link> */}
-
-                <Button href='https://chat.whatsapp.com/ExSdgtdV06y04cJzawmdft' 
-                sx={{
-                    backgroundColor: "#E26639", 
-                    "&:hover": {
-                        backgroundColor: "#41D450",
-                        opacity: 10,
-                    }, color: "#fff", margin: "0px", padding: "20px", width: "50%", borderRadius: "22px"
-                }}>
-                    <Typography variant="h6" color="#fff">1:1 Mentorship</Typography>
-                </Button>
-
+                </Grid>
+                <Grid md={6} sm={10} xs={12}>
+                    <Button href='https://chat.whatsapp.com/ExSdgtdV06y04cJzawmdft'
+                        sx={{
+                            backgroundColor: "#E26639",
+                            "&:hover": {
+                                backgroundColor: "#41D450",
+                                opacity: 10,
+                            }, color: "#fff", 
+                            marginTop: "40px", 
+                            marginLeft:"10%",
+                            padding: "20px", 
+                            width: "50%", 
+                            borderRadius: "22px"
+                        }}>
+                        <Typography variant="h6" color="#fff">1:1 Mentorship</Typography>
+                    </Button>
+                </Grid>
 
                 <Grid xl={12} xs={12} md={12}>
                     <Typography sx={{
                         fontFamily: "monospace",
                         fontSize: "30px",
                         textAlign: "center",
-                        marginTop: "1%",
+                        marginTop: "5%",
                     }}>
                         Semesters
                     </Typography></Grid>

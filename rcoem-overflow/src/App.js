@@ -127,8 +127,6 @@ const App = () => {
 
         <Route path="/tags/:tag" element={<TagsPage />} />
 
-        <Route path="/tags/:tags" element={<TagsPage />} />
-
       </Routes>
     </div>
   );
