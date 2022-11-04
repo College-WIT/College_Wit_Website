@@ -10,30 +10,7 @@ import Lottie from "react-lottie";
 import axios from "axios";
 
 export default function Boxes() {
-  // const nulldata={};
-  // localStorage.setItem("SearchData", nulldata);
-  // var getSearchData = async () => {
-  //   console.log("ASYNC FUNCTION");
-  //   await axios
-  //     .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       var sss = localStorage.getItem("SearchData");
-  //       if (sss != null) {
-  //         localStorage.removeItem("SearchData");
-  //       }
-  //       const strJSON = JSON.stringify(response);
-  //       localStorage.setItem("SearchData", strJSON);
-  //       //var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       this.setState({
-  //         errorMsg: "Error retrieving data",
-  //       });
-  //     });
-  // };
-  //    getSearchData();
+
 
   const defaultOptions = {
     loop: true,
@@ -62,7 +39,7 @@ export default function Boxes() {
           height: "100%",
           px: "2%",
           py: "4%",
-          backgroundColor: "#11151C",
+          backgroundColor: "#001d3d",
           borderRadius: "10px",
         }}
       >
@@ -86,7 +63,7 @@ export default function Boxes() {
           sx={{
             width: "70%",
             height: "100%",
-            backgroundColor: "#457b9d",
+            backgroundColor: "#118ab2",
             webkitBackdropFilter: "blur(4px)",
             oBackdropFilter: "blur(4px)",
             mozBackdropFilter: "blur(4px)",

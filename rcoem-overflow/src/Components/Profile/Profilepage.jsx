@@ -65,7 +65,7 @@ const UserInfo = () => {
   //   "branch": "CSE A",
   //   "gender": "MALE",
   //   "other_url": "https://github.com/Bhushan21z",
-  //   "skills": [
+  //   "skills": [ "C++, C, JAVA, JS, ]
   //       "C++",
   //       "Java",
   //       "Python",
@@ -326,9 +326,14 @@ const UserInfo = () => {
                     return (
                       <Grid container>
                         <Grid item sx={{ ml: 1, my: 1 }}>
+                        { Object.values(data)!=0 ? (
                           <Typography sx={{ fontSize: "20px", color: "black" }}>
                             {Object.keys(data)} : {Object.values(data)}
                           </Typography>
+                        ): (
+                          <></>
+                          )}
+                          
                         </Grid>
                       </Grid>
                     );
