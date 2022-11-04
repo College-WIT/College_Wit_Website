@@ -114,13 +114,13 @@ const ResponsiveAppBar = () => {
               College{" "}
               <span
                 style={{
-                  color: "#457b9d",
+                  color: "#F4442E",
                   fontSize: 30,
                   fontWeight: "bold",
                   fontFamily: "'urw-din',sans-serif",
                 }}
               >
-                WIT
+                Wit
               </span>
             </Typography>
           </Link>

@@ -55,6 +55,7 @@ import BC from "./Components/notes-pyqs/Sems/Semester 3/BC";
 import CLE from "./Components/notes-pyqs/Sems/Semester 3/CLE";
 import Placement from "./Components/notes-pyqs/Sems/Placement/Placement";
 import ComingSoon from "./Components/notes-pyqs/Sems/comingSoon";
+import Error from "./Pages/Error"
 
 const App = () => {
   return (
@@ -132,10 +133,8 @@ const App = () => {
 
         <Route path="/tags/:tag" element={<TagsPage />} />
 
-        <Route path="/tags/:tags" element={<TagsPage />} />
-
         <Route path="/Profile/:username" element={<Profile />} />
-
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

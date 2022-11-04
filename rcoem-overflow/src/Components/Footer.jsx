@@ -69,7 +69,7 @@ export default function Footer() {
                 fontFamily: "'urw-din',sans-serif",
               }}
             >
-              WIT
+              Wit
             </span>
           </Typography>
           <Typography
