@@ -13,6 +13,7 @@ import axios from 'axios'
 
 export default function Answers() {
   let location = useLocation();
+  //console.log(location);
   const tag=location.state.tag;
   return (
     <div className="Answers">

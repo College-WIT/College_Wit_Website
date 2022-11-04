@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Divider, Grid, Typography } from "@mui/material";
 import MediaCard from "./card";
 import SearchIcon from "@mui/icons-material/Search";
@@ -15,7 +17,9 @@ import InputBase from "@mui/material/InputBase";
 import { Button } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-const contributor = () => {
+import axios from "axios";
+
+const Contributor = () => {
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "inherit",
     "& .MuiInputBase-input": {
@@ -105,6 +109,38 @@ const contributor = () => {
     createData(4, "Abcd", 100, "Anjali2201", "Anjali2201"),
     createData(5, "Abcd", 100, "Anjali2201", "Anjali2201"),
   ];
+
+
+  var returndata=[
+    {
+        "name": "Bhushan Wanjari",
+        "user_name": "bhushan21z",
+        "points": 43,
+        "linkedin_url": "https://github.com/Bhushan21z",
+        "github_url": "https://github.com/Bhushan21z"
+    }
+  ]
+
+
+  const [UserData, setUserData] = useState([]);
+
+  var getContributorData = async () => {
+    console.log("Contributor DATA CALL");
+    await axios
+      .get("https://rcoem-overflow-backend.herokuapp.com/all_contributors")
+      .then((response) => {
+        console.log(response);
+        setUserData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        //errorMsg: "Error retrieving data"
+      });
+  };
+  useEffect(() => {
+    getContributorData();
+  }, []);
+  console.log(UserData);
 
   return (
     <div>
@@ -235,28 +271,28 @@ const contributor = () => {
               <TableRow>
                 <StyledTableCell align="center">Rank</StyledTableCell>
                 <StyledTableCell align="center">Name</StyledTableCell>
-                <StyledTableCell align="center">Score</StyledTableCell>
-                <StyledTableCell align="center">Github</StyledTableCell>
+                <StyledTableCell align="center">Points</StyledTableCell>
+                {/* <StyledTableCell align="center">Github</StyledTableCell> */}
                 <StyledTableCell align="center">LinkedIn</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.Rank}>
-                  <StyledTableCell align="center"> {row.Rank}</StyledTableCell>
-                  <StyledTableCell align="center">{row.Name}</StyledTableCell>
-                  <StyledTableCell align="center">{row.Score}</StyledTableCell>
+              {UserData.map((row) => (
+                <StyledTableRow key={row.name}>
+                  <StyledTableCell align="center"> 1</StyledTableCell>
+                  <StyledTableCell align="center">{row.name}</StyledTableCell>
+                  <StyledTableCell align="center">{row.points}</StyledTableCell>
 
-                  <StyledTableCell align="center">
+                  {/* <StyledTableCell align="center">
                     <Button size="small" sx={btn1}>
                       <GitHubIcon sx={{ marginRight: 1 }} />
-                      {row.Github}
+                      {row.github_url}
                     </Button>
-                  </StyledTableCell>
+                  </StyledTableCell> */}
                   <StyledTableCell align="center">
                     <Button size="small" sx={btn2}>
                       <LinkedInIcon sx={{ marginRight: 1 }} />
-                      {row.LinkedIn}
+                      {row.linkedin_url}
                     </Button>
                   </StyledTableCell>
                 </StyledTableRow>
@@ -271,4 +307,4 @@ const contributor = () => {
   );
 };
 
-export default contributor;
+export default Contributor;

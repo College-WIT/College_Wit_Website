@@ -35,8 +35,11 @@ const header = {
 
 const UserInfo = () => {
   let location = useLocation();
-  const username = { username: location.state.username };
-  console.log(username);
+  //const username = { username: location.state.username };
+  //console.log(username);
+  var str=window.location.pathname;
+  const usernames=str.substring(9);
+  const username = { username: usernames };
 
   const [UserData, setUserData] = useState([]);
 
