@@ -60,7 +60,7 @@ export default function Footer() {
               fontFamily: "'urw-din',sans-serif",
             }}
           >
-            RCOEM{" "}
+            College
             <span
               style={{
                 color: "#F4442E",
@@ -69,7 +69,7 @@ export default function Footer() {
                 fontFamily: "'urw-din',sans-serif",
               }}
             >
-              Overflow
+              WIT
             </span>
           </Typography>
           <Typography
@@ -79,8 +79,8 @@ export default function Footer() {
               display: { xs: "none", sm: "none", md: "none", lg: "block" },
             }}
           >
-            RCOEM Overflow is a platform for students to ask questions and
-            connect with other students to find answers.
+            CollegeWIT is a platform for students to ask questions and connect
+            with other students to find answers.
           </Typography>
 
           <Typography sx={{ fontSize: 20, color: "#ffffff" }}>

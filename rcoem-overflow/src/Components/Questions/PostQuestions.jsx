@@ -121,7 +121,8 @@ const PostQuestions = () => {
           console.log(response.data);
         })
         .catch((error) => {
-          modalText = "Error Adding Question";
+          //console.log(error.response.data);
+          modalText = error.response.data;
           setLastpage("/Post-a-question");
           setMessage("Try Again");
           console.log(error);

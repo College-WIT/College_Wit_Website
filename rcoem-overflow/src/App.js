@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router";
 import Questions from "./Pages/Questions/Question";
@@ -48,14 +48,13 @@ import WIBD from "./Components/notes-pyqs/Sems/Semester 8/WIBD";
 
 import axios from "axios";
 import TagsPage from "./Pages/TagsPage/TagsPage";
-import FDLCA from './Components/notes-pyqs/Sems/Semester 3/FDLCA';
-import DSA from './Components/notes-pyqs/Sems/Semester 3/DSA';
-import M3 from './Components/notes-pyqs/Sems/Semester 3/M3';
-import BC from './Components/notes-pyqs/Sems/Semester 3/BC';
-import CLE from './Components/notes-pyqs/Sems/Semester 3/CLE';
-import Placement from './Components/notes-pyqs/Sems/Placement/Placement';
-import ComingSoon from './Components/notes-pyqs/Sems/comingSoon';
-
+import FDLCA from "./Components/notes-pyqs/Sems/Semester 3/FDLCA";
+import DSA from "./Components/notes-pyqs/Sems/Semester 3/DSA";
+import M3 from "./Components/notes-pyqs/Sems/Semester 3/M3";
+import BC from "./Components/notes-pyqs/Sems/Semester 3/BC";
+import CLE from "./Components/notes-pyqs/Sems/Semester 3/CLE";
+import Placement from "./Components/notes-pyqs/Sems/Placement/Placement";
+import ComingSoon from "./Components/notes-pyqs/Sems/comingSoon";
 
 const App = () => {
   return (
@@ -64,8 +63,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="Home" element={<Home />} />
         <Route path="Questions" element={<Questions />} />
-        <Route path="Top%20Contributors" element={<Contributor />} />
-        <Route path="Notes-PYQs" element={<Protected Component={Notes} />} />
+        <Route path="Contributors" element={<Contributor />} />
+        <Route path="Resources" element={<Protected Component={Notes} />} />
         <Route path="login" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
         <Route
@@ -90,7 +89,10 @@ const App = () => {
         <Route path="/Semester_8" element={<ComingSoon />} />
         <Route path="/Chemistry" element={<Chemistry />} />
         {/* THIRD SEMESTER */}
-        <Route path="/Fundamentals_of_Digital_Logic_and_Computer_Arch" element={<FDLCA />} />
+        <Route
+          path="/Fundamentals_of_Digital_Logic_and_Computer_Arch"
+          element={<FDLCA />}
+        />
         <Route path="/Data_Structures_&_Algorithms" element={<DSA />} />
         <Route path="/Linear_Algebra_and_Statistics" element={<M3 />} />
         <Route path="/Business_Communication" element={<BC />} />
@@ -99,7 +101,10 @@ const App = () => {
         {/* FOURTH SEMESTER */}
         <Route path="/Operating_Systems" element={<OperatingSystem />} />
         <Route path="/Object_Oriented_Programming" element={<OOPS />} />
-        <Route path="/System_Programming_and_Device_Drivers" element={<SPDD />} />
+        <Route
+          path="/System_Programming_and_Device_Drivers"
+          element={<SPDD />}
+        />
         <Route path="/Formal_Languages_&_Automata_Th" element={<FLAT />} />
         <Route path="/Discrete_Maths_and_Graph_Theory" element={<DMGT />} />
         {/* FIFTH SEMESTER */}
@@ -126,6 +131,10 @@ const App = () => {
         <Route path="/otp" element={<Otp />} />
 
         <Route path="/tags/:tag" element={<TagsPage />} />
+
+        <Route path="/tags/:tags" element={<TagsPage />} />
+
+        <Route path="/Profile/:username" element={<Profile />} />
 
       </Routes>
     </div>

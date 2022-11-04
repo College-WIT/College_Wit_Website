@@ -130,7 +130,11 @@ export default function TagsFunc(props) {
                                     </Typography>
                                 </Grid>
                             </Grid>
+                            { QuestionsData.length==0 ? (
+                                <h1>No Questions Yet</h1>
+                                ):(
                             <Grid container>
+                           
                                     {QuestionsData.map((content) => (
                                         <Box
                                             sx={{
@@ -289,8 +293,8 @@ export default function TagsFunc(props) {
                                             </Stack>
                                         </Box>
                                     ))}
-                                </Grid>
-                            
+                            </Grid>
+                            )}
                         </Item>
                     </Grid>
                 </Grid> 
