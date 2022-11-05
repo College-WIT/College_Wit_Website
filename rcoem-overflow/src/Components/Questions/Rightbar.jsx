@@ -78,8 +78,8 @@ const Rightbar = () => {
                   fontFamily: "'urw-din',sans-serif",
                   color: "white",
                   "&:hover": {
-                    backgroundColor: "#38E54D",
-                    color: "#04274d",
+                    backgroundColor: "#04274d",
+                    color: "#fff",
                     opacity: 10,
                   },
 

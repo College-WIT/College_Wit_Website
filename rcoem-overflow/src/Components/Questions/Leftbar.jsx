@@ -68,8 +68,8 @@ const Leftbar = () => {
                   height: 35,
                   borderRadius: 1,
                   "&:hover": {
-                    backgroundColor: "#38E54D",
-                    color: "#118ab2",
+                    backgroundColor: "#04274d",
+                    color: "#fff",
                     opacity: 10,
                   },
                   "@media (max-width:1000px)": {
