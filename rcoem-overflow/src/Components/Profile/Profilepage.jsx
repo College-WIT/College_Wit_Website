@@ -10,6 +10,8 @@ import axios from "axios";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import getCookie from "../../hooks/getCookie";
+import removeCookie from "../../hooks/removeCookie";
 
 const Item = {
   color: "black",
@@ -36,8 +38,17 @@ const UserInfo = () => {
   let location = useLocation();
   //const username = { username: location.state.username };
   //console.log(username);
+
+  let loggedin = getCookie("login");
+
+  var username_real="fake6969";
+  if (loggedin) {
+    username_real = JSON.parse(getCookie("login")).username;
+  }
+
   var str = window.location.pathname;
   const usernames = str.substring(9);
+  console.log(usernames)
   const username = { username: usernames };
 
   const [UserData, setUserData] = useState([]);
@@ -57,7 +68,7 @@ const UserInfo = () => {
   };
   useEffect(() => {
     getUserData();
-  }, []);
+  }, [username]);
   console.log(UserData);
 
   // var user_data={
@@ -100,7 +111,7 @@ const UserInfo = () => {
 
   const contact = [
     { Email: UserData.email },
-    { Phone: "123456789" },
+    { Phone: "" },
     { LinkedIn: UserData.linkedin_url },
     { GitHub: UserData.github_url },
   ];
@@ -216,7 +227,8 @@ const UserInfo = () => {
             </CardActions>
 
             <Divider />
-            <Grid item justifyContent="center">
+            {username_real==usernames ?(
+              <Grid item justifyContent="center">
               <Link to="/EditProfile" style={{ textDecoration: "none" }}>
                 <Button
                   sx={{
@@ -241,6 +253,10 @@ const UserInfo = () => {
                 </Button>
               </Link>
             </Grid>
+            ): (
+                <></>
+            )}
+            
           </Card>
         </Grid>
 
@@ -280,9 +296,13 @@ const UserInfo = () => {
                           lg={11}
                           sx={{ ml: 1, my: 1 }}
                         >
+                        {Object.values(data) != "" ? (
                           <Typography sx={{ fontSize: "20px", color: "black" }}>
                             {Object.keys(data)} : {Object.values(data)}
                           </Typography>
+                          ) : (
+                            <></>
+                          )}
                         </Grid>
                       </Grid>
                     );
@@ -307,9 +327,13 @@ const UserInfo = () => {
                           lg={11}
                           sx={{ ml: 1, my: 1 }}
                         >
+                        {Object.values(data) != "" ? (
                           <Typography sx={{ fontSize: "20px", color: "black" }}>
                             {Object.keys(data)} : {Object.values(data)}
                           </Typography>
+                          ) : (
+                            <></>
+                          )}
                         </Grid>
                       </Grid>
                     );
@@ -328,7 +352,7 @@ const UserInfo = () => {
                     return (
                       <Grid container>
                         <Grid item sx={{ ml: 1, my: 1 }}>
-                          {Object.values(data) != 0 ? (
+                          {Object.values(data) != "" ? (
                             <Typography
                               sx={{ fontSize: "20px", color: "black" }}
                             >
@@ -347,7 +371,7 @@ const UserInfo = () => {
 
             {/* ----------------------------------Projects and Achievements-------------------------------- */}
 
-            <Grid item xs={11} sm={10} md={10} lg={11} sx={{ m: 1 }}>
+            {/* <Grid item xs={11} sm={10} md={10} lg={11} sx={{ m: 1 }}>
               <Card sx={{ width: "auto" }}>
                 <Typography sx={header}>Projects and Achievements </Typography>
                 <CardContent>
@@ -372,7 +396,7 @@ const UserInfo = () => {
                   })}
                 </CardContent>
               </Card>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </Grid>

@@ -1,5 +1,6 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
+import { Link } from "react-router-dom";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Avatar, Button, CardActions, Divider } from "@mui/material";
@@ -7,7 +8,8 @@ import Grid from "@mui/material/Grid";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-export default function MediaCard() {
+export default function MediaCard(props) {
+  const UserData=props.data;
   return (
     <Card
       sx={{
@@ -66,6 +68,7 @@ export default function MediaCard() {
         }}
       >
         <Grid item xs={12} justifyContent="center">
+        
           <Typography
             sx={{
               textAlign: "center",
@@ -77,8 +80,20 @@ export default function MediaCard() {
               color: "black",
             }}
           >
-            Bhushan Wanjari
+          <Link 
+          style={{ textDecoration: "None", color: "white" }}
+          to={{
+            pathname: `/Profile/${UserData.user_name}`,
+          }}>
+          
+          <Button>
+            {UserData.name}
+          </Button>
+          </Link>
           </Typography>
+          
+          
+          
         </Grid>
         <Grid container justifyContent="center">
           <Typography
@@ -89,7 +104,7 @@ export default function MediaCard() {
               color: "#000000",
             }}
           >
-            Score : 100
+            Score : {UserData.points}
           </Typography>
         </Grid>
         <Divider
@@ -100,6 +115,7 @@ export default function MediaCard() {
         />
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
+      <a href={UserData.linkedin_url}>
         <Button
           size="small"
           sx={{
@@ -114,7 +130,8 @@ export default function MediaCard() {
         >
           <GitHubIcon />
         </Button>
-
+        </a>
+        <a href={UserData.linkedin_url}>
         <Button
           size="small"
           sx={{
@@ -129,6 +146,7 @@ export default function MediaCard() {
         >
           <LinkedInIcon />
         </Button>
+        </a>
       </CardActions>
     </Card>
   );
