@@ -13,7 +13,7 @@ import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
-import * as animationData from "../../Assets/que.json";
+import * as animationData from "../../Assets/ques.json";
 import Lottie from "react-lottie";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
@@ -29,7 +29,6 @@ const defaultOptions = {
 
 var cookie = getCookie("login");
 var red_link = "/Post-a-question";
-// var red_link2 = "/Post-an-answer";
 if (cookie == null) {
   red_link = "/login";
 
@@ -94,21 +93,21 @@ class unans extends Component {
                     paddingBottom: 1,
                   }}
                 >
-                  <Grid item xs={4} md={6}>
+                  <Grid item xs={4}>
                     <Lottie
                       options={defaultOptions}
                       height="100%"
-                      width="50%"
+                      width="70%"
                     />
                   </Grid>
-                  <Grid item xs={4} md={10}>
+                  <Grid item xs={8}>
                     <Typography
                       sx={{
                         fontFamily: "'urw-din',sans-serif",
-                        fontSize: 40,
-                        position: "relative",
-                        top: 55,
-                        left: "-100px",
+                        fontSize: "30px",
+                        fontWeight: "bold",
+                        color: "#000",
+                        paddingTop: 5,
                       }}
                     >
                       Unanswered Questions
@@ -175,8 +174,8 @@ class unans extends Component {
                         <Grid container xs={8} md={8} xl={8} sm={6} lg={7}>
                           <Item elevation={0}>
                             <Link
-                              to={`/Post-an-answer/${content.question}`} 
-                              state={{propQue:content.question}}
+                              to={`/Post-an-answer/${content.question}`}
+                              state={{ propQue: content.question }}
                             >
                               <Button
                                 sx={{

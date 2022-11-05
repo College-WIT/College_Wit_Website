@@ -11,8 +11,7 @@ import { Component } from "react";
 import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
-// import getCookie from "../../hooks/getCookie";
-import * as animationData from "../../Assets/que.json";
+import * as animationData from "../../Assets/ques.json";
 import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -36,20 +35,6 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-
-// var cookie = getCookie("login");
-
-//var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-// var tag = "how";
-// var FilteredData = [];
-// const searchWord = tag;
-// SearchData.filter((value) => {
-//   if (
-//     value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
-//   ) {
-//     console.log(value.question);
-//   }
-// });
 
 class QuestionsPages extends Component {
   constructor(props) {
@@ -209,11 +194,15 @@ class QuestionsPages extends Component {
                               >
                                 <Button
                                   sx={{
-                                    backgroundColor: "#001d3d",
+                                    color: "#001d3d",
                                     width: "auto",
                                     height: "auto",
-                                    padding: "10px",
+                                    px: 1,
+                                    py: 1.5,
+                                    fontWeight: "600",
                                     borderRadius: 1,
+                                    border: "1px solid #001d3d",
+                                    textTransform: "none",
 
                                     "&:hover": {
                                       backgroundColor: "#118ab2",
@@ -221,7 +210,7 @@ class QuestionsPages extends Component {
                                       opacity: 10,
                                     },
                                   }}
-                                  variant="contained"
+                                  variant="outlined"
                                   disableElevation
                                 >
                                   See Full Answer

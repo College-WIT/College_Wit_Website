@@ -91,7 +91,7 @@ export default function Footer() {
               <img src="https://img.icons8.com/color/48/000000/github--v1.png" />
             </Button>
             <Button sx={{ fontSize: 20, color: "#ffffff" }}>
-              <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" />
+              <img src="https://img.icons8.com/color/48/000000/gmail.png" />
             </Button>
           </Typography>
         </Grid>

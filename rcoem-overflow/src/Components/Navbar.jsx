@@ -41,11 +41,11 @@ const buttons = {
   height: 40,
   width: 100,
   margin: "5px",
-  backgroundColor: "#457b9d",
+  backgroundColor: "#118ab2",
   fontSize: 10,
   "&:hover": {
     border: "1px solid white",
-    backgroundColor: "#457b9d",
+    backgroundColor: "#118ab2",
   },
 };
 
@@ -59,8 +59,8 @@ const logout_buttons = {
   fontSize: 10,
   "&:hover": {
     backgroundColor: "transparent",
-    color: "#364156",
-    borderColor: "#364156",
+    color: "#118ab2",
+    borderColor: "#118ab2",
   },
 };
 const pages = ["Questions", "Contributors", "Resources"];
@@ -236,7 +236,7 @@ const ResponsiveAppBar = () => {
             College
             <span
               style={{
-                color: "#457b9d",
+                color: "#118ab2",
                 fontSize: 30,
                 fontWeight: "bold",
                 fontFamily: "'urw-din',sans-serif",
