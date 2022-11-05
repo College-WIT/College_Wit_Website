@@ -209,16 +209,15 @@ class QuestionsPages extends Component {
                               >
                                 <Button
                                   sx={{
-                                    backgroundColor: "#38E54D",
-                                    color: "#000",
+                                    backgroundColor: "#001d3d",
                                     width: "auto",
                                     height: "auto",
                                     padding: "10px",
                                     borderRadius: 1,
-                                    
+
                                     "&:hover": {
                                       backgroundColor: "#118ab2",
-                                      color:"white",
+                                      color: "white",
                                       opacity: 10,
                                     },
                                   }}
@@ -273,7 +272,7 @@ class QuestionsPages extends Component {
                                 }}
                               >
                                 <Typography variant="subtitle1" color="black">
-                                  <VisibilityIcon sx={{color:"#04274d"}} />
+                                  <VisibilityIcon sx={{ color: "#04274d" }} />
                                   {content.views}
                                 </Typography>
                               </Item>
@@ -286,13 +285,15 @@ class QuestionsPages extends Component {
                                 }}
                               >
                                 <Typography variant="subtitle1" color="black">
-                                  <ThumbUpIcon  sx={{color:"#04274d"}}/>
+                                  <ThumbUpIcon sx={{ color: "#04274d" }} />
                                   {content.upvotes}
                                 </Typography>
                               </Item>
                               <Item elevation={0}>
                                 <Typography variant="subtitle1" color="black">
-                                  <QuestionAnswerIcon sx={{color:"#04274d"}} />
+                                  <QuestionAnswerIcon
+                                    sx={{ color: "#04274d" }}
+                                  />
                                   {content.no_of_answers}
                                 </Typography>
                               </Item>

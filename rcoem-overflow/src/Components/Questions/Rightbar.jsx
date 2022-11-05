@@ -69,7 +69,7 @@ const Rightbar = () => {
             >
               <Button
                 sx={{
-                  backgroundColor: "#04274d",
+                  backgroundColor: "#118ab2",
                   width: 130,
                   height: 45,
                   padding: "10px",
@@ -79,7 +79,7 @@ const Rightbar = () => {
                   color: "white",
                   "&:hover": {
                     backgroundColor: "#38E54D",
-                    color:"#04274d",
+                    color: "#04274d",
                     opacity: 10,
                   },
 

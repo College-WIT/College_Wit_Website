@@ -63,13 +63,13 @@ const Leftbar = () => {
               <Button
                 sx={{
                   fontSize: 15,
-                  backgroundColor: "#04274d",
+                  backgroundColor: "#118ab2",
                   width: 130,
                   height: 35,
                   borderRadius: 1,
                   "&:hover": {
                     backgroundColor: "#38E54D",
-                    color: "#04274d",
+                    color: "#118ab2",
                     opacity: 10,
                   },
                   "@media (max-width:1000px)": {
@@ -91,7 +91,6 @@ const Leftbar = () => {
                 variant="contained"
                 disableElevation
               >
-
                 {content}
               </Button>
             </Link>
@@ -99,13 +98,10 @@ const Leftbar = () => {
         ))}
 
         <Grid sx={{ paddingTop: 2 }}>
-          <Link
-            style={{ textDecoration: "None" }}
-            to={red_link}
-          >
+          <Link style={{ textDecoration: "None" }} to={red_link}>
             <Button
               sx={{
-                backgroundColor: "#F4442E",
+                backgroundColor: "#001d3d",
                 color: "#fff",
                 width: 150,
                 height: 60,
@@ -120,7 +116,6 @@ const Leftbar = () => {
               variant="contained"
               disableElevation
             >
-
               Post a question
             </Button>
           </Link>

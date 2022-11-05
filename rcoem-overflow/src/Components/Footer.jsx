@@ -63,7 +63,7 @@ export default function Footer() {
             College
             <span
               style={{
-                color: "#F4442E",
+                color: "#118ab2",
                 fontSize: 40,
                 fontWeight: "bold",
                 fontFamily: "'urw-din',sans-serif",

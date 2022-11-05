@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Item = {
-  // backgroundColor: "white",
   color: "black",
   fontFamily: "'urw-din',sans-serif",
   minHeight: "500px",

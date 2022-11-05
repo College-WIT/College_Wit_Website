@@ -45,7 +45,7 @@ const ScrollButton = () => {
     >
       <FaArrowCircleUp
         style={{
-          color: "#F4442E",
+          color: "#118ab2",
         }}
       />
     </Button>
