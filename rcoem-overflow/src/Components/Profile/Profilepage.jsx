@@ -329,11 +329,20 @@ const UserInfo = () => {
                           sx={{ ml: 1, my: 1 }}
                         >
                           {Object.values(data) != "" ? (
+                            <>
                             <Typography
                               sx={{ fontSize: "20px", color: "black" }}
                             >
-                              {Object.keys(data)} : {Object.values(data)}
+                              {Object.keys(data)} : 
                             </Typography>
+                            <a href={Object.values(data)} >
+                            <Typography
+                              sx={{ fontSize: "20px", color: "blue" }}
+                            >
+                              {Object.values(data)} 
+                            </Typography>
+                            </a>  
+                            </>
                           ) : (
                             <></>
                           )}

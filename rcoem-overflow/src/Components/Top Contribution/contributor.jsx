@@ -1,8 +1,8 @@
 import * as React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Divider, Grid, Typography, Link } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import MediaCard from "./card";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
@@ -89,14 +89,15 @@ const Contributor = () => {
 
   var returndata = [
     {
-      name: "Bhushan Wanjari",
-      user_name: "bhushan21z",
-      points: 43,
-      linkedin_url: "https://github.com/Bhushan21z",
-      github_url: "https://github.com/Bhushan21z",
-      linkedin_username: "",
-      github_username: "Bhushan21z",
-    },
+      "name": "Bhushan Wanjari",
+      "rank": 1,
+      "user_name": "bhushan21z",
+      "points": 50,
+      "linkedin_url": "https://github.com/Bhushan21z",
+      "github_url": "https://github.com/Bhushan21z",
+      "linkedin_username": "",
+      "github_username": "Bhushan21z"
+    }
   ];
 
   const [UserData, setUserData] = useState([]);
@@ -110,10 +111,10 @@ const Contributor = () => {
       .get("https://rcoem-overflow-backend.herokuapp.com/all_contributors")
       .then((response) => {
         console.log(response);
-        setUserData(response.data);
-        setUserData1(response.data[0]);
-        setUserData2(response.data[1]);
-        setUserData3(response.data[2]);
+        setUserData(response.data.next);
+        setUserData1(response.data.top3[0]);
+        setUserData2(response.data.top3[1]);
+        setUserData3(response.data.top3[2]);
       })
       .catch((error) => {
         console.log(error);
@@ -287,18 +288,17 @@ const Contributor = () => {
                 <StyledTableRow key={row.name}>
                   <StyledTableCell align="center">
                     <Typography color="black" sx={header}>
-                      1
+                      {row.rank}
                     </Typography>
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
-                    <Link
-                      style={{ textDecoration: "None", color: "white" }}
-                      href={{
-                        pathname: `/Profile/${row.user_name}`,
-                      }}
-                      target="_blank"
-                    >
+                  <Link
+                    style={{ textDecoration: "None", color: "black" }}
+                    to={{
+                      pathname: `/Profile/${row.user_name}`,
+                    }}
+                  >
                       <Button
                         size="small"
                         sx={{
@@ -328,7 +328,7 @@ const Contributor = () => {
                           fontSize: 40,
                           color: "#0077b5",
                         }}
-                      />
+                      /> {row.linkedin_username}
                     </a>
                   </StyledTableCell>
 

@@ -44,7 +44,7 @@ export default function MediaCard(props) {
               py: "5px",
             }}
           >
-            Rank 1
+            Rank {UserData.rank}
           </Typography>
         </Grid>
 
