@@ -27,11 +27,10 @@ import removeCookie from "../../../hooks/removeCookie";
 
 const headerStyle = { marginBottom: "10px" };
 const paperStyle = {
-  padding: 20,
+  p: 20,
   width: "50%",
-  margin: "0 auto",
+  m: "0 auto",
   height: "auto",
-  // boxShadow: "1px 0px 0px 0px black",
 };
 
 const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
@@ -96,7 +95,6 @@ function getStyles(name, personName, theme) {
 const Contributorform = () => {
   const form = useRef();
   const navigate = useNavigate();
-  //// Modal Code
   const [open, setOpen] = useState(false);
   const [lastpage, setLastpage] = useState("/be-a-contributor");
   const [message, setMessage] = useState("Proceed");
