@@ -77,29 +77,6 @@ const Contributor = () => {
     fontFamily: "Josefin Sans, sans-serif",
   };
 
-  const table = {
-    fontSize: 20,
-    fontWeight: "200",
-    fontFamily: "Josefin Sans, sans-serif",
-  };
-
-  function createData(Rank, Name, Score, Github, LinkedIn) {
-    return { Rank, Name, Score, Github, LinkedIn };
-  }
-
-  var returndata = [
-    {
-      "name": "Bhushan Wanjari",
-      "rank": 1,
-      "user_name": "bhushan21z",
-      "points": 50,
-      "linkedin_url": "https://github.com/Bhushan21z",
-      "github_url": "https://github.com/Bhushan21z",
-      "linkedin_username": "",
-      "github_username": "Bhushan21z"
-    }
-  ];
-
   const [UserData, setUserData] = useState([]);
   const [UserData1, setUserData1] = useState([]);
   const [UserData2, setUserData2] = useState([]);
@@ -293,12 +270,12 @@ const Contributor = () => {
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
-                  <Link
-                    style={{ textDecoration: "None", color: "black" }}
-                    to={{
-                      pathname: `/Profile/${row.user_name}`,
-                    }}
-                  >
+                    <Link
+                      style={{ textDecoration: "None", color: "black" }}
+                      to={{
+                        pathname: `/Profile/${row.user_name}`,
+                      }}
+                    >
                       <Button
                         size="small"
                         sx={{
@@ -328,7 +305,8 @@ const Contributor = () => {
                           fontSize: 40,
                           color: "#0077b5",
                         }}
-                      /> {row.linkedin_username}
+                      />{" "}
+                      {row.linkedin_username}
                     </a>
                   </StyledTableCell>
 

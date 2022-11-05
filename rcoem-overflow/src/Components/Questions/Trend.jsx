@@ -17,7 +17,6 @@ import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 
@@ -70,7 +69,9 @@ class QuestionsPages extends Component {
 
   componentDidMount() {
     axios
-      .get("https://rcoem-overflow-backend.herokuapp.com/view_trending_questions")
+      .get(
+        "https://rcoem-overflow-backend.herokuapp.com/view_trending_questions"
+      )
       .then((response) => {
         console.log(response);
         this.setState({
@@ -165,7 +166,6 @@ class QuestionsPages extends Component {
                             sx={{
                               fontSize: 16,
                               fontFamily: "Josefin Sans, sans-serif",
-                              fontFamily: "roboto",
                             }}
                           >
                             {content.author}
@@ -174,7 +174,12 @@ class QuestionsPages extends Component {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", paddingLeft: 3,fontFamily: "Josefin Sans, sans-serif", }}
+                        sx={{
+                          color: "black",
+                          textAlign: "left",
+                          paddingLeft: 3,
+                          fontFamily: "Josefin Sans, sans-serif",
+                        }}
                       >
                         {content.question}
                       </Typography>
@@ -196,16 +201,16 @@ class QuestionsPages extends Component {
                               <Button
                                 sx={{
                                   /* backgroundColor: "#38E54D", */
-                                  color:"#000",
+                                  color: "#000",
                                   width: "auto",
                                   height: "auto",
                                   padding: "10px",
                                   borderRadius: 1,
-                                  borderColor:"#118ab2",
+                                  borderColor: "#118ab2",
                                   fontFamily: "Josefin Sans, sans-serif",
                                   "&:hover": {
                                     backgroundColor: "#118ab2",
-                                    color:"#fff",
+                                    color: "#fff",
                                     opacity: 10,
                                   },
                                 }}
@@ -263,7 +268,11 @@ class QuestionsPages extends Component {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
+                              <Typography
+                                variant="subtitle1"
+                                color="black"
+                                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
+                              >
                                 <VisibilityIcon />
                                 {content.views}
                               </Typography>
@@ -276,13 +285,21 @@ class QuestionsPages extends Component {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
+                              <Typography
+                                variant="subtitle1"
+                                color="black"
+                                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
+                              >
                                 <ThumbUpIcon />
                                 {content.upvotes}
                               </Typography>
                             </Item>
                             <Item elevation={0}>
-                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
+                              <Typography
+                                variant="subtitle1"
+                                color="black"
+                                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
+                              >
                                 <QuestionAnswerIcon />
                                 {content.no_of_answers}
                               </Typography>

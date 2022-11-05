@@ -5,7 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Avatar, Button, CardActions, Divider } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 export default function MediaCard(props) {
@@ -76,7 +75,6 @@ export default function MediaCard(props) {
               color: "#000000",
               fontWeight: "bold",
               marginTop: "50px",
-              color: "black",
             }}
           >
             <Link

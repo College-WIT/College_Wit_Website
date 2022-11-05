@@ -12,7 +12,6 @@ import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import * as animationData from "../../Assets/ques.json";
 import Lottie from "react-lottie";
 import Leftbar from "./Leftbar";

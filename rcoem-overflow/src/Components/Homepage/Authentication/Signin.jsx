@@ -117,9 +117,12 @@ class Signin extends Component {
       })
       .catch((error) => {
         modalText = error.response.data;
-        this.state.lastpage = "/login";
-        this.state.message = "TRY AGAIN";
-        this.setState({ openModal: true });
+
+        this.setState({
+          openModal: true,
+          lastpage: "/login",
+          message: "TRY AGAIN",
+        });
       });
     e.preventDefault();
   };

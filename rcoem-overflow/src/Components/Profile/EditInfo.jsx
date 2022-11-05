@@ -5,14 +5,12 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-
 import { Link } from "react-router-dom";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 const Item = {
   backgroundColor: "#f5f5f5",
@@ -32,7 +30,6 @@ const EditInfo = () => {
   const handleChange = (event) => {
     setGender(event.target.value);
   };
-  let location = useLocation();
   //const username = { username: location.state.username };
   //console.log(username);
   var str = window.location.pathname;
@@ -54,9 +51,13 @@ const EditInfo = () => {
         //errorMsg: "Error retrieving data"
       });
   };
-  useEffect(() => {
-    getUserData();
-  }, []);
+  useEffect(
+    () => {
+      getUserData();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
   console.log(UserData);
 
   return (
@@ -128,13 +129,22 @@ const EditInfo = () => {
               <Grid container justifyContent="center">
                 <Typography>
                   <Button sx={{ fontSize: 20 }}>
-                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+                    <img
+                      alt="Linkedin"
+                      src="https://img.icons8.com/color/48/000000/linkedin.png"
+                    />
                   </Button>
                   <Button sx={{ fontSize: 20 }}>
-                    <img src="https://img.icons8.com/color/48/000000/github--v1.png" />
+                    <img
+                      alt="github"
+                      src="https://img.icons8.com/color/48/000000/github--v1.png"
+                    />
                   </Button>
                   <Button sx={{ fontSize: 20 }}>
-                    <img src="https://img.icons8.com/color/48/000000/gmail.png" />
+                    <img
+                      alt="gmail"
+                      src="https://img.icons8.com/color/48/000000/gmail.png"
+                    />
                   </Button>
                 </Typography>
               </Grid>

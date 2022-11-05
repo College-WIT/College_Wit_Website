@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
 import { Grid, Paper, TextField, Button } from "@mui/material";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import emailjs from "@emailjs/browser";
 
 const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
-const text = { padding: 2, margin: "5px 0" };
 const paperStyle = {
   padding: 20,
   width: "35%",
@@ -15,7 +13,6 @@ const paperStyle = {
 };
 
 const Forgotpassword = () => {
-
   const form = useRef();
   const navigate = useNavigate();
   const SendEmail = (e) => {
@@ -50,7 +47,6 @@ const Forgotpassword = () => {
       );
   };
 
-
   return (
     <Grid
       container
@@ -76,14 +72,14 @@ const Forgotpassword = () => {
           {/* Hidden Field */}
           <input name="otp" type="hidden" />
 
-            <Button
-              style={buttons}
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Send OTP
-            </Button>
+          <Button
+            style={buttons}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Send OTP
+          </Button>
         </form>
       </Paper>
     </Grid>

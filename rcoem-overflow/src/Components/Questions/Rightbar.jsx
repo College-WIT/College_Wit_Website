@@ -39,16 +39,13 @@ const queTags = [
 ];
 
 const Rightbar = () => {
-  const refreshPage = () => {
-    window.location.reload();
-  };
+ 
   return (
     <div>
       <Item>
         <Typography
           color="black"
           sx={{
-            fontFamily: "'urw-din',sans-serif",
             fontSize: 20,
             fontFamily: "Josefin Sans, sans-serif",
           }}

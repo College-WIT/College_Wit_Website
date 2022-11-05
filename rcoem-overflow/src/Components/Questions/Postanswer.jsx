@@ -44,7 +44,6 @@ var rp = localStorage.getItem("RecentPage");
 console.log(rp);
 
 var modalText;
-//const paperStyle = { padding: 40, height: '60vh', width: 400, margin: "10px" }
 
 const style = {
   position: "absolute",
@@ -136,9 +135,12 @@ class postans extends Component {
       .catch((error) => {
         flag = false;
         modalText = "Error Adding Answer";
-        this.state.message = "TRY AGAIN";
-        this.state.lastpage = "/Post-an-answer";
-        this.setState({ openModal: true });
+
+        this.setState({
+          openModal: true,
+          message: "TRY AGAIN",
+          lastpage: "/Post-an-answer",
+        });
         console.log(error.response);
       });
   };

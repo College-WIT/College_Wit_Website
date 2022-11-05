@@ -14,7 +14,6 @@ const Walkaround = () => {
           sx={{
             fontSize: 40,
             color: "black",
-            fontFamily: "'urw-din',sans-serif",
             fontWeight: "bold",
             textAlign: "center",
             fontFamily: "Josefin Sans, sans-serif",
@@ -67,39 +66,5 @@ const Walkaround = () => {
     </div>
   );
 };
-
-//         </Carousel>
-//       </Grid>
-//     </div>
-//   );
-// };
-
-{
-  /* <Carousel
-        sx={{
-          boxShadow: "5px 10px 10px 5px grey",
-        }}
-      >
-        <Carousel.Item interval={1000}>
-          <div>
-            <img className="slider" src={pic1} alt="First slide" />
-          </div>
-        </Carousel.Item>
-        <Carousel.Item interval={1000}>
-          <div>
-            <img className="slider" src={pic2} alt="First slide" />
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div>
-            <img className="slider" src={pic3} alt="First slide" />
-          </div>
-        </Carousel.Item>
-      </Carousel> */
-}
-//       </Grid>
-//     </div>
-//   );
-// };
 
 export default Walkaround;

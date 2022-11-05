@@ -1,16 +1,9 @@
 import React from "react";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import Item from "@mui/material/ListItem";
-import { BiLinkExternal } from "react-icons/bi";
-import { IoIosPeople } from "react-icons/io";
-import { BiMale, BiFemale } from "react-icons/bi";
-import logo from "../Assets/NavLogo.png";
 import "../index.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { Button, Divider, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 const btn = {
   backgroundColor: "#0077b5",
@@ -76,7 +69,7 @@ export default function Footer() {
             sx={{
               fontSize: 18,
               color: "#ffffff",
-              fontWeight:"300",
+              fontWeight: "300",
               display: { xs: "none", sm: "none", md: "none", lg: "block" },
               fontFamily: "Josefin Sans, sans-serif",
             }}
@@ -85,15 +78,24 @@ export default function Footer() {
             with other students to find answers.
           </Typography>
 
-          <Typography sx={{ fontSize: 20, color: "#ffffff"}}>
-            <Button sx={{ fontSize: 20, color: "#ffffff", }}>
-              <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+          <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+              <img
+                alt="logo"
+                src="https://img.icons8.com/color/48/000000/linkedin.png"
+              />
             </Button>
-            <Button sx={{ fontSize: 20, color: "#ffffff", }}>
-              <img src="https://img.icons8.com/color/48/000000/github--v1.png" />
+            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+              <img
+                alt="logo"
+                src="https://img.icons8.com/color/48/000000/github--v1.png"
+              />
             </Button>
-            <Button sx={{ fontSize: 20, color: "#ffffff" ,}}>
-              <img src="https://img.icons8.com/color/48/000000/gmail.png" />
+            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+              <img
+                alt="logo"
+                src="https://img.icons8.com/color/48/000000/gmail.png"
+              />
             </Button>
           </Typography>
         </Grid>
@@ -108,8 +110,6 @@ export default function Footer() {
           >
             Designed and Developed by{" "}
           </Typography>
-
-          
 
           <Link
             href=" https://www.linkedin.com/in/anjallliii/"

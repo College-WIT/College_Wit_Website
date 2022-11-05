@@ -1,11 +1,9 @@
 import { Divider } from "@mui/material";
 import React, { useState } from "react";
-import { useEffect } from "react";
 import "./Searchbar.css";
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import axios from "axios";
 import data from "../Assets/SearchData.json";
 
 function SearchBar({ placeholder }) {

@@ -1,5 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -7,11 +6,8 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import "../../index.css";
 import * as animationData from "../../Assets/searchLottie.json";
 import Lottie from "react-lottie";
-import axios from "axios";
 
 export default function Boxes() {
-
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -48,7 +44,7 @@ export default function Boxes() {
           sx={{
             width: "80%",
             color: "white",
-            fontWeight:"900",
+            fontWeight: "900",
             textAlign: "center",
             fontFamily: "Josefin Sans, sans-serif",
             m: 3,

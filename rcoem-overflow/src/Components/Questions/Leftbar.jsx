@@ -23,13 +23,6 @@ if (cookie == null) {
   console.log(red_link);
 }
 
-var cookie = getCookie("login");
-var red_link = "/Post-a-question";
-if (cookie == null) {
-  red_link = "/login";
-  console.log(red_link);
-}
-
 const Leftbar = () => {
   return (
     <div>

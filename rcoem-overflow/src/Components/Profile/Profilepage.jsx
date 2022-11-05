@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Grid, Button, Divider, Paper, CardHeader } from "@mui/material";
+import { Grid, Button, Divider } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,9 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import getCookie from "../../hooks/getCookie";
-import removeCookie from "../../hooks/removeCookie";
 
 const Item = {
   color: "black",
@@ -35,10 +33,6 @@ const header = {
 };
 
 const UserInfo = () => {
-  let location = useLocation();
-  //const username = { username: location.state.username };
-  //console.log(username);
-
   let loggedin = getCookie("login");
 
   var username_real = "fake6969";
@@ -66,42 +60,17 @@ const UserInfo = () => {
         //errorMsg: "Error retrieving data"
       });
   };
-  useEffect(() => {
-    getUserData();
-  }, [username]);
+  useEffect(
+    () => {
+      getUserData();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [username]
+  );
   console.log(UserData);
-
-  // var user_data={
-  //   "leetcode_url": "",
-  //   "password": "check",
-  //   "linkedin_url": "https://github.com/Bhushan21z",
-  //   "branch": "CSE A",
-  //   "gender": "MALE",
-  //   "other_url": "https://github.com/Bhushan21z",
-  //   "skills": [ "C++, C, JAVA, JS, ]
-  //       "C++",
-  //       "Java",
-  //       "Python",
-  //       "JavaScript",
-  //       "C"
-  //   ],
-  //   "company": "fffg",
-  //   "github_url": "https://github.com/Bhushan21z",
-  //   "codechef_url": "https://github.com/Bhushan21z",
-  //   "college": "RCOEM",
-  //   "email": "bhushanwanjari21z@gmail.com",
-  //   "codeforces_url": "https://github.com/Bhushan21z",
-  //   "name": "Bhushan Wanjari",
-  //   "semester": "5th",
-  //   "position": "fff",
-  //   "points": 43,
-  //   "contributor": true,
-  //   "user_name": "bhushan21z"
-  // }
 
   const personal = [
     { Name: UserData.name },
-    // { Gender: "male" },
     { College: UserData.college },
     { Semester: UserData.semester },
     { Branch: UserData.branch },
@@ -116,7 +85,7 @@ const UserInfo = () => {
     { GitHub: UserData.github_url },
   ];
 
-  const Projects = [{ Project: "Project1" }, { Project2: "Project2" }];
+  // const Projects = [{ Project: "Project1" }, { Project2: "Project2" }];
 
   //  ANJALI USE THIS
 
@@ -142,8 +111,6 @@ const UserInfo = () => {
     { Leetcode: UserData.leetcode_url },
     { Personal: UserData.other_url },
   ];
-
-  //const skills = ["Python", "Java", "C++", "C#", "JavaScript", "React", "Node"];
 
   return (
     <div>
@@ -214,20 +181,29 @@ const UserInfo = () => {
               <Grid container justifyContent="center">
                 <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
                   <Button sx={{ fontSize: 20, color: "#ffffff" }}>
-                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+                    <img
+                      alt="LinkedIn"
+                      src="https://img.icons8.com/color/48/000000/linkedin.png"
+                    />
                   </Button>
                   <Button sx={{ fontSize: 20, color: "#ffffff" }}>
-                    <img src="https://img.icons8.com/color/48/000000/github--v1.png" />
+                    <img
+                      alt="github"
+                      src="https://img.icons8.com/color/48/000000/github--v1.png"
+                    />
                   </Button>
                   <Button sx={{ fontSize: 20, color: "#ffffff" }}>
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" />
+                    <img
+                      alt="mail"
+                      src="https://img.icons8.com/color/48/000000/gmail.png"
+                    />
                   </Button>
                 </Typography>
               </Grid>
             </CardActions>
 
             <Divider />
-            {username_real == usernames ? (
+            {username_real === usernames ? (
               <Grid item justifyContent="center">
                 <Link to="/EditProfile" style={{ textDecoration: "none" }}>
                   <Button
@@ -295,7 +271,7 @@ const UserInfo = () => {
                           lg={11}
                           sx={{ ml: 1, my: 1 }}
                         >
-                          {Object.values(data) != "" ? (
+                          {Object.values(data) !== "" ? (
                             <Typography
                               sx={{ fontSize: "20px", color: "black" }}
                             >
@@ -328,20 +304,20 @@ const UserInfo = () => {
                           lg={11}
                           sx={{ ml: 1, my: 1 }}
                         >
-                          {Object.values(data) != "" ? (
+                          {Object.values(data) !== "" ? (
                             <>
-                            <Typography
-                              sx={{ fontSize: "20px", color: "black" }}
-                            >
-                              {Object.keys(data)} : 
-                            </Typography>
-                            <a href={Object.values(data)} >
-                            <Typography
-                              sx={{ fontSize: "20px", color: "blue" }}
-                            >
-                              {Object.values(data)} 
-                            </Typography>
-                            </a>  
+                              <Typography
+                                sx={{ fontSize: "20px", color: "black" }}
+                              >
+                                {Object.keys(data)} :
+                              </Typography>
+                              <a href={Object.values(data)}>
+                                <Typography
+                                  sx={{ fontSize: "20px", color: "blue" }}
+                                >
+                                  {Object.values(data)}
+                                </Typography>
+                              </a>
                             </>
                           ) : (
                             <></>
@@ -364,7 +340,7 @@ const UserInfo = () => {
                     return (
                       <Grid container>
                         <Grid item sx={{ ml: 1, my: 1 }}>
-                          {Object.values(data) != "" ? (
+                          {Object.values(data) !== "" ? (
                             <Typography
                               sx={{ fontSize: "20px", color: "black" }}
                             >
