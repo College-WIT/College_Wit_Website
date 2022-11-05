@@ -119,8 +119,10 @@ const Contributorform = () => {
 
   const semesterarr=["1st","2nd","3rd","4th","5th","6th","7th","8th","Passout"];
   const brancharr=["CSE A","CSE B","CSE AIML","CSE DS","CSE Cyber","ECE","IT"];
+  const genderarr=["male","female","not-to-say"]
 
   const [semester, setSemester] = React.useState("");
+  const [gender, setGender] = React.useState("");
   const [branch, setBranch] = React.useState("");
   const theme = useTheme();
   const [skill, setSkill] = React.useState([]);
@@ -130,6 +132,9 @@ const Contributorform = () => {
   };
   const Branch = (event) => {
     setBranch(event.target.value);
+  };
+  const Gender = (event) => {
+    setGender(event.target.value);
   };
   const Skills = (event) => {
     const {
@@ -149,6 +154,7 @@ const Contributorform = () => {
 
       var form_data = {
           "email":JSON.parse(getCookie("login")).email,
+          "gender": genderarr[(form.current.gender.value)-1],
           "college": "RCOEM",
           "semester": semesterarr[(form.current.semester.value)-1],
           "branch" : brancharr[(form.current.branch.value)-1],
@@ -174,7 +180,7 @@ const Contributorform = () => {
           removeCookie("login");
           setCookie("login", JSON.stringify(cookieState));
           modalText="User Data Added Successfully";
-          setLastpage("/Top%20Contributors");
+          setLastpage("/Contributors");
           setMessage("Proceed");
           console.log(response);
         })
@@ -207,6 +213,25 @@ const Contributorform = () => {
           </Grid>
 
           <form ref={form} onSubmit={RegisterContributor}>
+          <FormControl sx={{ m: 1, minWidth: 300 }}>
+              <InputLabel id="demo-simple-select-helper-label">
+                Gender
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                name="gender"
+                value={gender}
+                label="gender"
+                onChange={Gender}
+              >
+                
+                <MenuItem value={1}>Male</MenuItem>
+                <MenuItem value={2}>Female</MenuItem>
+                <MenuItem value={3}>Not To Say</MenuItem>
+              </Select>
+            </FormControl>
+
             <TextField
               style={text}
               name="linkedin"
