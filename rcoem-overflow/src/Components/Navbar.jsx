@@ -27,7 +27,7 @@ if (loggedin) {
   username = JSON.parse(getCookie("login")).username;
   contributor = JSON.parse(getCookie("login")).contributor;
 }
-console.log(contributor);
+console.log(username);
 
 const logout = () => {
   let loggedin = getCookie("login");
@@ -366,7 +366,7 @@ const ResponsiveAppBar = () => {
                   to={{
                     pathname: `/Profile/${username}`,
                   }}
-                  state={{ username: username }}
+                   state={{ username: username }}
                 >
                   <Button
                     sx={{

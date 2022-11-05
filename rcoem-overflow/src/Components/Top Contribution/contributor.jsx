@@ -113,16 +113,21 @@ const Contributor = () => {
 
   var returndata=[
     {
-        "name": "Bhushan Wanjari",
-        "user_name": "bhushan21z",
-        "points": 43,
-        "linkedin_url": "https://github.com/Bhushan21z",
-        "github_url": "https://github.com/Bhushan21z"
+      "name": "Bhushan Wanjari",
+      "user_name": "bhushan21z",
+      "points": 43,
+      "linkedin_url": "https://github.com/Bhushan21z",
+      "github_url": "https://github.com/Bhushan21z",
+      "linkedin_username": "",
+      "github_username": "Bhushan21z"
     }
   ]
 
 
   const [UserData, setUserData] = useState([]);
+  const [UserData1, setUserData1] = useState([]);
+  const [UserData2, setUserData2] = useState([]);
+  const [UserData3, setUserData3] = useState([]);
 
   var getContributorData = async () => {
     console.log("Contributor DATA CALL");
@@ -131,6 +136,9 @@ const Contributor = () => {
       .then((response) => {
         console.log(response);
         setUserData(response.data);
+        setUserData1(response.data[0]);
+        setUserData2(response.data[1]);
+        setUserData3(response.data[2]);
       })
       .catch((error) => {
         console.log(error);
@@ -141,6 +149,7 @@ const Contributor = () => {
     getContributorData();
   }, []);
   console.log(UserData);
+  
 
   return (
     <div>
@@ -188,7 +197,7 @@ const Contributor = () => {
             },
           }}
         >
-          <MediaCard />
+          <MediaCard data={UserData1}/>
         </Grid>
         <Grid
           item
@@ -206,7 +215,7 @@ const Contributor = () => {
             },
           }}
         >
-          <MediaCard />
+          <MediaCard data={UserData2}/>
         </Grid>
         <Grid
           item
@@ -224,7 +233,7 @@ const Contributor = () => {
             },
           }}
         >
-          <MediaCard />
+          <MediaCard data={UserData3}/>
         </Grid>
         <Divider
           sx={{
@@ -270,30 +279,49 @@ const Contributor = () => {
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center">Rank</StyledTableCell>
-                <StyledTableCell align="center">Name</StyledTableCell>
+                <StyledTableCell align="center">User Profile</StyledTableCell>
                 <StyledTableCell align="center">Points</StyledTableCell>
-                {/* <StyledTableCell align="center">Github</StyledTableCell> */}
                 <StyledTableCell align="center">LinkedIn</StyledTableCell>
+                <StyledTableCell align="center">Github</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {UserData.map((row) => (
                 <StyledTableRow key={row.name}>
                   <StyledTableCell align="center"> 1</StyledTableCell>
-                  <StyledTableCell align="center">{row.name}</StyledTableCell>
-                  <StyledTableCell align="center">{row.points}</StyledTableCell>
 
-                  {/* <StyledTableCell align="center">
+                  <StyledTableCell align="center">
+                  <Link 
+                    style={{ textDecoration: "None", color: "white" }}
+                    to={{
+                    pathname: `/Profile/${row.user_name}`,
+                    }}>
                     <Button size="small" sx={btn1}>
                       <GitHubIcon sx={{ marginRight: 1 }} />
-                      {row.github_url}
+                      {row.name}
                     </Button>
-                  </StyledTableCell> */}
+                  </Link>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">{row.points}</StyledTableCell>
+
+                  
                   <StyledTableCell align="center">
+                  <a href={row.linkedin_url}>
                     <Button size="small" sx={btn2}>
                       <LinkedInIcon sx={{ marginRight: 1 }} />
-                      {row.linkedin_url}
+                      {row.linkedin_username}
                     </Button>
+                   </a>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                  <a href={row.github_url}>
+                    <Button size="small" sx={btn1}>
+                      <GitHubIcon sx={{ marginRight: 1 }} />
+                      {row.github_username}
+                    </Button>
+                    </a>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
