@@ -81,7 +81,7 @@ const Counter = () => {
           sx={{
             fontSize: 40,
             color: "#000000",
-            fontFamily: "'urw-din',sans-serif",
+            fontFamily: "Josefin Sans, sans-serif",
             fontWeight: "bold",
             marginBottom: "20px",
           }}
@@ -124,6 +124,7 @@ const Counter = () => {
                 fontSize: 25,
                 color: "#000000",
                 marginTop: "10px",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
               Views :{StatisticsData.views_count}
@@ -143,6 +144,7 @@ const Counter = () => {
               sx={{
                 fontSize: 25,
                 color: "#000000",
+                fontFamily: "Josefin Sans, sans-serif",
                 marginTop: "10px",
               }}
             >
@@ -162,6 +164,7 @@ const Counter = () => {
                 fontSize: 25,
                 color: "#000000",
                 marginTop: "10px",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
               Questions:{StatisticsData.que_count}

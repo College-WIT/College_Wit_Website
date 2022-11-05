@@ -12,7 +12,7 @@ import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
 import getCookie from "../../hooks/getCookie";
-import * as animationData from "../../Assets/que.json";
+import * as animationData from "../../Assets/ques.json";
 import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -123,7 +123,7 @@ class QuestionsPages extends Component {
                   <Grid item xs={4} md={10}>
                     <Typography
                       sx={{
-                        fontFamily: "'urw-din',sans-serif",
+                        fontFamily: "Josefin Sans, sans-serif",
                         fontSize: 40,
                         position: "relative",
                         top: 55,
@@ -153,18 +153,18 @@ class QuestionsPages extends Component {
                         avatar={
                           <Avatar
                             sx={{
-                              height: "40px",
-                              width: "40px",
+                              height: "45px",
+                              width: "45px",
                             }}
                             alt={content.author}
-                            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                            src="https://avatars.dicebear.com/api/bottts/hig.svg"
                           />
                         }
                         title={
                           <Typography
                             sx={{
                               fontSize: 16,
-                              // fontWeight: "bold",
+                              fontFamily: "Josefin Sans, sans-serif",
                               fontFamily: "roboto",
                             }}
                           >
@@ -174,14 +174,8 @@ class QuestionsPages extends Component {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", padding: 0.5 }}
+                        sx={{ color: "black", textAlign: "left", paddingLeft: 3,fontFamily: "Josefin Sans, sans-serif", }}
                       >
-                        <LiveHelpIcon
-                          sx={{
-                            margin: "0 20px",
-                          }}
-                        />
-
                         {content.question}
                       </Typography>
 
@@ -201,19 +195,21 @@ class QuestionsPages extends Component {
                             >
                               <Button
                                 sx={{
-                                  backgroundColor: "#38E54D",
+                                  /* backgroundColor: "#38E54D", */
                                   color:"#000",
                                   width: "auto",
                                   height: "auto",
                                   padding: "10px",
                                   borderRadius: 1,
+                                  borderColor:"#118ab2",
+                                  fontFamily: "Josefin Sans, sans-serif",
                                   "&:hover": {
                                     backgroundColor: "#118ab2",
                                     color:"#fff",
                                     opacity: 10,
                                   },
                                 }}
-                                variant="contained"
+                                variant="outlined"
                                 disableElevation
                               >
                                 See Full Answer
@@ -267,7 +263,7 @@ class QuestionsPages extends Component {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black">
+                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
                                 <VisibilityIcon />
                                 {content.views}
                               </Typography>
@@ -280,13 +276,13 @@ class QuestionsPages extends Component {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black">
+                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
                                 <ThumbUpIcon />
                                 {content.upvotes}
                               </Typography>
                             </Item>
                             <Item elevation={0}>
-                              <Typography variant="subtitle1" color="black">
+                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
                                 <QuestionAnswerIcon />
                                 {content.no_of_answers}
                               </Typography>

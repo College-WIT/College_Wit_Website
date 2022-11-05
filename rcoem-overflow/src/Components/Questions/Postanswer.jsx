@@ -18,10 +18,23 @@ import Rightbar from "./Rightbar";
 // const { writeJson } = require("./writeJson");
 
 const buttons = {
-  height: 40,
+  color: "#001d3d",
+  width: "auto",
+  height: "auto",
+  px: 1,
+  py: 1,
+  fontWeight: "600",
+  fontFamily: "Josefin Sans, sans-serif",
+  borderRadius: 1,
+  fontSize: "13px",
+  border: "1px solid #001d3d",
   margin: "5px",
-  backgroundColor: "#E26639",
-  fontSize: 15,
+
+  "&:hover": {
+    backgroundColor: "#118ab2",
+    color: "white",
+    opacity: 10,
+  },
 };
 
 const paperStyle = { padding: 40 };
@@ -152,20 +165,49 @@ class postans extends Component {
             <Grid>
               <Paper style={paperStyle}>
                 <Grid align="center">
-                  <h2>Post an Answer</h2>
+                  <Typography
+                    sx={{
+                      fontSize: "40px",
+                      fontWeight: "bold",
+                      fontFamily: "Josefin Sans, sans-serif",
+                      color: "#000",
+                      paddingTop: 5,
+                    }}
+                  >
+                    Post an Answer{" "}
+                  </Typography>
                 </Grid>
                 <Grid sx={{ paddingTop: "20px" }}>
-                  <h4>{this.props.qq}</h4>
+                  <Typography
+                    sx={{
+                      fontSize: "30px",
+                      fontWeight: "300px",
+                      fontFamily: "Josefin Sans, sans-serif",
+                      color: "#000",
+                      paddingTop: 3,
+                    }}
+                  >
+                    {this.props.qq}
+                  </Typography>
                 </Grid>
                 <Grid align="center">
-                  <h2>{this.getQues}</h2>
+                  <Typography
+                    sx={{
+                      fontSize: "20px",
+                      fontWeight: "bold",
+                      fontFamily: "Josefin Sans, sans-serif",
+                      color: "#000",
+                      paddingTop: 2,
+                    }}
+                  >
+                    {this.getQues}
+                  </Typography>
                 </Grid>
 
                 <form onSubmit={this.submitHandler}>
-                  {/* <TextField multiline rows={6} label='Question' value={question} placeholder='Enter Question' type='text' onChange={ this.changeHandler } fullWidth required /> */}
                   <TextField
                     multiline
-                    rows={15}
+                    rows={10}
                     label="Answer"
                     type="text"
                     name="answer"
@@ -175,20 +217,17 @@ class postans extends Component {
                     fullWidth
                     required
                   />
-                  {/* <Grid alig sx={{ padding: 1, alignContent: 'center' }}> <input type="text" name="username" value={username} placeholder="Username" onChange={ this.changeHandler } />
-                                        <input type="text" name="password" value={password} placeholder="Password" onChange={ this.changeHandler } /></Grid> */}
+
                   <Grid>
                     {" "}
                     <Button
-                      style={buttons}
+                      sx={buttons}
                       type="submit"
-                      variant="contained"
-                      color="primary"
+                      variant="outlined"
                       onClick={this.onClick}
                     >
                       Post Answer
                     </Button>
-                   
                   </Grid>
                 </form>
                 {/* {flag ? <h2>Question added Successfully</h2> : <h2></h2>} */}

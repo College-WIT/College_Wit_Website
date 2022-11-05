@@ -50,11 +50,10 @@ export default function Boxes() {
             color: "white",
             fontWeight:"900",
             textAlign: "center",
-            fontFamily: "Raleway Dots",
+            fontFamily: "Josefin Sans, sans-serif",
             m: 3,
           }}
         >
-          {/* Every RCOEMian has a Tab to Open RCOEM-Overflow */}
           Every RCOEMian has a Tab to Open CollegeWit
         </Typography>
 
@@ -93,7 +92,8 @@ export default function Boxes() {
               p: "2%",
               color: "white",
               textAlign: "center",
-              fontSize: "30",
+              fontFamily: "Josefin Sans, sans-serif",
+              fontSize: 17,
             }}
           >
             Find the best Answers to your Technical Questions, Help Others
@@ -113,6 +113,7 @@ export default function Boxes() {
               startIcon={<ExploreIcon />}
               sx={{
                 backgroundColor: "#f1faee",
+                fontFamily: "Josefin Sans, sans-serif",
                 color: "#457b9d",
                 "&:hover": {
                   backgroundColor: "#457b9d",

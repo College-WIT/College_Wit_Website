@@ -9,7 +9,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 export default function MediaCard(props) {
-  const UserData=props.data;
+  const UserData = props.data;
   return (
     <Card
       sx={{
@@ -33,11 +33,11 @@ export default function MediaCard(props) {
           <Typography
             sx={{
               fontSize: 15,
-              fontFamily: "'urw-din',sans-serif",
+              fontFamily: "Josefin Sans, sans-serif",
               textAlign: "center",
               borderRadius: "5px",
               width: "auto",
-              backgroundColor: "#3E5C76",
+              backgroundColor: "#118ab2",
               my: "10px",
               color: "white",
               px: 2,
@@ -67,40 +67,34 @@ export default function MediaCard(props) {
           padding: 2,
         }}
       >
-        <Grid item xs={12} justifyContent="center">
-        
-          <Typography
+        <Grid container xs={12} justifyContent="center">
+          <Button
             sx={{
               textAlign: "center",
-              fontFamily: "'urw-din',sans-serif",
-              fontSize: 25,
+              fontFamily: "Josefin Sans, sans-serif",
+              fontSize: 20,
               color: "#000000",
               fontWeight: "bold",
               marginTop: "50px",
               color: "black",
             }}
           >
-          <Link 
-          style={{ textDecoration: "None", color: "white" }}
-          to={{
-            pathname: `/Profile/${UserData.user_name}`,
-          }}>
-          
-          <Button>
-            {UserData.name}
+            <Link
+              style={{ textDecoration: "None", color: "black" }}
+              to={{
+                pathname: `/Profile/${UserData.user_name}`,
+              }}
+            >
+              {UserData.name}
+            </Link>
           </Button>
-          </Link>
-          </Typography>
-          
-          
-          
         </Grid>
         <Grid container justifyContent="center">
           <Typography
             sx={{
               textAlign: "center",
-              fontFamily: "'urw-din',sans-serif",
-              fontSize: 15,
+              fontFamily: "Josefin Sans, sans-serif",
+              fontSize: 20,
               color: "#000000",
             }}
           >
@@ -115,37 +109,37 @@ export default function MediaCard(props) {
         />
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-      <a href={UserData.linkedin_url}>
-        <Button
-          size="small"
-          sx={{
-            backgroundColor: "#000000",
-            color: "white",
-            "&:hover": {
-              boxShadow: "2px 5px 5px 2px #b3bfcc",
-              color: "black",
-              border: "1px solid black",
-            },
-          }}
-        >
-          <GitHubIcon />
-        </Button>
+        <a href={UserData.linkedin_url}>
+          <Button
+            size="small"
+            sx={{
+              backgroundColor: "#000000",
+              color: "white",
+              "&:hover": {
+                boxShadow: "2px 5px 5px 2px #b3bfcc",
+                color: "black",
+                border: "1px solid black",
+              },
+            }}
+          >
+            <GitHubIcon />
+          </Button>
         </a>
         <a href={UserData.linkedin_url}>
-        <Button
-          size="small"
-          sx={{
-            backgroundColor: "#0077b5",
-            color: "white",
-            "&:hover": {
-              boxShadow: "2px 5px 5px 2px #b3bfcc",
-              color: "black",
-              border: "1px solid black",
-            },
-          }}
-        >
-          <LinkedInIcon />
-        </Button>
+          <Button
+            size="small"
+            sx={{
+              backgroundColor: "#0077b5",
+              color: "white",
+              "&:hover": {
+                boxShadow: "2px 5px 5px 2px #b3bfcc",
+                color: "black",
+                border: "1px solid black",
+              },
+            }}
+          >
+            <LinkedInIcon />
+          </Button>
         </a>
       </CardActions>
     </Card>

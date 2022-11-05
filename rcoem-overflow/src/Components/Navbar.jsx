@@ -42,7 +42,8 @@ const buttons = {
   width: 100,
   margin: "5px",
   backgroundColor: "#118ab2",
-  fontSize: 10,
+  fontFamily: "Josefin Sans, sans-serif",
+  fontSize: 12,
   "&:hover": {
     border: "1px solid white",
     backgroundColor: "#118ab2",
@@ -52,11 +53,12 @@ const buttons = {
 const logout_buttons = {
   height: 40,
   width: 100,
+  fontFamily: "Josefin Sans, sans-serif",
   margin: "5px",
   border: "1px solid white",
   backgroundColor: "transparent",
   color: "white",
-  fontSize: 10,
+  fontSize: 12,
   "&:hover": {
     backgroundColor: "transparent",
     color: "#118ab2",
@@ -108,7 +110,7 @@ const ResponsiveAppBar = () => {
                 display: { xs: "none", md: "none", lg: "flex" },
                 fontSize: 30,
                 color: "#ffffff",
-                fontFamily: "'urw-din',sans-serif",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
               College{" "}
@@ -117,7 +119,7 @@ const ResponsiveAppBar = () => {
                   color: "#118ab2",
                   fontSize: 30,
                   fontWeight: "bold",
-                  fontFamily: "'urw-din',sans-serif",
+                  fontFamily: "Josefin Sans, sans-serif",
                 }}
               >
                 Wit
@@ -191,6 +193,7 @@ const ResponsiveAppBar = () => {
                         key={page}
                         sx={{
                           my: 2,
+                          fontFamily: "Josefin Sans, sans-serif",
                           color: "black",
                           display: "block",
                           "&:hover": {
@@ -230,7 +233,7 @@ const ResponsiveAppBar = () => {
               flexGrow: 1,
               fontSize: 30,
               color: "#ffffff",
-              fontFamily: "'urw-din',sans-serif",
+              fontFamily: "Josefin Sans, sans-serif",
             }}
           >
             College
@@ -239,10 +242,10 @@ const ResponsiveAppBar = () => {
                 color: "#118ab2",
                 fontSize: 30,
                 fontWeight: "bold",
-                fontFamily: "'urw-din',sans-serif",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
-              WIT
+              Wit
             </span>
           </Typography>
 
@@ -267,6 +270,7 @@ const ResponsiveAppBar = () => {
                     fontSize: 15,
                     color: "white",
                     display: "block",
+                    fontFamily: "Josefin Sans, sans-serif",
                     "&:hover": {
                       backgroundColor: "transparent",
                       borderBottom: "1px solid white",
@@ -366,10 +370,11 @@ const ResponsiveAppBar = () => {
                   to={{
                     pathname: `/Profile/${username}`,
                   }}
-                   state={{ username: username }}
+                  state={{ username: username }}
                 >
                   <Button
                     sx={{
+                      fontFamily: "Josefin Sans, sans-serif",
                       backgroundColor: "transparent",
                       "&:hover": {
                         backgroundColor: "transparent",
@@ -378,7 +383,7 @@ const ResponsiveAppBar = () => {
                   >
                     <Avatar
                       alt="Remy Sharp"
-                      src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1667425437~exp=1667426037~hmac=9464865d765f09b4765dcb5d8b8f905e26e6f9aa81d444199cace0b4b2e50d3e"
+                      src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                       sx={{
                         width: 40,
                         height: 40,

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography, Link } from "@mui/material";
 import MediaCard from "./card";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
@@ -18,6 +18,7 @@ import { Button } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import axios from "axios";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Contributor = () => {
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -71,58 +72,32 @@ const Contributor = () => {
     },
   }));
 
-  const btn1 = {
-    color: "white",
-    fontFamily: "'urw-din',sans-serif",
-    fontSize: 15,
-    fontWeight: "bold",
-    borderRadius: "5px",
-    padding: 1,
-    backgroundColor: "#000000",
-    "&:hover": {
-      backgroundColor: "#000000",
-      color: "white",
-    },
+  const header = {
+    fontSize: 20,
+    fontFamily: "Josefin Sans, sans-serif",
   };
-  const btn2 = {
-    color: "white",
-    fontFamily: "'urw-din',sans-serif",
-    fontSize: 15,
-    fontWeight: "bold",
-    borderRadius: "5px",
-    padding: 1,
-    backgroundColor: "#0077b5",
-    "&:hover": {
-      backgroundColor: "#000000",
-      color: "white",
-    },
+
+  const table = {
+    fontSize: 20,
+    fontWeight: "200",
+    fontFamily: "Josefin Sans, sans-serif",
   };
 
   function createData(Rank, Name, Score, Github, LinkedIn) {
     return { Rank, Name, Score, Github, LinkedIn };
   }
 
-  const rows = [
-    createData(1, "Abcd", 100, "Anjali2201", "Anjali2201"),
-    createData(2, "Abcd", 100, "Anjali2201", "Anjali2201"),
-    createData(3, "Abcd", 100, "Anjali2201", "Anjali2201"),
-    createData(4, "Abcd", 100, "Anjali2201", "Anjali2201"),
-    createData(5, "Abcd", 100, "Anjali2201", "Anjali2201"),
-  ];
-
-
-  var returndata=[
+  var returndata = [
     {
-      "name": "Bhushan Wanjari",
-      "user_name": "bhushan21z",
-      "points": 43,
-      "linkedin_url": "https://github.com/Bhushan21z",
-      "github_url": "https://github.com/Bhushan21z",
-      "linkedin_username": "",
-      "github_username": "Bhushan21z"
-    }
-  ]
-
+      name: "Bhushan Wanjari",
+      user_name: "bhushan21z",
+      points: 43,
+      linkedin_url: "https://github.com/Bhushan21z",
+      github_url: "https://github.com/Bhushan21z",
+      linkedin_username: "",
+      github_username: "Bhushan21z",
+    },
+  ];
 
   const [UserData, setUserData] = useState([]);
   const [UserData1, setUserData1] = useState([]);
@@ -149,7 +124,6 @@ const Contributor = () => {
     getContributorData();
   }, []);
   console.log(UserData);
-  
 
   return (
     <div>
@@ -158,11 +132,11 @@ const Contributor = () => {
       <Grid container justifyContent="center">
         <Typography
           sx={{
-            fontFamily: "'urw-din',sans-serif",
             fontSize: 40,
             fontWeight: "bold",
             color: "#000000",
             marginTop: "50px",
+            fontFamily: "Josefin Sans, sans-serif",
           }}
         >
           Top Contributors
@@ -197,7 +171,7 @@ const Contributor = () => {
             },
           }}
         >
-          <MediaCard data={UserData1}/>
+          <MediaCard data={UserData1} />
         </Grid>
         <Grid
           item
@@ -215,7 +189,7 @@ const Contributor = () => {
             },
           }}
         >
-          <MediaCard data={UserData2}/>
+          <MediaCard data={UserData2} />
         </Grid>
         <Grid
           item
@@ -233,7 +207,7 @@ const Contributor = () => {
             },
           }}
         >
-          <MediaCard data={UserData3}/>
+          <MediaCard data={UserData3} />
         </Grid>
         <Divider
           sx={{
@@ -278,49 +252,100 @@ const Contributor = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <StyledTableCell align="center">Rank</StyledTableCell>
-                <StyledTableCell align="center">User Profile</StyledTableCell>
-                <StyledTableCell align="center">Points</StyledTableCell>
-                <StyledTableCell align="center">LinkedIn</StyledTableCell>
-                <StyledTableCell align="center">Github</StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    Rank
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  {" "}
+                  <Typography align="center" color="white" sx={header}>
+                    User Profile
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    Points
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    LinkedIn
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    Github
+                  </Typography>
+                </StyledTableCell>
               </TableRow>
             </TableHead>
+            {/* -----------------------------------------------Table------------------------------------------------------------------ */}
+
             <TableBody>
               {UserData.map((row) => (
                 <StyledTableRow key={row.name}>
-                  <StyledTableCell align="center"> 1</StyledTableCell>
-
                   <StyledTableCell align="center">
-                  <Link 
-                    style={{ textDecoration: "None", color: "white" }}
-                    to={{
-                    pathname: `/Profile/${row.user_name}`,
-                    }}>
-                    <Button size="small" sx={btn1}>
-                      <GitHubIcon sx={{ marginRight: 1 }} />
-                      {row.name}
-                    </Button>
-                  </Link>
-                  </StyledTableCell>
-
-                  <StyledTableCell align="center">{row.points}</StyledTableCell>
-
-                  
-                  <StyledTableCell align="center">
-                  <a href={row.linkedin_url}>
-                    <Button size="small" sx={btn2}>
-                      <LinkedInIcon sx={{ marginRight: 1 }} />
-                      {row.linkedin_username}
-                    </Button>
-                   </a>
+                    <Typography color="black" sx={header}>
+                      1
+                    </Typography>
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
-                  <a href={row.github_url}>
-                    <Button size="small" sx={btn1}>
-                      <GitHubIcon sx={{ marginRight: 1 }} />
-                      {row.github_username}
-                    </Button>
+                    <Link
+                      style={{ textDecoration: "None", color: "white" }}
+                      href={{
+                        pathname: `/Profile/${row.user_name}`,
+                      }}
+                      target="_blank"
+                    >
+                      <Button
+                        size="small"
+                        sx={{
+                          fontFamily: "Josefin Sans, sans-serif",
+                          fontSize: 15,
+                          fontWeight: 400,
+                          color: "#000000",
+                          "&:hover": {
+                            color: "#0077b5",
+                            border: "1px solid #0077b5",
+                          },
+                        }}
+                      >
+                        <PersonIcon /> {row.name}
+                      </Button>
+                    </Link>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Typography sx={header}>{row.points}</Typography>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <a href={row.linkedin_url}>
+                      <LinkedInIcon
+                        sx={{
+                          fontSize: 40,
+                          color: "#0077b5",
+                        }}
+                      />
+                    </a>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <a href={row.github_url}>
+                      <Typography
+                        sx={{
+                          fontSize: 25,
+                          color: "#000000",
+                          fontFamily: "Josefin Sans, sans-serif",
+                          "&:hover": {
+                            border: "1px solid black",
+                          },
+                        }}
+                      >
+                        <GitHubIcon /> {row.github_username}
+                      </Typography>
                     </a>
                   </StyledTableCell>
                 </StyledTableRow>

@@ -50,6 +50,7 @@ const Rightbar = () => {
           sx={{
             fontFamily: "'urw-din',sans-serif",
             fontSize: 20,
+            fontFamily: "Josefin Sans, sans-serif",
           }}
         >
           Tags
@@ -75,7 +76,7 @@ const Rightbar = () => {
                   padding: "10px",
                   borderRadius: 1,
                   fontSize: 12,
-                  fontFamily: "'urw-din',sans-serif",
+                  fontFamily: "Josefin Sans, sans-serif",
                   color: "white",
                   "&:hover": {
                     backgroundColor: "#04274d",

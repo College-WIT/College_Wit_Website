@@ -39,8 +39,8 @@ const Leftbar = () => {
         <Typography
           sx={{
             fontSize: 20,
-            fontWeight: 300,
-            fontFamily: "'urw-din',sans-serif",
+            fontWeight: 500,
+            fontFamily: "Josefin Sans, sans-serif",
           }}
         >
           {" "}
@@ -67,6 +67,7 @@ const Leftbar = () => {
                   width: 130,
                   height: 35,
                   borderRadius: 1,
+                  fontFamily: "Josefin Sans, sans-serif",
                   "&:hover": {
                     backgroundColor: "#04274d",
                     color: "#fff",
@@ -106,9 +107,11 @@ const Leftbar = () => {
                 width: 150,
                 height: 60,
                 borderRadius: 2,
+                fontFamily: "Josefin Sans, sans-serif",
                 fontSize: 15,
                 "&:hover": {
-                  backgroundColor: "#38E54D",
+                  backgroundColor: "white",
+                  border: "1px solid #001d3d",
                   color: "#000",
                   opacity: 10,
                 },

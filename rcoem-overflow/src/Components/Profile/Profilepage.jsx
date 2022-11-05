@@ -41,14 +41,14 @@ const UserInfo = () => {
 
   let loggedin = getCookie("login");
 
-  var username_real="fake6969";
+  var username_real = "fake6969";
   if (loggedin) {
     username_real = JSON.parse(getCookie("login")).username;
   }
 
   var str = window.location.pathname;
   const usernames = str.substring(9);
-  console.log(usernames)
+  console.log(usernames);
   const username = { username: usernames };
 
   const [UserData, setUserData] = useState([]);
@@ -185,7 +185,7 @@ const UserInfo = () => {
                   margin: "auto",
                   marginTop: "20px",
                 }}
-                image="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1667425437~exp=1667426037~hmac=9464865d765f09b4765dcb5d8b8f905e26e6f9aa81d444199cace0b4b2e50d3e"
+                image="https://xsgames.co/randomusers/avatar.php?g=pixel"
               />
               <CardContent>
                 <Typography
@@ -227,36 +227,35 @@ const UserInfo = () => {
             </CardActions>
 
             <Divider />
-            {username_real==usernames ?(
+            {username_real == usernames ? (
               <Grid item justifyContent="center">
-              <Link to="/EditProfile" style={{ textDecoration: "none" }}>
-                <Button
-                  sx={{
-                    fontSize: "15px",
-                    my: 3,
-                    width: "150px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "#293241",
-                    color: "white",
-                    boxShadow: "0",
-                    position: "relative",
+                <Link to="/EditProfile" style={{ textDecoration: "none" }}>
+                  <Button
+                    sx={{
+                      fontSize: "15px",
+                      my: 3,
+                      width: "150px",
+                      height: "40px",
+                      borderRadius: "10px",
+                      background: "#293241",
+                      color: "white",
+                      boxShadow: "0",
+                      position: "relative",
 
-                    "&:hover": {
-                      background: "#d3d3d3",
-                      color: "black",
-                    },
-                  }}
-                  variant="contained"
-                >
-                  Edit Info
-                </Button>
-              </Link>
-            </Grid>
-            ): (
-                <></>
+                      "&:hover": {
+                        background: "#d3d3d3",
+                        color: "black",
+                      },
+                    }}
+                    variant="contained"
+                  >
+                    Edit Info
+                  </Button>
+                </Link>
+              </Grid>
+            ) : (
+              <></>
             )}
-            
           </Card>
         </Grid>
 
@@ -296,10 +295,12 @@ const UserInfo = () => {
                           lg={11}
                           sx={{ ml: 1, my: 1 }}
                         >
-                        {Object.values(data) != "" ? (
-                          <Typography sx={{ fontSize: "20px", color: "black" }}>
-                            {Object.keys(data)} : {Object.values(data)}
-                          </Typography>
+                          {Object.values(data) != "" ? (
+                            <Typography
+                              sx={{ fontSize: "20px", color: "black" }}
+                            >
+                              {Object.keys(data)} : {Object.values(data)}
+                            </Typography>
                           ) : (
                             <></>
                           )}
@@ -327,10 +328,12 @@ const UserInfo = () => {
                           lg={11}
                           sx={{ ml: 1, my: 1 }}
                         >
-                        {Object.values(data) != "" ? (
-                          <Typography sx={{ fontSize: "20px", color: "black" }}>
-                            {Object.keys(data)} : {Object.values(data)}
-                          </Typography>
+                          {Object.values(data) != "" ? (
+                            <Typography
+                              sx={{ fontSize: "20px", color: "black" }}
+                            >
+                              {Object.keys(data)} : {Object.values(data)}
+                            </Typography>
                           ) : (
                             <></>
                           )}

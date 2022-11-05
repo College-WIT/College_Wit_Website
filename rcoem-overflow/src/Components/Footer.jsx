@@ -15,7 +15,7 @@ import { Button, Divider, Typography } from "@mui/material";
 const btn = {
   backgroundColor: "#0077b5",
   color: "white",
-  fontFamily: "'urw-din',sans-serif",
+  fontFamily: "Josefin Sans, sans-serif",
   fontSize: 12,
   width: "200px",
   //   height: "30px",
@@ -57,7 +57,7 @@ export default function Footer() {
             sx={{
               fontSize: 40,
               color: "#ffffff",
-              fontFamily: "'urw-din',sans-serif",
+              fontFamily: "Josefin Sans, sans-serif",
             }}
           >
             College
@@ -66,7 +66,7 @@ export default function Footer() {
                 color: "#118ab2",
                 fontSize: 40,
                 fontWeight: "bold",
-                fontFamily: "'urw-din',sans-serif",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
               Wit
@@ -74,23 +74,25 @@ export default function Footer() {
           </Typography>
           <Typography
             sx={{
-              fontSize: 20,
+              fontSize: 18,
               color: "#ffffff",
+              fontWeight:"300",
               display: { xs: "none", sm: "none", md: "none", lg: "block" },
+              fontFamily: "Josefin Sans, sans-serif",
             }}
           >
             CollegeWIT is a platform for students to ask questions and connect
             with other students to find answers.
           </Typography>
 
-          <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
-            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+          <Typography sx={{ fontSize: 20, color: "#ffffff"}}>
+            <Button sx={{ fontSize: 20, color: "#ffffff", }}>
               <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
             </Button>
-            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button sx={{ fontSize: 20, color: "#ffffff", }}>
               <img src="https://img.icons8.com/color/48/000000/github--v1.png" />
             </Button>
-            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button sx={{ fontSize: 20, color: "#ffffff" ,}}>
               <img src="https://img.icons8.com/color/48/000000/gmail.png" />
             </Button>
           </Typography>
@@ -100,22 +102,23 @@ export default function Footer() {
             sx={{
               fontSize: 25,
               color: "#fff",
-              fontFamily: "'urw-din',sans-serif",
+              fontFamily: "Josefin Sans, sans-serif",
               my: 2,
             }}
           >
             Designed and Developed by{" "}
           </Typography>
 
+          
+
           <Link
-            href=" 
-              https://www.linkedin.com/in/prathamesh-rajbhoj-2bb157200/"
+            href=" https://www.linkedin.com/in/anjallliii/"
             target="_blank"
             sx={styles}
           >
             <Button size="small" sx={btn}>
               <LinkedInIcon sx={{ marginRight: 1 }} />
-              Pratham Rajbhoj
+              Anjali Kushwaha
             </Button>
           </Link>
 
@@ -132,17 +135,6 @@ export default function Footer() {
           </Link>
 
           <Link
-            href=" https://www.linkedin.com/in/anjallliii/"
-            target="_blank"
-            sx={styles}
-          >
-            <Button size="small" sx={btn}>
-              <LinkedInIcon sx={{ marginRight: 1 }} />
-              Anjali Kushwaha
-            </Button>
-          </Link>
-
-          <Link
             href="https://www.linkedin.com/in/bhushan-wanjari-952042213/"
             target="_blank"
             sx={styles}
@@ -150,6 +142,17 @@ export default function Footer() {
             <Button size="small" sx={btn}>
               <LinkedInIcon sx={{ marginRight: 1 }} />
               Bhushan Wanjari
+            </Button>
+          </Link>
+          <Link
+            href=" 
+              https://www.linkedin.com/in/prathamesh-rajbhoj-2bb157200/"
+            target="_blank"
+            sx={styles}
+          >
+            <Button size="small" sx={btn}>
+              <LinkedInIcon sx={{ marginRight: 1 }} />
+              Pratham Rajbhoj
             </Button>
           </Link>
         </Grid>

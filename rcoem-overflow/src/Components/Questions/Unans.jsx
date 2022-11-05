@@ -86,26 +86,16 @@ class unans extends Component {
           <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
             <Grid item>
               <Item>
-                <Grid
-                  columns={16}
-                  container
-                  sx={{
-                    paddingBottom: 1,
-                  }}
-                >
+                <Grid columns={16} container>
                   <Grid item xs={4}>
-                    <Lottie
-                      options={defaultOptions}
-                      height="100%"
-                      width="70%"
-                    />
+                    <Lottie options={defaultOptions} height="80%" width="70%" />
                   </Grid>
                   <Grid item xs={8}>
                     <Typography
                       sx={{
-                        fontFamily: "'urw-din',sans-serif",
-                        fontSize: "30px",
+                        fontSize: "40px",
                         fontWeight: "bold",
+                        fontFamily: "Josefin Sans, sans-serif",
                         color: "#000",
                         paddingTop: 5,
                       }}
@@ -122,7 +112,11 @@ class unans extends Component {
                         width: "100%",
                         border: "1px solid #d3d3d3",
                         margin: "10px",
-                        // borderRadius: "10px",
+                        borderRadius: "0px",
+                        "&:hover": {
+                          cursor: "pointer",
+                          boxShadow: "0 0 10px #d3d3d3",
+                        },
                       }}
                     >
                       <CardHeader
@@ -133,19 +127,19 @@ class unans extends Component {
                         avatar={
                           <Avatar
                             sx={{
-                              height: "40px",
-                              width: "40px",
+                              height: "45px",
+                              width: "45px",
                             }}
                             alt={content.author}
-                            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                            src="
+                            https://avatars.dicebear.com/api/bottts/llAA.svg"
                           />
                         }
                         title={
                           <Typography
                             sx={{
                               fontSize: 18,
-                              // fontWeight: "bold",
-                              fontFamily: "roboto",
+                              fontFamily: "Josefin Sans, sans-serif",
                             }}
                           >
                             {content.author}
@@ -154,14 +148,13 @@ class unans extends Component {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", padding: 0.5 }}
+                        sx={{
+                          color: "black",
+                          textAlign: "left",
+                          paddingLeft: 3,
+                          fontFamily: "Josefin Sans, sans-serif",
+                        }}
                       >
-                        <LiveHelpIcon
-                          sx={{
-                            margin: "0 20px",
-                          }}
-                        />
-
                         {content.question}
                       </Typography>
 
@@ -179,19 +172,24 @@ class unans extends Component {
                             >
                               <Button
                                 sx={{
-                                  backgroundColor: "#38E54D",
-                                  color: "#000",
+                                  color: "#001d3d",
                                   width: "auto",
                                   height: "auto",
-                                  padding: "10px",
+                                  px: 1,
+                                  py: 1,
+                                  fontWeight: "600",
+                                  fontFamily: "Josefin Sans, sans-serif",
                                   borderRadius: 1,
+                                  fontSize: "13px",
+                                  border: "1px solid #001d3d",
+
                                   "&:hover": {
                                     backgroundColor: "#118ab2",
-                                    color: "#fff",
+                                    color: "white",
                                     opacity: 10,
                                   },
                                 }}
-                                variant="contained"
+                                variant="outlined"
                                 disableElevation
                               >
                                 Post an answer
@@ -199,68 +197,6 @@ class unans extends Component {
                             </Link>
                           </Item>
                         </Grid>
-
-                        {/*<Grid
-                          container
-                          xs={4}
-                          md={4}
-                          xl={4}
-                          sm={6}
-                          lg={3}
-                          sx={{
-                            margin: "10px",
-                          }}
-                        >
-                          <Stack
-                            direction="row"
-                            spacing={2}
-                            sx={{
-                              padding: "10px",
-                              border: "1px solid #d3d3d3",
-                              borderRadius: "10px ",
-                              position: "relative",
-                              alignItems: "right",
-                              "@media (max-width:1000px)": {
-                                paddingLeft: 20,
-                              },
-                              "@media (max-width:850px)": {
-                                paddingLeft: 1,
-                              },
-                            }}
-                          >
-                            <Item
-                              elevation={0}
-                              sx={{
-                                borderRight: "1px solid #d3d3d3",
-                                borderRadius: "0px",
-                              }}
-                            >
-                              <Typography variant="subtitle1" color="black">
-                                <VisibilityIcon />
-                                {content.views}
-                              </Typography>
-                            </Item>
-
-                            <Item
-                              elevation={0}
-                              sx={{
-                                borderRight: "1px solid #d3d3d3",
-                                borderRadius: "0px",
-                              }}
-                            >
-                              <Typography variant="subtitle1" color="black">
-                                <ThumbUpIcon />
-                                {content.upvotes}
-                              </Typography>
-                            </Item>
-                            <Item elevation={0}>
-                              <Typography variant="subtitle1" color="black">
-                                <QuestionAnswerIcon />
-                                {content.no_of_answers}
-                              </Typography>
-                            </Item>
-                          </Stack>
-                        </Grid>*/}
                       </Stack>
                     </Box>
                   ))}

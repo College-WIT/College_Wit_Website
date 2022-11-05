@@ -17,6 +17,7 @@ const Walkaround = () => {
             fontFamily: "'urw-din',sans-serif",
             fontWeight: "bold",
             textAlign: "center",
+            fontFamily: "Josefin Sans, sans-serif",
             py: 5,
           }}
         >

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import {
   Grid,
@@ -21,17 +21,28 @@ import Rightbar from "./Rightbar";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
 
-
 const buttons = {
-  height: 40,
+  color: "#001d3d",
+  width: "auto",
+  height: "auto",
+  px: 1,
+  py: 1,
+  fontWeight: "600",
+  fontFamily: "Josefin Sans, sans-serif",
+  borderRadius: 1,
+  fontSize: "13px",
+  border: "1px solid #001d3d",
   margin: "5px",
-  backgroundColor: "#E26639",
-  fontSize: 15,
+
+  "&:hover": {
+    backgroundColor: "#118ab2",
+    color: "white",
+    opacity: 10,
+  },
 };
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -70,28 +81,24 @@ const style = {
 };
 
 const PostQuestions = () => {
+  //// Modal Code
+  const [open, setOpen] = useState(false);
+  const [lastpage, setLastpage] = useState("/Post-a-question");
+  const [message, setMessage] = useState("Proceed");
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-
-    //// Modal Code
-    const [open, setOpen] = useState(false);
-    const [lastpage, setLastpage] = useState("/Post-a-question");
-    const [message, setMessage] = useState("Proceed");
-      const handleOpen = () => {
-          setOpen(true);
-      };
-      const handleClose = () => {
-          setOpen(false);
-      };
-  
-      const navigation = () =>{
-          if(lastpage==="/Post-a-question"){
-            window.location.reload();
-          }
-          else{
-            navigate(lastpage);
-          }
-      }
-
+  const navigation = () => {
+    if (lastpage === "/Post-a-question") {
+      window.location.reload();
+    } else {
+      navigate(lastpage);
+    }
+  };
 
   const theme = useTheme();
   const [tag, setTag] = React.useState([]);
@@ -110,12 +117,15 @@ const PostQuestions = () => {
         question: form.current.question.value,
         tags: form.current.tags.value,
         anonymous: "False",
-      }
+      };
       console.log(form_data);
       await axios
-        .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
+        .post(
+          "https://rcoem-overflow-backend.herokuapp.com/add_question",
+          form_data
+        )
         .then((response) => {
-          modalText="Question Added Successfully";
+          modalText = "Question Added Successfully";
           setLastpage("/Unanswered");
           setMessage("Proceed");
           console.log(response.data);
@@ -127,12 +137,11 @@ const PostQuestions = () => {
           setMessage("Try Again");
           console.log(error);
         });
-       
-        handleOpen();
+
+      handleOpen();
     } else {
       navigate("/login");
     }
-    
   };
 
   const PostQuestAno = async (e) => {
@@ -146,17 +155,20 @@ const PostQuestions = () => {
       question: form.current.question.value,
       tags: form.current.tags.value,
       anonymous: "True",
-    }
+    };
     console.log(form_data);
     await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/add_question",form_data)
+      .post(
+        "https://rcoem-overflow-backend.herokuapp.com/add_question",
+        form_data
+      )
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error.data);
       });
-      navigate('/Unanswered');
+    navigate("/Unanswered");
   };
 
   const handleChange = (event) => {
@@ -180,25 +192,52 @@ const PostQuestions = () => {
             <Grid>
               <Paper style={paperStyle}>
                 <Grid align="center">
-                  <h2>Post a Question</h2>
+                  <Typography
+                    sx={{
+                      fontSize: "40px",
+                      fontWeight: "bold",
+                      fontFamily: "Josefin Sans, sans-serif",
+                      color: "#000",
+                      paddingTop: 5,
+                    }}
+                  >
+                    Post an Question
+                  </Typography>
                 </Grid>
-                <form ref={form} onSubmit={PostQuest}
-                // onSubmit={this.submitHandler}
+                <form
+                  ref={form}
+                  onSubmit={PostQuest}
+                  // onSubmit={this.submitHandler}
                 >
                   <TextField
                     multiline
                     rows={6}
-                    label="Question"
+                    label={
+                      <Typography
+                        sx={{
+                          fontSize: "20px",
+                          fontWeight: "100",
+                          fontFamily: "Josefin Sans, sans-serif",
+                        }}
+                      >
+                        Question
+                      </Typography>
+                    }
                     type="text"
                     name="question"
-                    // value={question}
-                    placeholder="Question"
-                    // onChange={this.changeHandler}
                     fullWidth
                     required
                   />
                   <Box sx={{ my: 3 }}>
-                    <InputLabel id="demo-multiple-chip-label">
+                    <InputLabel
+                      id="demo-multiple-chip-label"
+                      sx={{
+                        fontSize: "20px",
+                        fontWeight: "300",
+                        fontFamily: "Josefin Sans, sans-serif",
+                        color: "#000",
+                      }}
+                    >
                       Add Tags
                     </InputLabel>
                     <Select
@@ -238,10 +277,9 @@ const PostQuestions = () => {
                     <Button
                       name="button1"
                       id="1"
-                      style={buttons}
+                      sx={buttons}
                       type="submit"
-                      variant="contained"
-                      color="primary"
+                      variant="outlined"
                       //   onClick={this.onClick}
                     >
                       Post
@@ -249,10 +287,9 @@ const PostQuestions = () => {
                     <Button
                       name="button2"
                       id="2"
-                      style={buttons}
+                      sx={buttons}
                       // type="submit"
-                      variant="contained"
-                      color="primary"
+                      variant="outlined"
                       onClick={PostQuestAno}
                     >
                       Post Anonymously
@@ -298,29 +335,32 @@ const PostQuestions = () => {
 
           {/* /// MOdal Code HTML */}
           <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              {modalText}
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              {/* <Link
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                {modalText}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {/* <Link
                 style={{ textDecoration: "None", color: "white" }}
                 to={lastpage}
               > */}
-                <Button onClick={navigation} style={buttons} variant="contained" color="primary">
+                <Button
+                  onClick={navigation}
+                  style={buttons}
+                  variant="contained"
+                  color="primary"
+                >
                   {message}
                 </Button>
-              {/* </Link> */}
-            </Typography>
-          </Box>
-        </Modal>
-
-
+                {/* </Link> */}
+              </Typography>
+            </Box>
+          </Modal>
         </Grid>
       </Box>
     </div>

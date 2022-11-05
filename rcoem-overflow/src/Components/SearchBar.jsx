@@ -71,7 +71,7 @@ function SearchBar({ placeholder }) {
           value={wordEntered}
           onChange={handleFilter}
           style={{
-            fontFamily: "roboto",
+            fontFamily: "Josefin Sans, sans-serif",
             fontSize: "20px",
             margin: "5px",
             color: "white",
