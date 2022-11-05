@@ -39,7 +39,7 @@ const logout = () => {
 
 const buttons = {
   height: 40,
-  width: 100,
+  width: 110,
   margin: "5px",
   backgroundColor: "#118ab2",
   fontFamily: "Josefin Sans, sans-serif",
@@ -52,7 +52,7 @@ const buttons = {
 
 const logout_buttons = {
   height: 40,
-  width: 100,
+  width: 110,
   fontFamily: "Josefin Sans, sans-serif",
   margin: "5px",
   border: "1px solid white",

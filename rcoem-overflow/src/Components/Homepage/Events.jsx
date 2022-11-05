@@ -5,9 +5,44 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Cards from "./modal";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  width: "auto",
+  p: 1,
+  border: "1px solid #000",
+};
+const cards = {
+  boxShadow: 24,
+  border: "1px solid #000",
+  borderRadius: 1,
+  borderColor: "grey.500",
+  maxHeight: 700,
+};
+const btn = {
+  backgroundColor: "#001d3d",
+  color: "white",
+  p: 1,
+  "&:hover": {
+    backgroundColor: "white",
+    color: "#001d3d",
+  },
+};
 
 const Events = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Grid
       container
@@ -30,84 +65,76 @@ const Events = () => {
       </Typography>
       <Grid container justifyContent="center" spacing={2}>
         <Grid item xs={12} md={4} lg={4}>
-          <Card>
-            <CardMedia
-              component="img"
-              height="100%"
-              image="https://i.imgur.com/0aW7mSw.png"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-              >
-                Roadmap to DSA Workshop
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-              >
-                Do you know what is the one of the most important factor in a
-                successful technical interview?👀💻 Yes! You guessed it right!
-                It's Data Structures and Algorithms!💪
-                <br />
-                Confused where to learn from?? 😵‍💫
-                <br />
-                Don't worry we got your back! 🤜🤛
-                <br />
-                GeeksforGeeks is bringing to you a Grand Online Workshop:-
-                <br />
-                🛣️ Roadmap to Data Structures and Algorithms 👨‍🏫 The esteemed
-                mentor : Mr. Abhinav Awasthi.
-                <br />
-                🔺DSA Mentor at GeeksforGeeks.
-                <br />
-                🔺ICPC Regionalist
-                <br />
-                🔺5 ⭐ on Codechef!
-                <br />
-                🔺5K+ Subs on Youtube (CP with Abhinav)
-                <br />
-                <br />
-                🗓️ Date - 8th November at 6 pm
-                <br />
-                📌 No prerequisites required to attend the workshop.
-                <br />
-                So what are you waiting for register for this amazing workshop
-                now and get your first step taken towards your placement
-                preparation journey!
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Register Now</Button>
-            </CardActions>
-          </Card>
+          <Button onClick={handleOpen}>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Cards />
+              </Box>
+            </Modal>
+            <Card sx={cards}>
+              <CardMedia
+                component="img"
+                height="60%"
+                image="https://i.imgur.com/0aW7mSw.png"
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h6"
+                  component="div"
+                  sx={{ fontFamily: "Josefin Sans, sans-serif", fontSize: 20 }}
+                >
+                  DSA Workshop
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Grid container justifyContent="center">
+                  <Button size="small" sx={btn}>
+                    Register Now
+                  </Button>
+                </Grid>
+              </CardActions>
+            </Card>
+          </Button>
         </Grid>
         <Grid item xs={12} md={4} lg={4}>
-          <Card>
-            <CardMedia
-              component="img"
-              height="100%"
-              image="https://i.imgur.com/LFWnlJB.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-              >
-                Auto Run Season 1
-              </Typography>
-              <Typography
+          <Button onClick={handleOpen}>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Cards />
+              </Box>
+            </Modal>
+            <Card sx={cards}>
+              <CardMedia
+                component="img"
+                height="80%"
+                image="https://i.imgur.com/LFWnlJB.jpg"
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{ fontFamily: "Josefin Sans, sans-serif", fontSize: 20 }}
+                >
+                  Auto Run Season 1
+                </Typography>
+                {/* <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
+              sx={{ fontFamily: "Josefin Sans, sans-serif", fontSize: 20 }}
               >
                 Big Hello Team Rio 😊👋
                 <br />
@@ -145,34 +172,49 @@ const Events = () => {
                 <br />
                 GeeksforGeeks 💚
                 <br />
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Register Now</Button>
-            </CardActions>
-          </Card>
+              </Typography> */}
+              </CardContent>
+              <CardActions>
+                <Grid container justifyContent="center">
+                  <Button size="small" sx={btn}>
+                    Register Now
+                  </Button>
+                </Grid>
+              </CardActions>
+            </Card>
+          </Button>
         </Grid>
         <Grid item xs={12} md={4} lg={4}>
-          <Card>
-            <CardMedia
-              component="img"
-              height="100%"
-              image="https://i.imgur.com/LJlNB8h.png"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-              >
-                Git-For-Geeks
-              </Typography>
-              <Typography
+          <Button onClick={handleOpen}>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Cards />
+              </Box>
+            </Modal>
+            <Card sx={cards}>
+              <CardMedia
+                component="img"
+                height="80%"
+                image="https://i.imgur.com/LJlNB8h.png"
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  component="div"
+                  sx={{ fontFamily: "Josefin Sans, sans-serif", fontSize: 20 }}
+                >
+                  Git-For-Geeks
+                </Typography>
+                {/* <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
+              sx={{ fontFamily: "Josefin Sans, sans-serif", fontSize: 20 }}
               >
                 💥Hello Techies!
                 <br />
@@ -217,12 +259,17 @@ const Events = () => {
                 ✨You are invited to this GEEK-y and fun-filled ride!
                 <br />
                 Limited seats! Hurry up!
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Register Now</Button>
-            </CardActions>
-          </Card>
+              </Typography> */}
+              </CardContent>
+              <CardActions>
+                <Grid container justifyContent="center">
+                  <Button size="small" sx={btn}>
+                    Register Now
+                  </Button>
+                </Grid>
+              </CardActions>
+            </Card>
+          </Button>
         </Grid>
       </Grid>
     </Grid>
