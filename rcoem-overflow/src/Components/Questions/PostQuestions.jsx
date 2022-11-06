@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import {
   Grid,
   Paper,
@@ -94,6 +95,28 @@ const style = {
 };
 
 const PostQuestions = () => {
+
+  //// GET Tags
+
+  const [tagsData, setTagsData] = useState([]);
+
+  var getTagsData = async () => {
+    console.log("Tags DATA CALL");
+    await axios
+      .get("https://rcoem-overflow-backend.herokuapp.com/all_tags")
+      .then((response) => {
+        setTagsData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getTagsData();
+  }, []);
+
+
+
   //// Modal Code
   const [open, setOpen] = useState(false);
   const [lastpage, setLastpage] = useState("/Post-a-question");
@@ -275,13 +298,13 @@ const PostQuestions = () => {
                       )}
                       MenuProps={MenuProps}
                     >
-                      {tags.map((name) => (
+                      {tagsData.map((name) => (
                         <MenuItem
-                          key={name}
-                          value={name}
+                          key={name.tag}
+                          value={name.tag}
                           style={getStyles(name, tag, theme)}
                         >
-                          {name}
+                          {name.tag}
                         </MenuItem>
                       ))}
                     </Select>

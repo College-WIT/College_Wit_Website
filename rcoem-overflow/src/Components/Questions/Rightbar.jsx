@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -7,6 +9,7 @@ import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import getCookie from "../../hooks/getCookie";
+import axios from "axios";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -39,6 +42,24 @@ const queTags = [
 ];
 
 const Rightbar = () => {
+
+
+  const [tagsData, setTagsData] = useState([]);
+
+  var getTagsData = async () => {
+    console.log("Tags DATA CALL");
+    await axios
+      .get("https://rcoem-overflow-backend.herokuapp.com/all_tags")
+      .then((response) => {
+        setTagsData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getTagsData();
+  }, []);
  
   return (
     <div>
@@ -53,7 +74,7 @@ const Rightbar = () => {
           Tags
         </Typography>
         <Divider light />
-        {queTags.map((content) => (
+        {tagsData.map((content) => (
           <Grid
             sx={{
               padding: 1,
@@ -61,9 +82,9 @@ const Rightbar = () => {
           >
             <Link
               to={{
-                pathname: `/tags/${content}`,
+                pathname: `/tags/${content.tag}`,
               }}
-              state={{ tag: content }}
+              state={{ tag: content.tag }}
             >
               <Button
                 sx={{
@@ -88,7 +109,7 @@ const Rightbar = () => {
                   },
                 }}
               >
-                {content}
+                {content.tag}
               </Button>
             </Link>
           </Grid>
