@@ -52,7 +52,22 @@ const MenuProps = {
     },
   },
 };
-const tags = ["C", "C++", "Java", "Python", "JavaScript", "HTML", "CSS"];
+const tags = [
+  "ANDROID-DEVELOPMENT",
+  "COLLEGE-LIFE",
+  "COMPETITIVE-PROGRAMMING",
+  "CSS",
+  "DJANGO",
+  "FLUTTER",
+  "HTML",
+  "JAVASCRIPT",
+  "NODE-JS",
+  "OPEN-SOURCE",
+  "OTHERS",
+  "PYQ",
+  "REACT-JS",
+  "WEB-DEVELOPMENT",
+];
 
 function getStyles(name, personName, theme) {
   return {

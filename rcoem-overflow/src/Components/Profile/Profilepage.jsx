@@ -110,13 +110,9 @@ const UserInfo = () => {
         console.log(error);
       });
   };
-  useEffect(
-    () => {
-      getUserData();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [username]
-  );
+  useEffect(() => {
+    getUserData();
+  }, [usernames]);
   console.log(UserData);
 
   const personal = [

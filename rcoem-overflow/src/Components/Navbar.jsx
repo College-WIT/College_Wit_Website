@@ -1,5 +1,6 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -29,11 +30,13 @@ if (loggedin) {
 }
 console.log(username);
 
-const logout = () => {
+const Logout = () => {
+  const navigate = useNavigate();
   let loggedin = getCookie("login");
   if (loggedin) {
     removeCookie("login");
-    window.location.reload();
+    //window.location.reload();
+    navigate("/Home")
   }
 };
 
@@ -356,15 +359,15 @@ const ResponsiveAppBar = () => {
                 ) : (
                   <></>
                 )}
-                <Link
+                {/* <Link
                   style={{ textDecoration: "None", color: "white" }}
                   to={`/logout`}
-                >
-                  <Button sx={logout_buttons} onClick={logout}>
+                > */}
+                  <Button sx={logout_buttons} onClick={Logout}>
                     <LogoutIcon sx={{ mr: 1 }} />
                     Logout
                   </Button>
-                </Link>
+                {/* </Link> */}
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
                   to={{
