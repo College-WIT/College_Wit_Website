@@ -181,17 +181,19 @@ export default function TagsFunc(props) {
                             >
                               <Button
                                 sx={{
-                                  backgroundColor: "#E26639",
+                                  color: "#001d3d",
                                   width: "auto",
                                   height: "auto",
                                   padding: "10px",
                                   borderRadius: 1,
+                                  border: "1px solid #001d3d",
                                   "&:hover": {
-                                    backgroundColor: "#41D450",
+                                    backgroundColor: "#118ab2",
+                                    color:"#fff",
                                     opacity: 10,
                                   },
                                 }}
-                                variant="contained"
+                                variant="outlined"
                                 disableElevation
                               >
                                 See Full Answer

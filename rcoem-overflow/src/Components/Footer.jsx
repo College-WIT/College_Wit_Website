@@ -133,7 +133,6 @@ export default function Footer() {
               Kush Munot
             </Button>
           </Link>
-\
           <Link
             href="https://www.linkedin.com/in/bhushan-wanjari-952042213/"
             target="_blank"

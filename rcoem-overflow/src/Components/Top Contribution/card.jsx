@@ -52,12 +52,13 @@ export default function MediaCard(props) {
             variant="square"
             sx={{
               position: "relative",
-              width: "150px",
-              height: "150px",
-              borderRadius: "50%",
+              backgroundColor:"#fff",
+              width: "120px",
+              height: "120px",
+              borderRadius:"10%"
             }}
-            alt="Remy Sharp"
-            src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1667425437~exp=1667426037~hmac=9464865d765f09b4765dcb5d8b8f905e26e6f9aa81d444199cace0b4b2e50d3e"
+            alt="Avatar"
+            src="https://avatars.dicebear.com/api/identicon/gree.svg"
           />
         </Grid>
       </Grid>
