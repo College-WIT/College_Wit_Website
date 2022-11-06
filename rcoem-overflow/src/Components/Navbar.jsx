@@ -67,7 +67,7 @@ const logout_buttons = {
   },
 };
 const pages = ["Questions", "Contributors", "Resources"];
-
+const mpages = ["Home","Questions", "Contributors", "Resources"];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -183,7 +183,7 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "block", lg: "none" },
               }}
             >
-              {pages.map((page) => (
+              {mpages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Box sx={{ flexGrow: 1 }}>
                     <Link
