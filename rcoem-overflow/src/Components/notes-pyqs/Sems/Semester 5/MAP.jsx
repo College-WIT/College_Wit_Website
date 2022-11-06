@@ -25,33 +25,21 @@ const MAP = () => {
         },
         {
             id: 2,
-            title: "PYQ 2022",
+            title: "PYQ 2019 Winter",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/16D9G2257o2EvGB3uZMmehEuSs98auwjN/preview",
+            url: "https://drive.google.com/file/d/11Qvy8Oj5iOTdeKXJ2jCz6iv83NOT1H-a/preview",
         },
         {
             id: 3,
-            title: "PYQ 2021",
+            title: "PYQ 2018 Summer",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1gtOhCUsv6L9cSXIsY2iYHFrY5GNHtOPN/preview",
+            url: "https://drive.google.com/file/d/1x0pcD1buc3GeHtvLUpzJQpcYrT4_BeUH/preview",
         },
         {
             id: 4,
-            title: "PYQ 2020",
+            title: "PYQ 2018 Winter",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1q8Os2hLnd2dMOLbGXhMSGwsge7mAQnzo/preview",
-        },
-        {
-            id: 5,
-            title: "PYQ 2019",
-            panel: "panel5",
-            url: "https://drive.google.com/file/d/1s8aW09A0T6-PbUnzXWhJxUQ4Ao3e5D7e/preview",
-        },
-        {
-            id: 6,
-            title: "PYQ 2018",
-            panel: "panel6",
-            url: "https://drive.google.com/file/d/1jIg5D0JVZMWapBglWAdmbLSzdKlOYK3C/preview",
+            url: "https://drive.google.com/file/d/1NX5fs_2qSQsGwDB7Pl9czblzSzq3otyK/preview",
         },
     ];
 

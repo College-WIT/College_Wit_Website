@@ -25,33 +25,33 @@ const CG = () => {
         },
         {
             id: 2,
-            title: "PYQ 2022",
+            title: "PYQ Online Set 1",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/16D9G2257o2EvGB3uZMmehEuSs98auwjN/preview",
+            url: "https://drive.google.com/file/d/1bv1a6Srxe8NhpGcZYCF-Fl0ivtZ_mWbl/preview",
         },
         {
             id: 3,
-            title: "PYQ 2021",
+            title: "PYQ Online Set 2",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1gtOhCUsv6L9cSXIsY2iYHFrY5GNHtOPN/preview",
+            url: "https://drive.google.com/file/d/1Pj5waUJ-Mxeh10Z8bHGVus2dV9wQ-0cF/preview",
         },
         {
             id: 4,
-            title: "PYQ 2020",
+            title: "PYQ Online Set 3",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1q8Os2hLnd2dMOLbGXhMSGwsge7mAQnzo/preview",
+            url: "https://drive.google.com/file/d/1e-uLapIeqfsBks74vmUhV1iqukBmCNw-/preview",
         },
         {
             id: 5,
-            title: "PYQ 2019",
+            title: "PYQ Online Set 4",
             panel: "panel5",
-            url: "https://drive.google.com/file/d/1s8aW09A0T6-PbUnzXWhJxUQ4Ao3e5D7e/preview",
+            url: "https://drive.google.com/file/d/1miYiLuduuFzmcpUkuL5OreJfZAaI3cuN/preview",
         },
         {
             id: 6,
-            title: "PYQ 2018",
+            title: "PYQ 2019",
             panel: "panel6",
-            url: "https://drive.google.com/file/d/1jIg5D0JVZMWapBglWAdmbLSzdKlOYK3C/preview",
+            url: "https://drive.google.com/file/d/1J_DDkQA5XTuUECyUqzQRA8kecpzCyOAl/preview",
         },
     ];
 

@@ -16,44 +16,51 @@ const DBMS = () => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const data = [
-    {
-      id: 1,
-      title: "Textbook",
-      panel: "panel1",
-      url: " ",
-    },
-    {
-      id: 2,
-      title: "PYQ 2022",
-      panel: "panel2",
-      url: "https://drive.google.com/file/d/16D9G2257o2EvGB3uZMmehEuSs98auwjN/preview",
-    },
-    {
-      id: 3,
-      title: "PYQ 2021",
-      panel: "panel3",
-      url: "https://drive.google.com/file/d/1gtOhCUsv6L9cSXIsY2iYHFrY5GNHtOPN/preview",
-    },
-    {
-      id: 4,
-      title: "PYQ 2020",
-      panel: "panel4",
-      url: "https://drive.google.com/file/d/1q8Os2hLnd2dMOLbGXhMSGwsge7mAQnzo/preview",
-    },
-    {
-      id: 5,
-      title: "PYQ 2019",
-      panel: "panel5",
-      url: "https://drive.google.com/file/d/1s8aW09A0T6-PbUnzXWhJxUQ4Ao3e5D7e/preview",
-    },
-    {
-      id: 6,
-      title: "PYQ 2018",
-      panel: "panel6",
-      url: "https://drive.google.com/file/d/1jIg5D0JVZMWapBglWAdmbLSzdKlOYK3C/preview",
-    },
-  ];
+
+    const data = [
+        {
+            id: 1,
+            title: "Textbook",
+            panel: "panel1",
+            url: " ",
+        },
+        {
+            id: 2,
+            title: "PYQ Online Set 1",
+            panel: "panel2",
+            url: "https://drive.google.com/file/d/1mqi237ClHOlfY_gX7P773_xikIgJgoG6/preview",
+        },
+        {
+            id: 3,
+            title: "PYQ 2019 Summer",
+            panel: "panel3",
+            url: "https://drive.google.com/file/d/1sLAiVUK1jBGaqlJSGXvmRJqkEXUwmMLZ/preview",
+        },
+        {
+            id: 4,
+            title: "PYQ 2019 Winter",
+            panel: "panel4",
+            url: "https://drive.google.com/file/d/1WQ55rv5UrhyHqD-mgpnxpQ1yspm_CYY4/preview",
+        },
+        {
+            id: 5,
+            title: "PYQ 2018 Summer",
+            panel: "panel5",
+            url: "https://drive.google.com/file/d/1QFOJC9_uH2Szuv-4QLI36Uva0vb76no9/preview",
+        },
+        {
+            id: 6,
+            title: "PYQ 2018 Winter",
+            panel: "panel6",
+            url: "https://drive.google.com/file/d/13w8owV6P0BoN3CqTZf36qABQfV4z6BOH/preview",
+        },
+        {
+            id: 7,
+            title: "PYQ 2017",
+            panel: "panel7",
+            url: "https://drive.google.com/file/d/17DlckKGVMzpEJ55p0UPYAxvFOXep33GK/preview",
+        },
+    ];
 
   const defaultOptions = {
     loop: true,

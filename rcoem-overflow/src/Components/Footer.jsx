@@ -110,7 +110,7 @@ export default function Footer() {
           >
             Designed and Developed by{" "}
           </Typography>
-
+          
           <Link
             href=" https://www.linkedin.com/in/anjallliii/"
             target="_blank"
@@ -133,7 +133,7 @@ export default function Footer() {
               Kush Munot
             </Button>
           </Link>
-
+\
           <Link
             href="https://www.linkedin.com/in/bhushan-wanjari-952042213/"
             target="_blank"
