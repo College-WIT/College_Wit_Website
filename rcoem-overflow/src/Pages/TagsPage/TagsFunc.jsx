@@ -101,9 +101,10 @@ export default function TagsFunc(props) {
                 <Grid item xs={4} md={10}>
                   <Typography
                     sx={{
-                      fontFamily: "'urw-din',sans-serif",
+                      fontFamily: "Josefin Sans, sans-serif",
                       fontSize: 40,
                       position: "relative",
+                      fontWeight:700,
                       top: 55,
                       left: "-110px",
                     }}
@@ -144,8 +145,7 @@ export default function TagsFunc(props) {
                           <Typography
                             sx={{
                               fontSize: 16,
-                              // fontWeight: "bold",
-                              fontFamily: "roboto",
+                              fontFamily: "Josefin Sans, sans-serif",
                             }}
                           >
                             {content.author}
@@ -154,7 +154,7 @@ export default function TagsFunc(props) {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", padding: 0.5 }}
+                        sx={{ color: "black", textAlign: "left", padding: 0.5,fontFamily: "Josefin Sans, sans-serif", }}
                       >
                         <LiveHelpIcon
                           sx={{
@@ -186,6 +186,7 @@ export default function TagsFunc(props) {
                                   height: "auto",
                                   padding: "10px",
                                   borderRadius: 1,
+                                  fontFamily: "Josefin Sans, sans-serif",
                                   border: "1px solid #001d3d",
                                   "&:hover": {
                                     backgroundColor: "#118ab2",
@@ -247,7 +248,7 @@ export default function TagsFunc(props) {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black">
+                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
                                 <VisibilityIcon />
                                 {content.views}
                               </Typography>
@@ -260,13 +261,13 @@ export default function TagsFunc(props) {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black">
+                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
                                 <ThumbUpIcon />
                                 {content.upvotes}
                               </Typography>
                             </Item>
                             <Item elevation={0}>
-                              <Typography variant="subtitle1" color="black">
+                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
                                 <QuestionAnswerIcon />
                                 {content.no_of_answers}
                               </Typography>

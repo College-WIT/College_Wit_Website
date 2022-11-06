@@ -126,6 +126,7 @@ class QuestionsPages extends Component {
                       sx={{
                         fontFamily: "Josefin Sans, sans-serif",
                         fontSize: 40,
+                        fontWeight:700,
                         position: "relative",
                         top: 55,
                         left: "-110px",

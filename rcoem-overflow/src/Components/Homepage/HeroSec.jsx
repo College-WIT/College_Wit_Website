@@ -50,7 +50,7 @@ export default function Boxes() {
             m: 3,
           }}
         >
-          Every RCOEMian has a Tab to Open CollegeWit
+          Every Student has a Tab to Open --> CollegeWit
         </Typography>
 
         <Grid

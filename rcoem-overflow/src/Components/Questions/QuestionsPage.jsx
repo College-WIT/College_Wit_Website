@@ -102,7 +102,7 @@ class QuestionsPages extends Component {
                         paddingTop: 5,
                       }}
                     >
-                      Questions
+                      Answered Questions
                     </Typography>
                   </Grid>
                 </Grid>
