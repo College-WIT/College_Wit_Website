@@ -18,8 +18,8 @@ import getCookie from "../../../hooks/getCookie";
 import removeCookie from "../../../hooks/removeCookie";
 import { useNavigate } from "react-router-dom";
 
-const buttons = { margin: "8px 0", backgroundColor: "#E26639" };
-const text = { padding: 2 };
+const buttons = { margin: "8px 0", backgroundColor: "#457B9D" };
+const text = { padding: 2, margin: "5px 0" };
 var modalText;
 const paperStyle = { padding: 40, height: "500px", width: 400, margin: "10px" };
 
@@ -38,11 +38,11 @@ const btn = {
   height: 40,
   width: 150,
   margin: "5px",
-  backgroundColor: "#E26639",
+  backgroundColor: "#1D3557",
   fontSize: 10,
   "&:hover": {
     border: "1px solid white",
-    backgroundColor: "#E26639",
+    backgroundColor: "#1D3557",
   },
 };
 class Signin extends Component {
@@ -52,7 +52,7 @@ class Signin extends Component {
     this.state = {
       email: "",
       password: "",
-      lastpage: "/Questions",
+      lastpage: "/Home",
       message: "PROCEED",
     };
   }
@@ -82,7 +82,7 @@ class Signin extends Component {
     useEffect(() => {
       let login = getCookie("login");
       if (login) {
-        navigate("/Questions");
+        navigate("/Home");
       } else {
         navigate("/login");
       }
@@ -100,11 +100,12 @@ class Signin extends Component {
       .post("https://rcoem-overflow-backend.herokuapp.com/login", newstate)
       .then((response) => {
         console.log(response.data.contributor);
-        const cookieState={
+        const cookieState = {
           email: this.state.email,
           password: this.state.password,
-          contributor: response.data.contributor
-        }
+          contributor: response.data.contributor,
+          username: response.data.username,
+        };
         console.log("LOGGED IN");
         modalText = "Logged In Successfully !!";
         console.log(modalText);
@@ -116,9 +117,12 @@ class Signin extends Component {
       })
       .catch((error) => {
         modalText = error.response.data;
-        this.state.lastpage = "/login";
-        this.state.message = "TRY AGAIN";
-        this.setState({ openModal: true });
+
+        this.setState({
+          openModal: true,
+          lastpage: "/login",
+          message: "TRY AGAIN",
+        });
       });
     e.preventDefault();
   };

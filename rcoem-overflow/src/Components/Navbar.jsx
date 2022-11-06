@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,20 +10,24 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-// import logo from "../Assets/NavLogo.png";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "@mui/material";
 import SearchBar from "./SearchBar";
-// import SearchData from "./data.json";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
-import axios from "axios";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
 
-
 let loggedin = getCookie("login");
+
+var contributor = false;
+var username;
+if (loggedin) {
+  username = JSON.parse(getCookie("login")).username;
+  contributor = JSON.parse(getCookie("login")).contributor;
+}
+console.log(username);
 
 const logout = () => {
   let loggedin = getCookie("login");
@@ -35,50 +39,44 @@ const logout = () => {
 
 const buttons = {
   height: 40,
-  width: 120,
+  width: 110,
   margin: "5px",
-  backgroundColor: "#E26639",
+  backgroundColor: "#118ab2",
+  fontFamily: "Josefin Sans, sans-serif",
   fontSize: 12,
   "&:hover": {
     border: "1px solid white",
-    backgroundColor: "#E26639",
+    backgroundColor: "#118ab2",
   },
 };
 
 const logout_buttons = {
   height: 40,
-  width: 120,
+  width: 110,
+  fontFamily: "Josefin Sans, sans-serif",
   margin: "5px",
-  backgroundColor: "#41D450",
-  color: "#000",
+  border: "1px solid white",
+  backgroundColor: "transparent",
+  color: "white",
   fontSize: 12,
+  "&:hover": {
+    backgroundColor: "transparent",
+    color: "#118ab2",
+    borderColor: "#118ab2",
+  },
 };
-const pages = ["Home", "Questions", "Top Contributors", "Notes-PYQs"];
-
-var SearchData={}
+const pages = ["Questions", "Contributors", "Resources"];
 
 const ResponsiveAppBar = () => {
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  // const handleOpenUserMenu = (event) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(null);
-  // };
-
-  /////// GETTING SEARCH DATA
-  //getSearchData();
 
   return (
     <AppBar
@@ -98,36 +96,64 @@ const ResponsiveAppBar = () => {
               width: 300,
               maxHeight: { xs: 233, md: 167 },
               maxWidth: { xs: 350, md: 250 },
-              '@media (max-width:780px)': {
-                display: 'None'
-              }
+              "@media (max-width:780px)": {
+                display: "None",
+              },
             }}
             alt="logo img"
             src={logo}
           /> */}
+          <Link to="/">
+            <Typography
+              sx={{
+                flexGrow: 2,
+                display: { xs: "none", md: "none", lg: "flex" },
+                fontSize: 30,
+                color: "#ffffff",
+                fontFamily: "Josefin Sans, sans-serif",
+              }}
+            >
+              College{" "}
+              <span
+                style={{
+                  color: "#118ab2",
+                  fontSize: 30,
+                  fontWeight: "bold",
+                  fontFamily: "Josefin Sans, sans-serif",
+                }}
+              >
+                Wit
+              </span>
+            </Typography>
+          </Link>
 
           {/* -------------------------------------------------------------------------- */}
 
           {/*----------------------------Search bar---------------------------- */}
 
-          <Box sx={{ flexGrow: 7, display: { xs: "none", md: "flex" } }}>
-            {/* <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                data={SearchData}
-              />
-            </Search> */}
-
-            <SearchBar placeholder="Search your Question" data={SearchData} />
+          <Box
+            sx={{
+              flexGrow: 6,
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                lg: "flex",
+                xl: "flex",
+              },
+              mx: 2,
+            }}
+          >
+            <SearchBar placeholder="Search your Question" />
           </Box>
 
           {/* -------------------------------------------------------------- */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              display: { xs: "flex", md: "flex", lg: "none" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -153,12 +179,12 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "block", lg: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Box sx={{ flexGrow: 1, display: { md: "flex" } }}>
+                  <Box sx={{ flexGrow: 1 }}>
                     <Link
                       style={{ textDecoration: "None", color: "black" }}
                       to={`/${page}`}
@@ -167,6 +193,7 @@ const ResponsiveAppBar = () => {
                         key={page}
                         sx={{
                           my: 2,
+                          fontFamily: "Josefin Sans, sans-serif",
                           color: "black",
                           display: "block",
                           "&:hover": {
@@ -185,29 +212,47 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
 
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+          {/* <Typography
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
+              display: { xs: "flex", md: "flex", lg: "none" },
               flexGrow: 1,
               fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
+              fontSize: 30,
+              fontWeight: 500,
+              letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            RCOEM-Overflow
+            RCOEM-OVERFLOW
+          </Typography> */}
+
+          <Typography
+            sx={{
+              display: { xs: "flex", md: "flex", lg: "none" },
+              flexGrow: 1,
+              fontSize: 30,
+              color: "#ffffff",
+              fontFamily: "Josefin Sans, sans-serif",
+            }}
+          >
+            College
+            <span
+              style={{
+                color: "#118ab2",
+                fontSize: 30,
+                fontWeight: "bold",
+                fontFamily: "Josefin Sans, sans-serif",
+              }}
+            >
+              Wit
+            </span>
           </Typography>
 
           <Box
             sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              mx: 2,
+              display: { xs: "none", md: "none", lg: "flex" },
             }}
           >
             {pages.map((page) => (
@@ -225,9 +270,11 @@ const ResponsiveAppBar = () => {
                     fontSize: 15,
                     color: "white",
                     display: "block",
+                    fontFamily: "Josefin Sans, sans-serif",
                     "&:hover": {
-                      color: "black",
-                      backgroundColor: "white",
+                      backgroundColor: "transparent",
+                      borderBottom: "1px solid white",
+                      borderRadius: 0,
                     },
                     "@media (max-width:780px)": {
                       fontSize: 15,
@@ -279,7 +326,7 @@ const ResponsiveAppBar = () => {
                     style={{ textDecoration: "None", color: "white" }}
                     to={`/login`}
                   >
-                    <PersonIcon sx={{ fontSize: 22 }} /> Login
+                    <PersonIcon sx={{ fontSize: 20 }} /> Login
                   </Link>
                 </Button>
                 <Link
@@ -287,7 +334,7 @@ const ResponsiveAppBar = () => {
                   to={`/signup`}
                 >
                   <Button sx={buttons} color="primary">
-                    <PersonAddIcon sx={{ fontSize: 22, mr: 1 }} /> Register
+                    <PersonAddIcon sx={{ fontSize: 20, mr: 1 }} /> Register
                   </Button>
                 </Link>
               </ButtonGroup>
@@ -297,14 +344,18 @@ const ResponsiveAppBar = () => {
                 // aria-label="outlined primary button group"
                 sx={{ mt: 1 }}
               >
-                <Link
-                  style={{ textDecoration: "None", color: "white" }}
-                  to={`/profile`}
-                >
-                  <Button sx={buttons} color="primary">
-                    Profile
-                  </Button>
-                </Link>
+                {!contributor ? (
+                  <Link
+                    style={{ textDecoration: "None", color: "white" }}
+                    to={`/be-a-contributor`}
+                  >
+                    <Button sx={buttons} color="primary">
+                      Be a Contributor
+                    </Button>
+                  </Link>
+                ) : (
+                  <></>
+                )}
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
                   to={`/logout`}
@@ -314,24 +365,32 @@ const ResponsiveAppBar = () => {
                     Logout
                   </Button>
                 </Link>
-                <Button
-                  sx={{
-                    backgroundColor: "transparent",
-                    "&:hover": {
-                      backgroundColor: "transparent",
-                    },
+                <Link
+                  style={{ textDecoration: "None", color: "white" }}
+                  to={{
+                    pathname: `/Profile/${username}`,
                   }}
+                  state={{ username: username }}
                 >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="https://th.bing.com/th/id/OIP.inXSw5jbycIIlXC1dIXdiwHaIL?pid=ImgDet&rs=1"
+                  <Button
                     sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 0,
+                      fontFamily: "Josefin Sans, sans-serif",
+                      backgroundColor: "transparent",
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                      },
                     }}
-                  />
-                </Button>
+                  >
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                      sx={{
+                        width: 40,
+                        height: 40,
+                      }}
+                    />
+                  </Button>
+                </Link>
               </ButtonGroup>
             )}
           </Box>

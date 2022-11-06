@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
@@ -6,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import * as animationData1 from "../../Assets/Viewers.json";
 import * as animationData2 from "../../Assets/People.json";
 import * as animationData3 from "../../Assets/QnA.json";
+import axios from "axios";
 
 import Lottie from "react-lottie";
 import { Typography } from "@mui/material";
@@ -19,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
   width: "100%",
 }));
 
-const counter = () => {
+const Counter = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -45,6 +48,25 @@ const counter = () => {
     },
   };
 
+  const [StatisticsData, setStatisticsData] = useState([]);
+
+  var getStatsData = async () => {
+    console.log("STATS DATA CALL");
+    await axios
+      .get("https://rcoem-overflow-backend.herokuapp.com/front_page_analytics")
+      .then((response) => {
+        console.log(response);
+        setStatisticsData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getStatsData();
+  }, []);
+  console.log(StatisticsData);
+
   return (
     <Grid
       container
@@ -59,12 +81,11 @@ const counter = () => {
           sx={{
             fontSize: 40,
             color: "#000000",
-            fontFamily: "'urw-din',sans-serif",
-            // marginTop: "20px",
+            fontFamily: "Josefin Sans, sans-serif",
+            fontWeight: "bold",
             marginBottom: "20px",
           }}
         >
-          {" "}
           Website Statistics
         </Typography>
       </Grid>
@@ -100,11 +121,13 @@ const counter = () => {
             <Lottie options={defaultOptions} height="150px" width="100px" />
             <Typography
               sx={{
-                fontSize: 27,
-                fontFamily: "'urw-din',sans-serif",
+                fontSize: 25,
+                color: "#000000",
+                marginTop: "10px",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
-              Viewers
+              Views :{StatisticsData.views_count}
             </Typography>
           </Item>
 
@@ -119,12 +142,13 @@ const counter = () => {
             <Lottie options={defaultOptions2} height="150px" width="190px" />
             <Typography
               sx={{
-                fontSize: 27,
-                fontFamily: "'urw-din',sans-serif",
-                width: "220px",
+                fontSize: 25,
+                color: "#000000",
+                fontFamily: "Josefin Sans, sans-serif",
+                marginTop: "10px",
               }}
             >
-              Registered Users
+              Users:{StatisticsData.users_count}
             </Typography>
           </Item>
           <Item
@@ -137,11 +161,13 @@ const counter = () => {
             <Lottie options={defaultOptions3} height="150px" width="100px" />
             <Typography
               sx={{
-                fontSize: 27,
-                fontFamily: "'urw-din',sans-serif",
+                fontSize: 25,
+                color: "#000000",
+                marginTop: "10px",
+                fontFamily: "Josefin Sans, sans-serif",
               }}
             >
-              Questions
+              Questions:{StatisticsData.que_count}
             </Typography>
           </Item>
         </Stack>
@@ -150,4 +176,4 @@ const counter = () => {
   );
 };
 
-export default counter;
+export default Counter;

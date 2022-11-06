@@ -12,7 +12,7 @@ const Button = styled.div`
   font-size: 3rem;
   z-index: 1;
   cursor: pointer;
-  color: "#E26639";
+  color: "#364156";
 `;
 
 const ScrollButton = () => {
@@ -45,7 +45,7 @@ const ScrollButton = () => {
     >
       <FaArrowCircleUp
         style={{
-          color: "#E26639",
+          color: "#118ab2",
         }}
       />
     </Button>

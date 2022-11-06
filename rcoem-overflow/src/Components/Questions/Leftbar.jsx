@@ -32,8 +32,8 @@ const Leftbar = () => {
         <Typography
           sx={{
             fontSize: 20,
-            fontWeight: 300,
-            fontFamily: "'urw-din',sans-serif",
+            fontWeight: 500,
+            fontFamily: "Josefin Sans, sans-serif",
           }}
         >
           {" "}
@@ -49,69 +49,72 @@ const Leftbar = () => {
               },
             }}
           >
+            <Link
+              style={{ textDecoration: "None", color: "white" }}
+              to={`/${content}`}
+            >
+              <Button
+                sx={{
+                  fontSize: 15,
+                  backgroundColor: "#118ab2",
+                  width: 130,
+                  height: 35,
+                  borderRadius: 1,
+                  fontFamily: "Josefin Sans, sans-serif",
+                  "&:hover": {
+                    backgroundColor: "#04274d",
+                    color: "#fff",
+                    opacity: 10,
+                  },
+                  "@media (max-width:1000px)": {
+                    fontSize: 12,
+                    width: 100,
+                    height: 20,
+                  },
+                  "@media (max-width:900px)": {
+                    fontSize: 10,
+                    width: 90,
+                    height: 20,
+                  },
+                  "@media (max-width:800px)": {
+                    fontSize: 8,
+                    width: 70,
+                    height: 20,
+                  },
+                }}
+                variant="contained"
+                disableElevation
+              >
+                {content}
+              </Button>
+            </Link>
+          </Grid>
+        ))}
+
+        <Grid sx={{ paddingTop: 2 }}>
+          <Link style={{ textDecoration: "None" }} to={red_link}>
             <Button
               sx={{
+                backgroundColor: "#001d3d",
+                color: "#fff",
+                width: 150,
+                height: 60,
+                borderRadius: 2,
+                fontFamily: "Josefin Sans, sans-serif",
                 fontSize: 15,
-                backgroundColor: "#E26639",
-                width: 130,
-                height: 35,
-                borderRadius: 1,
                 "&:hover": {
-                  backgroundColor: "#41D450",
+                  backgroundColor: "white",
+                  border: "1px solid #001d3d",
+                  color: "#000",
                   opacity: 10,
-                },
-                "@media (max-width:1000px)": {
-                  fontSize: 12,
-                  width: 100,
-                  height: 20,
-                },
-                "@media (max-width:900px)": {
-                  fontSize: 10,
-                  width: 90,
-                  height: 20,
-                },
-                "@media (max-width:800px)": {
-                  fontSize: 8,
-                  width: 70,
-                  height: 20,
                 },
               }}
               variant="contained"
               disableElevation
             >
-              <Link
-                style={{ textDecoration: "None", color: "white" }}
-                to={`/${content}`}
-              >
-                {content}
-              </Link>
-            </Button>
-          </Grid>
-        ))}
-      <Grid sx={{ paddingTop: 2 }}>
-          <Button
-            sx={{
-              backgroundColor: "#20D867",
-              width: 150,
-              height: 60,
-              border: 1,
-              borderRadius: 2,
-              fontSize: 15,
-              "&:hover": {
-                backgroundColor: "#E26639",
-                opacity: 10,
-              },
-            }}
-            variant="contained"
-            disableElevation
-          >
-            <Link
-              style={{ textDecoration: "None", color: "white" }}
-              to={red_link}
-            >
               Post a question
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </Grid>
       </Item>
     </div>

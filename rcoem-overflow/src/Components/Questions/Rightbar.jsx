@@ -21,46 +21,72 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = ["ANDROID-DEVELOPMENT", "COLLEGE-LIFE", "COMPETITIVE-PROGRAMMING", "CSS", "DJANGO", "FLUTTER", "HTML", "JAVASCRIPT", "NODE-JS", "OPEN-SOURCE", "OTHERS", "PYQ", "REACT-JS", "WEB-DEVELOPMENT"];
-
-
+const queTags = [
+  "ANDROID-DEVELOPMENT",
+  "COLLEGE-LIFE",
+  "COMPETITIVE-PROGRAMMING",
+  "CSS",
+  "DJANGO",
+  "FLUTTER",
+  "HTML",
+  "JAVASCRIPT",
+  "NODE-JS",
+  "OPEN-SOURCE",
+  "OTHERS",
+  "PYQ",
+  "REACT-JS",
+  "WEB-DEVELOPMENT",
+];
 
 const Rightbar = () => {
-  const refreshPage = () => {
-    window.location.reload();
-  }
+ 
   return (
     <div>
       <Item>
         <Typography
           color="black"
           sx={{
-            fontFamily: "'urw-din',sans-serif",
             fontSize: 20,
+            fontFamily: "Josefin Sans, sans-serif",
           }}
         >
           Tags
         </Typography>
         <Divider light />
         {queTags.map((content) => (
-          <Grid sx={{ padding: 1 }}>
-            <Link to={{
-              pathname: `/tags/${content}`
-            }} state={{ tag: content }}>
+          <Grid
+            sx={{
+              padding: 1,
+            }}
+          >
+            <Link
+              to={{
+                pathname: `/tags/${content}`,
+              }}
+              state={{ tag: content }}
+            >
               <Button
                 sx={{
-                  backgroundColor: "#E26639",
+                  backgroundColor: "#118ab2",
                   width: 130,
                   height: 45,
                   padding: "10px",
                   borderRadius: 1,
+                  fontSize: 12,
+                  fontFamily: "Josefin Sans, sans-serif",
+                  color: "white",
                   "&:hover": {
-                    backgroundColor: "#41D450",
+                    backgroundColor: "#04274d",
+                    color: "#fff",
                     opacity: 10,
                   },
+
+                  "@media (max-width:1000px)": {
+                    width: 110,
+                    height: 55,
+                    padding: "15px",
+                  },
                 }}
-                variant="contained"
-                disableElevation
               >
                 {content}
               </Button>
@@ -68,7 +94,31 @@ const Rightbar = () => {
           </Grid>
         ))}
 
-
+        {/* <Grid sx={{ paddingTop: 10 }}>
+          <Button
+            sx={{
+              backgroundColor: "#20D867",
+              width: 150,
+              height: 60,
+              border: 1,
+              borderRadius: 2,
+              fontSize: 15,
+              "&:hover": {
+                backgroundColor: "#E26639",
+                opacity: 10,
+              },
+            }}
+            variant="contained"
+            disableElevation
+          >
+            <Link
+              style={{ textDecoration: "None", color: "white" }}
+              to={red_link}
+            >
+              Post a question
+            </Link>
+          </Button>
+        </Grid> */}
       </Item>
     </div>
   );

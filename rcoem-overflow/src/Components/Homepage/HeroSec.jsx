@@ -1,149 +1,129 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import ExploreIcon from '@mui/icons-material/Explore';
+import * as React from "react";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import ExploreIcon from "@mui/icons-material/Explore";
 import "../../index.css";
-import * as animationData from '../../Assets/searchLottie.json'
-import Lottie from 'react-lottie';
-import axios from "axios";
-
-
+import * as animationData from "../../Assets/searchLottie.json";
+import Lottie from "react-lottie";
 
 export default function Boxes() {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
-// const nulldata={};
-// localStorage.setItem("SearchData", nulldata);
-// var getSearchData = async () => {
-//   console.log("ASYNC FUNCTION");
-//   await axios
-//     .get("https://rcoem-overflow-backend.herokuapp.com/view_search_questions")
-//     .then((response) => {
-//       console.log(response.data);
-//       var sss = localStorage.getItem("SearchData");
-//       if (sss != null) {
-//         localStorage.removeItem("SearchData");
-//       }
-//       const strJSON = JSON.stringify(response);
-//       localStorage.setItem("SearchData", strJSON);
-//       //var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       this.setState({
-//         errorMsg: "Error retrieving data",
-//       });
-//     });
-// };
-//    getSearchData();
+  return (
+    <Grid
+      container
+      justifyContent="center"
+      sx={{
+        px: "5%",
+        py: "2%",
+        my: "2%",
+      }}
+    >
+      <Grid
+        container
+        justifyContent="center"
+        sx={{
+          width: "80%",
+          height: "100%",
+          px: "2%",
+          py: "4%",
+          backgroundColor: "#001d3d",
+          borderRadius: "10px",
+        }}
+      >
+        <Typography
+          variant="h5"
+          sx={{
+            width: "80%",
+            color: "white",
+            fontWeight: "900",
+            textAlign: "center",
+            fontFamily: "Josefin Sans, sans-serif",
+            m: 3,
+          }}
+        >
+          Every RCOEMian has a Tab to Open CollegeWit
+        </Typography>
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
-    
-    return (
-        
-            <Grid container justifyContent="center"
-                sx={{
-                    padding: 8,
-                    '@media (max-width:1000px)': {
-                        padding: 5
-                    }
-                }}>
-                <Box
-                    sx={{
-                        width: 1000,
-                        height: 550,
-                        // backgroundColor: '#3C3938',
-                        backgroundColor: '#2b2a2a',
-                        // background: "linear-gradient(to right, #2b2a2a, #141313)",
-                        borderRadius: '20px',
-                    }}
-                >
-                    <Grid container justifyContent="center">
-                        <Typography variant="h5" sx={{
-                            width: 600,
-                            paddingTop: 5,
-                            color: 'white',
-                            textAlign: 'center',
-                            fontFamily: 'Raleway Dots'
+        <Grid
+          container
+          justifyContent="center"
+          sx={{
+            width: "70%",
+            height: "100%",
+            backgroundColor: "#118ab2",
+            webkitBackdropFilter: "blur(4px)",
+            oBackdropFilter: "blur(4px)",
+            mozBackdropFilter: "blur(4px)",
+            backdropFilter: "blur(4px)",
+            borderRadius: "10px",
+            alignItems: "center",
+            py: "3%",
+          }}
+        >
+          <Grid
+            item
+            xs={12}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <Lottie options={defaultOptions} height="127px" width="50%" />
+            <br />
+          </Grid>
 
-                        }}>
-                            Every RCOEMian has a Tab to Open RCOEM-Overflow
-                        </Typography>
+          <Typography
+            sx={{
+              p: "2%",
+              color: "white",
+              textAlign: "center",
+              fontFamily: "Josefin Sans, sans-serif",
+              fontSize: 17,
+            }}
+          >
+            Find the best Answers to your Technical Questions, Help Others
+            answer their's!
+          </Typography>
 
-                    </Grid>
-                    <Grid sx={{
-                        padding: 5
-                    }} container justifyContent="center">
-                        <Box
-                            sx={{
-                                width: 600,
-                                height: 350,
-                                backgroundColor: '#E26639',
-                                position: 'relative',
-                                borderRadius: '30px',
-                                alignItems: "center"
-
-                            }}
-                        >
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                flexWrap: 'wrap',
-                                justifyContent: "center"
-
-                            }}>
-                                <Lottie options={defaultOptions}
-                                    height='127px'
-                                    width='50%'
-                                />
-                                <br />
-
-                            </div>
-                            {/* <div className='imageDiv'>
-                        <Image className='search' src={search} />
-                    </div> */}
-                            <Grid container justifyContent="center">
-                               
-                                <Typography  sx={{
-                                    width: 500,
-                                    paddingTop: 4,
-                                    color: 'white',
-                                    fontFamily: "'urw-din',sans-serif",
-                                }}>
-                                    Find the best Answers to your Teachnical Questions, Help Others answer their's!
-                                </Typography>
-
-                            </Grid>
-                            <Grid container justifyContent="center" sx={{
-                               paddingTop:3
-                            }}>
-                                <Button className='exploreButton' variant='contained' startIcon={<ExploreIcon />} sx={{
-                                    backgroundColor: '#20D867',
-                                    "&:hover": {
-                                        backgroundColor: "#41D450",
-                                        opacity: 10,
-                                    }
-
-                                }}>Explore</Button>
-                            </Grid>
-
-                        </Box>
-                    </Grid>
-
-                </Box>
-            </Grid>
-
-      
-
-
-
-    );
+          <Grid
+            container
+            justifyContent="center"
+            sx={{
+              paddingTop: 3,
+            }}
+          >
+            <Button
+              className="exploreButton"
+              variant="contained"
+              startIcon={<ExploreIcon />}
+              sx={{
+                backgroundColor: "#f1faee",
+                fontFamily: "Josefin Sans, sans-serif",
+                color: "#457b9d",
+                "&:hover": {
+                  backgroundColor: "#457b9d",
+                  color: "#f1faee",
+                  border: "1px solid #f1faee",
+                  opacity: 10,
+                },
+              }}
+            >
+              Explore
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+  );
 }

@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { Grid, Typography } from "@mui/material";
-import MediaCard from "../Homepage/card";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Divider, Grid, Typography } from "@mui/material";
+import MediaCard from "./card";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -13,13 +15,16 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import { Button } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import axios from "axios";
+import PersonIcon from "@mui/icons-material/Person";
 
-const contributor = () => {
+const Contributor = () => {
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "inherit",
     "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create("width"),
       width: "100%",
@@ -28,7 +33,7 @@ const contributor = () => {
       },
     },
   }));
-  const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
+
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     border: "1px solid #d3d3d3",
@@ -67,118 +72,151 @@ const contributor = () => {
     },
   }));
 
-  function createData(Rank, Name, Score, Github) {
-    return { Rank, Name, Score, Github };
-  }
+  const header = {
+    fontSize: 20,
+    fontFamily: "Josefin Sans, sans-serif",
+  };
 
-  const rows = [
-    createData(1, "Abcd", 100, "Anjali2201"),
-    createData(2, "Abcd", 100),
-    createData(3, "Abcd", 100),
-    createData(4, "Abcd", 100),
-  ];
+  const [UserData, setUserData] = useState([]);
+  const [UserData1, setUserData1] = useState([]);
+  const [UserData2, setUserData2] = useState([]);
+  const [UserData3, setUserData3] = useState([]);
+
+  var getContributorData = async () => {
+    console.log("Contributor DATA CALL");
+    await axios
+      .get("https://rcoem-overflow-backend.herokuapp.com/all_contributors")
+      .then((response) => {
+        console.log(response);
+        setUserData(response.data.next);
+        setUserData1(response.data.top3[0]);
+        setUserData2(response.data.top3[1]);
+        setUserData3(response.data.top3[2]);
+      })
+      .catch((error) => {
+        console.log(error);
+        //errorMsg: "Error retrieving data"
+      });
+  };
+  useEffect(() => {
+    getContributorData();
+  }, []);
+  console.log(UserData);
 
   return (
-    <Grid>
-      {/* // ------------------------------- Top 3 cards------------------------------------------------------------------------------- */}
-      <Grid
-        container
-        sx={{
-          height: "auto",
-        }}
-      >
-        <Grid container justifyContent="center">
-          <Typography
-            sx={{
-              fontSize: 60,
-              color: "#000000",
-              fontFamily: "'urw-din',sans-serif",
-              marginTop: "20px",
-              marginBottom: "20px",
-            }}
-          >
-            Top Contributors
-          </Typography>
-          <Link to="/be-a-contributor">
-            <Button
-              style={buttons}
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Be a Contributor
-            </Button>
-          </Link>
-        </Grid>
-        <Grid
-          container
-          justifyContent="center"
-          sx={{
-            marginTop: "40px",
-            marginBottom: "40px",
+    <div>
+      {/* -----------------------------------------------Heading of the page------------------------------------------------------------ */}
 
-            "@media (max-width: 1200px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
-            "@media (max-width: 1000px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
-            "@media (max-width: 900px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
-            "@media (max-width: 700px)": {
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            },
+      <Grid container justifyContent="center">
+        <Typography
+          sx={{
+            fontSize: 40,
+            fontWeight: "bold",
+            color: "#000000",
+            marginTop: "50px",
+            fontFamily: "Josefin Sans, sans-serif",
           }}
         >
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-        </Grid>
+          Top Contributors
+        </Typography>
       </Grid>
+
+      {/* ------------------------------- Top 3 cards------------------------------------------------------------------------------- */}
       <Grid
         container
         xs={12}
-        spacing={4}
+        md={12}
+        lg={12}
+        sm={12}
         justifyContent="center"
         sx={{
-          width: "80%",
-          padding: "20px",
+          my: "20px",
         }}
       >
-        <Grid item justifyContent="right">
-          Check Your Rank here:
+        <Grid
+          item
+          justifyContent="center"
+          xs={12}
+          sm={12}
+          md={12}
+          lg={3}
+          sx={{
+            mx: {
+              xs: "10%",
+              sm: "20%",
+              md: "25%",
+              lg: "0%",
+            },
+          }}
+        >
+          <MediaCard data={UserData1} />
         </Grid>
-        <Grid item xs={8} justifyContent="center">
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+        <Grid
+          item
+          justifyContent="center"
+          xs={12}
+          sm={12}
+          md={12}
+          lg={3}
+          sx={{
+            mx: {
+              xs: "10%",
+              sm: "20%",
+              md: "25%",
+              lg: "0%",
+            },
+          }}
+        >
+          <MediaCard data={UserData2} />
         </Grid>
+        <Grid
+          item
+          justifyContent="center"
+          xs={12}
+          sm={12}
+          md={12}
+          lg={3}
+          sx={{
+            mx: {
+              xs: "10%",
+              sm: "20%",
+              md: "25%",
+              lg: "0%",
+            },
+          }}
+        >
+          <MediaCard data={UserData3} />
+        </Grid>
+        <Divider
+          sx={{
+            justifyContent: "center",
+            width: "80%",
+            my: "40px",
+          }}
+        />
       </Grid>
+
+      {/* -----------------------------------------------Search bar------------------------------------------------------------------ */}
+
+      <Grid item sx={{ mx: "10%", my: "20px" }}>
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Check your rank here"
+            inputProps={{ "aria-label": "search" }}
+          />
+        </Search>
+      </Grid>
+
+      {/* -----------------------------------------------Table------------------------------------------------------------------ */}
 
       <Grid
         container
         justifyContent="center"
         sx={{
-          marginTop: "40px",
+          mt: "30px",
         }}
       >
         <TableContainer
@@ -192,32 +230,101 @@ const contributor = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <StyledTableCell align="center">Rank</StyledTableCell>
-                <StyledTableCell align="center">Name</StyledTableCell>
-                <StyledTableCell align="center">Score</StyledTableCell>
-                <StyledTableCell align="center">Github</StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    Rank
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  {" "}
+                  <Typography align="center" color="white" sx={header}>
+                    User Profile
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    Points
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    LinkedIn
+                  </Typography>
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <Typography align="center" color="white" sx={header}>
+                    Github
+                  </Typography>
+                </StyledTableCell>
               </TableRow>
             </TableHead>
+            {/* -----------------------------------------------Table------------------------------------------------------------------ */}
+
             <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.Rank}>
-                  <StyledTableCell align="center"> {row.Rank}</StyledTableCell>
-                  <StyledTableCell align="center">{row.Name}</StyledTableCell>
-                  <StyledTableCell align="center">{row.Score}</StyledTableCell>
+              {UserData.map((row) => (
+                <StyledTableRow key={row.name}>
                   <StyledTableCell align="center">
-                    <Button
-                      sx={{
-                        backgroundColor: "#E26639",
-                        color: "#ffffff",
-                        borderRadius: "10px",
-                        width: "auto",
-                        height: "40px",
-                        fontSize: "20px",
+                    <Typography color="black" sx={header}>
+                      {row.rank}
+                    </Typography>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Link
+                      style={{ textDecoration: "None", color: "black" }}
+                      to={{
+                        pathname: `/Profile/${row.user_name}`,
                       }}
-                      href="#contained-buttons"
                     >
-                      {row.Github}
-                    </Button>
+                      <Button
+                        size="small"
+                        sx={{
+                          fontFamily: "Josefin Sans, sans-serif",
+                          fontSize: 15,
+                          fontWeight: 400,
+                          color: "#000000",
+                          "&:hover": {
+                            color: "#0077b5",
+                            border: "1px solid #0077b5",
+                          },
+                        }}
+                      >
+                        <PersonIcon /> {row.name}
+                      </Button>
+                    </Link>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Typography sx={header}>{row.points}</Typography>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <a href={row.linkedin_url}>
+                      <LinkedInIcon
+                        sx={{
+                          fontSize: 40,
+                          color: "#0077b5",
+                        }}
+                      />{" "}
+                      {row.linkedin_username}
+                    </a>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <a href={row.github_url}>
+                      <Typography
+                        sx={{
+                          fontSize: 25,
+                          color: "#000000",
+                          fontFamily: "Josefin Sans, sans-serif",
+                          "&:hover": {
+                            border: "1px solid black",
+                          },
+                        }}
+                      >
+                        <GitHubIcon /> {row.github_username}
+                      </Typography>
+                    </a>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
@@ -225,10 +332,10 @@ const contributor = () => {
           </Table>
         </TableContainer>
       </Grid>
-    </Grid>
+    </div>
 
     // -------------------------------------------------------------------------------------------------------------------------------------
   );
 };
 
-export default contributor;
+export default Contributor;

@@ -1,79 +1,184 @@
-import React from 'react'
-import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
-import Link from '@mui/material/Link'
-import Item from '@mui/material/ListItem'
-import { BiLinkExternal } from "react-icons/bi"
-import { IoIosPeople } from "react-icons/io"
-import { BiMale, BiFemale } from 'react-icons/bi'
-import logo from "../Assets/NavLogo.png"
+import React from "react";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import "../index.css";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Button, Typography } from "@mui/material";
+
+const btn = {
+  backgroundColor: "#0077b5",
+  color: "white",
+  fontFamily: "Josefin Sans, sans-serif",
+  fontSize: 12,
+  width: "200px",
+  //   height: "30px",
+  //   width: "200px",
+  borderRadius: "5px",
+
+  m: 1,
+  p: 1,
+  "&:hover": {
+    backgroundColor: "#F4442E",
+    color: "white",
+  },
+};
+
+const styles = {
+  textDecoration: "none",
+};
 
 export default function Footer() {
-    return <footer>
-        <Box
-            px={{ xs: 3, sm: 10 }}
-            py={{ xs: 5, sm: 10 }}
-            bgcolor="black"
-            color="white"
-        >
-            <Container maxWidth="lg">
-                <Grid container spacing={5}>
-                    <Grid item xs={12} sm={4}>
-                        <Box ><h1>Rcoem Overflow</h1> </Box>
-                        <Box
-                            component="img"
-                            sx={{
-                                height: 90,
-                                width: 350,
-                                maxHeight: { xs: 233, md: 167 },
-                                maxWidth: { xs: 350, md: 250 },
-                            }}
-                            alt="The house from the offer."
-                            src={logo}
-                        >
-                        </Box>
-                    </Grid>
+  return (
+    <footer>
+      <Grid
+        container
+        justifyContent="center"
+        sx={{
+          background: "black",
+          color: "white",
+          height: "auto",
+          width: "100%",
+          position: "relative",
+          bottom: "0",
+          py: 5,
+        }}
+      >
+        {" "}
+        {/* xs={12} sm={10} md={8} lg={5} xl={4} sx={{ px: 6 }} */}
+        <Grid item xs={12} sm={10} md={8} lg={6} sx={{ px: 1 }}>
+          <Typography
+            sx={{
+              fontSize: 40,
+              color: "#ffffff",
+              fontFamily: "Josefin Sans, sans-serif",
+            }}
+          >
+            College
+            <span
+              style={{
+                color: "#118ab2",
+                fontSize: 40,
+                fontWeight: "bold",
+                fontFamily: "Josefin Sans, sans-serif",
+              }}
+            >
+              Wit
+            </span>
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: 18,
+              color: "#ffffff",
+              fontWeight: "300",
+              display: { xs: "none", sm: "none", md: "none", lg: "block" },
+              fontFamily: "Josefin Sans, sans-serif",
+            }}
+          >
+            CollegeWIT is a platform for students to ask questions and connect
+            with other students to find answers.
+          </Typography>
 
-                    <Grid item xs={10} sm={4}>
-                        <Box borderBottom={1}><BiLinkExternal /> Links</Box>
-                        <Box>
-                            <Item><Link href="/" color="inherit" sx={{ textDecoration: "None" }}>Contact us</Link></Item>
-                        </Box>
-                        <Box>
-                            <Item><Link href="/" color="inherit" sx={{ textDecoration: "None" }}>Careers</Link></Item>
-                        </Box>
-                        <Box>
-                            <Item><Link href="/" color="inherit" sx={{ textDecoration: "None" }}>FAQs</Link></Item>
-                        </Box>
-                        <Box>
-                            <Item><Link href="/" color="inherit" sx={{ textDecoration: "None" }}>Teams</Link></Item>
-                        </Box>
-                        <Box>
-                            <Item><Link href="/" color="inherit" sx={{ textDecoration: "None" }}>About us</Link></Item>
-                        </Box>
-                    </Grid>
+          <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+              <img
+                alt="logo"
+                src="https://img.icons8.com/color/48/000000/linkedin.png"
+              />
+            </Button>
+            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+              <img
+                alt="logo"
+                src="https://img.icons8.com/color/48/000000/github--v1.png"
+              />
+            </Button>
+            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+              <img
+                alt="logo"
+                src="https://img.icons8.com/color/48/000000/gmail.png"
+              />
+            </Button>
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sm={10} md={7} lg={5} xl={4} sx={{ px: 3 }}>
+          <Typography
+            sx={{
+              fontSize: 25,
+              color: "#fff",
+              fontFamily: "Josefin Sans, sans-serif",
+              my: 2,
+            }}
+          >
+            Designed and Developed by{" "}
+          </Typography>
+          
+          <Link
+            href=" https://www.linkedin.com/in/anjallliii/"
+            target="_blank"
+            sx={styles}
+          >
+            <Button size="small" sx={btn}>
+              <LinkedInIcon sx={{ marginRight: 1 }} />
+              Anjali Kushwaha
+            </Button>
+          </Link>
 
-                    <Grid item xs={12} sm={4}>
-                        <Box borderBottom={1}><IoIosPeople /> Designed By</Box>
-                        <Box >
-                            <Item><BiMale /> Pratham Rajbhoj</Item>
-                        </Box>
-                        <Box>
-                            <Item><BiMale /> Bhushan Wanjari</Item>
-                        </Box>
-                        <Box>
-                            <Item><BiMale /> Kush Munot</Item>
-                        </Box>
-                        <Box>
-                            <Item><BiFemale /> Anjali Kushwaha</Item>
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
+          <Link
+            href=" 
+              https://www.linkedin.com/in/kush-munot/"
+            target="_blank"
+            sx={styles}
+          >
+            <Button size="small" sx={btn}>
+              <LinkedInIcon sx={{ marginRight: 1 }} />
+              Kush Munot
+            </Button>
+          </Link>
+\
+          <Link
+            href="https://www.linkedin.com/in/bhushan-wanjari-952042213/"
+            target="_blank"
+            sx={styles}
+          >
+            <Button size="small" sx={btn}>
+              <LinkedInIcon sx={{ marginRight: 1 }} />
+              Bhushan Wanjari
+            </Button>
+          </Link>
+          <Link
+            href=" 
+              https://www.linkedin.com/in/prathamesh-rajbhoj-2bb157200/"
+            target="_blank"
+            sx={styles}
+          >
+            <Button size="small" sx={btn}>
+              <LinkedInIcon sx={{ marginRight: 1 }} />
+              Pratham Rajbhoj
+            </Button>
+          </Link>
+        </Grid>
+      </Grid>
     </footer>
-
-
+  );
 }
+//           </Typography>
+
+//           {/* <Typography variant="h6" component="div" gutterBottom>
+//             <IoIosPeople /> Designed By
+//           </Typography>
+//           <Typography variant="subtitle1" gutterBottom>
+//             <BiMale /> Pratham Rajbhog
+//           </Typography>
+//           <Typography variant="subtitle1" gutterBottom>
+//             <BiMale /> Bhusan Wanjari
+//           </Typography>
+//           <Typography variant="subtitle1" gutterBottom>
+//             <BiMale /> Kush Munot
+//           </Typography>
+//           <Typography variant="subtitle1" gutterBottom>
+//             <BiFemale /> Anjali Kushwaha
+//           </Typography> */}
+//         </Grid>
+//       </Grid>
+//     </footer>
+//   );
+// }

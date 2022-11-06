@@ -1,19 +1,29 @@
 import React, { useRef } from "react";
-import { Grid, Paper, TextField, Button, Typography,Modal } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  Typography,
+  Modal,
+  Box,
+} from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
-const text = { padding: 2, margin: "5px 0" };
+const buttons = { margin: "8px", backgroundColor: "#1D3557" };
+const text = { padding: 2, margin: "3px 0" };
 const paperStyle = {
-  padding: 20,
-  width: "50%",
-  margin: "0 auto",
   height: "auto",
+  padding: 40,
+  width: 500,
+  margin: "10px",
   // boxShadow: "1px 0px 0px 0px black",
 };
 const headerStyle = { margin: 0 };
+
+var modalText = "Modal Open";
 
 const style = {
   position: "absolute",
@@ -26,74 +36,82 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const btn = {
-  height: 40,
-  width: 150,
-  margin: "5px",
-  backgroundColor: "#E26639",
-  fontSize: 10,
-  "&:hover": {
-    border: "1px solid white",
-    backgroundColor: "#E26639",
-  },
-};
-
-
-
 
 function Signup() {
   const form = useRef();
+  const navigate = useNavigate();
 
+  //// Modal Code
+  const [open, setOpen] = useState(false);
+  const [lastpage, setLastpage] = useState("/signup");
+  const [message, setMessage] = useState("Proceed");
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const navigation = () => {
+    if (lastpage === "/signup") {
+      window.location.reload();
+    } else {
+      navigate(lastpage);
+    }
+  };
 
   // Register Function
   const RegisterUser = async (e) => {
     e.preventDefault();
     console.log("FORM DATA");
-    var cpassword= form.current.confirm.value;
-    var password= form.current.password.value;
+    var cpassword = form.current.confirm.value;
+    var password = form.current.password.value;
     var form_data = {
       name: form.current.name.value,
       user_name: form.current.username.value,
       email: form.current.email.value,
-      password: form.current.password.value
-      // contributor: {
-      //   linkedin: form.current.linkedin.value,
-      //   github: form.current.github.value,
-      //   codechef: form.current.codechef.value,
-      //   codeforces: form.current.codeforces.value,
-      //   hackerrank: form.current.hackerrank.value,
-      //   about: form.current.about.value,
-      //   branch: form.current.branch.value,
-      //   semester: form.current.semester.value,
-      //   skills: form.current.skills.value,
-      // },
+      password: form.current.password.value,
     };
     console.log(form_data);
-    if(password===cpassword){
-    await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/register",form_data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
-    else{
+
+    if (password === cpassword) {
+      await axios
+        .post(
+          "https://rcoem-overflow-backend.herokuapp.com/register",
+          form_data
+        )
+        .then((response) => {
+          console.log(response);
+          modalText = "Registered Successfully";
+          setLastpage("/login");
+          setMessage("Proceed");
+        })
+        .catch((error) => {
+          modalText = error.response.data;
+          setLastpage("/signup");
+          setMessage("Try Again");
+          console.log(error);
+        });
+    } else {
+      modalText = "Password Mismatched";
+      setLastpage("/signup");
+      setMessage("Try Again");
       console.log("Password Mismatched");
     }
+    handleOpen();
   };
-
 
   return (
     <Grid
+      container
       sx={{
-        py: 10,
+        padding: "20px",
         height: "auto",
+        justifyContent: "center",
       }}
     >
       <Paper style={paperStyle}>
-        <Grid align="center">
+        <Grid align="center" sx={{ mb: 3 }}>
           <h2 style={headerStyle}>Sign Up</h2>
           <Typography variant="caption" gutterBottom>
             Please fill this form to create an account !
@@ -153,17 +171,44 @@ function Signup() {
           </Button>
         </form>
 
-        <Link to="/be-a-contributor">
+        {/* <Link to="/be-a-contributor">
           <Button
+            onClick={RegisterUserAndNav}
             style={buttons}
-            type="submit"
             variant="contained"
             color="primary"
           >
-            Be a Contributor
+            Sign Up and Be a Contributor
           </Button>
-        </Link>
+        </Link> */}
       </Paper>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {modalText}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {/* <Link
+                style={{ textDecoration: "None", color: "white" }}
+                to={lastpage}
+              > */}
+            <Button
+              onClick={navigation}
+              style={buttons}
+              variant="contained"
+              color="primary"
+            >
+              {message}
+            </Button>
+            {/* </Link> */}
+          </Typography>
+        </Box>
+      </Modal>
     </Grid>
   );
 }

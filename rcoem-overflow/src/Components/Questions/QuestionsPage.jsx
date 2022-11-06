@@ -11,13 +11,11 @@ import { Component } from "react";
 import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
-// import getCookie from "../../hooks/getCookie";
-import * as animationData from "../../Assets/que.json";
+import * as animationData from "../../Assets/ques.json";
 import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 
@@ -31,25 +29,11 @@ const defaultOptions = {
 };
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  backgroundColor: theme.palette.mode === "dark" ? "#457b9d" : "#fff",
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-
-// var cookie = getCookie("login");
-
-//var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-// var tag = "how";
-// var FilteredData = [];
-// const searchWord = tag;
-// SearchData.filter((value) => {
-//   if (
-//     value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
-//   ) {
-//     console.log(value.question);
-//   }
-// });
 
 class QuestionsPages extends Component {
   constructor(props) {
@@ -86,6 +70,7 @@ class QuestionsPages extends Component {
           flexGrow: 1,
           backgroundColor: "#d9d9d9",
           padding: 2,
+          fontFamily: "Josefin Sans, sans-serif",
         }}
       >
         <Grid container spacing={2}>
@@ -99,28 +84,22 @@ class QuestionsPages extends Component {
           <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
             <Grid item>
               <Item>
-                <Grid
-                  columns={16}
-                  container
-                  sx={{
-                    paddingBottom: 1,
-                  }}
-                >
-                  <Grid item xs={4} md={6}>
+                <Grid columns={16} container>
+                  <Grid item xs={4}>
                     <Lottie
                       options={defaultOptions}
                       height="100%"
-                      width="50%"
+                      width="70%"
                     />
                   </Grid>
-                  <Grid item xs={4} md={10}>
+                  <Grid item xs={8}>
                     <Typography
                       sx={{
-                        fontFamily: "'urw-din',sans-serif",
-                        fontSize: 40,
-                        position: "relative",
-                        top: 55,
-                        left: "-170px",
+                        fontSize: "40px",
+                        fontWeight: "bold",
+                        fontFamily: "Josefin Sans, sans-serif",
+                        color: "#000",
+                        paddingTop: 5,
                       }}
                     >
                       Questions
@@ -142,7 +121,6 @@ class QuestionsPages extends Component {
                         },
                       }}
                     >
-                      {" "}
                       <Link
                         to={{
                           pathname: `/answers/${content.question}`,
@@ -157,19 +135,19 @@ class QuestionsPages extends Component {
                           avatar={
                             <Avatar
                               sx={{
-                                height: "40px",
-                                width: "40px",
+                                height: "45px",
+                                width: "45px",
                               }}
                               alt={content.author}
-                              src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                              src="
+                              https://avatars.dicebear.com/api/bottts/goo.svg"
                             />
                           }
                           title={
                             <Typography
                               sx={{
                                 fontSize: 18,
-                                // fontWeight: "bold",
-                                fontFamily: "roboto",
+                                fontFamily: "Josefin Sans, sans-serif",
                               }}
                             >
                               {content.author}
@@ -181,15 +159,10 @@ class QuestionsPages extends Component {
                           sx={{
                             color: "black",
                             textAlign: "left",
-                            paddingLeft: 0.5,
+                            paddingLeft: 3,
+                            fontFamily: "Josefin Sans, sans-serif",
                           }}
                         >
-                          <LiveHelpIcon
-                            sx={{
-                              margin: "0 20px",
-                            }}
-                          />
-
                           {content.question}
                         </Typography>
 
@@ -209,32 +182,29 @@ class QuestionsPages extends Component {
                               >
                                 <Button
                                   sx={{
-                                    backgroundColor: "#E26639",
+                                    color: "#001d3d",
                                     width: "auto",
                                     height: "auto",
-                                    padding: "10px",
+                                    px: 1,
+                                    py: 1,
+                                    fontWeight: "600",
+                                    fontFamily: "Josefin Sans, sans-serif",
                                     borderRadius: 1,
+                                    fontSize: "13px",
+                                    border: "1px solid #001d3d",
+
                                     "&:hover": {
-                                      backgroundColor: "#41D450",
+                                      backgroundColor: "#118ab2",
+                                      color: "white",
                                       opacity: 10,
                                     },
                                   }}
-                                  variant="contained"
+                                  variant="outlined"
                                   disableElevation
                                 >
                                   See Full Answer
                                 </Button>
                               </Link>
-
-                              {/* <Link
-                                                            component="button"
-                                                            variant="body2"
-                                                            onClick={() => {
-                                                                console.info("I'm a button.");
-                                                            }}
-                                                        >
-                                                            Button Link
-                                                        </Link> */}
                             </Item>
                           </Grid>
 
@@ -258,9 +228,6 @@ class QuestionsPages extends Component {
                                 position: "relative",
                                 alignItems: "right",
                                 "@media (max-width:1000px)": {
-                                  paddingLeft: 20,
-                                },
-                                "@media (max-width:850px)": {
                                   paddingLeft: 1,
                                 },
                               }}
@@ -272,8 +239,14 @@ class QuestionsPages extends Component {
                                   borderRadius: "0px",
                                 }}
                               >
-                                <Typography variant="subtitle1" color="black">
-                                  <VisibilityIcon />
+                                <Typography
+                                  variant="subtitle1"
+                                  color="black"
+                                  sx={{
+                                    fontFamily: "Josefin Sans, sans-serif",
+                                  }}
+                                >
+                                  <VisibilityIcon sx={{ color: "#04274d" }} />
                                   {content.views}
                                 </Typography>
                               </Item>
@@ -285,14 +258,28 @@ class QuestionsPages extends Component {
                                   borderRadius: "0px",
                                 }}
                               >
-                                <Typography variant="subtitle1" color="black">
-                                  <ThumbUpIcon />
+                                <Typography
+                                  variant="subtitle1"
+                                  color="black"
+                                  sx={{
+                                    fontFamily: "Josefin Sans, sans-serif",
+                                  }}
+                                >
+                                  <ThumbUpIcon sx={{ color: "#04274d" }} />
                                   {content.upvotes}
                                 </Typography>
                               </Item>
                               <Item elevation={0}>
-                                <Typography variant="subtitle1" color="black">
-                                  <QuestionAnswerIcon />
+                                <Typography
+                                  variant="subtitle1"
+                                  color="black"
+                                  sx={{
+                                    fontFamily: "Josefin Sans, sans-serif",
+                                  }}
+                                >
+                                  <QuestionAnswerIcon
+                                    sx={{ color: "#04274d" }}
+                                  />
                                   {content.no_of_answers}
                                 </Typography>
                               </Item>

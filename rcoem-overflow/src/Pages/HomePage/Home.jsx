@@ -8,6 +8,7 @@ import { Divider } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Counter from "../../Components/Homepage/counter";
 import ScrollButton from "../../Components/scroll";
+import Events from "../../Components/Homepage/Events";
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
         <Divider light width="90%" />
       </Grid>
       <Walkaround />
+      <Events />
       {/* <Grid container justifyContent="center">
         <Divider light width="90%" />
       </Grid> */}

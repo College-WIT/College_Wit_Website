@@ -36,33 +36,37 @@ const dummyQue = [
   },
 ];
 
-  /////// Upvotes api functions
+/////// Upvotes api functions
 
-  var question_upvote =  async (que) => {
-    // POST request using axios with async/await
-    console.log(que.quest);
-    var question_data={
-      "question":que.quest
-    }
-    const response = await axios.post('https://rcoem-overflow-backend.herokuapp.com/upvote_question', question_data);
-    console.log(response);
-    window.location.reload();
-};
-
-var answer_upvote =  async (que,answer) => {
+var question_upvote = async (que) => {
   // POST request using axios with async/await
-  console.log(que);
-  console.log(answer);
-  var question_data={
-    "question":que,
-    "answer":answer
-  }
-  const response = await axios.post('https://rcoem-overflow-backend.herokuapp.com/upvote_answer', question_data);
+  console.log(que.quest);
+  var question_data = {
+    question: que.quest,
+  };
+  const response = await axios.post(
+    "https://rcoem-overflow-backend.herokuapp.com/upvote_question",
+    question_data
+  );
   console.log(response);
   window.location.reload();
 };
 
-
+var answer_upvote = async (que, answer) => {
+  // POST request using axios with async/await
+  console.log(que);
+  console.log(answer);
+  var question_data = {
+    question: que,
+    answer: answer,
+  };
+  const response = await axios.post(
+    "https://rcoem-overflow-backend.herokuapp.com/upvote_answer",
+    question_data
+  );
+  console.log(response);
+  window.location.reload();
+};
 
 class Ans extends Component {
   constructor(props) {
@@ -148,15 +152,11 @@ class Ans extends Component {
                     <Typography
                       sx={{
                         color: "black",
-                        fontFamily: "'urw-din',sans-serif",
+                        fontFamily: "Josefin Sans, sans-serif",
                         margin: "50px",
                         fontSize: "40px",
-                        // margin:"10px",
                       }}
                     >
-                      {/* <HelpCenterIcon sx={{
-                                                fontSize: "100px"
-                                            }} />   */}
                       {quest}
                     </Typography>
 
@@ -181,37 +181,59 @@ class Ans extends Component {
                       >
                         <Button
                           sx={{
-                            backgroundColor: "#20D867",
-                            width: 200,
-                            height: 60,
-                            border: 1,
-                            borderRadius: 2,
-                            fontSize: 15,
+                            color: "#001d3d",
+                            width: "auto",
+                            height: "auto",
+                            px: 2,
+                            py: 1,
+                            fontWeight: "600",
+                            fontFamily: "Josefin Sans, sans-serif",
+                            borderRadius: 1,
+                            fontSize: "13px",
+                            border: "1px solid #001d3d",
+
                             "&:hover": {
-                              backgroundColor: "#E26639",
+                              backgroundColor: "#118ab2",
+                              color: "white",
                               opacity: 10,
                             },
                           }}
-                          variant="contained"
+                          variant="outlined"
                           disableElevation
                         >
                           <Link
-                            to={`/Post-an-answer/${quest}`} 
-                            state={{propQue:quest}}
-                            style={{ textDecoration: "None", color: "white" }}
+                            to={`/Post-an-answer/${quest}`}
+                            state={{ propQue: quest }}
+                            style={{
+                              textDecoration: "None",
+                              color: "#001d3d",
+                              fontFamily: "Josefin Sans, sans-serif",
+                            }}
                           >
                             Post an Answer
                           </Link>
                         </Button>
 
-                        <Button onClick={()=>question_upvote({quest})}
+                        <Button
+                          onClick={() => question_upvote({ quest })}
                           variant="outline"
                           sx={{
-                            height: 60,
-                            borderRadius: 2,
-                            marginLeft: "10px",
-                            border: "1px solid grey",
-                            alignItems: "right",
+                            color: "#001d3d",
+                            width: "auto",
+                            height: "auto",
+                            px: 1,
+                            py: 1,
+                            ml: 1,
+                            fontWeight: "600",
+                            fontFamily: "Josefin Sans, sans-serif",
+                            borderRadius: 1,
+                            fontSize: "13px",
+                            border: "1px solid #001d3d",
+                            "&:hover": {
+                              backgroundColor: "#118ab2",
+                              color: "white",
+                              opacity: 10,
+                            },
                           }}
                         >
                           <ThumbUpIcon /> {upvotes}
@@ -300,14 +322,14 @@ class Ans extends Component {
                                     width: "50px",
                                   }}
                                   alt={content.author}
-                                  src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                                  src="https://avatars.dicebear.com/api/bottts/:seed.svg"
                                 />
                               }
                               title={
                                 <Typography
                                   sx={{
-                                    fontSize: 20,
-                                    fontFamily: "'urw-din',sans-serif",
+                                    fontSize: 18,
+                                    fontFamily: "Josefin Sans, sans-serif",
                                   }}
                                 >
                                   {answer.author}
@@ -315,23 +337,40 @@ class Ans extends Component {
                               }
                             />
                             <Typography
-                              color="black"
                               sx={{
-                                padding: 2,
+                                color: "black",
                                 textAlign: "left",
-                                fontSize: 20,
-                                fontFamily: "'urw-din',sans-serif",
+                                paddingLeft: 3,
+                                fontFamily: "Josefin Sans, sans-serif",
                               }}
                             >
                               <GoArrowRight /> {answer.answer}
                             </Typography>
 
                             <Grid container justifyContent="right">
-                              <Button onClick={()=>answer_upvote(quest,answer.answer)}
+                              <Button
+                                onClick={() =>
+                                  answer_upvote(quest, answer.answer)
+                                }
                                 variant="outline"
                                 sx={{
                                   margin: "10px",
-                                  border: "1px solid grey",
+                                  color: "#001d3d",
+                                  width: "auto",
+                                  height: "auto",
+                                  px: 1,
+                                  py: 1,
+                                  fontWeight: "600",
+                                  fontFamily: "Josefin Sans, sans-serif",
+                                  borderRadius: 1,
+                                  fontSize: "13px",
+                                  border: "1px solid #001d3d",
+
+                                  "&:hover": {
+                                    backgroundColor: "#118ab2",
+                                    color: "white",
+                                    opacity: 10,
+                                  },
                                   alignItems: "right",
                                 }}
                               >

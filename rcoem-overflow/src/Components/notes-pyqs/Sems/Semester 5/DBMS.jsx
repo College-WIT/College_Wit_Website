@@ -10,11 +10,12 @@ import Lottie from "react-lottie";
 import * as animationData from "../../../../Assets/BookLottie.json";
 
 const DBMS = () => {
-    const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(false);
 
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
-    };
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
 
     const data = [
         {
@@ -61,36 +62,41 @@ const DBMS = () => {
         },
     ];
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
-    return (
-        <div>
-            <Navbar />
-            <Grid container>
-                <Grid xs={6} md={2}>
-                    <Lottie options={defaultOptions} height="90%" width="90%" style={{ marginTop: '20px' }} />
-                </Grid>
-                <Grid xs={6} md={8}>
-                    <Typography
-                        variant="h3"
-                        sx={{
-                            textAlign: "center",
-                            marginTop: "50px",
-                        }}
-                    >
-                        Database Management System Notes and PYQ
-                    </Typography>
-                </Grid>
-            </Grid>
+  return (
+    <div>
+      <Navbar />
+      <Grid container>
+        <Grid xs={6} md={2}>
+          <Lottie
+            options={defaultOptions}
+            height="90%"
+            width="90%"
+            style={{ marginTop: "20px" }}
+          />
+        </Grid>
+        <Grid xs={6} md={8}>
+          <Typography
+            variant="h3"
+            sx={{
+              textAlign: "center",
+              marginTop: "50px",
+            }}
+          >
+            DBMS
+          </Typography>
+        </Grid>
+      </Grid>
 
-            {/* <Grid container spacing={2} columns={10} sx={{
+      {/* <Grid container spacing={2} columns={10} sx={{
                 marginTop: '50px'
             }}>
                 {data.map((d) => (
@@ -112,38 +118,38 @@ const DBMS = () => {
                 ))} 
 
             </Grid>*/}
-            <div style={{ padding: "30px" }}>
-                {data.map((d) => (
-                    <Accordion
-                        sx={{ backgroundColor: "#444444", margin: "5px" }}
-                        expanded={expanded === `${d.panel}`}
-                        onChange={handleChange(`${d.panel}`)}
-                    >
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon color="warning" />}
-                            aria-controls="panel1bh-content"
-                            id="panel1bh-header"
-                        >
-                            <Typography
-                                sx={{ color: "white", fontWeight: 700, fontSize: "18px" }}
-                            >
-                                {d.title}
-                            </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <iframe
-                                title="doc"
-                                src={d.url}
-                                width="640"
-                                height="480"
-                                style={{ position: "relative", left: "20%" }}
-                            ></iframe>
-                        </AccordionDetails>
-                    </Accordion>
-                ))}
-            </div>
-        </div>
-    );
+      <div style={{ padding: "30px" }}>
+        {data.map((d) => (
+          <Accordion
+            sx={{ backgroundColor: "#444444", margin: "5px" }}
+            expanded={expanded === `${d.panel}`}
+            onChange={handleChange(`${d.panel}`)}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon color="warning" />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Typography
+                sx={{ color: "white", fontWeight: 700, fontSize: "18px" }}
+              >
+                {d.title}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <iframe
+                title="doc"
+                src={d.url}
+                width="640"
+                height="480"
+                style={{ position: "relative", left: "20%" }}
+              ></iframe>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default DBMS;

@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -7,18 +9,17 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { Component } from "react";
 import axios from "axios";
 import { Avatar } from "@mui/material";
 import { CardHeader } from "@mui/material";
-import getCookie from "../../hooks/getCookie";
-import * as animationData from "../../Assets/ques.json";
+import * as animationData from "../../Assets/QnA.json";
 import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import Leftbar from "./Leftbar";
-import Rightbar from "./Rightbar";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+import Rightbar from "../../Components/Questions/Rightbar";
+import Leftbar from "../../Components/Questions/Leftbar";
 
 const defaultOptions = {
   loop: true,
@@ -36,106 +37,84 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-var cookie = getCookie("login");
-var red_link = "/Post-a-question";
-// var red_link2 = "/Post-an-answer";
-if (cookie == null) {
-  red_link = "/login";
-  // red_link2 = "/login";
-  console.log(red_link);
-}
+export default function TagsFunc(props) {
+  console.log(props.tag);
+  var Tag = props.tag;
+  const tags = {
+    tag: props.tag,
+  };
 
-//var SearchData = JSON.parse(localStorage.getItem("SearchData")).data;
-// var tag = "how";
-// var FilteredData = [];
-// const searchWord = tag;
-// SearchData.filter((value) => {
-//   if (
-//     value.question.toLowerCase().includes(searchWord.toLowerCase()) === true
-//   ) {
-//     console.log(value.question);
-//   }
-// });
+  const [QuestionsData, setQuestionsData] = useState([]);
 
-class QuestionsPages extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      QuestionsData: [],
-      errorMsg: "",
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get(
-        "https://rcoem-overflow-backend.herokuapp.com/view_trending_questions"
+  var getData = async () => {
+    console.log("DATA CALL");
+    await axios
+      .post(
+        "https://rcoem-overflow-backend.herokuapp.com/tagwise_question",
+        tags
       )
       .then((response) => {
         console.log(response);
-        this.setState({
-          QuestionsData: response.data,
-        });
+        setQuestionsData(response.data);
       })
       .catch((error) => {
         console.log(error);
-        this.setState({
-          errorMsg: "Error retrieving data",
-        });
+        //errorMsg: "Error retrieving data"
       });
-  }
+  };
+  useEffect(() => {
+    getData();
+  }, 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  [props]);
 
-  render() {
-    const { QuestionsData } = this.state;
-    return (
-      <Box
-        sx={{
-          flexGrow: 1,
-          backgroundColor: "#d9d9d9",
-          padding: 2,
-        }}
-      >
-        {/* ----------------------------QUICK ACCESS------------------------------ */}
-        <Grid container spacing={2}>
-          <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
-            <Leftbar />
-          </Grid>
+  console.log(QuestionsData);
+  return (
+    <Box
+      sx={{
+        flexGrow: 1,
+        backgroundColor: "#d9d9d9",
+        padding: 2,
+      }}
+    >
+      {/* ----------------------------QUICK ACCESS------------------------------ */}
+      <Grid container spacing={2}>
+        <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
+          <Leftbar />
+        </Grid>
 
-          {/* ------------------------------------Questions------------------------------------- */}
+        {/* ------------------------------------Questions------------------------------------- */}
 
-          <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
-            <Grid item>
-              <Item>
-                <Grid
-                  columns={16}
-                  container
-                  sx={{
-                    paddingBottom: 1,
-                  }}
-                >
-                  <Grid item xs={4} md={6}>
-                    <Lottie
-                      options={defaultOptions}
-                      height="100%"
-                      width="50%"
-                    />
-                  </Grid>
-                  <Grid item xs={4} md={10}>
-                    <Typography
-                      sx={{
-                        fontFamily: "Josefin Sans, sans-serif",
-                        fontSize: 40,
-                        position: "relative",
-                        top: 55,
-                        left: "-110px",
-                      }}
-                    >
-                      Trending Questions
-                    </Typography>
-                  </Grid>
+        <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
+          <Grid item>
+            <Item>
+              <Grid
+                columns={16}
+                container
+                sx={{
+                  paddingBottom: 1,
+                }}
+              >
+                <Grid item xs={4} md={6}>
+                  <Lottie options={defaultOptions} height="100%" width="50%" />
                 </Grid>
-
+                <Grid item xs={4} md={10}>
+                  <Typography
+                    sx={{
+                      fontFamily: "'urw-din',sans-serif",
+                      fontSize: 40,
+                      position: "relative",
+                      top: 55,
+                      left: "-110px",
+                    }}
+                  >
+                    {Tag}
+                  </Typography>
+                </Grid>
+              </Grid>
+              {QuestionsData.length === 0 ? (
+                <h1>No Questions Yet</h1>
+              ) : (
                 <Grid container>
                   {QuestionsData.map((content) => (
                     <Box
@@ -154,18 +133,19 @@ class QuestionsPages extends Component {
                         avatar={
                           <Avatar
                             sx={{
-                              height: "45px",
-                              width: "45px",
+                              height: "40px",
+                              width: "40px",
                             }}
                             alt={content.author}
-                            src="https://avatars.dicebear.com/api/bottts/hig.svg"
+                            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
                           />
                         }
                         title={
                           <Typography
                             sx={{
                               fontSize: 16,
-                              fontFamily: "Josefin Sans, sans-serif",
+                              // fontWeight: "bold",
+                              fontFamily: "roboto",
                             }}
                           >
                             {content.author}
@@ -174,13 +154,14 @@ class QuestionsPages extends Component {
                       />
                       <Typography
                         variant="h6"
-                        sx={{
-                          color: "black",
-                          textAlign: "left",
-                          paddingLeft: 3,
-                          fontFamily: "Josefin Sans, sans-serif",
-                        }}
+                        sx={{ color: "black", textAlign: "left", padding: 0.5 }}
                       >
+                        <LiveHelpIcon
+                          sx={{
+                            margin: "0 20px",
+                          }}
+                        />
+
                         {content.question}
                       </Typography>
 
@@ -200,21 +181,17 @@ class QuestionsPages extends Component {
                             >
                               <Button
                                 sx={{
-                                  /* backgroundColor: "#38E54D", */
-                                  color: "#000",
+                                  backgroundColor: "#E26639",
                                   width: "auto",
                                   height: "auto",
                                   padding: "10px",
                                   borderRadius: 1,
-                                  borderColor: "#118ab2",
-                                  fontFamily: "Josefin Sans, sans-serif",
                                   "&:hover": {
-                                    backgroundColor: "#118ab2",
-                                    color: "#fff",
+                                    backgroundColor: "#41D450",
                                     opacity: 10,
                                   },
                                 }}
-                                variant="outlined"
+                                variant="contained"
                                 disableElevation
                               >
                                 See Full Answer
@@ -222,14 +199,14 @@ class QuestionsPages extends Component {
                             </Link>
 
                             {/* <Link
-                                                            component="button"
-                                                            variant="body2"
-                                                            onClick={() => {
-                                                                console.info("I'm a button.");
-                                                            }}
-                                                        >
-                                                            Button Link
-                                                        </Link> */}
+                                                                  component="button"
+                                                                  variant="body2"
+                                                                  onClick={() => {
+                                                                      console.info("I'm a button.");
+                                                                  }}
+                                                              >
+                                                                  Button Link
+                                                              </Link> */}
                           </Item>
                         </Grid>
 
@@ -268,11 +245,7 @@ class QuestionsPages extends Component {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography
-                                variant="subtitle1"
-                                color="black"
-                                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-                              >
+                              <Typography variant="subtitle1" color="black">
                                 <VisibilityIcon />
                                 {content.views}
                               </Typography>
@@ -285,21 +258,13 @@ class QuestionsPages extends Component {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography
-                                variant="subtitle1"
-                                color="black"
-                                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-                              >
+                              <Typography variant="subtitle1" color="black">
                                 <ThumbUpIcon />
                                 {content.upvotes}
                               </Typography>
                             </Item>
                             <Item elevation={0}>
-                              <Typography
-                                variant="subtitle1"
-                                color="black"
-                                sx={{ fontFamily: "Josefin Sans, sans-serif" }}
-                              >
+                              <Typography variant="subtitle1" color="black">
                                 <QuestionAnswerIcon />
                                 {content.no_of_answers}
                               </Typography>
@@ -310,19 +275,17 @@ class QuestionsPages extends Component {
                     </Box>
                   ))}
                 </Grid>
-              </Item>
-            </Grid>
-          </Grid>
-
-          {/* --------------------------------TAGS SECTION--------------------------------------------*/}
-
-          <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
-            <Rightbar />
+              )}
+            </Item>
           </Grid>
         </Grid>
-      </Box>
-    );
-  }
-}
 
-export default QuestionsPages;
+        {/* --------------------------------TAGS SECTION--------------------------------------------*/}
+
+        <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
+          <Rightbar />
+        </Grid>
+      </Grid>
+    </Box>
+  );
+}
