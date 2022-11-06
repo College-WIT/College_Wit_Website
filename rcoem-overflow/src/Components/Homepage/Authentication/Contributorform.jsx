@@ -25,9 +25,12 @@ import setCookie from "../../../hooks/setCookie";
 import getCookie from "../../../hooks/getCookie";
 import removeCookie from "../../../hooks/removeCookie";
 
-const headerStyle = { marginBottom: "10px" };
+const headerStyle = {
+  marginBottom: "10px",
+  fontFamily: "Josefin Sans, sans-serif",
+};
 const paperStyle = {
-  p: 20,
+  p: 2,
   width: "50%",
   m: "0 auto",
   height: "auto",
@@ -212,18 +215,25 @@ const Contributorform = () => {
   return (
     <div>
       <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
         sx={{
           py: 10,
           height: "auto",
         }}
       >
-        <Paper style={paperStyle}>
+        <Paper sx={paperStyle}>
           <Grid align="center">
             <h2 style={headerStyle}>
               <VolunteerActivismIcon sx={{ fontSize: "40px", mr: "10px" }} />
               Contribute
             </h2>
-            <Typography variant="caption" gutterBottom>
+            <Typography
+              variant="caption"
+              gutterBottom
+              fontFamily="Josefin Sans, sans-serif"
+            >
               Please fill this form to register as a Contributor !
             </Typography>
           </Grid>
@@ -237,13 +247,20 @@ const Contributorform = () => {
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
                 name="gender"
+                fontFamily="Josefin Sans, sans-serif"
                 value={gender}
                 label="gender"
                 onChange={Gender}
               >
-                <MenuItem value={1}>Male</MenuItem>
-                <MenuItem value={2}>Female</MenuItem>
-                <MenuItem value={3}>Not To Say</MenuItem>
+                <MenuItem value={1} fontFamily="Josefin Sans, sans-serif">
+                  Male
+                </MenuItem>
+                <MenuItem value={2} fontFamily="Josefin Sans, sans-serif">
+                  Female
+                </MenuItem>
+                <MenuItem value={3} fontFamily="Josefin Sans, sans-serif">
+                  Not To Say
+                </MenuItem>
               </Select>
             </FormControl>
 
@@ -252,6 +269,7 @@ const Contributorform = () => {
               name="linkedin"
               required
               fullWidth
+              fontFamily="Josefin Sans, sans-serif"
               label="LinkedIn url"
               placeholder="Enter your LinkedIn URL"
             />
@@ -260,6 +278,7 @@ const Contributorform = () => {
               name="github"
               required
               fullWidth
+              fontFamily="Josefin Sans, sans-serif"
               label="Github url"
               placeholder="Enter your Github URL"
             />
@@ -268,6 +287,7 @@ const Contributorform = () => {
               name="codechef"
               // required
               fullWidth
+              fontFamily="Josefin Sans, sans-serif"
               label="CodeChef Profile url"
               placeholder="Enter your CodeChef account URL"
             />
@@ -276,12 +296,14 @@ const Contributorform = () => {
               name="codeforces"
               // required
               fullWidth
+              fontFamily="Josefin Sans, sans-serif"
               label="CodeForces Profile url"
               placeholder="Enter your CodeForces account URL"
             />
             <TextField
               style={text}
               name="leetcode"
+              fontFamily="Josefin Sans, sans-serif"
               fullWidth
               label="Leetcode Profile url"
               placeholder="Enter your Leetcode account URL"
@@ -290,6 +312,7 @@ const Contributorform = () => {
               style={text}
               name="personal"
               fullWidth
+              fontFamily="Josefin Sans, sans-serif"
               label="Personal Portfolio url"
               placeholder="Enter your Personal URL"
             />
@@ -312,6 +335,7 @@ const Contributorform = () => {
                 name="branch"
                 value={branch}
                 label="Branch"
+                fontFamily="Josefin Sans, sans-serif"
                 onChange={Branch}
               >
                 <MenuItem value="">
@@ -327,13 +351,17 @@ const Contributorform = () => {
               </Select>
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 300 }}>
-              <InputLabel id="demo-simple-select-helper-label">
+              <InputLabel
+                fontFamily="Josefin Sans, sans-serif"
+                id="demo-simple-select-helper-label"
+              >
                 Semester
               </InputLabel>
               <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
                 name="semester"
+                fontFamily="Josefin Sans, sans-serif"
                 value={semester}
                 label="Semester"
                 onChange={sem}
@@ -359,6 +387,7 @@ const Contributorform = () => {
             <TextField
               style={text}
               name="companyname"
+              fontFamily="Josefin Sans, sans-serif"
               // required
               width="400px"
               multiline
@@ -368,6 +397,7 @@ const Contributorform = () => {
             <TextField
               style={text}
               name="position"
+              fontFamily="Josefin Sans, sans-serif"
               // required
               width="400px"
               multiline
