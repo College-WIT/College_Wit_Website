@@ -107,7 +107,7 @@ export default function MediaCard(props) {
         />
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-        <a href={UserData.linkedin_url}>
+        <a href={UserData.github_url}>
           <Button
             size="small"
             sx={{
