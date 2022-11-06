@@ -30,13 +30,11 @@ if (loggedin) {
 }
 console.log(username);
 
-const Logout = () => {
-  const navigate = useNavigate();
+const logout = () => {
   let loggedin = getCookie("login");
   if (loggedin) {
     removeCookie("login");
-    //window.location.reload();
-    navigate("/Home")
+    window.location.reload();
   }
 };
 
@@ -363,7 +361,7 @@ const ResponsiveAppBar = () => {
                   style={{ textDecoration: "None", color: "white" }}
                   to={`/logout`}
                 > */}
-                  <Button sx={logout_buttons} onClick={Logout}>
+                  <Button sx={logout_buttons} onClick={logout}>
                     <LogoutIcon sx={{ mr: 1 }} />
                     Logout
                   </Button>
