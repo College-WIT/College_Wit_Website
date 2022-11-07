@@ -294,8 +294,9 @@ class Ans extends Component {
                         </Stack>
                       </Grid>
                     </Grid>
-
-                    <Grid container>
+                    {answers.length==0 ? (<h1>No Answers Yet</h1>)
+                    :(
+                      <Grid container>
                       {answers.map((answer) => {
                         return (
                           <Grid
@@ -381,6 +382,8 @@ class Ans extends Component {
                         );
                       })}
                     </Grid>
+                    )}
+                    
                   </Grid>
                 ))}
               </Item>
