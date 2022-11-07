@@ -234,7 +234,7 @@ export default function TagsFunc(props) {
                               position: "relative",
                               alignItems: "right",
                               "@media (max-width:1000px)": {
-                                paddingLeft: 20,
+                                paddingLeft: 1,
                               },
                               "@media (max-width:850px)": {
                                 paddingLeft: 1,

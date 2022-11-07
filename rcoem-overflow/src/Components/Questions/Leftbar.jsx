@@ -102,6 +102,9 @@ const Leftbar = () => {
                 borderRadius: 2,
                 fontFamily: "Josefin Sans, sans-serif",
                 fontSize: 15,
+                "@media (max-width:1000px)": {
+                  width: 110,
+                },
                 "&:hover": {
                   backgroundColor: "white",
                   border: "1px solid #001d3d",

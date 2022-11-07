@@ -141,6 +141,9 @@ class Signin extends Component {
           padding: "20px",
           height: "auto",
           justifyContent: "center",
+          "@media (max-width:1000px)": {
+            height: "80vh",
+          },
         }}
       >
         <Paper style={paperStyle}>

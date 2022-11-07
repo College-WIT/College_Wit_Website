@@ -102,12 +102,14 @@ function Signup() {
   };
 
   return (
+    <div style={{height:"100vh"}}>
     <Grid
       container
       sx={{
         padding: "20px",
         height: "auto",
         justifyContent: "center",
+        
       }}
     >
       <Paper style={paperStyle}>
@@ -210,6 +212,7 @@ function Signup() {
         </Box>
       </Modal>
     </Grid>
+    </div>
   );
 }
 
