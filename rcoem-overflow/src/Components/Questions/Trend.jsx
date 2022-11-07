@@ -129,7 +129,8 @@ class QuestionsPages extends Component {
                         fontWeight:700,
                         position: "relative",
                         top: 55,
-                        left: "-110px",
+                        left: "-60px",
+                        
                       }}
                     >
                       Trending Questions
@@ -255,7 +256,7 @@ class QuestionsPages extends Component {
                               position: "relative",
                               alignItems: "right",
                               "@media (max-width:1000px)": {
-                                paddingLeft: 20,
+                                paddingLeft: 1,
                               },
                               "@media (max-width:850px)": {
                                 paddingLeft: 1,

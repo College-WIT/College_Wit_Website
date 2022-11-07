@@ -46,8 +46,8 @@ const Events = () => {
       >
         College Events
       </Typography>
-      <Grid container justifyContent="center" spacing={2}>
-        <Grid item xs={12} md={4} lg={4}>
+      <Grid container justifyContent="center" spacing={2} >
+        <Grid item sm={12} md={6} lg={4}>
           <Card sx={cards}>
             <CardMedia
               component="img"
@@ -74,7 +74,7 @@ const Events = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4} lg={4}>
+        <Grid item sm={12} md={6} lg={4}>
           <Card sx={cards}>
             <CardMedia
               component="img"
@@ -101,7 +101,7 @@ const Events = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4} lg={4}>
+        <Grid item sm={12} md={6} lg={4}>
           <Card sx={cards}>
             <CardMedia
               component="img"
@@ -127,6 +127,7 @@ const Events = () => {
             </CardActions>
           </Card>
         </Grid>
+        
       </Grid>
     </Grid>
   );
