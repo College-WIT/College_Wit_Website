@@ -19,28 +19,125 @@ const Placement = () => {
     const data = [
         {
             id: 1,
-            title: "Notes",
+            title: "Google",
             panel: "panel1",
-            url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+            url: "https://drive.google.com/file/d/12uWVOBS5DQcTLa12wjaCehUWPO6ztz7x/preview",
         },
         {
             id: 2,
-            title: "PYQ 2022",
+            title: "Amazon 1",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+            url: "https://drive.google.com/file/d/1lpDhoZWt2JJxYv3n4FETGMogo2LE4AgO/preview",
         },
         {
             id: 3,
-            title: "PYQ 2021",
+            title: "Amazon 2",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+            url: "https://drive.google.com/file/d/103y5ivvZlZwthFAiOCYtRbqg78HrxsI0/preview",
         },
         {
             id: 4,
-            title: "PYQ 2020",
+            title: "Microsoft 1",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1Lji-8McWmON0TJopKvXfsZJ361rcEO0m/preview",
+            url: "https://drive.google.com/file/d/1m-Li_wJDPorakmbAbFU7NsvYbUWXkWbz/preview",
         },
+        {
+            id: 5,
+            title: "Microsoft 2",
+            panel: "panel5",
+            url: "https://drive.google.com/file/d/1RdHCD4tqiIS1FcgfBBoOFcHdmT8Y7dH9/preview",
+        },
+        {
+            id: 6,
+            title: "Apple",
+            panel: "panel6",
+            url: "https://drive.google.com/file/d/1V_xZEFOlqBiMdFmoB6Fr9hDsK-VJx-mW/preview",
+        },
+        {
+            id: 7,
+            title: "Adobe",
+            panel: "panel7",
+            url: "https://drive.google.com/file/d/1BPqmyRE-8QfQdPTPbMC9NGEOddKizxWr/preview",
+        },
+        {
+            id: 8,
+            title: "VMWare",
+            panel: "panel8",
+            url: "https://drive.google.com/file/d/1iKDJ_S3dPiN1KCq5NwUysqz21mO89imH/preview",
+        },
+        {
+            id: 9,
+            title: "Goldman Sachs",
+            panel: "panel9",
+            url: "https://drive.google.com/file/d/1MdAWTN39fCpwOTz21yyWgPDA5C26a0Dg/preview",
+        },
+        {
+            id: 10,
+            title: "Facebook",
+            panel: "panel10",
+            url: "https://drive.google.com/file/d/1lv5a91F1sHLiNUMp4wEPavLtN8GS-Aol/preview",
+        },
+        {
+            id: 11,
+            title: "Flipkart",
+            panel: "panel11",
+            url: "https://drive.google.com/file/d/1SOaQ4WdzQfRja7hicHXT2BE8GZN9cJ35/preview",
+        },
+        {
+            id: 12,
+            title: "Myntra",
+            panel: "panel12",
+            url: "https://drive.google.com/file/d/1EoSxK2pZ3fnR1SFxxtdjZdmDCcQNB83v/preview",
+        },
+        {
+            id: 13,
+            title: "Oracle",
+            panel: "panel13",
+            url: "https://drive.google.com/file/d/1JsX3MpybJuGflATI0cLtz5eIUziwtrkw/preview",
+        },
+        {
+            id: 14,
+            title: "DSA Book",
+            panel: "panel14",
+            url: "https://drive.google.com/file/d/1UuQ2R7utYaRc0SX_cibniW2GirS1ubXe/preview",
+        },
+        {
+            id: 15,
+            title: "Easy Top Interview Questions",
+            panel: "panel15",
+            url: "https://drive.google.com/file/d/19zDB7njQ51Udn5ugXsj9k6mB9DpfjjcN/preview",
+        },
+        {
+            id: 16,
+            title: "Medium Top Interview Questions",
+            panel: "panel16",
+            url: "https://drive.google.com/file/d/1YhKQk3VpB1BwP5p5B8hOEeXJGyM4du7w/preview",
+        },
+        {
+            id: 17,
+            title: "Hard Top Interview Questions",
+            panel: "panel17",
+            url: "https://drive.google.com/file/d/1aeUU6z_Mf4CfKz9aRUZZMKdRgpthkjXG/preview",
+        },
+        {
+            id: 18,
+            title: "Triology",
+            panel: "panel18",
+            url: "https://drive.google.com/file/d/1L_wX3L61puJnzWUbQlxG1V_tR9TT87wv/preview",
+        },
+        {
+            id: 19,
+            title: "Paypal",
+            panel: "panel19",
+            url: "https://drive.google.com/file/d/1X1JUW_JsNrC14L1nkmoXV0pDOrb7ciWp/preview",
+        },
+        {
+            id: 20,
+            title: "Walmart",
+            panel: "panel20",
+            url: "https://drive.google.com/file/d/1JfqshnNSiDnZuklZlhzofIH_wUj7y9Jx/preview",
+        },
+
     ];
 
     const defaultOptions = {
