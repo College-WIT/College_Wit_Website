@@ -107,6 +107,7 @@ export default function Boxes() {
               className="exploreButton"
               variant="contained"
               startIcon={<ExploreIcon />}
+              href="/Answered"
               sx={{
                 backgroundColor: "#f1faee",
                 fontFamily: "Josefin Sans, sans-serif",

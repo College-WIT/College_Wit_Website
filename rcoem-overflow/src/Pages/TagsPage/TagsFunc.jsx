@@ -138,7 +138,7 @@ export default function TagsFunc(props) {
                               width: "40px",
                             }}
                             alt={content.author}
-                            src="https://th.bing.com/th/id/OIP.6C4bCvrEnKURBcRjCOr0sQHaHa?pid=ImgDet&rs=1"
+                            src="https://avatars.dicebear.com/api/bottts/qw.svg"
                           />
                         }
                         title={
@@ -154,13 +154,8 @@ export default function TagsFunc(props) {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: "black", textAlign: "left", padding: 0.5,fontFamily: "Josefin Sans, sans-serif", }}
+                        sx={{ paddingLeft:2,color: "black", textAlign: "left", paddingTop: 0.5,fontFamily: "Josefin Sans, sans-serif", }}
                       >
-                        <LiveHelpIcon
-                          sx={{
-                            margin: "0 20px",
-                          }}
-                        />
 
                         {content.question}
                       </Typography>
