@@ -9,7 +9,6 @@ import {
   Typography,
   Modal,
 } from "@mui/material";
-
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -239,7 +238,7 @@ const Contributorform = () => {
           </Grid>
 
           <form ref={form} onSubmit={RegisterContributor}>
-            <FormControl sx={{ m: 1, minWidth: 300 }}>
+            {/* <FormControl sx={{ m: 1, minWidth: 300 }}>
               <InputLabel id="demo-simple-select-helper-label">
                 Gender
               </InputLabel>
@@ -262,7 +261,7 @@ const Contributorform = () => {
                   Not To Say
                 </MenuItem>
               </Select>
-            </FormControl>
+            </FormControl> */}
 
             <TextField
               style={text}
@@ -335,6 +334,7 @@ const Contributorform = () => {
                 name="branch"
                 value={branch}
                 label="Branch"
+                fullWidth
                 fontFamily="Josefin Sans, sans-serif"
                 onChange={Branch}
               >
@@ -381,7 +381,7 @@ const Contributorform = () => {
               </Select>
             </FormControl>
 
-            <Typography m="10px">
+            <Typography m="10px" fontFamily="Josefin Sans, sans-serif">
               A College Passout? Enter your current Job details <br />
             </Typography>
             <TextField
