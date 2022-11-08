@@ -298,7 +298,7 @@ const Contributor = () => {
                     <Typography sx={header}>{row.points}</Typography>
                   </StyledTableCell>
 
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="left">
                     <a href={row.linkedin_url}>
                       <LinkedInIcon
                         sx={{
@@ -310,7 +310,7 @@ const Contributor = () => {
                     </a>
                   </StyledTableCell>
 
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="left">
                     <a href={row.github_url}>
                       <Typography
                         sx={{

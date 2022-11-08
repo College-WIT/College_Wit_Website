@@ -113,6 +113,7 @@ const UserInfo = () => {
   useEffect(() => {
     getUserData();
   }, [usernames]);
+  
   console.log(UserData);
 
   const personal = [
@@ -244,7 +245,7 @@ const UserInfo = () => {
             </CardActions>
 
             <Divider />
-            {username_real === usernames ? (
+            {/* {username_real === usernames ? (
               <Grid item justifyContent="center">
                 <Link to="/EditProfile" style={{ textDecoration: "none" }}>
                   <Button sx={Styles.button} variant="contained">
@@ -254,7 +255,7 @@ const UserInfo = () => {
               </Grid>
             ) : (
               <></>
-            )}
+            )} */}
           </Card>
         </Grid>
 
@@ -388,7 +389,7 @@ const UserInfo = () => {
 
             {/* ----------------------------------Projects and Achievements-------------------------------- */}
 
-            <Grid item xs={11} sm={10} md={10} lg={11} sx={{ m: 1 }}>
+            {/* <Grid item xs={11} sm={10} md={10} lg={11} sx={{ m: 1 }}>
               <Card sx={{ width: "auto" }}>
                 <Typography sx={Styles.header}>
                   Projects and Achievements{" "}
@@ -399,7 +400,7 @@ const UserInfo = () => {
                       <Grid container>
                         <Grid item xs={4} sm={3} lg={3} sx={{ ml: 1, my: 1 }}>
                           <Typography sx={Styles.content}>
-                            {/* {Object.keys(data)} : {Object.values(data)} */}
+                            {Object.keys(data)} : {Object.values(data)}
                           </Typography>
 
                           <Typography sx={Styles.content}>
@@ -413,7 +414,7 @@ const UserInfo = () => {
                   })}
                 </CardContent>
               </Card>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </Grid>

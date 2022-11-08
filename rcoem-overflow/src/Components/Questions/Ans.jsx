@@ -106,7 +106,7 @@ class Ans extends Component {
         console.log("POST COMPLETE");
         // const n = response.data.answers.length;
         var arr = response.data.answers;
-
+        console.log(arr);
         this.setState({
           quest: response.data.question,
           author: response.data.author,
@@ -311,6 +311,12 @@ class Ans extends Component {
                               },
                             }}
                           >
+                          <Link
+                            style={{ textDecoration: "None", color: "black" }}
+                            to={{
+                              pathname: `/Profile/${answer.author}`,
+                            }}
+                          >
                             <CardHeader
                               sx={{
                                 alignItems: "left",
@@ -322,7 +328,7 @@ class Ans extends Component {
                                     height: "50px",
                                     width: "50px",
                                   }}
-                                  alt={content.author}
+                                  alt={answer.author}
                                   src="https://avatars.dicebear.com/api/bottts/:seed.svg"
                                 />
                               }
@@ -337,6 +343,7 @@ class Ans extends Component {
                                 </Typography>
                               }
                             />
+                            </Link>
                             <Typography
                               sx={{
                                 color: "black",
