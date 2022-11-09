@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import {
   Grid,
   Paper,
@@ -94,8 +95,23 @@ function getStyles(name, personName, theme) {
 }
 
 const Contributorform = () => {
-  const form = useRef();
   const navigate = useNavigate();
+
+  ///// check Login 
+  const loggedin = getCookie("login");
+  const NavigateLogin = ()=>{
+    console.log("Func called");
+    if (!loggedin) {
+      navigate("/login");
+    }
+  }
+  useEffect(() => {
+    NavigateLogin();
+  }, []);
+  
+
+
+  const form = useRef();
   const [open, setOpen] = useState(false);
   const [lastpage, setLastpage] = useState("/be-a-contributor");
   const [message, setMessage] = useState("Proceed");
@@ -172,7 +188,7 @@ const Contributorform = () => {
 
     var form_data = {
       email: JSON.parse(getCookie("login")).email,
-      gender: genderarr[form.current.gender.value - 1],
+      gender: "male",
       college: "RCOEM",
       semester: semesterarr[form.current.semester.value - 1],
       branch: brancharr[form.current.branch.value - 1],

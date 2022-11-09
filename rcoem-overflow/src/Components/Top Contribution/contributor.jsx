@@ -23,6 +23,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import { Container } from "react-floating-action-button";
 const Contributor = () => {
+
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "inherit",
     "& .MuiInputBase-input": {
