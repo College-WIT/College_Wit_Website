@@ -176,7 +176,7 @@ class postans extends Component {
                       paddingTop: 5,
                     }}
                   >
-                    Post an Answer{" "}
+                    Post an Answer
                   </Typography>
                 </Grid>
                 <Grid sx={{ paddingTop: "20px" }}>

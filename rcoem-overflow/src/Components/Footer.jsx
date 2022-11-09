@@ -79,19 +79,19 @@ export default function Footer() {
           </Typography>
 
           <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
-            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button href="https://www.linkedin.com/in/college-wit-948635256/" sx={{ fontSize: 20, color: "#ffffff" }}>
               <img
                 alt="logo"
                 src="https://img.icons8.com/color/48/000000/linkedin.png"
               />
             </Button>
-            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button href="https://github.com/collegewit" sx={{ fontSize: 20, color: "#ffffff" }}>
               <img
                 alt="logo"
                 src="https://img.icons8.com/color/48/000000/github--v1.png"
               />
             </Button>
-            <Button sx={{ fontSize: 20, color: "#ffffff" }}>
+            <Button href="mailto:collegewit2022@gmail.com" sx={{ fontSize: 20, color: "#ffffff" }}>
               <img
                 alt="logo"
                 src="https://img.icons8.com/color/48/000000/gmail.png"
