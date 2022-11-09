@@ -19,8 +19,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import axios from "axios";
 import PersonIcon from "@mui/icons-material/Person";
+import AddIcon from "@mui/icons-material/Add";
 
+import { Container } from "react-floating-action-button";
 const Contributor = () => {
+
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "inherit",
     "& .MuiInputBase-input": {
@@ -120,6 +123,33 @@ const Contributor = () => {
           Top Contributors
         </Typography>
       </Grid>
+
+      <Link to="/be-a-contributor">
+        <Container>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#001d3d",
+              color: "#ffffff",
+              width: "200px",
+              height: "50px",
+              fontSize: "12px",
+              fontFamily: "Josefin Sans, sans-serif",
+              "&:hover": {
+                backgroundColor: "#001d3d",
+              },
+            }}
+          >
+            <AddIcon
+              sx={{
+                mr: "10px",
+                fontSize: "25px",
+              }}
+            />{" "}
+            Be a Contributor
+          </Button>
+        </Container>
+      </Link>
 
       {/* ------------------------------- Top 3 cards------------------------------------------------------------------------------- */}
       <Grid
@@ -298,7 +328,7 @@ const Contributor = () => {
                     <Typography sx={header}>{row.points}</Typography>
                   </StyledTableCell>
 
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="left">
                     <a href={row.linkedin_url}>
                       <LinkedInIcon
                         sx={{
@@ -310,7 +340,7 @@ const Contributor = () => {
                     </a>
                   </StyledTableCell>
 
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="left">
                     <a href={row.github_url}>
                       <Typography
                         sx={{

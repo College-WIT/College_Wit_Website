@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-
+import { useEffect } from "react";
 import {
   Grid,
   Paper,
@@ -8,16 +8,15 @@ import {
   Button,
   Typography,
   Modal,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Box,
+  useTheme,
+  OutlinedInput,
+  Chip,
 } from "@mui/material";
-
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { useTheme } from "@mui/material/styles";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Chip from "@mui/material/Chip";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -96,8 +95,23 @@ function getStyles(name, personName, theme) {
 }
 
 const Contributorform = () => {
-  const form = useRef();
   const navigate = useNavigate();
+
+  ///// check Login 
+  const loggedin = getCookie("login");
+  const NavigateLogin = ()=>{
+    console.log("Func called");
+    if (!loggedin) {
+      navigate("/login");
+    }
+  }
+  useEffect(() => {
+    NavigateLogin();
+  }, []);
+  
+
+
+  const form = useRef();
   const [open, setOpen] = useState(false);
   const [lastpage, setLastpage] = useState("/be-a-contributor");
   const [message, setMessage] = useState("Proceed");
@@ -114,6 +128,10 @@ const Contributorform = () => {
     } else {
       navigate(lastpage);
     }
+  };
+
+  const label = {
+    fontFamily: "Josefin Sans, sans-serif",
   };
 
   const semesterarr = [
@@ -170,7 +188,7 @@ const Contributorform = () => {
 
     var form_data = {
       email: JSON.parse(getCookie("login")).email,
-      gender: genderarr[form.current.gender.value - 1],
+      gender: "male",
       college: "RCOEM",
       semester: semesterarr[form.current.semester.value - 1],
       branch: brancharr[form.current.branch.value - 1],
@@ -239,7 +257,7 @@ const Contributorform = () => {
           </Grid>
 
           <form ref={form} onSubmit={RegisterContributor}>
-            <FormControl sx={{ m: 1, minWidth: 300 }}>
+            {/* <FormControl sx={{ m: 1, minWidth: 300 }}>
               <InputLabel id="demo-simple-select-helper-label">
                 Gender
               </InputLabel>
@@ -262,7 +280,7 @@ const Contributorform = () => {
                   Not To Say
                 </MenuItem>
               </Select>
-            </FormControl>
+            </FormControl> */}
 
             <TextField
               style={text}
@@ -270,8 +288,14 @@ const Contributorform = () => {
               required
               fullWidth
               fontFamily="Josefin Sans, sans-serif"
-              label="LinkedIn url"
-              placeholder="Enter your LinkedIn URL"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Enter your LinkedIn url
+                </Typography>
+              }
             />
             <TextField
               style={text}
@@ -279,8 +303,14 @@ const Contributorform = () => {
               required
               fullWidth
               fontFamily="Josefin Sans, sans-serif"
-              label="Github url"
-              placeholder="Enter your Github URL"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Enter your Github url
+                </Typography>
+              }
             />
             <TextField
               style={text}
@@ -288,8 +318,14 @@ const Contributorform = () => {
               // required
               fullWidth
               fontFamily="Josefin Sans, sans-serif"
-              label="CodeChef Profile url"
-              placeholder="Enter your CodeChef account URL"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Enter your Codechef url
+                </Typography>
+              }
             />
             <TextField
               style={text}
@@ -297,24 +333,42 @@ const Contributorform = () => {
               // required
               fullWidth
               fontFamily="Josefin Sans, sans-serif"
-              label="CodeForces Profile url"
-              placeholder="Enter your CodeForces account URL"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Enter your CodeForces url
+                </Typography>
+              }
             />
             <TextField
               style={text}
               name="leetcode"
               fontFamily="Josefin Sans, sans-serif"
               fullWidth
-              label="Leetcode Profile url"
-              placeholder="Enter your Leetcode account URL"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Enter your Leetcode url
+                </Typography>
+              }
             />
             <TextField
               style={text}
               name="personal"
               fullWidth
               fontFamily="Josefin Sans, sans-serif"
-              label="Personal Portfolio url"
-              placeholder="Enter your Personal URL"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Any other url
+                </Typography>
+              }
             />
             {/* <Typography m="10px">
               Bio (max 200 words) <br />
@@ -330,11 +384,24 @@ const Contributorform = () => {
               placeholder="Enter your details"
             /> */}
             <FormControl sx={{ m: 1, minWidth: 300 }}>
-              <InputLabel id="demo-simple-select-label">Branch</InputLabel>
+              <InputLabel
+                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+                id="demo-simple-select-label"
+              >
+                Branch
+              </InputLabel>
               <Select
                 name="branch"
                 value={branch}
-                label="Branch"
+                label={
+                  <Typography
+                    variant="caption"
+                    fontFamily="Josefin Sans, sans-serif"
+                  >
+                    Branch
+                  </Typography>
+                }
+                fullWidth
                 fontFamily="Josefin Sans, sans-serif"
                 onChange={Branch}
               >
@@ -352,7 +419,7 @@ const Contributorform = () => {
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 300 }}>
               <InputLabel
-                fontFamily="Josefin Sans, sans-serif"
+                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
                 id="demo-simple-select-helper-label"
               >
                 Semester
@@ -363,7 +430,14 @@ const Contributorform = () => {
                 name="semester"
                 fontFamily="Josefin Sans, sans-serif"
                 value={semester}
-                label="Semester"
+                label={
+                  <Typography
+                    variant="caption"
+                    fontFamily="Josefin Sans, sans-serif"
+                  >
+                    Semester
+                  </Typography>
+                }
                 onChange={sem}
               >
                 <MenuItem value="">
@@ -381,7 +455,7 @@ const Contributorform = () => {
               </Select>
             </FormControl>
 
-            <Typography m="10px">
+            <Typography m="10px" fontFamily="Josefin Sans, sans-serif">
               A College Passout? Enter your current Job details <br />
             </Typography>
             <TextField
@@ -391,8 +465,14 @@ const Contributorform = () => {
               // required
               width="400px"
               multiline
-              label="Company"
-              placeholder="Company name"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Company Name
+                </Typography>
+              }
             />
             <TextField
               style={text}
@@ -401,11 +481,22 @@ const Contributorform = () => {
               // required
               width="400px"
               multiline
-              label="Position"
-              placeholder="Position"
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Position
+                </Typography>
+              }
             />
             <FormControl sx={{ mt: 1 }} fullWidth>
-              <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
+              <InputLabel
+                id="demo-multiple-chip-label"
+                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+              >
+                Skills
+              </InputLabel>
               <Select
                 labelId="demo-multiple-chip-label"
                 id="demo-multiple-chip"

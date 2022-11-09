@@ -24,6 +24,7 @@
     "react-chartjs-2": "^4.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.1.0",
+    "react-floating-action-button": "^1.0.5",
     "react-hook-form": "^7.38.0",
     "react-icons": "^4.4.0",
     "react-lottie": "^1.2.3",

@@ -106,7 +106,7 @@ class Ans extends Component {
         console.log("POST COMPLETE");
         // const n = response.data.answers.length;
         var arr = response.data.answers;
-
+        console.log(arr);
         this.setState({
           quest: response.data.question,
           author: response.data.author,
@@ -126,7 +126,7 @@ class Ans extends Component {
   render() {
     const {
       quest,
-      // author,
+      author,
       views,
       upvotes,
       answers,
@@ -151,10 +151,27 @@ class Ans extends Component {
                     {/* ***********HEADING***************** */}
                     <Typography
                       sx={{
+                        fontSize: 20,
+                        color: "#000",
+                        fontFamily: "Josefin Sans, sans-serif",
+                        textAlign: "left",
+                        fontWeight: "300",
+                        mt: "50px",
+                        mx: "20px",
+                        // mb: "60px",
+                      }}
+                    >
+                      Posted by : {author}
+                    </Typography>
+
+                    <Typography
+                      sx={{
                         color: "black",
                         fontFamily: "Josefin Sans, sans-serif",
-                        margin: "50px",
+                        mb: "60px",
+                        mx: "20px",
                         fontSize: "40px",
+                        textAlign: "left",
                       }}
                     >
                       {quest}
@@ -294,93 +311,106 @@ class Ans extends Component {
                         </Stack>
                       </Grid>
                     </Grid>
-
-                    <Grid container>
-                      {answers.map((answer) => {
-                        return (
-                          <Grid
-                            sx={{
-                              width: "100%",
-                              border: "1px solid #d3d3d3",
-                              margin: "10px",
-                              borderRadius: "0px",
-                              "&:hover": {
-                                cursor: "pointer",
-                                boxShadow: "0 0 10px #d3d3d3",
-                              },
-                            }}
-                          >
-                            <CardHeader
+                    {answers.length == 0 ? (
+                      <h1>No Answers Yet</h1>
+                    ) : (
+                      <Grid container>
+                        {answers.map((answer) => {
+                          return (
+                            <Grid
                               sx={{
-                                alignItems: "left",
-                                textAlign: "left",
-                              }}
-                              avatar={
-                                <Avatar
-                                  sx={{
-                                    height: "50px",
-                                    width: "50px",
-                                  }}
-                                  alt={content.author}
-                                  src="https://avatars.dicebear.com/api/bottts/:seed.svg"
-                                />
-                              }
-                              title={
-                                <Typography
-                                  sx={{
-                                    fontSize: 18,
-                                    fontFamily: "Josefin Sans, sans-serif",
-                                  }}
-                                >
-                                  {answer.author}
-                                </Typography>
-                              }
-                            />
-                            <Typography
-                              sx={{
-                                color: "black",
-                                textAlign: "left",
-                                paddingLeft: 3,
-                                fontFamily: "Josefin Sans, sans-serif",
+                                width: "100%",
+                                border: "1px solid #d3d3d3",
+                                margin: "10px",
+                                borderRadius: "0px",
+                                "&:hover": {
+                                  cursor: "pointer",
+                                  boxShadow: "0 0 10px #d3d3d3",
+                                },
                               }}
                             >
-                              <GoArrowRight /> {answer.answer}
-                            </Typography>
-
-                            <Grid container justifyContent="right">
-                              <Button
-                                onClick={() =>
-                                  answer_upvote(quest, answer.answer)
-                                }
-                                variant="outline"
-                                sx={{
-                                  margin: "10px",
-                                  color: "#001d3d",
-                                  width: "auto",
-                                  height: "auto",
-                                  px: 1,
-                                  py: 1,
-                                  fontWeight: "600",
-                                  fontFamily: "Josefin Sans, sans-serif",
-                                  borderRadius: 1,
-                                  fontSize: "13px",
-                                  border: "1px solid #001d3d",
-
-                                  "&:hover": {
-                                    backgroundColor: "#118ab2",
-                                    color: "white",
-                                    opacity: 10,
-                                  },
-                                  alignItems: "right",
+                              <Link
+                                style={{
+                                  textDecoration: "None",
+                                  color: "black",
+                                }}
+                                to={{
+                                  pathname: `/Profile/${answer.author}`,
                                 }}
                               >
-                                <ThumbUpIcon /> {answer.upvotes}
-                              </Button>
+                                <CardHeader
+                                  sx={{
+                                    alignItems: "left",
+                                    textAlign: "left",
+                                  }}
+                                  avatar={
+                                    <Avatar
+                                      sx={{
+                                        height: "50px",
+                                        width: "50px",
+                                      }}
+                                      alt={answer.author}
+                                      src="https://avatars.dicebear.com/api/bottts/:seed.svg"
+                                    />
+                                  }
+                                  title={
+                                    <Typography
+                                      sx={{
+                                        fontSize: 18,
+                                        fontFamily: "Josefin Sans, sans-serif",
+                                      }}
+                                    >
+                                      {answer.author}
+                                    </Typography>
+                                  }
+                                />
+                              </Link>
+                              <Typography
+                                sx={{
+                                  color: "black",
+                                  textAlign: "left",
+                                  paddingLeft: 3,
+                                  fontFamily: "Josefin Sans, sans-serif",
+                                }}
+                              >
+                                <GoArrowRight /> {answer.answer}
+                              </Typography>
+
+                              <Grid container justifyContent="right">
+                                <Button
+                                  onClick={() =>
+                                    answer_upvote(quest, answer.answer)
+                                  }
+                                  variant="outline"
+                                  sx={{
+                                    margin: "10px",
+                                    color: "#001d3d",
+                                    width: "auto",
+                                    height: "auto",
+                                    px: 1,
+                                    py: 1,
+                                    fontWeight: "600",
+                                    fontFamily: "Josefin Sans, sans-serif",
+                                    borderRadius: 1,
+                                    fontSize: "13px",
+                                    border: "1px solid #001d3d",
+
+                                    "&:hover": {
+                                      backgroundColor: "#118ab2",
+                                      color: "white",
+                                      opacity: 10,
+                                    },
+                                    alignItems: "right",
+                                  }}
+                                >
+                                  <ThumbUpIcon /> {answer.upvotes}
+                                </Button>
+                              </Grid>
                             </Grid>
-                          </Grid>
-                        );
-                      })}
-                    </Grid>
+                          );
+                        })}
+                      </Grid>
+                    )}
                   </Grid>
                 ))}
               </Item>

@@ -1,11 +1,8 @@
 import { Divider } from "@mui/material";
 import React, { useState } from "react";
 import "./Searchbar.css";
-// import SearchIcon from "@material-ui/icons/Search";
-// import CloseIcon from "@material-ui/icons/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import data from "../Assets/SearchData.json";
-
 function SearchBar({ placeholder }) {
   // console.log(data);
   // var data;
@@ -31,7 +28,6 @@ function SearchBar({ placeholder }) {
 
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  //console.log(data);
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -46,11 +42,6 @@ function SearchBar({ placeholder }) {
       setFilteredData(newFilter);
     }
   };
-
-  // const clearInput = () => {
-  //   setFilteredData([]);
-  //   setWordEntered("");
-  // };
 
   return (
     <div className="search">
@@ -76,13 +67,6 @@ function SearchBar({ placeholder }) {
             backgroundColor: "#3C3938",
           }}
         />
-        {/* <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div> */}
       </div>
       {filteredData.length !== 0 && (
         <div
@@ -112,8 +96,8 @@ function SearchBar({ placeholder }) {
                 <p
                   style={{
                     color: "white",
-                    fontFamily: "monospace",
-                    fontWeight: 10,
+                    fontWeight: 5,
+                    fontFamily: "Josefin Sans, sans-serif",
                   }}
                 >
                   {value.question}
