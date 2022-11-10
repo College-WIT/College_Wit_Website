@@ -191,13 +191,13 @@ const Contributorform = () => {
   const RegisterContributor = async (e) => {
     e.preventDefault();
     console.log("FORM DATA");
-
+    console.log(branch);
     var form_data = {
       email: JSON.parse(getCookie("login")).email,
       gender: "male",
       college: "RCOEM",
-      semester: semesterarr[form.current.semester.value - 1],
-      branch: brancharr[form.current.branch.value - 1],
+      semester: semesterarr[semester-1],
+      branch: brancharr[branch-1],
       linkedin_url: form.current.linkedin.value,
       github_url: form.current.github.value,
       codechef_url: form.current.codechef.value,
