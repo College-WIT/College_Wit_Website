@@ -104,7 +104,7 @@ const Forgotpswd = () => {
             style={text}
             name="password"
             fullWidth
-            label="password"
+            label="New password"
             placeholder="Enter New Password"
           />
           <TextField

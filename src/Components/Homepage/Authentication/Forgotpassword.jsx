@@ -24,10 +24,10 @@ const Forgotpassword = () => {
 
     emailjs
       .sendForm(
-        "service_mkcb1az",
-        "template_m1w5et2",
+        "service_04xpjpp",
+        "template_cg8pwwf",
         form.current,
-        "p9dnwJP18tRg5LLT1"
+        "J5_BpBqDns_0imULd"
       )
       .then(
         (result) => {
