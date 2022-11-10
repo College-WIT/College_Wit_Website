@@ -12,8 +12,8 @@ import {
   Modal,
   Box,
 } from "@mui/material";
-const buttons = { margin: "8px 0", backgroundColor: "#00ABF3" };
-const text = { padding: 2 };
+const buttons = { margin: "8px 0", backgroundColor: "#00ABF3",fontFamily: "Josefin Sans, sans-serif", };
+const text = { padding: 2,fontFamily: "Josefin Sans, sans-serif", };
 const paperStyle = { padding: 20, width: 600, margin: "0 auto" };
 
 var modalText = "Modal Open";
@@ -93,11 +93,14 @@ const Forgotpswd = () => {
     <Grid
       sx={{
         padding: "5%",
+        "@media (max-width:1000px)": {
+          height:"90vh"
+        },
       }}
     >
       <Paper style={paperStyle}>
         <Grid align="center">
-          <h3>Enter OTP</h3>
+          <h3 style={{fontFamily: "Josefin Sans, sans-serif",}}>Enter OTP</h3>
         </Grid>
         <form ref={form} onSubmit={OtpVer}>
           <TextField
@@ -133,10 +136,10 @@ const Forgotpswd = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography sx={{fontFamily: "Josefin Sans, sans-serif",}} id="modal-modal-title" variant="h6" component="h2">
             {modalText}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2,fontFamily: "Josefin Sans, sans-serif", }}>
             {/* <Link
                 style={{ textDecoration: "None", color: "white" }}
                 to={lastpage}

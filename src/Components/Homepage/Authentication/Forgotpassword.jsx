@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { Grid, Paper, TextField, Button } from "@mui/material";
+import { Grid, Paper, TextField, Button, Box } from "@mui/material";
 import { useNavigate } from "react-router";
 import emailjs from "@emailjs/browser";
 
-const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
+const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#fff", fontFamily: "Josefin Sans, sans-serif", };
 const paperStyle = {
   padding: 20,
   width: "35%",
@@ -48,41 +48,47 @@ const Forgotpassword = () => {
   };
 
   return (
-    <Grid
-      container
-      sx={{
-        padding: "5%",
-        height: "auto",
-        justifyContent: "center",
-      }}
-    >
-      <Paper style={paperStyle}>
-        <Grid align="center" sx={{ marginBottom: "50px" }}>
-          <h2>Reset Password</h2>
-        </Grid>
-        <form ref={form} onSubmit={SendEmail}>
-          <TextField
-            name="email"
-            // value={email}
-            label="Email"
-            placeholder="Enter your email"
-            fullWidth
-          />
+    <Box sx={{
+      "@media (max-width:1000px)": {
+        height: "90vh"
+      }
+    }}>
+      <Grid
+        container
+        sx={{
+          padding: "5%",
+          height: "auto",
+          justifyContent: "center",
+        }}
+      >
+        <Paper style={paperStyle}>
+          <Grid align="center" sx={{ marginBottom: "50px", fontFamily: "Josefin Sans, sans-serif", }}>
+            <h2>Reset Password</h2>
+          </Grid>
+          <form ref={form} onSubmit={SendEmail}>
+            <TextField
+              name="email"
+              // value={email}
+              label="Email"
+              placeholder="Enter your email"
+              fullWidth
+            />
 
-          {/* Hidden Field */}
-          <input name="otp" type="hidden" />
+            {/* Hidden Field */}
+            <input name="otp" type="hidden" />
 
-          <Button
-            style={buttons}
-            type="submit"
-            variant="contained"
-            color="primary"
-          >
-            Send OTP
-          </Button>
-        </form>
-      </Paper>
-    </Grid>
+            <Button
+              style={buttons}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              Send OTP
+            </Button>
+          </form>
+        </Paper>
+      </Grid>
+    </Box>
   );
 };
 

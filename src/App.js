@@ -76,7 +76,7 @@ const App = () => {
         <Route path="/Unanswered" element={<Unanswered />} />
         <Route path="/Trending" element={<Trends />} />
         <Route
-          path="/Post-an-answer"
+          path="/Post-an-answer/:que"
           element={<Protected Component={Postans} />}
         />
         <Route path="/tags/:tag" element={<TagsPage />} />

@@ -9,10 +9,8 @@ export default function Unanswered() {
   const location = useLocation();
   console.log(location);
 
-  var ques = localStorage.getItem("recentQuest");
+  var ques=location.state.propQue;
   console.log(ques);
-
-  ques=location.state.propQue;
 
 
   return (
