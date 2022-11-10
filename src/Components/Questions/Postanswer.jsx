@@ -40,8 +40,6 @@ const buttons = {
 const paperStyle = { padding: 40 };
 var flag = false;
 
-var rp = localStorage.getItem("RecentPage");
-console.log(rp);
 
 var modalText;
 
@@ -60,12 +58,22 @@ const style = {
 class postans extends Component {
   constructor(props) {
     super(props);
-    //console.log(this.props.qq);
+    // console.log(this.props.qq);
     // var quest=this.props.qq;
+    
+
+    var email=""
+    var password=""
+    let login = getCookie("login");
+    if (login) {
+      email= JSON.parse(getCookie("login")).email
+      password= JSON.parse(getCookie("login")).password
+    }
+
 
     this.state = {
-      email: JSON.parse(getCookie("login")).email,
-      password: JSON.parse(getCookie("login")).password,
+      email: email,
+      password: password,
       question: this.props.qq,
       answer: "",
       lastpage: "/Answered",
