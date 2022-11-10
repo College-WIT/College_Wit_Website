@@ -74,6 +74,7 @@ class unans extends Component {
     const { QuestionsData } = this.state;
     return (
       <Box sx={{ flexGrow: 1, backgroundColor: "#d9d9d9", padding: 2 }}>
+        
         <Grid container spacing={2}>
           {/* ----------------------------QUICK ACCESS------------------------------ */}
           <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
@@ -83,6 +84,9 @@ class unans extends Component {
           {/* ------------------------------------Questions------------------------------------- */}
 
           <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
+          <marquee width="100%" direction="left">
+              <b>To Answer or Post Questions, Please fill the Contributors form on top right corner in Navbar !!</b> 
+            </marquee>
             <Grid item>
               <Item>
                 <Grid columns={16} container>

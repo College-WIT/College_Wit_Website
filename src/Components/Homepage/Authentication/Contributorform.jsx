@@ -35,7 +35,7 @@ const paperStyle = {
   height: "auto",
 };
 
-const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#000" };
+const buttons = { margin: "8px", backgroundColor: "#4B9CD3", color: "#fff" };
 
 var modalText = "Proceed";
 const ITEM_HEIGHT = 48;
@@ -153,6 +153,12 @@ const Contributorform = () => {
     "CSE Cyber",
     "ECE",
     "IT",
+    "Industrial",
+    "Mechanical",
+    "Electrical",
+    "Biomedical",
+    "Civil",
+    "Others",
   ];
   const genderarr = ["male", "female", "not-to-say"];
 
@@ -255,6 +261,77 @@ const Contributorform = () => {
               Please fill this form to register as a Contributor !
             </Typography>
           </Grid>
+          <FormControl sx={{ marginBottom: 1, minWidth: 300 }}>
+              <InputLabel
+                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+                id="demo-simple-select-label"
+              >
+                Branch*
+              </InputLabel>
+              <Select
+                name="branch"
+                value={branch}
+                label={
+                  <Typography
+                    variant="caption"
+                    fontFamily="Josefin Sans, sans-serif"
+                  >
+                    Branch
+                  </Typography>
+                }
+                fullWidth
+                fontFamily="Josefin Sans, sans-serif"
+                onChange={Branch}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={1}>CSE A</MenuItem>
+                <MenuItem value={2}>CSE B</MenuItem>
+                <MenuItem value={3}>CSE AIML</MenuItem>
+                <MenuItem value={4}>CSE DS</MenuItem>
+                <MenuItem value={5}>CSE Cyber</MenuItem>
+                <MenuItem value={6}>ECE</MenuItem>
+                <MenuItem value={7}>IT</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 0, minWidth: 300 }}>
+              <InputLabel
+                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+                id="demo-simple-select-helper-label"
+              >
+                Semester*
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                name="semester"
+                fontFamily="Josefin Sans, sans-serif"
+                value={semester}
+                label={
+                  <Typography
+                    variant="caption"
+                    fontFamily="Josefin Sans, sans-serif"
+                  >
+                    Semester
+                  </Typography>
+                }
+                onChange={sem}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={1}>1st</MenuItem>
+                <MenuItem value={2}>2nd</MenuItem>
+                <MenuItem value={3}>3rd</MenuItem>
+                <MenuItem value={4}>4th</MenuItem>
+                <MenuItem value={5}>5th</MenuItem>
+                <MenuItem value={6}>6th</MenuItem>
+                <MenuItem value={7}>7th</MenuItem>
+                <MenuItem value={8}>8th</MenuItem>
+                <MenuItem value={9}>Passout</MenuItem>
+              </Select>
+            </FormControl>
 
           <form ref={form} onSubmit={RegisterContributor}>
             {/* <FormControl sx={{ m: 1, minWidth: 300 }}>
@@ -312,6 +389,43 @@ const Contributorform = () => {
                 </Typography>
               }
             />
+            <FormControl sx={{ mt: 1 }} fullWidth>
+              <InputLabel
+                id="demo-multiple-chip-label"
+                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+              >
+                Skills*
+              </InputLabel>
+              <Select
+                labelId="demo-multiple-chip-label"
+                id="demo-multiple-chip"
+                multiple
+                name="skills"
+                value={skill}
+                onChange={Skills}
+                input={
+                  <OutlinedInput id="select-multiple-chip" label="SKills" />
+                }
+                renderValue={(selected) => (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {names.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, skill, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <TextField
               style={text}
               name="codechef"
@@ -323,7 +437,7 @@ const Contributorform = () => {
                   variant="caption"
                   fontFamily="Josefin Sans, sans-serif"
                 >
-                  Enter your Codechef url
+                  Enter your Codechef url (optional)
                 </Typography>
               }
             />
@@ -338,7 +452,7 @@ const Contributorform = () => {
                   variant="caption"
                   fontFamily="Josefin Sans, sans-serif"
                 >
-                  Enter your CodeForces url
+                  Enter your CodeForces url (optional)
                 </Typography>
               }
             />
@@ -352,7 +466,7 @@ const Contributorform = () => {
                   variant="caption"
                   fontFamily="Josefin Sans, sans-serif"
                 >
-                  Enter your Leetcode url
+                  Enter your Leetcode url (optional)
                 </Typography>
               }
             />
@@ -366,7 +480,7 @@ const Contributorform = () => {
                   variant="caption"
                   fontFamily="Josefin Sans, sans-serif"
                 >
-                  Any other url
+                  Any other url (optional)
                 </Typography>
               }
             />
@@ -383,80 +497,10 @@ const Contributorform = () => {
               rows={4}
               placeholder="Enter your details"
             /> */}
-            <FormControl sx={{ m: 1, minWidth: 300 }}>
-              <InputLabel
-                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
-                id="demo-simple-select-label"
-              >
-                Branch
-              </InputLabel>
-              <Select
-                name="branch"
-                value={branch}
-                label={
-                  <Typography
-                    variant="caption"
-                    fontFamily="Josefin Sans, sans-serif"
-                  >
-                    Branch
-                  </Typography>
-                }
-                fullWidth
-                fontFamily="Josefin Sans, sans-serif"
-                onChange={Branch}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={1}>CSE A</MenuItem>
-                <MenuItem value={2}>CSE B</MenuItem>
-                <MenuItem value={3}>CSE AIML</MenuItem>
-                <MenuItem value={4}>CSE DS</MenuItem>
-                <MenuItem value={5}>CSE Cyber</MenuItem>
-                <MenuItem value={6}>ECE</MenuItem>
-                <MenuItem value={7}>IT</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl sx={{ m: 1, minWidth: 300 }}>
-              <InputLabel
-                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
-                id="demo-simple-select-helper-label"
-              >
-                Semester
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                name="semester"
-                fontFamily="Josefin Sans, sans-serif"
-                value={semester}
-                label={
-                  <Typography
-                    variant="caption"
-                    fontFamily="Josefin Sans, sans-serif"
-                  >
-                    Semester
-                  </Typography>
-                }
-                onChange={sem}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={1}>1st</MenuItem>
-                <MenuItem value={2}>2nd</MenuItem>
-                <MenuItem value={3}>3rd</MenuItem>
-                <MenuItem value={4}>4th</MenuItem>
-                <MenuItem value={5}>5th</MenuItem>
-                <MenuItem value={6}>6th</MenuItem>
-                <MenuItem value={7}>7th</MenuItem>
-                <MenuItem value={8}>8th</MenuItem>
-                <MenuItem value={9}>Passout</MenuItem>
-              </Select>
-            </FormControl>
+            
 
             <Typography m="10px" fontFamily="Josefin Sans, sans-serif">
-              A College Passout? Enter your current Job details <br />
+              A College Passout? Enter your current Job details (optional)<br />
             </Typography>
             <TextField
               style={text}
@@ -490,44 +534,8 @@ const Contributorform = () => {
                 </Typography>
               }
             />
-            <FormControl sx={{ mt: 1 }} fullWidth>
-              <InputLabel
-                id="demo-multiple-chip-label"
-                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
-              >
-                Skills
-              </InputLabel>
-              <Select
-                labelId="demo-multiple-chip-label"
-                id="demo-multiple-chip"
-                multiple
-                name="skills"
-                value={skill}
-                onChange={Skills}
-                input={
-                  <OutlinedInput id="select-multiple-chip" label="SKills" />
-                }
-                renderValue={(selected) => (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
-                MenuProps={MenuProps}
-              >
-                {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-                    style={getStyles(name, skill, theme)}
-                  >
-                    {name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-
+            
+              <br/>
             <Button
               style={buttons}
               type="submit"
