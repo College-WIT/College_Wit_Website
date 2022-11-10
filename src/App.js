@@ -80,48 +80,49 @@ const App = () => {
           element={<Protected Component={Postans} />}
         />
         <Route path="/tags/:tag" element={<TagsPage />} />
-        <Route path="/Semester_1" element={<ComingSoon />} />
-        <Route path="/Semester_2" element={<ComingSoon />} />
-        <Route path="/Semester_3" element={<Semester_3 />} />
-        <Route path="/Semester_4" element={<Semester_4 />} />
-        <Route path="/Semester_5" element={<Semester_5 />} />
-        <Route path="/Semester_6" element={<ComingSoon />} />
-        <Route path="/Semester_7" element={<ComingSoon />} />
-        <Route path="/Semester_8" element={<ComingSoon />} />
-        <Route path="/Chemistry" element={<Chemistry />} />
+        <Route path="/Semester_1" element={<Protected Component={ComingSoon} />} />
+        <Route path="/Semester_2" element={<Protected Component={ComingSoon} />} />
+        <Route path="/Semester_3" element={<Protected Component={Semester_3} />} />
+        <Route path="/Semester_4" element={<Protected Component={Semester_4} />} />
+        <Route path="/Semester_5" element={<Protected Component={Semester_5} />} />
+        <Route path="/Semester_6" element={<Protected Component={ComingSoon} />} />
+        <Route path="/Semester_7" element={<Protected Component={ComingSoon} />} />
+        <Route path="/Semester_8" element={<Protected Component={ComingSoon} />} />
+        {/* FIRST SEMESTER */}
+        <Route path="/Chemistry" element={<Protected Component={Chemistry} />} />
         {/* THIRD SEMESTER */}
         <Route
           path="/Fundamentals_of_Digital_Logic_and_Computer_Arch"
-          element={<FDLCA />}
+          element={<Protected Component={FDLCA} />}
         />
-        <Route path="/Data_Structures_&_Algorithms" element={<DSA />} />
-        <Route path="/Linear_Algebra_and_Statistics" element={<M3 />} />
-        <Route path="/Business_Communication" element={<BC />} />
-        <Route path="/Cyber_Laws_&_Ethics" element={<CLE />} />
+        <Route path="/Data_Structures_&_Algorithms" element={<Protected Component={DSA} />} />
+        <Route path="/Linear_Algebra_and_Statistics" element={<Protected Component={M3} />} />
+        <Route path="/Business_Communication" element={<Protected Component={BC} />} />
+        <Route path="/Cyber_Laws_&_Ethics" element={<Protected Component={CLE} />} />
         {/* FOURTH SEMESTER */}
-        <Route path="/Operating_Systems" element={<OperatingSystem />} />
-        <Route path="/Object_Oriented_Programming" element={<OOPS />} />
+        <Route path="/Operating_Systems" element={<Protected Component={OperatingSystem} />} />
+        <Route path="/Object_Oriented_Programming" element={<Protected Component={OOPS} />} />
         <Route
           path="/System_Programming_and_Device_Drivers"
-          element={<SPDD />}
+          element={<Protected Component={SPDD} />}
         />
-        <Route path="/Formal_Languages_&_Automata_Th" element={<FLAT />} />
-        <Route path="/Discrete_Maths_and_Graph_Theory" element={<DMGT />} />
+        <Route path="/Formal_Languages_&_Automata_Th" element={<Protected Component={FLAT} />} />
+        <Route path="/Discrete_Maths_and_Graph_Theory" element={<Protected Component={DMGT} />} />
         {/* FIFTH SEMESTER */}
-        <Route path="/Computer_Graphics" element={<CG />} />
-        <Route path="/Computer_Networks" element={<CN />} />
-        <Route path="/Design_&_Analysis_of_Algorithms" element={<DAA />} />
-        <Route path="/Database_Management_Systems" element={<DBMS />} />
-        <Route path="/Design_Patterns" element={<DP />} />
-        <Route path="/Mobile_Application_Programming" element={<MAP />} />
+        <Route path="/Computer_Graphics" element={<Protected Component={CG} />} />
+        <Route path="/Computer_Networks" element={<Protected Component={CN} />} />
+        <Route path="/Design_&_Analysis_of_Algorithms" element={<Protected Component={DAA} />} />
+        <Route path="/Database_Management_Systems" element={<Protected Component={DBMS} />} />
+        <Route path="/Design_Patterns" element={<Protected Component={DP} />} />
+        <Route path="/Mobile_Application_Programming" element={<Protected Component={MAP} />} />
         {/* EIGHT SEMESTER */}
-        <Route path="/Natural_Language_Processing" element={<NLP />} />
-        <Route path="/Distributed_&_Parallel_Databases" element={<DPD />} />
-        <Route path="/Distributed_System" element={<DS />} />
-        <Route path="/Web_Intelligence_&_Big_Data" element={<WIBD />} />
-        <Route path="/Information_Security" element={<IS />} />
-        <Route path="/Placement" element={<Placement />} />
-        <Route path="/comingSoon" element={<ComingSoon />} />
+        <Route path="/Natural_Language_Processing" element={<Protected Component={NLP} />} />
+        <Route path="/Distributed_&_Parallel_Databases" element={<Protected Component={DPD} />} />
+        <Route path="/Distributed_System" element={<Protected Component={DS} />} />
+        <Route path="/Web_Intelligence_&_Big_Data" element={<Protected Component={WIBD} />} />
+        <Route path="/Information_Security" element={<Protected Component={IS} />} />
+        <Route path="/Placement" element={<Protected Component={Placement} />} />
+        <Route path="/comingSoon" element={<Protected Component={ComingSoon} />} />
         {/* ---------- Profile Routes ------------ */}
 
         <Route path="/EditProfile" element={<EditProfile />} />
