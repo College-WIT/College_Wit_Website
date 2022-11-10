@@ -116,7 +116,8 @@ class Signin extends Component {
         //this.navigation();
       })
       .catch((error) => {
-        modalText = error.response.data;
+        modalText = "Please Enter valid Email or Password!!";
+        console.log(modalText);
 
         this.setState({
           openModal: true,
