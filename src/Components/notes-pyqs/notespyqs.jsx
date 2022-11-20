@@ -7,6 +7,7 @@ import "../../App";
 import { Button, Divider } from "@mui/material";
 import BookIcon from "@mui/icons-material/Book";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const notespyqs = () => {
   const data = [
@@ -123,6 +124,52 @@ const notespyqs = () => {
             </Typography>
           </Button>
         </Grid>
+        <Grid
+          container
+          sx={{
+            justifyContent: "center",
+          }}
+        >
+          <Grid md={8} sm={10} xs={12}>
+            <Button
+              startIcon={
+                <LinkedInIcon style={{ fontSize: "40px", color: "#fff" }} />
+              }
+              href="https://members.linkedin.com/en-in/student/linkedin-premium?fbclid=PAAaZD2I5archP-K-DIkcw4qMEDF7riR7LjIt9yQE0SXEd1KZienB8SMDHJEs"
+              sx={{
+                backgroundColor: "#F55353",
+                "&:hover": {
+                  backgroundColor: "#00FFAB",
+                  opacity: 10,
+                  color: "#fff"
+                },
+                color: "#000",
+                marginTop: "40px",
+                marginLeft: "25%",
+                padding: "20px",
+                width: "50%",
+                borderRadius: "22px",
+                "@media (max-width:1000px)": {
+                  marginLeft: "25%",
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#fff",
+                  fontFamily: "Josefin Sans, sans-serif",
+                  fontSize: "20px",
+                  fontWeight:700,
+                  "@media (max-width:1000px)": {
+                    fontSize: "16px",
+                  },
+                }}
+              >
+                LinkedIn Premium Free
+              </Typography>
+            </Button>
+          </Grid>
+        </Grid>
 
         <Grid xl={12} xs={12} md={12}>
           <Typography
@@ -137,6 +184,8 @@ const notespyqs = () => {
             SEMESTERS
           </Typography>
         </Grid>
+
+
 
         <Grid
           container
