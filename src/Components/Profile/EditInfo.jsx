@@ -138,7 +138,7 @@ const EditInfo = () => {
   var getUserData = async () => {
     console.log("DATA CALL");
     await axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/user_info", username)
+      .post("https://demo-vercel-teal.vercel.app/user_info", username)
       .then((response) => {
         console.log(response);
         setUserData(response.data);

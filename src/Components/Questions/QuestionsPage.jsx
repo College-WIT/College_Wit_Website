@@ -47,7 +47,7 @@ class QuestionsPages extends Component {
 
   componentDidMount() {
     axios
-      .get("https://rcoem-overflow-backend.herokuapp.com/view_all_questions")
+      .get("https://demo-vercel-teal.vercel.app/view_all_questions")
       .then((response) => {
         console.log(response);
         this.setState({
@@ -83,7 +83,7 @@ class QuestionsPages extends Component {
 
           <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
             <marquee width="100%" direction="left">
-              <b>To Answer or Post Questions, Please Login and fill the Contributors form on top right corner in Navbar !!</b> 
+              <b>To Answer or Post Questions, Please Login and fill the Contributors form on top right corner in Navbar !!</b>
             </marquee>
             <Grid item>
               <Item>

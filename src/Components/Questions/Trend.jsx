@@ -70,7 +70,7 @@ class QuestionsPages extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://rcoem-overflow-backend.herokuapp.com/view_trending_questions"
+        "https://demo-vercel-teal.vercel.app/view_trending_questions"
       )
       .then((response) => {
         console.log(response);
@@ -126,11 +126,11 @@ class QuestionsPages extends Component {
                       sx={{
                         fontFamily: "Josefin Sans, sans-serif",
                         fontSize: 40,
-                        fontWeight:700,
+                        fontWeight: 700,
                         position: "relative",
                         top: 55,
                         left: "-60px",
-                        
+
                       }}
                     >
                       Trending Questions

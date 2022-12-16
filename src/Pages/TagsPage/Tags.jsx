@@ -54,7 +54,7 @@ class Tags extends Component {
 
     axios
       .post(
-        "https://rcoem-overflow-backend.herokuapp.com/tagwise_question",
+        "https://demo-vercel-teal.vercel.app/tagwise_question",
         tag
       )
       .then((response) => {

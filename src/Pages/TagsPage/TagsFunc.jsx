@@ -50,7 +50,7 @@ export default function TagsFunc(props) {
     console.log("DATA CALL");
     await axios
       .post(
-        "https://rcoem-overflow-backend.herokuapp.com/tagwise_question",
+        "https://demo-vercel-teal.vercel.app/tagwise_question",
         tags
       )
       .then((response) => {
@@ -64,9 +64,9 @@ export default function TagsFunc(props) {
   };
   useEffect(() => {
     getData();
-  }, 
+  },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  [props]);
+    [props]);
 
   console.log(QuestionsData);
   return (
@@ -104,7 +104,7 @@ export default function TagsFunc(props) {
                       fontFamily: "Josefin Sans, sans-serif",
                       fontSize: 40,
                       position: "relative",
-                      fontWeight:700,
+                      fontWeight: 700,
                       top: 55,
                       left: "-110px",
                     }}
@@ -154,7 +154,7 @@ export default function TagsFunc(props) {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ paddingLeft:2,color: "black", textAlign: "left", paddingTop: 0.5,fontFamily: "Josefin Sans, sans-serif", }}
+                        sx={{ paddingLeft: 2, color: "black", textAlign: "left", paddingTop: 0.5, fontFamily: "Josefin Sans, sans-serif", }}
                       >
 
                         {content.question}
@@ -185,7 +185,7 @@ export default function TagsFunc(props) {
                                   border: "1px solid #001d3d",
                                   "&:hover": {
                                     backgroundColor: "#118ab2",
-                                    color:"#fff",
+                                    color: "#fff",
                                     opacity: 10,
                                   },
                                 }}
@@ -243,7 +243,7 @@ export default function TagsFunc(props) {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
+                              <Typography variant="subtitle1" color="black" sx={{ fontFamily: "Josefin Sans, sans-serif", }}>
                                 <VisibilityIcon />
                                 {content.views}
                               </Typography>
@@ -256,13 +256,13 @@ export default function TagsFunc(props) {
                                 borderRadius: "0px",
                               }}
                             >
-                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
+                              <Typography variant="subtitle1" color="black" sx={{ fontFamily: "Josefin Sans, sans-serif", }}>
                                 <ThumbUpIcon />
                                 {content.upvotes}
                               </Typography>
                             </Item>
                             <Item elevation={0}>
-                              <Typography variant="subtitle1" color="black" sx={{fontFamily: "Josefin Sans, sans-serif",}}>
+                              <Typography variant="subtitle1" color="black" sx={{ fontFamily: "Josefin Sans, sans-serif", }}>
                                 <QuestionAnswerIcon />
                                 {content.no_of_answers}
                               </Typography>

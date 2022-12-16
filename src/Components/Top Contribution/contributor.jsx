@@ -88,7 +88,7 @@ const Contributor = () => {
   var getContributorData = async () => {
     console.log("Contributor DATA CALL");
     await axios
-      .get("https://rcoem-overflow-backend.herokuapp.com/all_contributors")
+      .get("https://demo-vercel-teal.vercel.app/all_contributors")
       .then((response) => {
         console.log(response);
         setUserData(response.data.next);

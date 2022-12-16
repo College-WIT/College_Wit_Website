@@ -49,7 +49,7 @@ const Rightbar = () => {
   var getTagsData = async () => {
     console.log("Tags DATA CALL");
     await axios
-      .get("https://rcoem-overflow-backend.herokuapp.com/all_tags")
+      .get("https://demo-vercel-teal.vercel.app/all_tags")
       .then((response) => {
         setTagsData(response.data);
       })
@@ -60,7 +60,7 @@ const Rightbar = () => {
   useEffect(() => {
     getTagsData();
   }, []);
- 
+
   return (
     <div>
       <Item>

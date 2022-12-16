@@ -99,7 +99,7 @@ const Contributorform = () => {
 
   ///// check Login 
   const loggedin = getCookie("login");
-  const NavigateLogin = ()=>{
+  const NavigateLogin = () => {
     console.log("Func called");
     if (!loggedin) {
       navigate("/login");
@@ -108,7 +108,7 @@ const Contributorform = () => {
   useEffect(() => {
     NavigateLogin();
   }, []);
-  
+
 
 
   const form = useRef();
@@ -196,8 +196,8 @@ const Contributorform = () => {
       email: JSON.parse(getCookie("login")).email,
       gender: "male",
       college: "RCOEM",
-      semester: semesterarr[semester-1],
-      branch: brancharr[branch-1],
+      semester: semesterarr[semester - 1],
+      branch: brancharr[branch - 1],
       linkedin_url: form.current.linkedin.value,
       github_url: form.current.github.value,
       codechef_url: form.current.codechef.value,
@@ -211,7 +211,7 @@ const Contributorform = () => {
     console.log(form_data);
     await axios
       .post(
-        "https://rcoem-overflow-backend.herokuapp.com/register_contributor",
+        "https://demo-vercel-teal.vercel.app/register_contributor",
         form_data
       )
       .then((response) => {
@@ -262,76 +262,76 @@ const Contributorform = () => {
             </Typography>
           </Grid>
           <FormControl sx={{ marginBottom: 1, minWidth: 300 }}>
-              <InputLabel
-                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
-                id="demo-simple-select-label"
-              >
-                Branch*
-              </InputLabel>
-              <Select
-                name="branch"
-                value={branch}
-                label={
-                  <Typography
-                    variant="caption"
-                    fontFamily="Josefin Sans, sans-serif"
-                  >
-                    Branch
-                  </Typography>
-                }
-                fullWidth
-                fontFamily="Josefin Sans, sans-serif"
-                onChange={Branch}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={1}>CSE A</MenuItem>
-                <MenuItem value={2}>CSE B</MenuItem>
-                <MenuItem value={3}>CSE AIML</MenuItem>
-                <MenuItem value={4}>CSE DS</MenuItem>
-                <MenuItem value={5}>CSE Cyber</MenuItem>
-                <MenuItem value={6}>ECE</MenuItem>
-                <MenuItem value={7}>IT</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl sx={{ m: 0, minWidth: 300 }}>
-              <InputLabel
-                sx={{ fontFamily: " Josefin Sans, sans-serif" }}
-                id="demo-simple-select-helper-label"
-              >
-                Semester*
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                name="semester"
-                fontFamily="Josefin Sans, sans-serif"
-                value={semester}
-                label={
-                  <Typography
-                    variant="caption"
-                    fontFamily="Josefin Sans, sans-serif"
-                  >
-                    Semester
-                  </Typography>
-                }
-                onChange={sem}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={1}>1st</MenuItem>
-                <MenuItem value={2}>2nd</MenuItem>
-                <MenuItem value={3}>3rd</MenuItem>
-                <MenuItem value={4}>4th</MenuItem>
-                <MenuItem value={5}>5th</MenuItem>
-                <MenuItem value={6}>6th</MenuItem>
-                <MenuItem value={7}>7th</MenuItem>
-                <MenuItem value={8}>8th</MenuItem>
-                <MenuItem value={9}>Passout</MenuItem>
-              </Select>
-            </FormControl>
+            <InputLabel
+              sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+              id="demo-simple-select-label"
+            >
+              Branch*
+            </InputLabel>
+            <Select
+              name="branch"
+              value={branch}
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Branch
+                </Typography>
+              }
+              fullWidth
+              fontFamily="Josefin Sans, sans-serif"
+              onChange={Branch}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={1}>CSE A</MenuItem>
+              <MenuItem value={2}>CSE B</MenuItem>
+              <MenuItem value={3}>CSE AIML</MenuItem>
+              <MenuItem value={4}>CSE DS</MenuItem>
+              <MenuItem value={5}>CSE Cyber</MenuItem>
+              <MenuItem value={6}>ECE</MenuItem>
+              <MenuItem value={7}>IT</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl sx={{ m: 0, minWidth: 300 }}>
+            <InputLabel
+              sx={{ fontFamily: " Josefin Sans, sans-serif" }}
+              id="demo-simple-select-helper-label"
+            >
+              Semester*
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              name="semester"
+              fontFamily="Josefin Sans, sans-serif"
+              value={semester}
+              label={
+                <Typography
+                  variant="caption"
+                  fontFamily="Josefin Sans, sans-serif"
+                >
+                  Semester
+                </Typography>
+              }
+              onChange={sem}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={1}>1st</MenuItem>
+              <MenuItem value={2}>2nd</MenuItem>
+              <MenuItem value={3}>3rd</MenuItem>
+              <MenuItem value={4}>4th</MenuItem>
+              <MenuItem value={5}>5th</MenuItem>
+              <MenuItem value={6}>6th</MenuItem>
+              <MenuItem value={7}>7th</MenuItem>
+              <MenuItem value={8}>8th</MenuItem>
+              <MenuItem value={9}>Passout</MenuItem>
+            </Select>
+          </FormControl>
 
           <form ref={form} onSubmit={RegisterContributor}>
             {/* <FormControl sx={{ m: 1, minWidth: 300 }}>
@@ -497,7 +497,7 @@ const Contributorform = () => {
               rows={4}
               placeholder="Enter your details"
             /> */}
-            
+
 
             <Typography m="10px" fontFamily="Josefin Sans, sans-serif">
               A College Passout? Enter your current Job details (optional)<br />
@@ -534,8 +534,8 @@ const Contributorform = () => {
                 </Typography>
               }
             />
-            
-              <br/>
+
+            <br />
             <Button
               style={buttons}
               type="submit"

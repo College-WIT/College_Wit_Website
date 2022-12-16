@@ -103,7 +103,7 @@ const PostQuestions = () => {
   var getTagsData = async () => {
     console.log("Tags DATA CALL");
     await axios
-      .get("https://rcoem-overflow-backend.herokuapp.com/all_tags")
+      .get("https://demo-vercel-teal.vercel.app/all_tags")
       .then((response) => {
         setTagsData(response.data);
       })
@@ -157,7 +157,7 @@ const PostQuestions = () => {
       console.log(form_data);
       await axios
         .post(
-          "https://rcoem-overflow-backend.herokuapp.com/add_question",
+          "https://demo-vercel-teal.vercel.app/add_question",
           form_data
         )
         .then((response) => {
@@ -195,7 +195,7 @@ const PostQuestions = () => {
     console.log(form_data);
     await axios
       .post(
-        "https://rcoem-overflow-backend.herokuapp.com/add_question",
+        "https://demo-vercel-teal.vercel.app/add_question",
         form_data
       )
       .then((response) => {
@@ -243,7 +243,7 @@ const PostQuestions = () => {
                 <form
                   ref={form}
                   onSubmit={PostQuest}
-                  // onSubmit={this.submitHandler}
+                // onSubmit={this.submitHandler}
                 >
                   <TextField
                     multiline
@@ -316,7 +316,7 @@ const PostQuestions = () => {
                       sx={buttons}
                       type="submit"
                       variant="outlined"
-                      //   onClick={this.onClick}
+                    //   onClick={this.onClick}
                     >
                       Post
                     </Button>
@@ -350,7 +350,7 @@ const PostQuestions = () => {
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <Link
                       style={{ textDecoration: "None", color: "white" }}
-                      //   href={this.state.lastpage}
+                    //   href={this.state.lastpage}
                     >
                       <Button
                         style={buttons}

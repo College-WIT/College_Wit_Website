@@ -74,7 +74,7 @@ class QuestionsPages extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://rcoem-overflow-backend.herokuapp.com/view_trending_questions")
+        axios.get("https://demo-vercel-teal.vercel.app/view_trending_questions")
             .then(response => {
                 console.log(response)
                 this.setState({
@@ -271,7 +271,7 @@ class QuestionsPages extends Component {
                                                     <Stack direction="row" spacing={2}
                                                         sx={{
                                                             padding: "10px",
-                                                            border:"1px solid #d3d3d3",
+                                                            border: "1px solid #d3d3d3",
                                                             borderRadius: "10px ",
                                                             position: "relative",
                                                             alignItems: "right",
@@ -368,7 +368,7 @@ class QuestionsPages extends Component {
                                     </Link>
 
                                 </Button>
-                                
+
                             </Grid>
                         </Item>
                     </Grid>

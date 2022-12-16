@@ -60,14 +60,14 @@ class postans extends Component {
     super(props);
     // console.log(this.props.qq);
     // var quest=this.props.qq;
-    
 
-    var email=""
-    var password=""
+
+    var email = ""
+    var password = ""
     let login = getCookie("login");
     if (login) {
-      email= JSON.parse(getCookie("login")).email
-      password= JSON.parse(getCookie("login")).password
+      email = JSON.parse(getCookie("login")).email
+      password = JSON.parse(getCookie("login")).password
     }
 
 
@@ -133,7 +133,7 @@ class postans extends Component {
     };
     console.log(newstate);
     axios
-      .post("https://rcoem-overflow-backend.herokuapp.com/add_answer", newstate)
+      .post("https://demo-vercel-teal.vercel.app/add_answer", newstate)
       .then((response) => {
         flag = true;
         console.log("Answered added Successfully");

@@ -45,7 +45,7 @@ var question_upvote = async (que) => {
     question: que.quest,
   };
   const response = await axios.post(
-    "https://rcoem-overflow-backend.herokuapp.com/upvote_question",
+    "https://demo-vercel-teal.vercel.app/upvote_question",
     question_data
   );
   console.log(response);
@@ -61,7 +61,7 @@ var answer_upvote = async (que, answer) => {
     answer: answer,
   };
   const response = await axios.post(
-    "https://rcoem-overflow-backend.herokuapp.com/upvote_answer",
+    "https://demo-vercel-teal.vercel.app/upvote_answer",
     question_data
   );
   console.log(response);
@@ -99,7 +99,7 @@ class Ans extends Component {
 
     axios
       .post(
-        "https://rcoem-overflow-backend.herokuapp.com/view_specific_question",
+        "https://demo-vercel-teal.vercel.app/view_specific_question",
         obj
       )
       .then((response) => {

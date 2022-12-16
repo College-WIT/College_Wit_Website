@@ -77,7 +77,7 @@ function Signup() {
     if (password === cpassword) {
       await axios
         .post(
-          "https://rcoem-overflow-backend.herokuapp.com/register",
+          "https://demo-vercel-teal.vercel.app/register",
           form_data
         )
         .then((response) => {
@@ -102,78 +102,78 @@ function Signup() {
   };
 
   return (
-    <div style={{height:"100vh"}}>
-    <Grid
-      container
-      sx={{
-        padding: "20px",
-        height: "auto",
-        justifyContent: "center",
-        
-      }}
-    >
-      <Paper style={paperStyle}>
-        <Grid align="center" sx={{ mb: 3 }}>
-          <h2 style={headerStyle}>Sign Up</h2>
-          <Typography variant="caption" gutterBottom>
-            Please fill this form to create an account !
-          </Typography>
-        </Grid>
-        <form ref={form} onSubmit={RegisterUser}>
-          <TextField
-            style={text}
-            required
-            name="name"
-            fullWidth
-            label="Name"
-            placeholder="Enter your name"
-          />
-          <TextField
-            style={text}
-            required
-            name="username"
-            fullWidth
-            label="Username"
-            placeholder="Enter your Username"
-          />
-          <TextField
-            style={text}
-            required
-            name="email"
-            fullWidth
-            label="Email"
-            placeholder="Enter your email"
-          />
-          <TextField
-            style={text}
-            required
-            name="password"
-            type="password"
-            fullWidth
-            label="Password"
-            placeholder="Enter your password"
-          />
-          <TextField
-            style={text}
-            required
-            name="confirm"
-            type="password"
-            fullWidth
-            label="Confirm Password"
-            placeholder="Confirm your password"
-          />
+    <div style={{ height: "100vh" }}>
+      <Grid
+        container
+        sx={{
+          padding: "20px",
+          height: "auto",
+          justifyContent: "center",
 
-          <Button
-            style={buttons}
-            type="submit"
-            variant="contained"
-            color="primary"
-          >
-            Sign up
-          </Button>
-        </form>
+        }}
+      >
+        <Paper style={paperStyle}>
+          <Grid align="center" sx={{ mb: 3 }}>
+            <h2 style={headerStyle}>Sign Up</h2>
+            <Typography variant="caption" gutterBottom>
+              Please fill this form to create an account !
+            </Typography>
+          </Grid>
+          <form ref={form} onSubmit={RegisterUser}>
+            <TextField
+              style={text}
+              required
+              name="name"
+              fullWidth
+              label="Name"
+              placeholder="Enter your name"
+            />
+            <TextField
+              style={text}
+              required
+              name="username"
+              fullWidth
+              label="Username"
+              placeholder="Enter your Username"
+            />
+            <TextField
+              style={text}
+              required
+              name="email"
+              fullWidth
+              label="Email"
+              placeholder="Enter your email"
+            />
+            <TextField
+              style={text}
+              required
+              name="password"
+              type="password"
+              fullWidth
+              label="Password"
+              placeholder="Enter your password"
+            />
+            <TextField
+              style={text}
+              required
+              name="confirm"
+              type="password"
+              fullWidth
+              label="Confirm Password"
+              placeholder="Confirm your password"
+            />
 
-        {/* <Link to="/be-a-contributor">
+            <Button
+              style={buttons}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              Sign up
+            </Button>
+          </form>
+
+          {/* <Link to="/be-a-contributor">
           <Button
             onClick={RegisterUserAndNav}
             style={buttons}
@@ -183,35 +183,35 @@ function Signup() {
             Sign Up and Be a Contributor
           </Button>
         </Link> */}
-      </Paper>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalText}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {/* <Link
+        </Paper>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {modalText}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              {/* <Link
                 style={{ textDecoration: "None", color: "white" }}
                 to={lastpage}
               > */}
-            <Button
-              onClick={navigation}
-              style={buttons}
-              variant="contained"
-              color="primary"
-            >
-              {message}
-            </Button>
-            {/* </Link> */}
-          </Typography>
-        </Box>
-      </Modal>
-    </Grid>
+              <Button
+                onClick={navigation}
+                style={buttons}
+                variant="contained"
+                color="primary"
+              >
+                {message}
+              </Button>
+              {/* </Link> */}
+            </Typography>
+          </Box>
+        </Modal>
+      </Grid>
     </div>
   );
 }
