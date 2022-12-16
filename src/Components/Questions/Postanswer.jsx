@@ -133,7 +133,7 @@ class postans extends Component {
     };
     console.log(newstate);
     axios
-      .post("https://demo-vercel-teal.vercel.app/add_answer", newstate)
+      .post("https://cw-backend.vercel.app/add_answer", newstate)
       .then((response) => {
         flag = true;
         console.log("Answered added Successfully");

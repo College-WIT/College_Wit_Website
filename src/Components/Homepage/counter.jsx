@@ -53,7 +53,7 @@ const Counter = () => {
   var getStatsData = async () => {
     console.log("STATS DATA CALL");
     await axios
-      .get("https://demo-vercel-teal.vercel.app/front_page_analytics")
+      .get("https://cw-backend.vercel.app/front_page_analytics")
       .then((response) => {
         console.log(response);
         setStatisticsData(response.data);

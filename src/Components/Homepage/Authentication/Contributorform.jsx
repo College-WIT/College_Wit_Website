@@ -211,7 +211,7 @@ const Contributorform = () => {
     console.log(form_data);
     await axios
       .post(
-        "https://demo-vercel-teal.vercel.app/register_contributor",
+        "https://cw-backend.vercel.app/register_contributor",
         form_data
       )
       .then((response) => {

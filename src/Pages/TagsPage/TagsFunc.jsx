@@ -50,7 +50,7 @@ export default function TagsFunc(props) {
     console.log("DATA CALL");
     await axios
       .post(
-        "https://demo-vercel-teal.vercel.app/tagwise_question",
+        "https://cw-backend.vercel.app/tagwise_question",
         tags
       )
       .then((response) => {

@@ -49,7 +49,7 @@ const Rightbar = () => {
   var getTagsData = async () => {
     console.log("Tags DATA CALL");
     await axios
-      .get("https://demo-vercel-teal.vercel.app/all_tags")
+      .get("https://cw-backend.vercel.app/all_tags")
       .then((response) => {
         setTagsData(response.data);
       })

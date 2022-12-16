@@ -54,7 +54,7 @@ class unans extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://demo-vercel-teal.vercel.app/view_unanswered_questions"
+        "https://cw-backend.vercel.app/view_unanswered_questions"
       )
       .then((response) => {
         console.log(response);

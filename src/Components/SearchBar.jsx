@@ -9,7 +9,7 @@ function SearchBar({ placeholder }) {
   // var getSearchData = async () => {
   //   console.log("API CALL");
   //   await axios
-  //   .get("https://demo-vercel-teal.vercel.app/view_search_questions")
+  //   .get("https://cw-backend.vercel.app/view_search_questions")
   //   .then((response) => {
   //     console.log(response.data);
   //     data=response.data;

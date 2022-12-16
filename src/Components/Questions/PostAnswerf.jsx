@@ -93,7 +93,7 @@
 //     }
 //     console.log(form_data);
 //     await axios
-//       .post("https://demo-vercel-teal.vercel.app/add_answer",form_data)
+//       .post("https://cw-backend.vercel.app/add_answer",form_data)
 //       .then((response) => {
 //         console.log(response.data);
 //       })
@@ -116,7 +116,7 @@
 //     }
 //     console.log(form_data);
 //     // await axios
-//     //   .post("https://demo-vercel-teal.vercel.app/add_question",form_data)
+//     //   .post("https://cw-backend.vercel.app/add_question",form_data)
 //     //   .then((response) => {
 //     //     console.log(response.data);
 //     //   })

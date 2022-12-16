@@ -77,7 +77,7 @@ function Signup() {
     if (password === cpassword) {
       await axios
         .post(
-          "https://demo-vercel-teal.vercel.app/register",
+          "https://cw-backend.vercel.app/register",
           form_data
         )
         .then((response) => {

@@ -47,7 +47,7 @@ class QuestionsPages extends Component {
 
   componentDidMount() {
     axios
-      .get("https://demo-vercel-teal.vercel.app/view_all_questions")
+      .get("https://cw-backend.vercel.app/view_all_questions")
       .then((response) => {
         console.log(response);
         this.setState({

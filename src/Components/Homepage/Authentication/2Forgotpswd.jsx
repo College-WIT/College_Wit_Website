@@ -64,7 +64,7 @@ const Forgotpswd = () => {
       };
       await axios
         .post(
-          "https://demo-vercel-teal.vercel.app/update_password",
+          "https://cw-backend.vercel.app/update_password",
           newstate
         )
         .then((response) => {

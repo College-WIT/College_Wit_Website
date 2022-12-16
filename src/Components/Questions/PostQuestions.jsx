@@ -103,7 +103,7 @@ const PostQuestions = () => {
   var getTagsData = async () => {
     console.log("Tags DATA CALL");
     await axios
-      .get("https://demo-vercel-teal.vercel.app/all_tags")
+      .get("https://cw-backend.vercel.app/all_tags")
       .then((response) => {
         setTagsData(response.data);
       })
@@ -157,7 +157,7 @@ const PostQuestions = () => {
       console.log(form_data);
       await axios
         .post(
-          "https://demo-vercel-teal.vercel.app/add_question",
+          "https://cw-backend.vercel.app/add_question",
           form_data
         )
         .then((response) => {
@@ -195,7 +195,7 @@ const PostQuestions = () => {
     console.log(form_data);
     await axios
       .post(
-        "https://demo-vercel-teal.vercel.app/add_question",
+        "https://cw-backend.vercel.app/add_question",
         form_data
       )
       .then((response) => {
