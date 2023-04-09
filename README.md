@@ -7,7 +7,7 @@ WIT</span>
 
 ## About :
 
-    CollegeWit is a web application which aims to provide a one stop solution to cover mostly occurred problems that students face in their College Academics.
+CollegeWit is a web application which aims to provide a one stop solution to cover mostly occurred problems that students face in their College Academics.
 
 ## Features :
 
