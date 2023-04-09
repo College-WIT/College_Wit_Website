@@ -24,30 +24,11 @@ if (cookie == null) {
   red_link = "/login";
   console.log(red_link);
 }
-const queTags = [
-  "ANDROID-DEVELOPMENT",
-  "COLLEGE-LIFE",
-  "COMPETITIVE-PROGRAMMING",
-  "CSS",
-  "DJANGO",
-  "FLUTTER",
-  "HTML",
-  "JAVASCRIPT",
-  "NODE-JS",
-  "OPEN-SOURCE",
-  "OTHERS",
-  "PYQ",
-  "REACT-JS",
-  "WEB-DEVELOPMENT",
-];
 
 const Rightbar = () => {
-
-
   const [tagsData, setTagsData] = useState([]);
 
   var getTagsData = async () => {
-    console.log("Tags DATA CALL");
     await axios
       .get("https://cw-backend.vercel.app/all_tags")
       .then((response) => {
@@ -114,32 +95,6 @@ const Rightbar = () => {
             </Link>
           </Grid>
         ))}
-
-        {/* <Grid sx={{ paddingTop: 10 }}>
-          <Button
-            sx={{
-              backgroundColor: "#20D867",
-              width: 150,
-              height: 60,
-              border: 1,
-              borderRadius: 2,
-              fontSize: 15,
-              "&:hover": {
-                backgroundColor: "#E26639",
-                opacity: 10,
-              },
-            }}
-            variant="contained"
-            disableElevation
-          >
-            <Link
-              style={{ textDecoration: "None", color: "white" }}
-              to={red_link}
-            >
-              Post a question
-            </Link>
-          </Button>
-        </Grid> */}
       </Item>
     </div>
   );

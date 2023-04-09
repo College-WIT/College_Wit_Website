@@ -4,10 +4,10 @@ import Typography from "@mui/material/Typography";
 import Folder from "./card.jsx";
 import { Link } from "react-router-dom";
 import "../../App";
-import { Button, Divider } from "@mui/material";
+import { Button } from "@mui/material";
 import BookIcon from "@mui/icons-material/Book";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const notespyqs = () => {
   const data = [
@@ -141,7 +141,7 @@ const notespyqs = () => {
                 "&:hover": {
                   backgroundColor: "#00FFAB",
                   opacity: 10,
-                  color: "#fff"
+                  color: "#fff",
                 },
                 color: "#000",
                 marginTop: "40px",
@@ -159,7 +159,7 @@ const notespyqs = () => {
                   color: "#fff",
                   fontFamily: "Josefin Sans, sans-serif",
                   fontSize: "20px",
-                  fontWeight:700,
+                  fontWeight: 700,
                   "@media (max-width:1000px)": {
                     fontSize: "16px",
                   },
@@ -174,7 +174,6 @@ const notespyqs = () => {
         <Grid xl={12} xs={12} md={12}>
           <Typography
             sx={{
-              fontFamily: "monospace",
               fontSize: "30px",
               textAlign: "center",
               marginTop: "5%",
@@ -184,8 +183,6 @@ const notespyqs = () => {
             SEMESTERS
           </Typography>
         </Grid>
-
-
 
         <Grid
           container

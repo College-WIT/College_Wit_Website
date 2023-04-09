@@ -15,8 +15,6 @@ import getCookie from "../../hooks/getCookie";
 import Leftbar from "./Leftbar";
 import Rightbar from "./Rightbar";
 
-// const { writeJson } = require("./writeJson");
-
 const buttons = {
   color: "#001d3d",
   width: "auto",
@@ -38,8 +36,9 @@ const buttons = {
 };
 
 const paperStyle = { padding: 40 };
-var flag = false;
 
+// eslint-disable-next-line no-unused-vars
+var flag = false;
 
 var modalText;
 
@@ -58,18 +57,13 @@ const style = {
 class postans extends Component {
   constructor(props) {
     super(props);
-    // console.log(this.props.qq);
-    // var quest=this.props.qq;
-
-
-    var email = ""
-    var password = ""
+    var email = "";
+    var password = "";
     let login = getCookie("login");
     if (login) {
-      email = JSON.parse(getCookie("login")).email
-      password = JSON.parse(getCookie("login")).password
+      email = JSON.parse(getCookie("login")).email;
+      password = JSON.parse(getCookie("login")).password;
     }
-
 
     this.state = {
       email: email,
@@ -103,7 +97,6 @@ class postans extends Component {
 
   navigation = () => {
     const navigate = useNavigate();
-    //navigate('/Answered');
     useEffect(() => {
       let login = getCookie("login");
       if (login) {
@@ -116,15 +109,6 @@ class postans extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    // var username = this.state.username;
-    // var newusername = "";
-    // for (var i = 0; i < username.length; i++) {
-    //   if (username.charAt(i) === "@") {
-    //     break;
-    //   }
-    //   var chars = username.charAt(i);
-    //   newusername += chars;
-    // }
     var newstate = {
       email: this.state.email,
       password: this.state.password,

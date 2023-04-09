@@ -45,7 +45,6 @@ const Semester_5 = () => {
         <Grid xl={12} xs={12} md={12}>
           <Typography
             sx={{
-              fontFamily: "monospace",
               fontSize: "30px",
               textAlign: "center",
               marginTop: "1%",

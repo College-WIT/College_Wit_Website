@@ -12,23 +12,23 @@ export default function Unanswered() {
   const location = useLocation();
   console.log(location);
 
-  var ques=location.state.propQue;
+  var ques = location.state.propQue;
   console.log(ques);
   const navigate = useNavigate();
 
-  // ///// check Login 
   console.log("check login");
   const loggedin = getCookie("login");
-  const NavigateLogin = ()=>{
+  const NavigateLogin = () => {
     console.log("Func called");
     if (!loggedin) {
       navigate("/login");
     }
-  }
+  };
   useEffect(() => {
     NavigateLogin();
-  }, []);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="unanswered">

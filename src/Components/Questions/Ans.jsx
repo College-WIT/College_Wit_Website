@@ -98,10 +98,7 @@ class Ans extends Component {
     //console.log(window.location.href);
 
     axios
-      .post(
-        "https://cw-backend.vercel.app/view_specific_question",
-        obj
-      )
+      .post("https://cw-backend.vercel.app/view_specific_question", obj)
       .then((response) => {
         console.log("POST COMPLETE");
         // const n = response.data.answers.length;
@@ -311,7 +308,7 @@ class Ans extends Component {
                         </Stack>
                       </Grid>
                     </Grid>
-                    {answers.length == 0 ? (
+                    {answers.length === 0 ? (
                       <h1>No Answers Yet</h1>
                     ) : (
                       <Grid container>

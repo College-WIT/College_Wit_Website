@@ -17,7 +17,6 @@ import Lottie from "react-lottie";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import Rightbar from "../../Components/Questions/Rightbar";
 import Leftbar from "../../Components/Questions/Leftbar";
 

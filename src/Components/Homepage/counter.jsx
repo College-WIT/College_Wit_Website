@@ -51,11 +51,9 @@ const Counter = () => {
   const [StatisticsData, setStatisticsData] = useState([]);
 
   var getStatsData = async () => {
-    console.log("STATS DATA CALL");
     await axios
       .get("https://cw-backend.vercel.app/front_page_analytics")
       .then((response) => {
-        console.log(response);
         setStatisticsData(response.data);
       })
       .catch((error) => {
@@ -65,7 +63,6 @@ const Counter = () => {
   useEffect(() => {
     getStatsData();
   }, []);
-  console.log(StatisticsData);
 
   return (
     <Grid
@@ -91,7 +88,6 @@ const Counter = () => {
       </Grid>
       <Grid
         container
-        xs={12}
         justifyContent="center"
         sx={{
           marginTop: "30px",
