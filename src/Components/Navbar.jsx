@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
-import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -28,7 +27,6 @@ if (loggedin) {
   username = JSON.parse(getCookie("login")).username;
   contributor = JSON.parse(getCookie("login")).contributor;
 }
-console.log(username);
 
 const logout = () => {
   let loggedin = getCookie("login");
@@ -67,7 +65,7 @@ const logout_buttons = {
   },
 };
 const pages = ["Questions", "Contributors", "Resources"];
-const mpages = ["Home","Questions", "Contributors", "Resources"];
+const mpages = ["Home", "Questions", "Contributors", "Resources"];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -90,20 +88,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* -----------------------------LOGO-------------------------------------- */}
-          {/* <Box
-            component="img"
-            sx={{
-              height: 70,
-              width: 300,
-              maxHeight: { xs: 233, md: 167 },
-              maxWidth: { xs: 350, md: 250 },
-              "@media (max-width:780px)": {
-                display: "None",
-              },
-            }}
-            alt="logo img"
-            src={logo}
-          /> */}
+
           <Link to="/">
             <Typography
               sx={{
@@ -213,21 +198,6 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
 
-          {/* <Typography
-            sx={{
-              display: { xs: "flex", md: "flex", lg: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontSize: 30,
-              fontWeight: 500,
-              letterSpacing: ".1rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            RCOEM-OVERFLOW
-          </Typography> */}
-
           <Typography
             sx={{
               display: { xs: "flex", md: "flex", lg: "none" },
@@ -289,34 +259,6 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu> 
-            {/* //   sx={{ mt: '45px' }}
-            //   id="menu-appbar"
-            //   anchorEl={anchorElUser}
-            //   anchorOrigin={{
-            //     vertical: 'top',
-            //     horizontal: 'right',
-            //   }}
-            //   keepMounted
-            //   transformOrigin={{
-            //     vertical: 'top',
-            //     horizontal: 'right',
-            //   }}
-            //   open={Boolean(anchorElUser)}
-            //   onClose={handleCloseUserMenu}
-            // >
-            //   {settings.map((setting) => (
-            //     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            //       <Typography textAlign="center">{setting}</Typography>
-            //     </MenuItem>
-            //   ))} 
-            {/* </Menu> */}
-
             {!loggedin ? (
               <ButtonGroup
                 variant="contained"
@@ -340,11 +282,7 @@ const ResponsiveAppBar = () => {
                 </Link>
               </ButtonGroup>
             ) : (
-              <ButtonGroup
-                variant="contained"
-                // aria-label="outlined primary button group"
-                sx={{ mt: 1 }}
-              >
+              <ButtonGroup variant="contained" sx={{ mt: 1 }}>
                 {!contributor ? (
                   <Link
                     style={{ textDecoration: "None", color: "white" }}
@@ -357,15 +295,11 @@ const ResponsiveAppBar = () => {
                 ) : (
                   <></>
                 )}
-                {/* <Link
-                  style={{ textDecoration: "None", color: "white" }}
-                  to={`/logout`}
-                > */}
-                  <Button sx={logout_buttons} onClick={logout}>
-                    <LogoutIcon sx={{ mr: 1 }} />
-                    Logout
-                  </Button>
-                {/* </Link> */}
+
+                <Button sx={logout_buttons} onClick={logout}>
+                  <LogoutIcon sx={{ mr: 1 }} />
+                  Logout
+                </Button>
                 <Link
                   style={{ textDecoration: "None", color: "white" }}
                   to={{

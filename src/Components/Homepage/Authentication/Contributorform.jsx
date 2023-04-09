@@ -97,19 +97,19 @@ function getStyles(name, personName, theme) {
 const Contributorform = () => {
   const navigate = useNavigate();
 
-  ///// check Login 
+  ///// check Login
   const loggedin = getCookie("login");
   const NavigateLogin = () => {
     console.log("Func called");
     if (!loggedin) {
       navigate("/login");
     }
-  }
+  };
   useEffect(() => {
     NavigateLogin();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-
 
   const form = useRef();
   const [open, setOpen] = useState(false);
@@ -128,10 +128,6 @@ const Contributorform = () => {
     } else {
       navigate(lastpage);
     }
-  };
-
-  const label = {
-    fontFamily: "Josefin Sans, sans-serif",
   };
 
   const semesterarr = [
@@ -160,10 +156,8 @@ const Contributorform = () => {
     "Civil",
     "Others",
   ];
-  const genderarr = ["male", "female", "not-to-say"];
 
   const [semester, setSemester] = React.useState("");
-  const [gender, setGender] = React.useState("");
   const [branch, setBranch] = React.useState("");
   const theme = useTheme();
   const [skill, setSkill] = React.useState([]);
@@ -174,9 +168,7 @@ const Contributorform = () => {
   const Branch = (event) => {
     setBranch(event.target.value);
   };
-  const Gender = (event) => {
-    setGender(event.target.value);
-  };
+
   const Skills = (event) => {
     const {
       target: { value },
@@ -210,10 +202,7 @@ const Contributorform = () => {
     };
     console.log(form_data);
     await axios
-      .post(
-        "https://cw-backend.vercel.app/register_contributor",
-        form_data
-      )
+      .post("https://cw-backend.vercel.app/register_contributor", form_data)
       .then((response) => {
         const cookieState = {
           email: JSON.parse(getCookie("login")).email,
@@ -498,9 +487,9 @@ const Contributorform = () => {
               placeholder="Enter your details"
             /> */}
 
-
             <Typography m="10px" fontFamily="Josefin Sans, sans-serif">
-              A College Passout? Enter your current Job details (optional)<br />
+              A College Passout? Enter your current Job details (optional)
+              <br />
             </Typography>
             <TextField
               style={text}

@@ -53,22 +53,6 @@ const MenuProps = {
     },
   },
 };
-const tags = [
-  "ANDROID-DEVELOPMENT",
-  "COLLEGE-LIFE",
-  "COMPETITIVE-PROGRAMMING",
-  "CSS",
-  "DJANGO",
-  "FLUTTER",
-  "HTML",
-  "JAVASCRIPT",
-  "NODE-JS",
-  "OPEN-SOURCE",
-  "OTHERS",
-  "PYQ",
-  "REACT-JS",
-  "WEB-DEVELOPMENT",
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -95,7 +79,6 @@ const style = {
 };
 
 const PostQuestions = () => {
-
   //// GET Tags
 
   const [tagsData, setTagsData] = useState([]);
@@ -114,8 +97,6 @@ const PostQuestions = () => {
   useEffect(() => {
     getTagsData();
   }, []);
-
-
 
   //// Modal Code
   const [open, setOpen] = useState(false);
@@ -156,10 +137,7 @@ const PostQuestions = () => {
       };
       console.log(form_data);
       await axios
-        .post(
-          "https://cw-backend.vercel.app/add_question",
-          form_data
-        )
+        .post("https://cw-backend.vercel.app/add_question", form_data)
         .then((response) => {
           modalText = "Question Added Successfully";
           setLastpage("/Unanswered");
@@ -194,10 +172,7 @@ const PostQuestions = () => {
     };
     console.log(form_data);
     await axios
-      .post(
-        "https://cw-backend.vercel.app/add_question",
-        form_data
-      )
+      .post("https://cw-backend.vercel.app/add_question", form_data)
       .then((response) => {
         console.log(response.data);
       })
@@ -243,7 +218,7 @@ const PostQuestions = () => {
                 <form
                   ref={form}
                   onSubmit={PostQuest}
-                // onSubmit={this.submitHandler}
+                  // onSubmit={this.submitHandler}
                 >
                   <TextField
                     multiline
@@ -316,7 +291,7 @@ const PostQuestions = () => {
                       sx={buttons}
                       type="submit"
                       variant="outlined"
-                    //   onClick={this.onClick}
+                      //   onClick={this.onClick}
                     >
                       Post
                     </Button>
@@ -350,7 +325,7 @@ const PostQuestions = () => {
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <Link
                       style={{ textDecoration: "None", color: "white" }}
-                    //   href={this.state.lastpage}
+                      //   href={this.state.lastpage}
                     >
                       <Button
                         style={buttons}

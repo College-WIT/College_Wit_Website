@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Grid, Button, Divider, SpeedDialIcon } from "@mui/material";
+import { Grid, Button, Divider } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,7 +9,6 @@ import CardMedia from "@mui/material/CardMedia";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
 import getCookie from "../../hooks/getCookie";
-import { Link } from "react-router-dom";
 
 const Styles = {
   Item: {
@@ -88,6 +87,7 @@ const UserInfo = () => {
 
   var username_real = "fake6969";
   if (loggedin) {
+    // eslint-disable-next-line no-unused-vars
     username_real = JSON.parse(getCookie("login")).username;
   }
 
@@ -112,6 +112,8 @@ const UserInfo = () => {
   };
   useEffect(() => {
     getUserData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usernames]);
 
   console.log(UserData);
@@ -134,31 +136,7 @@ const UserInfo = () => {
     { Leetcode: UserData.leetcode_url },
   ];
 
-  // const Projects = [{ Project: "Project1" }, { Project2: "Project2" }];
-
-  //  ANJALI USE THIS
-
-  const Projects = [
-    {
-      Project1: {
-        "Project Name": "Project1 Name",
-        "Project Description": "Project Description",
-        "Project Link": "Project Description",
-      },
-    },
-    {
-      Project2: {
-        "Project Name": "Project2 Name",
-        "Project Description": "Project Description",
-        "Project Link": "Project Description",
-      },
-    },
-  ];
-
-  const skills = [
-    { Skills: UserData.skills },
-    // { Personal: UserData.other_url },
-  ];
+  const skills = [{ Skills: UserData.skills }];
 
   return (
     <div>
@@ -245,17 +223,6 @@ const UserInfo = () => {
             </CardActions>
 
             <Divider />
-            {/* {username_real === usernames ? (
-              <Grid item justifyContent="center">
-                <Link to="/EditProfile" style={{ textDecoration: "none" }}>
-                  <Button sx={Styles.button} variant="contained">
-                    Edit Profile
-                  </Button>
-                </Link>
-              </Grid>
-            ) : (
-              <></>
-            )} */}
           </Card>
         </Grid>
 

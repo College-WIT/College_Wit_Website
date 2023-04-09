@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Button, TextField, Divider, Box } from "@mui/material";
+import { Grid, Button, TextField, Divider } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -11,8 +11,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useEffect } from "react";
 import { useState } from "react";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Chip from "@mui/material/Chip";
 import axios from "axios";
 const Styles = {
   Item: {
@@ -88,47 +86,8 @@ const Styles = {
     fontFamily: "Josefin Sans, sans-serif",
   },
 };
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-const names = [
-  "Python",
-  "C++",
-  "Java",
-  "JavaScript",
-  "C",
-  "C#",
-  "PHP",
-  "SQL",
-  "HTML",
-  "CSS",
-  "Web Development",
-  "Android Development",
-  "iOS Development",
-  "Machine Learning",
-  "Data Science",
-  "Blockchain",
-  "Cloud Computing",
-  "UI/UX",
-  "Game Development",
-  "Ethical Hacking",
-  "Competitive Programming",
-  "Other",
-];
+
 const EditInfo = () => {
-  const [gender, setGender] = React.useState("");
-
-  const handleChange = (event) => {
-    setGender(event.target.value);
-  };
-
   var str = window.location.pathname;
   const usernames = str.substring(9);
   const username = { username: usernames };
