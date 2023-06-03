@@ -10,15 +10,19 @@ const Semester_6 = () => {
     const data = [
         {
             id: 1,
-            title: "Artificial Intelligence",
+            title: "Artificial_Intelligence",
         },
         {
             id: 2,
-            title: "Software Engineering",
+            title: "Software_Engineering",
         },
         {
             id: 3,
-            title: "Complier Design",
+            title: "Complier_Design",
+        },
+        {
+            id: 4,
+            title: "Database_Warehousing",
         },
     ];
     return (

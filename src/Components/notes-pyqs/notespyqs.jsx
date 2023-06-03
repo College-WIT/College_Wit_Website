@@ -131,7 +131,7 @@ const notespyqs = () => {
           }}
         >
           <Grid md={8} sm={10} xs={12}>
-            <Button
+            {/* <Button
               startIcon={
                 <LinkedInIcon style={{ fontSize: "40px", color: "#fff" }} />
               }
@@ -167,7 +167,7 @@ const notespyqs = () => {
               >
                 LinkedIn Premium Free
               </Typography>
-            </Button>
+            </Button> */}
           </Grid>
         </Grid>
 

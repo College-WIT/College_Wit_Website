@@ -17,7 +17,7 @@ import Trends from "./Pages/Questions/Trends";
 import Semester_3 from "./Components/notes-pyqs/Sems/Semester 3/Semester_3";
 import Semester_4 from "./Components/notes-pyqs/Sems/Semester 4/Semester_4";
 import Semester_5 from "./Components/notes-pyqs/Sems/Semester 5/Semester_5";
-// import Semester_6 from "./Components/notes-pyqs/Sems/Semester 6/Semester_6";
+import Semester_6 from "./Components/notes-pyqs/Sems/Semester 6/Semester_6";
 // import Semester_7 from "./Components/notes-pyqs/Sems/Semester 7/Semester_7";
 // import Semester_8 from "./Components/notes-pyqs/Sems/Semester 8/Semester_8";
 import Chemistry from "./Components/notes-pyqs/Sems/Semester 1/Chemistry";
@@ -38,6 +38,11 @@ import DAA from "./Components/notes-pyqs/Sems/Semester 5/DAA";
 import DBMS from "./Components/notes-pyqs/Sems/Semester 5/DBMS";
 import DP from "./Components/notes-pyqs/Sems/Semester 5/DP";
 import MAP from "./Components/notes-pyqs/Sems/Semester 5/MAP";
+
+import AI from './Components/notes-pyqs/Sems/Semester 6/AI'
+import CD from './Components/notes-pyqs/Sems/Semester 6/CD'
+import SE from './Components/notes-pyqs/Sems/Semester 6/SE'
+import DWBI from './Components/notes-pyqs/Sems/Semester 6/DWBI'
 
 import DPD from "./Components/notes-pyqs/Sems/Semester 8/DPD";
 import NLP from "./Components/notes-pyqs/Sems/Semester 8/NLP";
@@ -85,7 +90,7 @@ const App = () => {
         <Route path="/Semester_3" element={<Protected Component={Semester_3} />} />
         <Route path="/Semester_4" element={<Protected Component={Semester_4} />} />
         <Route path="/Semester_5" element={<Protected Component={Semester_5} />} />
-        <Route path="/Semester_6" element={<Protected Component={ComingSoon} />} />
+        <Route path="/Semester_6" element={<Protected Component={Semester_6} />} />
         <Route path="/Semester_7" element={<Protected Component={ComingSoon} />} />
         <Route path="/Semester_8" element={<Protected Component={ComingSoon} />} />
         {/* FIRST SEMESTER */}
@@ -115,6 +120,11 @@ const App = () => {
         <Route path="/Database_Management_Systems" element={<Protected Component={DBMS} />} />
         <Route path="/Design_Patterns" element={<Protected Component={DP} />} />
         <Route path="/Mobile_Application_Programming" element={<Protected Component={MAP} />} />
+        {/* SIXTH SEMESTER */}
+        <Route path="/Artificial_Intelligence" element={<Protected Component={AI} />} />
+        <Route path="/Complier_Design" element={<Protected Component={CD} />} />
+        <Route path="/Software_Engineering" element={<Protected Component={SE} />} />
+        <Route path="/Database_Warehousing" element={<Protected Component={DWBI} />} />
         {/* EIGHT SEMESTER */}
         <Route path="/Natural_Language_Processing" element={<Protected Component={NLP} />} />
         <Route path="/Distributed_&_Parallel_Databases" element={<Protected Component={DPD} />} />
