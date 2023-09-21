@@ -10,23 +10,19 @@ const Semester_7 = () => {
     const data = [
         {
             id: 1,
-            title: "Fundamentals of Digital Logic and Computer Arch.",
+            title: "Cloud_Computing",
         },
         {
             id: 2,
-            title: "Data Structures & Algorithms",
+            title: "Bio_Informatics",
         },
         {
             id: 3,
-            title: "Linear Algebra and Statistics",
+            title: "Machine_Learning",
         },
         {
             id: 4,
-            title: "Business Communication",
-        },
-        {
-            id: 5,
-            title: "Cyber Laws & Ethics",
+            title: "Data_Visualization_&_Analytics",
         },
     ];
     return (
@@ -34,7 +30,6 @@ const Semester_7 = () => {
             <Navbar />
             <Grid container sx={{
                 justifyContent: "center"
-
             }}>
                 <Grid xl={12} xs={12} md={12}>
                     <Typography sx={{

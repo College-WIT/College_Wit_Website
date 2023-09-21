@@ -18,8 +18,8 @@ import Semester_3 from "./Components/notes-pyqs/Sems/Semester 3/Semester_3";
 import Semester_4 from "./Components/notes-pyqs/Sems/Semester 4/Semester_4";
 import Semester_5 from "./Components/notes-pyqs/Sems/Semester 5/Semester_5";
 import Semester_6 from "./Components/notes-pyqs/Sems/Semester 6/Semester_6";
-// import Semester_7 from "./Components/notes-pyqs/Sems/Semester 7/Semester_7";
-// import Semester_8 from "./Components/notes-pyqs/Sems/Semester 8/Semester_8";
+import Semester_7 from "./Components/notes-pyqs/Sems/Semester 7/Semester_7";
+import Semester_8 from "./Components/notes-pyqs/Sems/Semester 8/Semester_8";
 import Chemistry from "./Components/notes-pyqs/Sems/Semester 1/Chemistry";
 import Protected from "./Components/Homepage/Authentication/Protected";
 import Profile from "./Pages/Profile/Profile";
@@ -61,6 +61,11 @@ import ComingSoon from "./Components/notes-pyqs/Sems/comingSoon";
 import Error from "./Pages/Error";
 import EditProfile from "./Pages/Profile/EditProfile";
 
+import CC from "./Components/notes-pyqs/Sems/Semester 7/CC";
+import BIO from "./Components/notes-pyqs/Sems/Semester 7/BIO";
+import ML from "./Components/notes-pyqs/Sems/Semester 7/ML";
+import DVA from "./Components/notes-pyqs/Sems/Semester 7/DVA";
+
 const App = () => {
   return (
     <div>
@@ -91,8 +96,8 @@ const App = () => {
         <Route path="/Semester_4" element={<Protected Component={Semester_4} />} />
         <Route path="/Semester_5" element={<Protected Component={Semester_5} />} />
         <Route path="/Semester_6" element={<Protected Component={Semester_6} />} />
-        <Route path="/Semester_7" element={<Protected Component={ComingSoon} />} />
-        <Route path="/Semester_8" element={<Protected Component={ComingSoon} />} />
+        <Route path="/Semester_7" element={<Protected Component={Semester_7} />} />
+        <Route path="/Semester_8" element={<Protected Component={Semester_8} />} />
         {/* FIRST SEMESTER */}
         <Route path="/Chemistry" element={<Protected Component={Chemistry} />} />
         {/* THIRD SEMESTER */}
@@ -125,12 +130,19 @@ const App = () => {
         <Route path="/Complier_Design" element={<Protected Component={CD} />} />
         <Route path="/Software_Engineering" element={<Protected Component={SE} />} />
         <Route path="/Database_Warehousing" element={<Protected Component={DWBI} />} />
+        {/* SEVENTH SEMESTER */}
+        <Route path="/Cloud_Computing" element={<Protected Component={CC} />} />
+        <Route path="/Bio_Informatics" element={<Protected Component={BIO} />} />
+        <Route path="/Machine_Learning" element={<Protected Component={ML} />} />
+        <Route path="/Data_Visualization_&_Analytics" element={<Protected Component={DVA} />} />
         {/* EIGHT SEMESTER */}
         <Route path="/Natural_Language_Processing" element={<Protected Component={NLP} />} />
         <Route path="/Distributed_&_Parallel_Databases" element={<Protected Component={DPD} />} />
         <Route path="/Distributed_System" element={<Protected Component={DS} />} />
         <Route path="/Web_Intelligence_&_Big_Data" element={<Protected Component={WIBD} />} />
         <Route path="/Information_Security" element={<Protected Component={IS} />} />
+
+
         <Route path="/Placement" element={<Protected Component={Placement} />} />
         <Route path="/comingSoon" element={<Protected Component={ComingSoon} />} />
         {/* ---------- Profile Routes ------------ */}

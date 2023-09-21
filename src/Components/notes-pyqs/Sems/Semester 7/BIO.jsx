@@ -9,7 +9,7 @@ import Navbar from "../../../Navbar";
 import Lottie from "react-lottie";
 import * as animationData from "../../../../Assets/BookLottie.json";
 
-const IS = () => {
+const BIO = () => {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -78,7 +78,7 @@ const IS = () => {
                             marginTop: "50px",
                         }}
                     >
-                        Information Security Notes and PYQ
+                        Biological Informatics PYQs
                     </Typography>
                 </Grid>
             </Grid>
@@ -139,4 +139,4 @@ const IS = () => {
     )
 }
 
-export default IS
+export default BIO
