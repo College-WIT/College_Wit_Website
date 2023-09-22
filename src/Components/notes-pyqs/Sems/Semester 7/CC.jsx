@@ -24,34 +24,11 @@ const CC = () => {
         },
         {
             id: 2,
-            title: "PYQ 2019",
+            title: "PYQ 2020",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/1ehz16cQpry73WwQmVAFJVXw8HqFW0vQH/preview",
+            url: "https://drive.google.com/file/d/1ETLpoqsfvFDHvZXB7rt26ShMbafyWT7o/preview",
         },
-        {
-            id: 3,
-            title: "PYQ 2019",
-            panel: "panel3",
-            url: "https://drive.google.com/file/d/1hRSxoWTW9LEHFfTlmcdNyZDXcDP5xslE/preview",
-        },
-        {
-            id: 4,
-            title: "PYQ 2017",
-            panel: "panel4",
-            url: "https://drive.google.com/file/d/1KOHnTB7_bxgMT_qXAp-NHwheYiyBqy1M/preview",
-        },
-        {
-            id: 5,
-            title: "PYQ 2018",
-            panel: "panel5",
-            url: "https://drive.google.com/file/d/1Iw0Fw4_EXrkPdJb843HHNYiU5NzIHFYT/preview",
-        },
-        {
-            id: 6,
-            title: "PYQ 2019",
-            panel: "panel6",
-            url: "https://drive.google.com/file/d/1ahy7ad1BzICb2ZO4QoqCCozPDBx77oP4/preview",
-        },
+        
     ];
 
     const defaultOptions = {

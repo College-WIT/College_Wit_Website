@@ -24,33 +24,27 @@ const ML = () => {
         },
         {
             id: 2,
-            title: "PYQ 2019",
+            title: "PYQ 2017",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/1ehz16cQpry73WwQmVAFJVXw8HqFW0vQH/preview",
+            url: "https://drive.google.com/file/d/1pUY6HrnSD-CtSkgUMRGMHdHlKeI2eHym/preview",
         },
         {
             id: 3,
             title: "PYQ 2019",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1hRSxoWTW9LEHFfTlmcdNyZDXcDP5xslE/preview",
+            url: "https://drive.google.com/file/d/1Psd0Ktc3vL44PSbbcYsI1G3ousZ1ZfWK/preview",
         },
         {
             id: 4,
-            title: "PYQ 2017",
+            title: "PYQ 2020",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1KOHnTB7_bxgMT_qXAp-NHwheYiyBqy1M/preview",
+            url: "https://drive.google.com/file/d/1uWvc0hsuC5FdSCUaFxf0hBhwr82Lnz4H/preview",
         },
         {
             id: 5,
-            title: "PYQ 2018",
-            panel: "panel5",
-            url: "https://drive.google.com/file/d/1Iw0Fw4_EXrkPdJb843HHNYiU5NzIHFYT/preview",
-        },
-        {
-            id: 6,
             title: "PYQ 2019",
-            panel: "panel6",
-            url: "https://drive.google.com/file/d/1ahy7ad1BzICb2ZO4QoqCCozPDBx77oP4/preview",
+            panel: "panel5",
+            url: "https://drive.google.com/file/d/1fUBFdqCohRGL_9OlIsV2FNKk2OVuI2dl/preview",
         },
     ];
 

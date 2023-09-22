@@ -18,39 +18,39 @@ const DVA = () => {
     const data = [
         {
             id: 1,
-            title: "Textbook",
+            title: "PYQ 2019",
             panel: "panel1",
-            url: " ",
+            url: "https://drive.google.com/file/d/1mZFFXxdoo-_ONdg9uzk4XqbwFCiicHQh/preview",
         },
         {
             id: 2,
-            title: "PYQ 2019",
+            title: "PYQ 2017",
             panel: "panel2",
-            url: "https://drive.google.com/file/d/1ehz16cQpry73WwQmVAFJVXw8HqFW0vQH/preview",
+            url: "https://drive.google.com/file/d/1TNjdBTtZlvyd-ZRKTpTrMI_2LP3K0E4N/preview",
         },
         {
             id: 3,
-            title: "PYQ 2019",
+            title: "PYQ 2018",
             panel: "panel3",
-            url: "https://drive.google.com/file/d/1hRSxoWTW9LEHFfTlmcdNyZDXcDP5xslE/preview",
+            url: "https://drive.google.com/file/d/1ql7BEGZIhGIyiY5UMy8P_MOhrcqVlpK6/preview",
         },
         {
             id: 4,
-            title: "PYQ 2017",
+            title: "PYQ 2019",
             panel: "panel4",
-            url: "https://drive.google.com/file/d/1KOHnTB7_bxgMT_qXAp-NHwheYiyBqy1M/preview",
+            url: "https://drive.google.com/file/d/139epDJrqlC9B4559DnEQyuCunvOvcZGO/preview",
         },
         {
             id: 5,
             title: "PYQ 2018",
             panel: "panel5",
-            url: "https://drive.google.com/file/d/1Iw0Fw4_EXrkPdJb843HHNYiU5NzIHFYT/preview",
+            url: "https://drive.google.com/file/d/1HhOrFh3T1l_amx6FRZq-5ZMhaaEaibSH/preview",
         },
         {
             id: 6,
-            title: "PYQ 2019",
+            title: "PYQ 2018",
             panel: "panel6",
-            url: "https://drive.google.com/file/d/1ahy7ad1BzICb2ZO4QoqCCozPDBx77oP4/preview",
+            url: "https://drive.google.com/file/d/1W_TPZ4R_7IE93_jqiBUmvRbGKrWfMmaZ/preview",
         },
     ];
 
