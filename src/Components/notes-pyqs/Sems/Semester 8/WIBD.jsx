@@ -46,6 +46,12 @@ const WIBD = () => {
             panel: "panel5",
             url: "https://drive.google.com/file/d/1HJVWvSHDUF4iyex96jHGE5RqUzNjX_pO/preview",
         },
+        {
+            id: 6,
+            title: "PYQ 2019",
+            panel: "panel6",
+            url: "https://github.com/Kush-munot/DVA-Lab/blob/748f757c06c5c90eb1f5792a5f7f59eaadb34dee/P-05-Naive%20Bayes/DVA_Practical%2005.pdf/preview",
+        },
         
     ];
 
