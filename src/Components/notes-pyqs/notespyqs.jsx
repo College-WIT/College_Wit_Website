@@ -12,14 +12,6 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const notespyqs = () => {
   const data = [
     {
-      id: 1,
-      title: "Semester_1",
-    },
-    {
-      id: 2,
-      title: "Semester_2",
-    },
-    {
       id: 3,
       title: "Semester_3",
     },

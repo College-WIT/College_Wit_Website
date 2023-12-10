@@ -20,13 +20,12 @@ import Semester_5 from "./Components/notes-pyqs/Sems/Semester 5/Semester_5";
 import Semester_6 from "./Components/notes-pyqs/Sems/Semester 6/Semester_6";
 import Semester_7 from "./Components/notes-pyqs/Sems/Semester 7/Semester_7";
 import Semester_8 from "./Components/notes-pyqs/Sems/Semester 8/Semester_8";
-import Chemistry from "./Components/notes-pyqs/Sems/Semester 1/Chemistry";
 import Protected from "./Components/Homepage/Authentication/Protected";
 import Profile from "./Pages/Profile/Profile";
 import Contribute from "./Pages/Contributor";
 import Forgotpswd from "./Pages/Forgotpswd";
 import Otp from "./Pages/Otp";
-import OperatingSystem from "./Components/notes-pyqs/Sems/Semester 4/OperatingSystem";
+import OS from "./Components/notes-pyqs/Sems/Semester 4/OS";
 import OOPS from "./Components/notes-pyqs/Sems/Semester 4/OOPS";
 import SPDD from "./Components/notes-pyqs/Sems/Semester 4/SPDD";
 import FLAT from "./Components/notes-pyqs/Sems/Semester 4/FLAT";
@@ -37,15 +36,12 @@ import CN from "./Components/notes-pyqs/Sems/Semester 5/CN";
 import DAA from "./Components/notes-pyqs/Sems/Semester 5/DAA";
 import DBMS from "./Components/notes-pyqs/Sems/Semester 5/DBMS";
 import DP from "./Components/notes-pyqs/Sems/Semester 5/DP";
-import MAP from "./Components/notes-pyqs/Sems/Semester 5/MAP";
 
 import AI from './Components/notes-pyqs/Sems/Semester 6/AI'
 import CD from './Components/notes-pyqs/Sems/Semester 6/CD'
 import SE from './Components/notes-pyqs/Sems/Semester 6/SE'
 import DWBI from './Components/notes-pyqs/Sems/Semester 6/DWBI'
 
-import DPD from "./Components/notes-pyqs/Sems/Semester 8/DPD";
-import NLP from "./Components/notes-pyqs/Sems/Semester 8/NLP";
 import DS from "./Components/notes-pyqs/Sems/Semester 8/DS";
 import IS from "./Components/notes-pyqs/Sems/Semester 8/IS";
 import WIBD from "./Components/notes-pyqs/Sems/Semester 8/WIBD";
@@ -90,16 +86,13 @@ const App = () => {
           element={<Protected Component={Postans} />}
         />
         <Route path="/tags/:tag" element={<TagsPage />} />
-        <Route path="/Semester_1" element={<Protected Component={ComingSoon} />} />
-        <Route path="/Semester_2" element={<Protected Component={ComingSoon} />} />
         <Route path="/Semester_3" element={<Protected Component={Semester_3} />} />
         <Route path="/Semester_4" element={<Protected Component={Semester_4} />} />
         <Route path="/Semester_5" element={<Protected Component={Semester_5} />} />
         <Route path="/Semester_6" element={<Protected Component={Semester_6} />} />
         <Route path="/Semester_7" element={<Protected Component={Semester_7} />} />
         <Route path="/Semester_8" element={<Protected Component={Semester_8} />} />
-        {/* FIRST SEMESTER */}
-        <Route path="/Chemistry" element={<Protected Component={Chemistry} />} />
+        
         {/* THIRD SEMESTER */}
         <Route
           path="/Fundamentals_of_Digital_Logic_and_Computer_Arch"
@@ -110,7 +103,7 @@ const App = () => {
         <Route path="/Business_Communication" element={<Protected Component={BC} />} />
         <Route path="/Cyber_Laws_&_Ethics" element={<Protected Component={CLE} />} />
         {/* FOURTH SEMESTER */}
-        <Route path="/Operating_Systems" element={<Protected Component={OperatingSystem} />} />
+        <Route path="/Operating_Systems" element={<Protected Component={OS} />} />
         <Route path="/Object_Oriented_Programming" element={<Protected Component={OOPS} />} />
         <Route
           path="/System_Programming_and_Device_Drivers"
@@ -124,7 +117,6 @@ const App = () => {
         <Route path="/Design_&_Analysis_of_Algorithms" element={<Protected Component={DAA} />} />
         <Route path="/Database_Management_Systems" element={<Protected Component={DBMS} />} />
         <Route path="/Design_Patterns" element={<Protected Component={DP} />} />
-        <Route path="/Mobile_Application_Programming" element={<Protected Component={MAP} />} />
         {/* SIXTH SEMESTER */}
         <Route path="/Artificial_Intelligence" element={<Protected Component={AI} />} />
         <Route path="/Complier_Design" element={<Protected Component={CD} />} />
@@ -136,8 +128,6 @@ const App = () => {
         <Route path="/Machine_Learning" element={<Protected Component={ML} />} />
         <Route path="/Data_Visualization_&_Analytics" element={<Protected Component={DVA} />} />
         {/* EIGHT SEMESTER */}
-        <Route path="/Natural_Language_Processing" element={<Protected Component={NLP} />} />
-        <Route path="/Distributed_&_Parallel_Databases" element={<Protected Component={DPD} />} />
         <Route path="/Distributed_System" element={<Protected Component={DS} />} />
         <Route path="/Web_Intelligence_&_Big_Data" element={<Protected Component={WIBD} />} />
         <Route path="/Information_Security" element={<Protected Component={IS} />} />

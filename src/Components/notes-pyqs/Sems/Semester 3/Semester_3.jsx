@@ -1,32 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Folder from '../../card'
 import { Link } from 'react-router-dom';
 import '../../../../App'
 import Navbar from '../../../Navbar'
+import axios from 'axios'
 
 const Semester_3 = () => {
+  
+
     const data = [
         {
             id: 1,
-            title: "Fundamentals_of_Digital_Logic_and_Computer_Arch",
+            title: "Fundamentals_of_Digital_Logic_and_Computer_Arch"
         },
         {
             id: 2,
-            title: "Data_Structures_&_Algorithms",
+            title: "Data_Structures_&_Algorithms"
         },
         {
             id: 3,
-            title: "Linear_Algebra_and_Statistics",
+            title: "Linear_Algebra_and_Statistics"
         },
         {
             id: 4,
-            title: "Business_Communication",
+            title: "Business_Communication"
         },
         {
             id: 5,
-            title: "Cyber_Laws_&_Ethics",
+            title: "Cyber_Laws_&_Ethics"
         },
     ];
     return (
