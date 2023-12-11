@@ -108,28 +108,7 @@ const DP = () => {
                 </Grid>
             </Grid>
 
-            {/* <Grid container spacing={2} columns={10} sx={{
-                marginTop: '50px'
-            }}>
-                {data.map((d) => (
-                    <Grid item xs={8} sx={{ marginLeft: '10%' }}>
-                        <a href={d.url}>
-                            <Stack variant='contained' sx={{
-                                height: '50px',
-                                backgroundColor: '#E26639',
-                                borderRadius: '10px',
-                                textTransform: 'none',
-                                fontSize: '20px',
-                                color: '#fff',
-                                fontWeight: 500,
-                            }}>
-                                {d.title}
-                            </Stack>
-                        </a>
-                    </Grid>
-                ))} 
-
-            </Grid>*/}
+            
             <div style={{ padding: "30px" }}>
                 {data.map((d) => (
                     <Accordion
