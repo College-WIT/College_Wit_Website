@@ -46,7 +46,7 @@ const AI = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            await new Promise(resolve => setTimeout(resolve, 4000)); // Simulate loader delay
+            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate loader delay
             getMyPostData();
             setLoading(false);
         };
