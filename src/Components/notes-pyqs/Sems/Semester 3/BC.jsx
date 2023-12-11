@@ -45,7 +45,7 @@ const BC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate loader delay
+            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate loader delay
             getMyPostData();
             setLoading(false);
         };
