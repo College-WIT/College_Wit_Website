@@ -45,6 +45,7 @@ import DWBI from './Components/notes-pyqs/Sems/Semester 6/DWBI'
 import DS from "./Components/notes-pyqs/Sems/Semester 8/DS";
 import IS from "./Components/notes-pyqs/Sems/Semester 8/IS";
 import WIBD from "./Components/notes-pyqs/Sems/Semester 8/WIBD";
+import GCC from "./Components/notes-pyqs/Sems/Semester 8/GCC";
 
 import TagsPage from "./Pages/TagsPage/TagsPage";
 import FDLCA from "./Components/notes-pyqs/Sems/Semester 3/FDLCA";
@@ -131,6 +132,7 @@ const App = () => {
         <Route path="/Distributed_System" element={<Protected Component={DS} />} />
         <Route path="/Web_Intelligence_&_Big_Data" element={<Protected Component={WIBD} />} />
         <Route path="/Information_Security" element={<Protected Component={IS} />} />
+        <Route path="/Grid_Computing" element={<Protected Component={GCC} />} />
 
 
         <Route path="/Placement" element={<Protected Component={Placement} />} />

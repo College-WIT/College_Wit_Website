@@ -22,11 +22,7 @@ const Semester_8 = () => {
         },
         {
             id: 4,
-            title: "Distributed_&_Parallel_Databases",
-        },
-        {
-            id: 5,
-            title: "Natural_Language_Processing",
+            title: "Grid_Computing",
         },
     ];
     return (
