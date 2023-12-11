@@ -27,11 +27,7 @@ const Semester_4 = () => {
         {
             id: 5,
             title: "System_Programming_and_Device_Drivers",
-        },
-        {
-            id: 6,
-            title: "Environmental Science.",
-        },
+        }
     ];
     return (
         <div>
